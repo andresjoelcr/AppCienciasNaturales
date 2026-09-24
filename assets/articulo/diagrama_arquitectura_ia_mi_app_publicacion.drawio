@@ -1,0 +1,526 @@
+<mxfile host="app.diagrams.net" modified="2024-02-16T00:00:00.000Z" agent="Claude AI" version="21.0.0">
+  <diagram name="Architecture mi_app ITS" id="arquitectura-ia-miapp-scientific">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ============================================ -->
+        <!-- CROSS-CUTTING PRINCIPLES (Top Bar) -->
+        <!-- ============================================ -->
+        <mxCell id="principles-bar" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="1020" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1" value="Educational&#xa;Objectives" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=8;fontStyle=0;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="50" y="50" width="70" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="p2" value="Instructional&#xa;Design" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=8;fontStyle=0;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="130" y="50" width="70" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="p3" value="Learning&#xa;Styles" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=8;fontStyle=0;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="210" y="50" width="70" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="p4" value="Privacy and&#xa;Security" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=8;fontStyle=0;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="290" y="50" width="70" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="p5" value="Trust and&#xa;Reliability" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=8;fontStyle=0;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="370" y="50" width="70" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="p6" value="Bias and&#xa;Fairness" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=8;fontStyle=0;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="450" y="50" width="70" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="its-box" value="Intelligent Tutoring System" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1565c0;strokeColor=#0d47a1;fontSize=10;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="550" y="48" width="160" height="32" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows from principles -->
+        <mxCell id="arr-p1" value="" style="endArrow=classic;html=1;strokeWidth=1;strokeColor=#1565c0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="165" y="78" as="sourcePoint" />
+            <mxPoint x="165" y="95" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arr-p2" value="" style="endArrow=classic;html=1;strokeWidth=1;strokeColor=#1565c0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="405" y="78" as="sourcePoint" />
+            <mxPoint x="405" y="95" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ============================================ -->
+        <!-- USER INTERFACE LAYER -->
+        <!-- ============================================ -->
+        <mxCell id="ui-layer" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e1;strokeColor=#f9a825;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="200" height="220" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ui-title" value="User Interface (UI)" style="text;html=1;strokeColor=none;fillColor=#f9a825;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="50" y="105" width="180" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Student -->
+        <mxCell id="student" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffecb3;strokeColor=#ff8f00;" vertex="1" parent="1">
+          <mxGeometry x="55" y="135" width="60" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="student-icon" value="" style="shape=actor;whiteSpace=wrap;html=1;fillColor=#ff8f00;strokeColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="70" y="140" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="student-label" value="Student" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="55" y="170" width="60" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- Communication -->
+        <mxCell id="comm-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffecb3;strokeColor=#ff8f00;" vertex="1" parent="1">
+          <mxGeometry x="55" y="200" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="comm-icon" value="" style="shape=message;whiteSpace=wrap;html=1;fillColor=#ff8f00;strokeColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="70" y="205" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="comm-label" value="Communication" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="50" y="225" width="70" height="12" as="geometry" />
+        </mxCell>
+
+        <!-- Flutter UI -->
+        <mxCell id="flutter-ui" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1976d2;" vertex="1" parent="1">
+          <mxGeometry x="125" y="135" width="105" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="flutter-icon" value="" style="shape=mxgraph.signs.tech.phone_2;html=1;pointerEvents=1;fillColor=#1976d2;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="162" y="140" width="25" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="flutter-label" value="Flutter UI&#xa;Mobile App" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="125" y="168" width="105" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Firebase Auth -->
+        <mxCell id="firebase-auth" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#c2185b;" vertex="1" parent="1">
+          <mxGeometry x="125" y="200" width="105" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="firebase-auth-icon" value="" style="shape=mxgraph.signs.safety.fire_extinguisher;html=1;pointerEvents=1;fillColor=#c2185b;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="135" y="205" width="20" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="firebase-auth-label" value="Firebase Auth&#xa;Google Sign-In" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="155" y="205" width="70" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Screens -->
+        <mxCell id="screens-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#43a047;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="55" y="250" width="175" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="screens-title" value="Application Screens" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="55" y="252" width="175" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="scr1" value="Chat" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="60" y="268" width="30" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="scr2" value="Scanner" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="95" y="268" width="35" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="scr3" value="AR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="135" y="268" width="25" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="scr4" value="Guide" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="165" y="268" width="30" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="scr5" value="Quiz" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="200" y="268" width="25" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================ -->
+        <!-- MIDDLEWARE ORCHESTRATION LAYER -->
+        <!-- ============================================ -->
+        <mxCell id="orch-layer" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1976d2;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="260" y="100" width="240" height="220" as="geometry" />
+        </mxCell>
+
+        <mxCell id="orch-title" value="Middleware Orchestration" style="text;html=1;strokeColor=none;fillColor=#1976d2;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="270" y="105" width="220" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- API -->
+        <mxCell id="api-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="275" y="135" width="100" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="api-label" value="API" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="275" y="137" width="100" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="dart-box" value="Dart" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90caf9;strokeColor=#1565c0;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="280" y="152" width="40" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="http-box" value="HTTP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90caf9;strokeColor=#1565c0;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="325" y="152" width="40" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="rest-box" value="REST" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90caf9;strokeColor=#1565c0;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="302" y="172" width="40" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- Orchestrator -->
+        <mxCell id="orchestrator-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#64b5f6;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="385" y="135" width="100" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="orchestrator-label" value="Orchestrator" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontStyle=1;fontColor=#0d47a1;" vertex="1" parent="1">
+          <mxGeometry x="385" y="138" width="100" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="orchestrator-icon" value="" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#1976d2;strokeColor=#0d47a1;" vertex="1" parent="1">
+          <mxGeometry x="415" y="155" width="40" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="orchestrator-desc" value="main.dart" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=7;fontColor=#666;" vertex="1" parent="1">
+          <mxGeometry x="385" y="178" width="100" height="10" as="geometry" />
+        </mxCell>
+
+        <!-- Intelligent Switching Router -->
+        <mxCell id="router-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42a5f5;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="275" y="200" width="210" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="router-label" value="Intelligent Switching Router" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontStyle=1;fontColor=#0d47a1;" vertex="1" parent="1">
+          <mxGeometry x="275" y="203" width="210" height="15" as="geometry" />
+        </mxCell>
+
+        <mxCell id="srv1" value="AuthService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1565c0;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="285" y="225" width="55" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="srv2" value="Firestore&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1565c0;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="345" y="225" width="55" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="srv3" value="Scanner&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1565c0;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="285" y="265" width="55" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="srv4" value="GuiaContext&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1565c0;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="345" y="265" width="55" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="srv5" value="Chat&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1565c0;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="410" y="245" width="55" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================ -->
+        <!-- MULTI-AGENT SYSTEM (MAS) -->
+        <!-- ============================================ -->
+        <mxCell id="mas-layer" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#7b1fa2;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="340" width="460" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mas-title" value="Multi-Agent System (MAS)" style="text;html=1;strokeColor=none;fillColor=#7b1fa2;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="50" y="345" width="440" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Central MAS Icon -->
+        <mxCell id="mas-central" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#7b1fa2;" vertex="1" parent="1">
+          <mxGeometry x="235" y="378" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="mas-central-icon" value="" style="shape=mxgraph.signs.tech.robot;html=1;pointerEvents=1;fillColor=#7b1fa2;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="247" y="388" width="25" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Agents -->
+        <mxCell id="agent1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#8e24aa;" vertex="1" parent="1">
+          <mxGeometry x="55" y="375" width="95" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="agent1-title" value="Generative Agent" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontStyle=1;fontColor=#4a148c;" vertex="1" parent="1">
+          <mxGeometry x="55" y="378" width="95" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="agent1-tech" value="Google Gen AI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#7b1fa2;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="60" y="393" width="85" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="agent1-func" value="Educational Chatbot" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=7;fontColor=#666;" vertex="1" parent="1">
+          <mxGeometry x="55" y="410" width="95" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="agent2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#8e24aa;" vertex="1" parent="1">
+          <mxGeometry x="55" y="445" width="95" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="agent2-title" value="Vision Agent" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontStyle=1;fontColor=#4a148c;" vertex="1" parent="1">
+          <mxGeometry x="55" y="448" width="95" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="agent2-tech" value="TensorFlow Lite" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#7b1fa2;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="60" y="463" width="85" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="agent2-func" value="Cell Recognition" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=7;fontColor=#666;" vertex="1" parent="1">
+          <mxGeometry x="55" y="480" width="95" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="agent3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#8e24aa;" vertex="1" parent="1">
+          <mxGeometry x="160" y="445" width="95" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="agent3-title" value="Pedagogical Agent" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontStyle=1;fontColor=#4a148c;" vertex="1" parent="1">
+          <mxGeometry x="160" y="448" width="95" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="agent3-tech" value="GuiaContextService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#7b1fa2;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="165" y="463" width="85" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="agent3-func" value="Adaptive Content" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=7;fontColor=#666;" vertex="1" parent="1">
+          <mxGeometry x="160" y="480" width="95" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="agent4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#8e24aa;" vertex="1" parent="1">
+          <mxGeometry x="300" y="375" width="95" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="agent4-title" value="AR Agent" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontStyle=1;fontColor=#4a148c;" vertex="1" parent="1">
+          <mxGeometry x="300" y="378" width="95" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="agent4-tech" value="MarkerDetector" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#7b1fa2;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="305" y="393" width="85" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="agent4-func" value="3D Visualization" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=7;fontColor=#666;" vertex="1" parent="1">
+          <mxGeometry x="300" y="410" width="95" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Output UI -->
+        <mxCell id="output-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8bbd9;strokeColor=#c2185b;" vertex="1" parent="1">
+          <mxGeometry x="300" y="445" width="95" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="output-title" value="Output UI" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontStyle=1;fontColor=#880e4f;" vertex="1" parent="1">
+          <mxGeometry x="300" y="448" width="95" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="output-items" value="Customization&#xa;Response&#xa;Feedback" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=7;fontColor=#666;" vertex="1" parent="1">
+          <mxGeometry x="300" y="462" width="95" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Gamification -->
+        <mxCell id="gamif-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcedc8;strokeColor=#689f38;" vertex="1" parent="1">
+          <mxGeometry x="405" y="375" width="85" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="gamif-title" value="Gamification" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontStyle=1;fontColor=#33691e;" vertex="1" parent="1">
+          <mxGeometry x="405" y="378" width="85" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="gamif1" value="Points" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c5e1a5;strokeColor=#689f38;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="415" y="395" width="65" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gamif2" value="XP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c5e1a5;strokeColor=#689f38;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="415" y="420" width="65" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gamif3" value="Levels" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c5e1a5;strokeColor=#689f38;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="415" y="445" width="65" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gamif4" value="Achievements" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c5e1a5;strokeColor=#689f38;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="415" y="470" width="65" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================ -->
+        <!-- REINFORCEMENT LEARNING LAYER -->
+        <!-- ============================================ -->
+        <mxCell id="rl-layer" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="520" y="100" width="180" height="220" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rl-title" value="Adaptive Learning" style="text;html=1;strokeColor=none;fillColor=#2e7d32;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="530" y="105" width="160" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Meta Agent -->
+        <mxCell id="meta-agent" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;" vertex="1" parent="1">
+          <mxGeometry x="535" y="135" width="150" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="meta-agent-icon" value="" style="shape=mxgraph.signs.tech.robot;html=1;pointerEvents=1;fillColor=#388e3c;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="545" y="145" width="25" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="meta-agent-label" value="Meta-Agent&#xa;IA Coordinator" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontStyle=1;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="575" y="145" width="100" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="meta-agent-desc" value="Dynamic Selection" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=7;fontColor=#666;" vertex="1" parent="1">
+          <mxGeometry x="575" y="168" width="100" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- Progress Model -->
+        <mxCell id="progress-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#388e3c;" vertex="1" parent="1">
+          <mxGeometry x="535" y="200" width="70" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="progress-icon" value="" style="shape=mxgraph.flowchart.data;whiteSpace=wrap;html=1;fillColor=#388e3c;strokeColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="555" y="205" width="25" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="progress-label" value="Progress&#xa;Model" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=7;fontStyle=1;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="535" y="228" width="70" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Reward Calculator -->
+        <mxCell id="reward-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#388e3c;" vertex="1" parent="1">
+          <mxGeometry x="615" y="200" width="70" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="reward-icon" value="" style="shape=mxgraph.flowchart.summing_function;whiteSpace=wrap;html=1;fillColor=#388e3c;strokeColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="635" y="205" width="25" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="reward-label" value="Reward&#xa;Calculator" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=7;fontStyle=1;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="615" y="228" width="70" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Statistics -->
+        <mxCell id="stats-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;" vertex="1" parent="1">
+          <mxGeometry x="535" y="270" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="stats-label" value="UserStatistics | Achievements" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=7;fontStyle=0;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="535" y="278" width="150" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================ -->
+        <!-- DATA LAYER -->
+        <!-- ============================================ -->
+        <mxCell id="data-layer" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffebee;strokeColor=#c62828;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="520" y="340" width="540" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="data-title" value="Layer Data Knowledge" style="text;html=1;strokeColor=none;fillColor=#c62828;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="530" y="345" width="520" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Firestore -->
+        <mxCell id="firestore" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#d32f2f;" vertex="1" parent="1">
+          <mxGeometry x="535" y="375" width="100" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="firestore-icon" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#d32f2f;strokeColor=#b71c1c;" vertex="1" parent="1">
+          <mxGeometry x="570" y="380" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="firestore-label" value="Firebase&#xa;Firestore" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontStyle=1;fontColor=#b71c1c;" vertex="1" parent="1">
+          <mxGeometry x="535" y="412" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="firestore-desc" value="Profiles, History&#xa;Sessions, Messages" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=7;fontColor=#666;" vertex="1" parent="1">
+          <mxGeometry x="535" y="430" width="100" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Knowledge Base -->
+        <mxCell id="kb" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#d32f2f;" vertex="1" parent="1">
+          <mxGeometry x="645" y="375" width="100" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="kb-icon" value="" style="shape=mxgraph.signs.education.books;html=1;pointerEvents=1;fillColor=#d32f2f;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="680" y="382" width="25" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="kb-label" value="Knowledge&#xa;Base" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontStyle=1;fontColor=#b71c1c;" vertex="1" parent="1">
+          <mxGeometry x="645" y="412" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="kb-desc" value="celula_data.dart&#xa;Educational Content" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=7;fontColor=#666;" vertex="1" parent="1">
+          <mxGeometry x="645" y="430" width="100" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Memory -->
+        <mxCell id="memory" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#d32f2f;" vertex="1" parent="1">
+          <mxGeometry x="755" y="375" width="100" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="memory-icon" value="" style="shape=mxgraph.signs.tech.data_storage;html=1;pointerEvents=1;fillColor=#d32f2f;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="790" y="382" width="25" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="memory-label" value="Memory" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontStyle=1;fontColor=#b71c1c;" vertex="1" parent="1">
+          <mxGeometry x="755" y="412" width="100" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="memory-desc" value="Chat History&#xa;Session Records" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=7;fontColor=#666;" vertex="1" parent="1">
+          <mxGeometry x="755" y="425" width="100" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- ML Models -->
+        <mxCell id="models" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#d32f2f;" vertex="1" parent="1">
+          <mxGeometry x="865" y="375" width="100" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="models-icon" value="" style="shape=mxgraph.aws3.android;html=1;pointerEvents=1;fillColor=#d32f2f;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="900" y="382" width="25" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="models-label" value="ML Models" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontStyle=1;fontColor=#b71c1c;" vertex="1" parent="1">
+          <mxGeometry x="865" y="412" width="100" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="models-desc" value="assets/models/&#xa;TFLite Models" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=7;fontColor=#666;" vertex="1" parent="1">
+          <mxGeometry x="865" y="425" width="100" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- External Resources -->
+        <mxCell id="external" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ef9a9a;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="535" y="460" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="external-label" value="External Resources" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=8;fontStyle=1;fontColor=#b71c1c;" vertex="1" parent="1">
+          <mxGeometry x="545" y="463" width="100" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="ext1" value="• Google Generative AI API" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="545" y="478" width="130" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="ext2" value="• YouTube Player" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="545" y="492" width="100" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="ext3" value="• Speech to Text" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="545" y="506" width="100" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="ext4" value="• Image Picker / Camera" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="545" y="518" width="120" height="12" as="geometry" />
+        </mxCell>
+
+        <!-- Assets -->
+        <mxCell id="assets" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ef9a9a;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="755" y="460" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="assets-label" value="Educational Assets" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=8;fontStyle=1;fontColor=#b71c1c;" vertex="1" parent="1">
+          <mxGeometry x="765" y="463" width="100" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="ast1" value="• assets/libro/" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="765" y="478" width="90" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="ast2" value="• assets/CELULA/" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="765" y="492" width="90" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="ast3" value="• assets/marcadores/" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="765" y="506" width="100" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="ast4" value="• assets/Diagrama/" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="865" y="478" width="90" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="ast5" value="• assets/models/" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=7;" vertex="1" parent="1">
+          <mxGeometry x="865" y="492" width="90" height="12" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================ -->
+        <!-- CONNECTIONS -->
+        <!-- ============================================ -->
+
+        <!-- UI to Orchestration -->
+        <mxCell id="c1" value="" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=1.5;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="240" y="210" as="sourcePoint" />
+            <mxPoint x="260" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Orchestration to RL -->
+        <mxCell id="c2" value="" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=1.5;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="210" as="sourcePoint" />
+            <mxPoint x="520" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- RL to Data -->
+        <mxCell id="c3" value="" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=1.5;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="610" y="320" as="sourcePoint" />
+            <mxPoint x="610" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- UI to MAS -->
+        <mxCell id="c4" value="" style="endArrow=classic;html=1;strokeWidth=1.5;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="140" y="320" as="sourcePoint" />
+            <mxPoint x="140" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Orchestration to MAS -->
+        <mxCell id="c5" value="" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=1.5;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="320" as="sourcePoint" />
+            <mxPoint x="380" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- MAS to Data -->
+        <mxCell id="c6" value="" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=1.5;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="440" as="sourcePoint" />
+            <mxPoint x="520" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ============================================ -->
+        <!-- FIGURE CAPTION -->
+        <!-- ============================================ -->
+        <mxCell id="caption" value="&lt;b&gt;Figure 2.&lt;/b&gt; Architecture of the proposed intelligent tutoring system with AI for teaching Natural Sciences (mi_app)." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="200" y="555" width="700" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,135 @@
+<mxfile host="app.diagrams.net" modified="2025-01-15T10:00:00.000Z" agent="Mozilla/5.0" etag="kanban" version="22.1.0" type="device">
+  <diagram id="kanban-board" name="Tablero Kanban">
+    <mxGraphModel dx="1100" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- TÍTULO -->
+        <mxCell id="titulo" value="TABLERO KANBAN - Guía Didáctica Interactiva con RA e IA" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#1a237e;" vertex="1" parent="1">
+          <mxGeometry x="250" y="20" width="500" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ====== COLUMNA BACKLOG ====== -->
+        <mxCell id="col-backlog" value="BACKLOG" style="swimlane;startSize=30;fillColor=#f5f5f5;strokeColor=#9e9e9e;strokeWidth=2;fontStyle=1;fontSize=12;horizontal=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="180" height="480" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task-b1" value="Modo offline&#xa;parcial" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#fbc02d;strokeWidth=1;fontSize=10;align=center;" vertex="1" parent="col-backlog">
+          <mxGeometry x="15" y="45" width="150" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task-b2" value="Panel de&#xa;administración" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#fbc02d;strokeWidth=1;fontSize=10;align=center;" vertex="1" parent="col-backlog">
+          <mxGeometry x="15" y="95" width="150" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ====== COLUMNA TO DO ====== -->
+        <mxCell id="col-todo" value="TO DO" style="swimlane;startSize=30;fillColor=#e3f2fd;strokeColor=#1976d2;strokeWidth=2;fontStyle=1;fontSize=12;horizontal=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="70" width="180" height="480" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task-t1" value="Expandir contenido&#xa;educativo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;strokeWidth=1;fontSize=10;align=center;" vertex="1" parent="col-todo">
+          <mxGeometry x="15" y="45" width="150" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task-t2" value="Mejorar detección&#xa;de marcadores" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;strokeWidth=1;fontSize=10;align=center;" vertex="1" parent="col-todo">
+          <mxGeometry x="15" y="95" width="150" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ====== COLUMNA IN PROGRESS ====== -->
+        <mxCell id="col-progress" value="IN PROGRESS" style="swimlane;startSize=30;fillColor=#fff3e0;strokeColor=#f57c00;strokeWidth=2;fontStyle=1;fontSize=12;horizontal=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="70" width="180" height="480" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task-p1" value="Pruebas de&#xa;usabilidad" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#f57c00;strokeWidth=1;fontSize=10;align=center;" vertex="1" parent="col-progress">
+          <mxGeometry x="15" y="45" width="150" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task-p2" value="Documentación&#xa;técnica" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#f57c00;strokeWidth=1;fontSize=10;align=center;" vertex="1" parent="col-progress">
+          <mxGeometry x="15" y="95" width="150" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ====== COLUMNA REVIEW ====== -->
+        <mxCell id="col-review" value="REVIEW" style="swimlane;startSize=30;fillColor=#e8f5e9;strokeColor=#388e3c;strokeWidth=2;fontStyle=1;fontSize=12;horizontal=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="70" width="180" height="480" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task-r1" value="Módulo Escáner&#xa;Inteligente" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;strokeWidth=1;fontSize=10;align=center;" vertex="1" parent="col-review">
+          <mxGeometry x="15" y="45" width="150" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task-r2" value="Módulo Realidad&#xa;Aumentada" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;strokeWidth=1;fontSize=10;align=center;" vertex="1" parent="col-review">
+          <mxGeometry x="15" y="95" width="150" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ====== COLUMNA DONE ====== -->
+        <mxCell id="col-done" value="DONE ✓" style="swimlane;startSize=30;fillColor=#e8eaf6;strokeColor=#3f51b5;strokeWidth=2;fontStyle=1;fontSize=12;horizontal=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="70" width="180" height="480" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task-d1" value="✓ Autenticación&#xa;Firebase" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c5cae9;strokeColor=#3f51b5;strokeWidth=1;fontSize=10;align=center;" vertex="1" parent="col-done">
+          <mxGeometry x="15" y="45" width="150" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task-d2" value="✓ Pantalla&#xa;principal" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c5cae9;strokeColor=#3f51b5;strokeWidth=1;fontSize=10;align=center;" vertex="1" parent="col-done">
+          <mxGeometry x="15" y="95" width="150" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task-d3" value="✓ Guía Didáctica&#xa;Interactiva" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c5cae9;strokeColor=#3f51b5;strokeWidth=1;fontSize=10;align=center;" vertex="1" parent="col-done">
+          <mxGeometry x="15" y="145" width="150" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task-d4" value="✓ Sistema de&#xa;Quizzes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c5cae9;strokeColor=#3f51b5;strokeWidth=1;fontSize=10;align=center;" vertex="1" parent="col-done">
+          <mxGeometry x="15" y="195" width="150" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task-d5" value="✓ Chatbot&#xa;Gemini AI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c5cae9;strokeColor=#3f51b5;strokeWidth=1;fontSize=10;align=center;" vertex="1" parent="col-done">
+          <mxGeometry x="15" y="245" width="150" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task-d6" value="✓ Perfil y&#xa;Estadísticas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c5cae9;strokeColor=#3f51b5;strokeWidth=1;fontSize=10;align=center;" vertex="1" parent="col-done">
+          <mxGeometry x="15" y="295" width="150" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ====== FLECHAS DE FLUJO ====== -->
+        <mxCell id="flow1" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#9e9e9e;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="60" as="sourcePoint" />
+            <mxPoint x="240" y="60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="flow2" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#9e9e9e;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="60" as="sourcePoint" />
+            <mxPoint x="440" y="60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="flow3" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#9e9e9e;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="60" as="sourcePoint" />
+            <mxPoint x="640" y="60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="flow4" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#9e9e9e;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="60" as="sourcePoint" />
+            <mxPoint x="840" y="60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ====== WIP LIMITS ====== -->
+        <mxCell id="wip1" value="WIP: 3" style="text;html=1;strokeColor=none;fillColor=#ffcdd2;align=center;verticalAlign=middle;fontSize=9;fontStyle=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="555" width="50" height="18" as="geometry" />
+        </mxCell>
+
+        <mxCell id="wip2" value="WIP: 2" style="text;html=1;strokeColor=none;fillColor=#ffcdd2;align=center;verticalAlign=middle;fontSize=9;fontStyle=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="555" width="50" height="18" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

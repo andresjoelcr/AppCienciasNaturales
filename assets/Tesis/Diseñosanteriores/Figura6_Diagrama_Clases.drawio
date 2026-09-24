@@ -1,0 +1,238 @@
+<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="Draw.io" version="22.1.0" type="device">
+  <diagram id="clases" name="Diagrama de Clases">
+    <mxGraphModel dx="900" dy="580" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Título -->
+        <mxCell id="titulo" value="DIAGRAMA DE CLASES" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="280" y="10" width="250" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitulo" value="Guía Didáctica Interactiva - La Célula" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="280" y="32" width="250" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- ============ CLASE UserProfile ============ -->
+        <mxCell id="user-class" value="UserProfile" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=25;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="160" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="user-attrs" value="- uid: String&#xa;- email: String&#xa;- displayName: String&#xa;- totalXP: int&#xa;- level: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10" vertex="1" parent="user-class">
+          <mxGeometry y="25" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="user-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="user-class">
+          <mxGeometry y="95" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="user-methods" value="+ toMap(): Map&#xa;+ fromMap(): UserProfile&#xa;+ addXP(points): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10" vertex="1" parent="user-class">
+          <mxGeometry y="103" width="160" height="42" as="geometry" />
+        </mxCell>
+
+        <!-- ============ CLASE UserProgress ============ -->
+        <mxCell id="progress-class" value="UserProgress" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=25;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="260" y="60" width="170" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="progress-attrs" value="- odId: String&#xa;- completedSubtemas: List&#xa;- quizScores: Map&#xa;- progressPercentage: double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10" vertex="1" parent="progress-class">
+          <mxGeometry y="25" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="progress-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="progress-class">
+          <mxGeometry y="85" width="170" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="progress-methods" value="+ markComplete(id): void&#xa;+ updateQuizScore(): void&#xa;+ calculateProgress(): double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10" vertex="1" parent="progress-class">
+          <mxGeometry y="93" width="170" height="52" as="geometry" />
+        </mxCell>
+
+        <!-- ============ CLASE Achievement ============ -->
+        <mxCell id="achievement-class" value="Achievement" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=25;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="470" y="60" width="150" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="achievement-attrs" value="- id: String&#xa;- title: String&#xa;- description: String&#xa;- xpReward: int&#xa;- isUnlocked: bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10" vertex="1" parent="achievement-class">
+          <mxGeometry y="25" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="achievement-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="achievement-class">
+          <mxGeometry y="95" width="150" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="achievement-methods" value="+ unlock(): void&#xa;+ toMap(): Map" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10" vertex="1" parent="achievement-class">
+          <mxGeometry y="103" width="150" height="42" as="geometry" />
+        </mxCell>
+
+        <!-- ============ CLASE Quiz ============ -->
+        <mxCell id="quiz-class" value="Quiz" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=25;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="660" y="60" width="150" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="quiz-attrs" value="- id: String&#xa;- subtemaId: String&#xa;- questions: List&#xa;- passingScore: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10" vertex="1" parent="quiz-class">
+          <mxGeometry y="25" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="quiz-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="quiz-class">
+          <mxGeometry y="85" width="150" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="quiz-methods" value="+ evaluate(answers): int&#xa;+ getQuestion(i): Question&#xa;+ calculateScore(): double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10" vertex="1" parent="quiz-class">
+          <mxGeometry y="93" width="150" height="52" as="geometry" />
+        </mxCell>
+
+        <!-- ============ CLASE Subtema ============ -->
+        <mxCell id="subtema-class" value="Subtema" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=25;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="60" y="240" width="150" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="subtema-attrs" value="- id: String&#xa;- titulo: String&#xa;- contenido: String&#xa;- imagePath: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10" vertex="1" parent="subtema-class">
+          <mxGeometry y="25" width="150" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="subtema-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="subtema-class">
+          <mxGeometry y="80" width="150" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="subtema-methods" value="+ getQuiz(): Quiz&#xa;+ markComplete(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10" vertex="1" parent="subtema-class">
+          <mxGeometry y="88" width="150" height="42" as="geometry" />
+        </mxCell>
+
+        <!-- ============ CLASE ChatMessage ============ -->
+        <mxCell id="chat-class" value="ChatMessage" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=25;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="260" y="240" width="150" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="chat-attrs" value="- content: String&#xa;- role: MessageRole&#xa;- timestamp: DateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10" vertex="1" parent="chat-class">
+          <mxGeometry y="25" width="150" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="chat-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="chat-class">
+          <mxGeometry y="70" width="150" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="chat-methods" value="+ isUser(): bool&#xa;+ isAssistant(): bool&#xa;+ toMap(): Map" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10" vertex="1" parent="chat-class">
+          <mxGeometry y="78" width="150" height="52" as="geometry" />
+        </mxCell>
+
+        <!-- ============ CLASE ScanResult ============ -->
+        <mxCell id="scan-class" value="ScanResult" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=25;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="460" y="240" width="150" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="scan-attrs" value="- imagePath: String&#xa;- labels: List&#xa;- aiAnalysis: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10" vertex="1" parent="scan-class">
+          <mxGeometry y="25" width="150" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="scan-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="scan-class">
+          <mxGeometry y="70" width="150" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="scan-methods" value="+ getTopLabels(n): List&#xa;+ hasHighConfidence(): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10" vertex="1" parent="scan-class">
+          <mxGeometry y="78" width="150" height="52" as="geometry" />
+        </mxCell>
+
+        <!-- ============ SERVICIOS ============ -->
+        <mxCell id="services-label" value="SERVICIOS" style="text;html=1;strokeColor=none;fillColor=#f5f5f5;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="60" y="400" width="80" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ChatService -->
+        <mxCell id="chatservice" value="&lt;&lt;service&gt;&gt;&#xa;ChatService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=35;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#0050ef;strokeColor=#001DBC;fontColor=#ffffff;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="60" y="430" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="chatservice-attrs" value="- groqApiKey: String&#xa;- model: String = 'llama-3.3-70b'" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#ffffff" vertex="1" parent="chatservice">
+          <mxGeometry y="35" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="chatservice-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#ffffff" vertex="1" parent="chatservice">
+          <mxGeometry y="65" width="180" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="chatservice-methods" value="+ sendMessage(msg): Future" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#ffffff" vertex="1" parent="chatservice">
+          <mxGeometry y="73" width="180" height="27" as="geometry" />
+        </mxCell>
+
+        <!-- ScannerService -->
+        <mxCell id="scannerservice" value="&lt;&lt;service&gt;&gt;&#xa;ScannerService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=35;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="280" y="430" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="scannerservice-attrs" value="- geminiApiKey: String&#xa;- imageLabeler: ImageLabeler" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#ffffff" vertex="1" parent="scannerservice">
+          <mxGeometry y="35" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="scannerservice-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#ffffff" vertex="1" parent="scannerservice">
+          <mxGeometry y="65" width="180" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="scannerservice-methods" value="+ processImage(file): Future" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#ffffff" vertex="1" parent="scannerservice">
+          <mxGeometry y="73" width="180" height="27" as="geometry" />
+        </mxCell>
+
+        <!-- FirestoreService -->
+        <mxCell id="firestoreservice" value="&lt;&lt;service&gt;&gt;&#xa;FirestoreService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=35;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#d79b00;strokeColor=#b37000;fontColor=#ffffff;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="500" y="430" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="firestoreservice-attrs" value="- firestore: FirebaseFirestore" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#ffffff" vertex="1" parent="firestoreservice">
+          <mxGeometry y="35" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="firestoreservice-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#ffffff" vertex="1" parent="firestoreservice">
+          <mxGeometry y="55" width="180" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="firestoreservice-methods" value="+ getUserProfile(uid): Future&#xa;+ saveProgress(data): Future" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#ffffff" vertex="1" parent="firestoreservice">
+          <mxGeometry y="63" width="180" height="37" as="geometry" />
+        </mxCell>
+
+        <!-- ============ RELACIONES ============ -->
+        <!-- UserProfile - UserProgress (1 a 1) -->
+        <mxCell id="rel1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=diamond;endFill=1;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0" edge="1" parent="1" source="user-attrs" target="progress-attrs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel1-label" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="230" y="95" width="20" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- UserProfile - Achievement (1 a *) -->
+        <mxCell id="rel2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=diamond;endFill=0;strokeWidth=2" edge="1" parent="1" source="achievement-class" target="user-class">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="545" y="55" />
+              <mxPoint x="140" y="55" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel2-label" value="*" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="460" y="50" width="20" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- Subtema - Quiz (1 a 1) -->
+        <mxCell id="rel3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;strokeWidth=2;dashed=1" edge="1" parent="1" source="subtema-class" target="quiz-class">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="135" y="390" />
+              <mxPoint x="735" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel3-label" value="tiene" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="400" y="375" width="35" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- ChatService - ChatMessage -->
+        <mxCell id="rel4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;strokeWidth=2;dashed=1" edge="1" parent="1" source="chatservice" target="chat-class">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel4-label" value="crea" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="200" y="395" width="30" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- ScannerService - ScanResult -->
+        <mxCell id="rel5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;strokeWidth=2;dashed=1" edge="1" parent="1" source="scannerservice" target="scan-class">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel5-label" value="genera" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="450" y="395" width="40" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- Leyenda -->
+        <mxCell id="leyenda" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="60" y="555" width="620" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ley-title" value="RELACIONES:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="70" y="565" width="75" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ley1" value="◆── Composición" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="150" y="565" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ley2" value="◇── Agregación" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="255" y="565" width="85" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ley3" value="- - → Dependencia" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="355" y="565" width="95" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ley4" value="1, * = Cardinalidad" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="465" y="565" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ley5" value="&lt;&lt;service&gt;&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="575" y="565" width="60" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

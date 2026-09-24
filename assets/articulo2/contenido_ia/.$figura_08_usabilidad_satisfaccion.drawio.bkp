@@ -1,0 +1,311 @@
+<mxfile host="app.diagrams.net" modified="2024-01-15T13:00:00.000Z" agent="Mozilla/5.0" etag="usabilidad_satisfaccion" version="22.1.0" type="device">
+  <diagram name="Usabilidad y Satisfacción" id="usabilidad-satisfaccion-usuario">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="950" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Título Principal -->
+        <mxCell id="title" value="Figura 8: Resultados de Usabilidad y Satisfacción del Usuario" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="350" y="20" width="500" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Panel 1: Puntuación SUS -->
+        <mxCell id="panel1_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#4CAF50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="380" height="280" as="geometry" />
+        </mxCell>
+
+        <mxCell id="panel1_title" value="SYSTEM USABILITY SCALE (SUS)" style="text;html=1;strokeColor=none;fillColor=#4CAF50;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="80" y="90" width="300" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Medidor SUS tipo gauge -->
+        <mxCell id="gauge_bg" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e0e0e0;strokeColor=#9e9e9e;startAngle=0.5;endAngle=0;arcWidth=0.3;" vertex="1" parent="1">
+          <mxGeometry x="110" y="130" width="200" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- Segmentos del gauge -->
+        <mxCell id="gauge_f" value="" style="shape=arc;startAngle=0.83;endAngle=1;fillColor=#f44336;strokeColor=none;arcWidth=0.3;" vertex="1" parent="1">
+          <mxGeometry x="110" y="130" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="gauge_d" value="" style="shape=arc;startAngle=0.67;endAngle=0.83;fillColor=#FF9800;strokeColor=none;arcWidth=0.3;" vertex="1" parent="1">
+          <mxGeometry x="110" y="130" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="gauge_c" value="" style="shape=arc;startAngle=0.58;endAngle=0.67;fillColor=#FFC107;strokeColor=none;arcWidth=0.3;" vertex="1" parent="1">
+          <mxGeometry x="110" y="130" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="gauge_b" value="" style="shape=arc;startAngle=0.5;endAngle=0.58;fillColor=#8BC34A;strokeColor=none;arcWidth=0.3;" vertex="1" parent="1">
+          <mxGeometry x="110" y="130" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="gauge_a" value="" style="shape=arc;startAngle=0.42;endAngle=0.5;fillColor=#4CAF50;strokeColor=none;arcWidth=0.3;" vertex="1" parent="1">
+          <mxGeometry x="110" y="130" width="200" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- Valor SUS central -->
+        <mxCell id="sus_value" value="78.4" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=36;fontStyle=1;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="155" y="180" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sus_label" value="puntuación SUS" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="155" y="225" width="110" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Clasificación -->
+        <mxCell id="grade_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8BC34A;strokeColor=#558B2F;" vertex="1" parent="1">
+          <mxGeometry x="150" y="260" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="grade_text" value="Grado B - BUENO" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="150" y="268" width="120" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Escala de referencia -->
+        <mxCell id="scale_ref" value="F(&lt;50) | D(50-62) | C(63-72) | B(73-84) | A(≥85)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#666666;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="95" y="310" width="230" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- Percentil -->
+        <mxCell id="percentile" value="Percentil 85" style="text;html=1;strokeColor=none;fillColor=#e8f5e9;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#2E7D32;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="330" width="100" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Panel 2: Utilidad Percibida por Componente -->
+        <mxCell id="panel2_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1976D2;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="440" y="80" width="480" height="280" as="geometry" />
+        </mxCell>
+
+        <mxCell id="panel2_title" value="UTILIDAD PERCIBIDA POR COMPONENTE DE IA (Escala 1-5)" style="text;html=1;strokeColor=none;fillColor=#1976D2;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="500" y="90" width="360" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Gráfico de radar simplificado como barras horizontales -->
+        <mxCell id="comp_scanner" value="Reconocimiento Imágenes" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="130" width="150" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="bar_scanner" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="620" y="130" width="221" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="val_scanner" value="4.42 (88.9%)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="845" y="130" width="70" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="comp_chatbot" value="Chatbot Educativo" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="165" width="150" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="bar_chatbot" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8BC34A;strokeColor=#558B2F;" vertex="1" parent="1">
+          <mxGeometry x="620" y="165" width="216" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="val_chatbot" value="4.31 (84.4%)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#558B2F;" vertex="1" parent="1">
+          <mxGeometry x="840" y="165" width="70" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="comp_quiz" value="Generación de Quizzes" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="200" width="150" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="bar_quiz" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#CDDC39;strokeColor=#AFB42B;" vertex="1" parent="1">
+          <mxGeometry x="620" y="200" width="209" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="val_quiz" value="4.18 (80.0%)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#AFB42B;" vertex="1" parent="1">
+          <mxGeometry x="833" y="200" width="70" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="comp_gamif" value="Sistema de Gamificación" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="235" width="150" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="bar_gamif" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFC107;strokeColor=#FF9800;" vertex="1" parent="1">
+          <mxGeometry x="620" y="235" width="206" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="val_gamif" value="4.11 (75.6%)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#FF9800;" vertex="1" parent="1">
+          <mxGeometry x="830" y="235" width="70" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Escala de referencia -->
+        <mxCell id="scale_bar" value="1.0        2.0        3.0        4.0        5.0" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="600" y="265" width="280" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- Conclusión panel 2 -->
+        <mxCell id="conclusion2" value="Todos los componentes de IA obtuvieron&#xa;puntuaciones superiores a 4.0/5.0" style="text;html=1;strokeColor=none;fillColor=#e3f2fd;align=center;verticalAlign=middle;fontSize=10;fontStyle=2;fontColor=#1565C0;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="295" width="280" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Panel 3: Comparación Pre-Post -->
+        <mxCell id="panel3_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#FF9800;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="380" width="380" height="280" as="geometry" />
+        </mxCell>
+
+        <mxCell id="panel3_title" value="COMPARACIÓN PRE-POST DE CONOCIMIENTOS" style="text;html=1;strokeColor=none;fillColor=#FF9800;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="80" y="390" width="300" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Barras Pre-Post -->
+        <mxCell id="pre_bar" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#FF9800;" vertex="1" parent="1">
+          <mxGeometry x="100" y="450" width="97" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="pre_value" value="48.7%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#E65100;" vertex="1" parent="1">
+          <mxGeometry x="100" y="500" width="97" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pre_label" value="PRE-TEST" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="595" width="97" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="post_bar" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="220" y="397" width="97" height="193" as="geometry" />
+        </mxCell>
+        <mxCell id="post_value" value="72.3%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="220" y="470" width="97" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="post_label" value="POST-TEST" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="595" width="97" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Flecha de ganancia -->
+        <mxCell id="gain_arrow" value="" style="shape=flexArrow;endArrow=classic;html=1;strokeColor=#2E7D32;fillColor=#4CAF50;width=20;endSize=8;startSize=8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="520" as="sourcePoint" />
+            <mxPoint x="340" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gain_value" value="+23.6 pp" style="text;html=1;strokeColor=none;fillColor=#c8e6c9;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#2E7D32;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="465" width="70" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Estadísticas -->
+        <mxCell id="stats_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#9e9e9e;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="55" y="620" width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="stats_text" value="t(44) = 8.94, p &lt; 0.001 | d de Cohen = 1.75 (efecto grande)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="55" y="622" width="350" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Panel 4: Engagement y Gamificación -->
+        <mxCell id="panel4_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#E91E63;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="440" y="380" width="480" height="280" as="geometry" />
+        </mxCell>
+
+        <mxCell id="panel4_title" value="ENGAGEMENT Y GAMIFICACIÓN" style="text;html=1;strokeColor=none;fillColor=#E91E63;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="560" y="390" width="240" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Métricas de engagement -->
+        <mxCell id="eng1" value="14.2&#xa;días de uso&#xa;promedio" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8bbd9;strokeColor=#C2185B;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="430" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="eng2" value="4.3&#xa;racha&#xa;promedio" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8bbd9;strokeColor=#C2185B;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="430" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="eng3" value="5.2&#xa;nivel&#xa;promedio" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8bbd9;strokeColor=#C2185B;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="430" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="eng4" value="1,247&#xa;XP&#xa;promedio" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8bbd9;strokeColor=#C2185B;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="770" y="430" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Logros desbloqueados -->
+        <mxCell id="achievements_title" value="Tasa de Desbloqueo de Logros" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="520" width="280" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ach_bar_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0e0e0;strokeColor=#9e9e9e;" vertex="1" parent="1">
+          <mxGeometry x="470" y="545" width="430" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ach1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="470" y="545" width="86" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ach1_label" value="100%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="548" width="86" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ach2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8BC34A;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="556" y="545" width="73" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ach2_label" value="84.4%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="556" y="548" width="73" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ach3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#CDDC39;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="629" y="545" width="65" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ach3_label" value="75.6%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontColor=#333333;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="629" y="548" width="65" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ach4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFC107;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="694" y="545" width="56" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ach4_label" value="64.4%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontColor=#333333;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="694" y="548" width="56" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ach5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF9800;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="750" y="545" width="23" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ach5_label" value="26.7%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontColor=#333333;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="548" width="45" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Leyenda de logros -->
+        <mxCell id="ach_legend" value="Primer Paso | Constante | Perfección | Curioso | Explorador" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#666666;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="470" y="575" width="430" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- Correlación gamificación-rendimiento -->
+        <mxCell id="corr_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#9e9e9e;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="600" width="430" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="corr_title" value="Correlación Gamificación-Rendimiento" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="605" width="230" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="corr_values" value="r = 0.72 (Nivel) | r = 0.67 (XP) | r = 0.61 (Logros) | r = 0.54 (Racha) | p &lt; 0.001" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontStyle=2;fontColor=#C2185B;" vertex="1" parent="1">
+          <mxGeometry x="480" y="622" width="410" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Panel 5: Resumen General -->
+        <mxCell id="panel5_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8eaf6;strokeColor=#3F51B5;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="680" width="880" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="panel5_title" value="SÍNTESIS DE RESULTADOS CLAVE" style="text;html=1;strokeColor=none;fillColor=#3F51B5;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="330" y="690" width="300" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Métricas clave -->
+        <mxCell id="key1" value="SUS: 78.4&#xa;Grado B" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#4CAF50;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="725" width="100" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="key2" value="Utilidad IA:&#xa;4.26/5.0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976D2;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="175" y="725" width="100" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="key3" value="Ganancia:&#xa;+23.6 pp" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffecb3;strokeColor=#FF9800;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="725" width="100" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="key4" value="Engagement:&#xa;14.2 días" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8bbd9;strokeColor=#E91E63;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="405" y="725" width="100" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="key5" value="Efecto:&#xa;d = 1.75" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#4CAF50;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="725" width="100" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="key6" value="Correlación:&#xa;r = 0.72" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1c4e9;strokeColor=#673AB7;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="635" y="725" width="100" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="key7" value="n = 45&#xa;estudiantes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b2dfdb;strokeColor=#00897B;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="725" width="100" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- Pie de figura -->
+        <mxCell id="footer" value="Evaluación realizada durante 4 semanas con estudiantes de 8° grado | Métricas según Bangor et al. (2009) y Brooke (1996)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#666666;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="240" y="790" width="480" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

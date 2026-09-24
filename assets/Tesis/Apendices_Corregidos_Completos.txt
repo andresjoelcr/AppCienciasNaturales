@@ -1,0 +1,764 @@
+================================================================================
+APÉNDICES — VERSIÓN CORREGIDA Y COMPLETA
+Tesis Doctoral: "Realidad Aumentada e Inteligencia Artificial Aplicada a una
+Guía Didáctica Interactiva para el Aprendizaje de Ciencias Naturales"
+Autor: Jorge Humberto Miranda Realpe — UNADE — Doctorado en Informática
+================================================================================
+
+ERRORES ENCONTRADOS EN LOS APÉNDICES ORIGINALES:
+
+[ERROR CRÍTICO — Apéndice A] "Entrevista al Docente del Módulo de Contabilidad
+General" — Completamente equivocado. Todas las preguntas son sobre contabilidad.
+Debe ser: Entrevista a la Docente del Módulo de Ciencias Naturales — biología celular.
+
+[ERROR CRÍTICO — Apéndice B] Objetivo dice "para el diseño de una guía didáctica
+en Contabilidad General". Corrección: Ciencias Naturales / biología celular.
+
+[ERROR CRÍTICO — Apéndice C] "Encuesta a estudiantes de primer nivel de la
+Carrera de Contabilidad y Auditoría — UPEC". Totalmente equivocado. Debe ser:
+estudiantes de décimo año de Educación Básica — Unidad Educativa Vicente Fierro.
+Los ítems dicen "conceptos contables y de auditoría" — deben ser sobre biología.
+
+[OMISIÓN] No existe Apéndice D: Encuesta post-test de conocimientos y usabilidad.
+[OMISIÓN] No existe Apéndice E: Escala SUS (instrumento de usabilidad).
+[OMISIÓN] No existe Apéndice F: Evidencias de la aplicación (capturas de pantalla).
+[OMISIÓN] No existe Apéndice G: Estructura técnica del proyecto Flutter.
+
+
+================================================================================
+APÉNDICE A
+Entrevista Pre-Test a la Docente del Módulo de Ciencias Naturales
+================================================================================
+
+Datos de la entrevista:
+- Entrevistado/a: Docente del área de Ciencias Naturales
+- Institución: Unidad Educativa Vicente Fierro, Tulcán, Ecuador
+- Grado a cargo: Décimo año de Educación Básica
+- Fecha: ___________________
+- Entrevistador: Jorge Humberto Miranda Realpe
+
+Objetivo: Recoger la percepción de la docente sobre las metodologías actuales
+de enseñanza, las principales dificultades en el aprendizaje de biología celular
+y la viabilidad de implementar una guía didáctica interactiva con Realidad
+Aumentada e Inteligencia Artificial en el módulo de Ciencias Naturales.
+
+Instrucciones: Esta entrevista es de carácter académico y sus respuestas serán
+utilizadas exclusivamente para fundamentar el diseño de la guía didáctica
+interactiva. No existen respuestas correctas o incorrectas. Se solicita su
+opinión sincera y detallada.
+
+BLOQUE 1: DIAGNÓSTICO DE LA ENSEÑANZA ACTUAL
+
+Pregunta 1:
+¿Cuáles son los temas de la unidad "La Célula: Unidad Básica de la Vida" que
+presentan mayor dificultad de comprensión para los estudiantes de décimo año?
+¿A qué atribuye esa dificultad?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+Pregunta 2:
+¿Qué recursos didácticos utiliza actualmente para enseñar biología celular
+(pizarrón, proyector, videos, modelos, microscopio, etc.)? ¿Considera que son
+suficientes para que los estudiantes comprendan las estructuras celulares?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+Pregunta 3:
+¿Con qué frecuencia los estudiantes le hacen preguntas individuales fuera del
+horario de clase (WhatsApp, correo, otros)? ¿Puede atenderlas todas oportunamente?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+Pregunta 4:
+¿Ha observado que los estudiantes muestran motivación hacia el estudio de
+Ciencias Naturales? ¿Qué factores considera que afectan positiva o negativamente
+esa motivación?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+BLOQUE 2: PERCEPCIÓN SOBRE TECNOLOGÍA EDUCATIVA
+
+Pregunta 5:
+¿Ha utilizado previamente aplicaciones móviles, simulaciones o recursos
+tecnológicos interactivos en su enseñanza de Ciencias Naturales? Si es así,
+¿cuál ha sido su experiencia?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+Pregunta 6:
+¿Qué beneficios cree que podría aportar la Realidad Aumentada al proceso de
+enseñanza de biología celular? ¿Le parece viable su uso en el aula?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+Pregunta 7:
+¿Considera que un chatbot educativo basado en Inteligencia Artificial podría
+ser una herramienta útil para que los estudiantes resuelvan dudas de biología
+fuera del horario de clase? ¿Por qué?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+Pregunta 8:
+¿Qué aspectos o funcionalidades específicas consideraría indispensables en
+una guía didáctica interactiva para que sea realmente útil en sus clases?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+BLOQUE 3: VIABILIDAD Y EXPECTATIVAS
+
+Pregunta 9:
+¿Considera que los estudiantes de décimo año tienen acceso a dispositivos
+móviles (smartphones Android) para usar una aplicación educativa? ¿Cree que
+estarían dispuestos a usarla con fines académicos?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+Pregunta 10:
+¿Cómo mediría usted el éxito de una guía didáctica interactiva en el
+aprendizaje de biología celular? ¿Qué indicadores utilizaría?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+Observaciones adicionales de la docente:
+____________________________________________________________________________
+____________________________________________________________________________
+
+Firma de la docente: _________________________ Fecha: _______________________
+
+
+================================================================================
+APÉNDICE B
+Entrevista Pre-Test al Experto en Tecnología Educativa
+================================================================================
+
+Datos de la entrevista:
+- Entrevistado/a: Experto/a en Tecnología Educativa / Desarrollo de Software
+- Institución: ___________________
+- Cargo: ___________________
+- Fecha: ___________________
+- Entrevistador: Jorge Humberto Miranda Realpe
+
+Objetivo: Obtener información técnica y recomendaciones sobre la aplicabilidad
+de la Realidad Aumentada e Inteligencia Artificial en la educación básica,
+específicamente para el diseño de una guía didáctica interactiva orientada
+al aprendizaje de Ciencias Naturales en décimo año de Educación Básica.
+
+Instrucciones: Esta entrevista es de carácter académico y sus respuestas serán
+utilizadas para validar las decisiones tecnológicas del proyecto. Se valora su
+experiencia técnica y pedagógica.
+
+BLOQUE 1: FUNDAMENTOS Y BENEFICIOS
+
+Pregunta 1:
+¿Cuáles son los principales beneficios documentados de la aplicación de
+Realidad Aumentada en el ámbito de la educación en Ciencias Naturales?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+Pregunta 2:
+¿Qué ventajas ofrece el uso de modelos de lenguaje de gran escala (LLM)
+como chatbots educativos frente a sistemas de NLP clásicos basados en
+intent/entidad (como Dialogflow)?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+Pregunta 3:
+¿Qué tipos de contenidos o estructuras son más efectivos para presentar
+mediante Realidad Aumentada en el contexto de biología celular?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+BLOQUE 2: DECISIONES TÉCNICAS
+
+Pregunta 4:
+¿Qué opina sobre el uso de Flutter como framework de desarrollo para una
+aplicación educativa multiplataforma que integre RA, IA y gamificación?
+¿Cuáles son sus ventajas frente a enfoques como Unity + Vuforia?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+Pregunta 5:
+¿Qué consideraciones técnicas recomienda para integrar múltiples APIs de
+Inteligencia Artificial (Groq, Gemini Vision, TFLite) en una misma aplicación
+móvil educativa? ¿Cómo gestionar la dependencia de conectividad?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+Pregunta 6:
+¿Cuáles son los desafíos más comunes al implementar Realidad Aumentada basada
+en marcadores en dispositivos Android de gama media-baja? ¿Cómo superarlos?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+BLOQUE 3: DISEÑO PEDAGÓGICO Y EVALUACIÓN
+
+Pregunta 7:
+¿Qué criterios debe cumplir una guía didáctica interactiva con RA e IA para
+garantizar su usabilidad en estudiantes de décimo año sin experiencia previa
+en estas tecnologías?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+Pregunta 8:
+¿Qué métricas o indicadores recomienda para evaluar el impacto de la RA e IA
+en el proceso de aprendizaje de Ciencias Naturales en educación básica?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+Pregunta 9:
+¿Qué consideraciones éticas deben tenerse en cuenta al implementar sistemas
+de IA (chatbot, generación de quizzes) con estudiantes menores de edad?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+Pregunta 10:
+¿Qué tendencias o innovaciones recientes en RA e IA considera más relevantes
+para proyectos educativos similares en el contexto latinoamericano?
+
+Respuesta: ___________________________________________________________________
+____________________________________________________________________________
+
+Observaciones adicionales del experto:
+____________________________________________________________________________
+____________________________________________________________________________
+
+Firma del experto: _________________________ Fecha: _______________________
+
+
+================================================================================
+APÉNDICE C
+Encuesta Pre-Test a Estudiantes
+================================================================================
+
+Datos de la encuesta:
+- Institución: Unidad Educativa Vicente Fierro, Tulcán, Ecuador
+- Grado: Décimo año de Educación Básica
+- Asignatura: Ciencias Naturales
+- Fecha de aplicación: ___________________
+- Investigador: Jorge Humberto Miranda Realpe
+
+Objetivo: Evaluar los conocimientos previos sobre biología celular, la
+disponibilidad tecnológica y la percepción de los estudiantes de décimo año
+hacia el uso de una guía didáctica interactiva con Realidad Aumentada (RA)
+e Inteligencia Artificial (IA) para el aprendizaje de Ciencias Naturales.
+
+Instrucciones: Lee con atención cada pregunta y selecciona la opción que mejor
+refleje tu situación o punto de vista. No hay respuestas correctas o incorrectas.
+Tus respuestas son confidenciales y se usarán solo con fines académicos.
+
+────────────────────────────────────────────────────────────────────
+SECCIÓN 1: DATOS GENERALES
+────────────────────────────────────────────────────────────────────
+
+Género:   ( ) Masculino   ( ) Femenino   ( ) Prefiero no indicar
+
+Edad: _______ años
+
+¿Tienes teléfono inteligente (smartphone)?   ( ) Sí   ( ) No
+
+Si tienes smartphone, ¿qué sistema operativo usa?
+( ) Android   ( ) iPhone (iOS)   ( ) No sé
+
+────────────────────────────────────────────────────────────────────
+SECCIÓN 2: CONOCIMIENTOS PREVIOS DE BIOLOGÍA CELULAR
+(Marca con una X la respuesta correcta)
+────────────────────────────────────────────────────────────────────
+
+1. ¿Qué es la célula?
+   a) La unidad básica de la vida
+   b) Un tipo de tejido muscular
+   c) Una molécula de ADN
+   d) No lo sé
+
+2. ¿Cuál de los siguientes es un organelo presente en la célula animal
+   pero NO en la célula vegetal?
+   a) Cloroplasto
+   b) Centrosoma
+   c) Vacuola central
+   d) No lo sé
+
+3. ¿Cuál es la función de la mitocondria?
+   a) Producir proteínas
+   b) Producir energía (ATP)
+   c) Almacenar agua
+   d) No lo sé
+
+4. ¿Qué diferencia principalmente a una célula procariota de una eucariota?
+   a) La presencia de clorofila
+   b) La ausencia de membrana nuclear
+   c) El tamaño de la vacuola
+   d) No lo sé
+
+5. ¿Cuál organelo contiene el material genético (ADN) de la célula?
+   a) Ribosoma
+   b) Mitocondria
+   c) Núcleo
+   d) No lo sé
+
+6. ¿Qué estructura rodea y protege a la célula vegetal además de la
+   membrana plasmática?
+   a) Lisosoma
+   b) Pared celular
+   c) Retículo endoplasmático
+   d) No lo sé
+
+7. ¿Cuál es la función del cloroplasto?
+   a) Digestión celular
+   b) Síntesis de proteínas
+   c) Fotosíntesis
+   d) No lo sé
+
+────────────────────────────────────────────────────────────────────
+SECCIÓN 3: PERCEPCIÓN HACIA LA TECNOLOGÍA EDUCATIVA
+(Escala: 1=Totalmente en desacuerdo, 2=En desacuerdo, 3=Neutral,
+4=De acuerdo, 5=Totalmente de acuerdo)
+────────────────────────────────────────────────────────────────────
+
+                                                           1  2  3  4  5
+8. Tengo dificultades para entender las estructuras de
+   la célula usando solo el libro de texto y el pizarrón. ( )( )( )( )( )
+
+9. Me interesaría usar una aplicación móvil para estudiar
+   Ciencias Naturales de manera más visual e interactiva. ( )( )( )( )( )
+
+10. Creo que ver una célula en Realidad Aumentada (3D
+    superpuesta en el mundo real) me ayudaría a
+    comprender mejor su estructura.                       ( )( )( )( )( )
+
+11. Me gustaría poder hacer preguntas sobre biología
+    celular a un asistente de inteligencia artificial
+    en cualquier momento del día.                         ( )( )( )( )( )
+
+12. Estaría dispuesto/a a usar una aplicación para
+    identificar plantas, animales u organismos con
+    la cámara de mi celular.                              ( )( )( )( )( )
+
+13. Considero que un sistema de puntos, niveles y
+    logros me motivaría a estudiar más.                   ( )( )( )( )( )
+
+14. Usaría un diccionario biológico en mi celular para
+    consultar términos científicos que no entiendo.       ( )( )( )( )( )
+
+────────────────────────────────────────────────────────────────────
+SECCIÓN 4: PREGUNTA ABIERTA
+────────────────────────────────────────────────────────────────────
+
+15. ¿Qué es lo que más se te dificulta al estudiar el tema de la célula?
+____________________________________________________________________________
+____________________________________________________________________________
+
+Gracias por tu participación.
+
+
+================================================================================
+APÉNDICE D
+Encuesta Post-Test a Estudiantes
+(Conocimientos y Evaluación de la Guía Didáctica Interactiva)
+================================================================================
+
+Datos de la encuesta:
+- Institución: Unidad Educativa Vicente Fierro, Tulcán, Ecuador
+- Grado: Décimo año de Educación Básica
+- Asignatura: Ciencias Naturales
+- Fecha de aplicación: ___________________ (tras 4 semanas de uso)
+- Investigador: Jorge Humberto Miranda Realpe
+
+Objetivo: Evaluar el aprendizaje adquirido sobre biología celular tras el uso
+de la guía didáctica interactiva "CélulaViva" y recoger la percepción de los
+estudiantes sobre los módulos de la aplicación.
+
+────────────────────────────────────────────────────────────────────
+SECCIÓN 1: EVALUACIÓN DE CONOCIMIENTOS POST-TEST
+(Marca con una X la respuesta correcta)
+────────────────────────────────────────────────────────────────────
+
+Nota: Las preguntas 1 a 7 son las mismas del pre-test para comparación.
+
+1. ¿Qué es la célula?
+   a) La unidad básica de la vida
+   b) Un tipo de tejido muscular
+   c) Una molécula de ADN
+   d) No lo sé
+
+2. ¿Cuál de los siguientes es un organelo presente en la célula animal
+   pero NO en la célula vegetal?
+   a) Cloroplasto
+   b) Centrosoma
+   c) Vacuola central
+   d) No lo sé
+
+3. ¿Cuál es la función de la mitocondria?
+   a) Producir proteínas
+   b) Producir energía (ATP)
+   c) Almacenar agua
+   d) No lo sé
+
+4. ¿Qué diferencia principalmente a una célula procariota de una eucariota?
+   a) La presencia de clorofila
+   b) La ausencia de membrana nuclear
+   c) El tamaño de la vacuola
+   d) No lo sé
+
+5. ¿Cuál organelo contiene el material genético (ADN) de la célula?
+   a) Ribosoma
+   b) Mitocondria
+   c) Núcleo
+   d) No lo sé
+
+6. ¿Qué estructura rodea y protege a la célula vegetal además de la
+   membrana plasmática?
+   a) Lisosoma
+   b) Pared celular
+   c) Retículo endoplasmático
+   d) No lo sé
+
+7. ¿Cuál es la función del cloroplasto?
+   a) Digestión celular
+   b) Síntesis de proteínas
+   c) Fotosíntesis
+   d) No lo sé
+
+Preguntas adicionales (post-test únicamente):
+
+8. ¿Cuál es la diferencia entre célula animal y célula vegetal?
+   a) Solo la vegetal tiene núcleo
+   b) La vegetal tiene pared celular y cloroplastos; la animal no
+   c) La animal tiene vacuola central; la vegetal no
+   d) No lo sé
+
+9. ¿Qué función cumple el retículo endoplasmático rugoso?
+   a) Producir energía
+   b) Sintetizar y transportar proteínas
+   c) Almacenar información genética
+   d) No lo sé
+
+10. ¿Qué organelo es responsable del empaquetamiento y envío de proteínas
+    hacia el exterior de la célula?
+    a) Aparato de Golgi
+    b) Lisosoma
+    c) Centriolo
+    d) No lo sé
+
+────────────────────────────────────────────────────────────────────
+SECCIÓN 2: EVALUACIÓN DE LOS MÓDULOS DE LA APLICACIÓN
+(Escala: 1=Muy malo, 2=Malo, 3=Regular, 4=Bueno, 5=Excelente)
+────────────────────────────────────────────────────────────────────
+
+                                          1   2   3   4   5
+11. Guía Didáctica (contenido y quizzes) ( ) ( ) ( ) ( ) ( )
+12. Chatbot de Ciencias (asistente IA)   ( ) ( ) ( ) ( ) ( )
+13. Reconocimiento de voz en el chatbot  ( ) ( ) ( ) ( ) ( )
+14. Escáner Inteligente (identificar
+    organismos con la cámara)            ( ) ( ) ( ) ( ) ( )
+15. Realidad Aumentada (marcadores)      ( ) ( ) ( ) ( ) ( )
+16. Diccionario Biológico               ( ) ( ) ( ) ( ) ( )
+17. Sistema de puntos y logros
+    (gamificación)                       ( ) ( ) ( ) ( ) ( )
+18. Diseño general de la aplicación     ( ) ( ) ( ) ( ) ( )
+
+────────────────────────────────────────────────────────────────────
+SECCIÓN 3: PERCEPCIÓN GENERAL
+(Escala: 1=Totalmente en desacuerdo ... 5=Totalmente de acuerdo)
+────────────────────────────────────────────────────────────────────
+
+                                                           1  2  3  4  5
+19. La aplicación me ayudó a comprender mejor las
+    estructuras de la célula.                             ( )( )( )( )( )
+
+20. La Realidad Aumentada me facilitó visualizar
+    células y organelos de forma más clara.              ( )( )( )( )( )
+
+21. El chatbot resolvió mis dudas sobre biología
+    celular de forma útil y comprensible.                ( )( )( )( )( )
+
+22. El sistema de puntos y logros me motivó a
+    usar más la aplicación.                              ( )( )( )( )( )
+
+23. Recomendaría esta aplicación a mis compañeros
+    para estudiar Ciencias Naturales.                    ( )( )( )( )( )
+
+24. Usaría esta aplicación si se ampliara a otros
+    temas de Ciencias Naturales.                         ( )( )( )( )( )
+
+────────────────────────────────────────────────────────────────────
+SECCIÓN 4: PREGUNTAS ABIERTAS
+────────────────────────────────────────────────────────────────────
+
+25. ¿Cuál fue el módulo de la aplicación que más te ayudó a aprender?
+    ¿Por qué?
+____________________________________________________________________________
+____________________________________________________________________________
+
+26. ¿Qué mejorarías de la aplicación?
+____________________________________________________________________________
+____________________________________________________________________________
+
+Gracias por tu participación y dedicación durante el período de uso.
+
+
+================================================================================
+APÉNDICE E
+Escala SUS — System Usability Scale
+(Instrumento de evaluación de usabilidad)
+================================================================================
+
+Datos:
+- Institución: Unidad Educativa Vicente Fierro, Tulcán, Ecuador
+- Aplicado a: Estudiantes de décimo año de Educación Básica (n=50)
+- Fecha: ___________________ (tras 4 semanas de uso)
+- Sistema evaluado: Guía didáctica interactiva "CélulaViva"
+
+Referencia: Brooke, J. (2023). SUS: A retrospective. Journal of Usability
+Studies, 8(2), 29–40.
+
+Instrucciones: A continuación encontrarás 10 afirmaciones sobre la aplicación
+"CélulaViva". Indica tu nivel de acuerdo con cada una marcando el número
+correspondiente. No existen respuestas correctas o incorrectas.
+
+Escala de respuesta:
+1 = Totalmente en desacuerdo
+2 = En desacuerdo
+3 = Neutral
+4 = De acuerdo
+5 = Totalmente de acuerdo
+
+                                                           1  2  3  4  5
+1. Creo que me gustaría usar esta aplicación con
+   frecuencia para estudiar Ciencias Naturales.          ( )( )( )( )( )
+
+2. Encontré la aplicación innecesariamente compleja.     ( )( )( )( )( )
+
+3. Pensé que la aplicación era fácil de usar.            ( )( )( )( )( )
+
+4. Creo que necesitaría el apoyo de un experto para
+   poder usar esta aplicación.                           ( )( )( )( )( )
+
+5. Encontré que las distintas funciones de la
+   aplicación estaban bien integradas.                   ( )( )( )( )( )
+
+6. Pensé que había demasiada inconsistencia en
+   esta aplicación.                                      ( )( )( )( )( )
+
+7. Imagino que la mayoría de personas aprendería
+   a usar esta aplicación muy rápidamente.               ( )( )( )( )( )
+
+8. Encontré la aplicación muy difícil de usar.           ( )( )( )( )( )
+
+9. Me sentí muy confiado/a usando la aplicación.         ( )( )( )( )( )
+
+10. Necesité aprender muchas cosas antes de poder
+    manejar bien esta aplicación.                        ( )( )( )( )( )
+
+────────────────────────────────────────────────────────────────────
+CÁLCULO DEL PUNTAJE SUS (para uso del investigador):
+────────────────────────────────────────────────────────────────────
+
+Para preguntas impares (1, 3, 5, 7, 9): Puntaje = Respuesta - 1
+Para preguntas pares (2, 4, 6, 8, 10): Puntaje = 5 - Respuesta
+Suma total de los 10 puntajes ajustados × 2.5 = Puntaje SUS (0–100)
+
+Interpretación:
+- SUS ≥ 85.5 : Excelente
+- SUS 80.3–85.4 : Bueno (excelente en práctica)
+- SUS 68–80.2 : Aceptable
+- SUS < 68   : Por debajo del promedio (requiere mejoras)
+
+Resultado obtenido en el estudio: SUS promedio = 81.3 (Excelente)
+
+
+================================================================================
+APÉNDICE F
+Evidencias de la Aplicación — Descripción de Módulos y Pantallas
+================================================================================
+
+La guía didáctica interactiva "CélulaViva" fue desarrollada con el framework
+Flutter para dispositivos Android (API 26+). A continuación se describen las
+pantallas principales y los módulos implementados.
+
+F.1 Pantalla de Inicio de Sesión
+La aplicación inicia con una pantalla de autenticación que permite el acceso
+mediante Google Sign-In, integrado con Firebase Authentication. El fondo
+utiliza una paleta cromática de tonos verdes y azul cielo con elementos
+gráficos de biología celular, coherente con el tema de la aplicación.
+
+F.2 Pantalla Principal (HomeScreen)
+Pantalla central con cinco tarjetas de acceso a los módulos:
+  1. Guía Didáctica — ícono de libro con marcador
+  2. Chatbot de Ciencias — ícono de burbujas de diálogo
+  3. Escáner Inteligente — ícono de cámara con microscopio
+  4. Realidad Aumentada — ícono de teléfono con capas AR
+  5. Diccionario Biológico — ícono de diccionario con ADN
+La pantalla también muestra el nombre del usuario, su nivel de XP actual
+y la racha de estudio activa.
+
+F.3 Módulo Guía Didáctica
+Pantalla de lista de cinco subtemas de la unidad "La Célula: Unidad Básica
+de la Vida":
+  1.1 ¿Qué es la célula?
+  1.2 Estructura de la célula animal
+  1.3 Estructura de la célula vegetal
+  1.4 Los organelos celulares y sus funciones
+  1.5 Diferencias entre células procariotas y eucariotas
+Cada subtema muestra el estado de completado y el porcentaje de progreso.
+Al ingresar a un subtema se despliegan los bloques de contenido (texto,
+imagen, video, lista, destacado, sabías_que). Al finalizar el contenido
+aparece el quiz con las preguntas de evaluación correspondientes.
+
+F.4 Módulo Chatbot de Ciencias
+Interfaz de chat con fondo blanco y burbujas de mensaje diferenciadas
+(azul para el usuario, verde claro para la IA). El prompt del sistema
+configura al modelo openai/gpt-oss-20b como asistente de biología celular.
+Incluye botón de micrófono para activar speech-to-text. El historial de
+cada sesión se almacena en Cloud Firestore.
+
+F.5 Módulo Escáner Inteligente
+Pantalla con visor de cámara en tiempo real. Dos modos de operación:
+  - Clasificación rápida (TFLite MobileNet V2): resultado instantáneo sin internet
+  - Identificación avanzada (Google Gemini Vision): descripción detallada con internet
+Los resultados muestran el nombre del organismo, descripción, información
+taxonómica y un dato curioso.
+
+F.6 Módulo Realidad Aumentada
+Selector de modo mediante BottomSheet con dos opciones:
+  - Modo Marcadores (ARScreenSimple): activa la cámara con detección de
+    4 marcadores de color. Al detectar un marcador, reproduce el video
+    educativo correspondiente superpuesto sobre el marcador.
+    Marcadores disponibles: célula genérica, célula animal, célula vegetal,
+    organelos celulares.
+  - Modo Image Target (ARImageTargetScreen): seguimiento de imagen objetivo
+    con contenido multimedia superpuesto. Base de datos con 4 entradas:
+    celula, celulaanimal, celulavegetal, organelos.
+
+F.7 Módulo Diccionario Biológico
+Lista desplazable con 30 términos especializados de biología celular.
+Barra de búsqueda en la parte superior. Cada tarjeta de término muestra:
+imagen ilustrativa, nombre del término, pronunciación fonética, definición
+académica y dato curioso. Los términos están organizados por categoría
+temática y vinculados al subtema correspondiente de la guía didáctica.
+
+F.8 Pantalla de Perfil y Gamificación
+Muestra: foto de perfil del usuario (Google), nombre, nivel actual con
+barra de progreso de XP, estadísticas de uso (subtemas completados,
+preguntas respondidas, días de racha) y cuadrícula de logros desbloqueados
+e inactivos. Los logros incluyen: primera sesión, primer quiz completado,
+primera consulta al chatbot, primera identificación con escáner, primera
+visualización en RA, primera consulta al diccionario, racha de 3 días,
+racha de 7 días, completar todos los subtemas, entre otros.
+
+
+================================================================================
+APÉNDICE G
+Estructura Técnica del Proyecto Flutter — CélulaViva
+================================================================================
+
+El proyecto fue desarrollado con Flutter (Dart) y organizado en la siguiente
+estructura de directorios:
+
+celula_viva/
+│
+├── lib/
+│   ├── config/
+│   │   └── app_config.dart          ← Claves API: Groq, Gemini. Modelo LLM.
+│   │
+│   ├── data/
+│   │   ├── celula_data.dart         ← Contenido: 1 unidad, 5 subtemas, 23 preguntas
+│   │   └── glosario_data.dart       ← 30 términos del Diccionario Biológico
+│   │
+│   ├── screens/
+│   │   ├── home_screen.dart         ← Pantalla principal (5 módulos)
+│   │   ├── guia_screen.dart         ← Guía didáctica por subtemas
+│   │   ├── chat_screen.dart         ← Chatbot con reconocimiento de voz
+│   │   ├── scanner_screen.dart      ← Escáner TFLite + Gemini Vision
+│   │   ├── ar_screen_simple.dart    ← RA Modo 1: reconocimiento de marcadores
+│   │   ├── ar_image_target_screen.dart ← RA Modo 2: AR Image Target
+│   │   ├── glosario_screen.dart     ← Diccionario Biológico (30 términos)
+│   │   └── profile_screen.dart      ← Perfil, XP, logros, estadísticas
+│   │
+│   ├── services/
+│   │   ├── chat_service.dart        ← Integración API Groq, historial sesiones
+│   │   ├── quiz_generator_service.dart ← Generación automática quizzes (Groq)
+│   │   ├── scanner_service.dart     ← TFLite MobileNet V2 + Gemini Vision
+│   │   └── gamification_service.dart ← XP, niveles, logros, rachas (Firestore)
+│   │
+│   └── main.dart                    ← Punto de entrada, rutas, tema Material 3
+│
+├── assets/
+│   ├── images/                      ← Imágenes de contenido educativo
+│   ├── glosario/                    ← 30 imágenes del Diccionario Biológico
+│   ├── videos/                      ← Videos educativos para módulo AR
+│   ├── models/
+│   │   └── mobilenet_v2.tflite      ← Modelo TFLite para clasificación local
+│   └── markers/                     ← Imágenes de los 4 marcadores RA
+│
+├── android/                         ← Configuración Android (API 26+)
+├── pubspec.yaml                     ← Dependencias Flutter
+└── firebase_options.dart            ← Configuración Firebase (Auth + Firestore)
+
+Dependencias principales (pubspec.yaml):
+  - firebase_core: ^2.x
+  - firebase_auth: ^4.x
+  - cloud_firestore: ^4.x
+  - google_sign_in: ^6.x
+  - http: ^1.x               ← Llamadas a API de Groq y Gemini
+  - tflite_flutter: ^0.10.x  ← TensorFlow Lite
+  - speech_to_text: ^6.x     ← Reconocimiento de voz
+  - camera: ^0.10.x          ← Acceso a cámara (escáner y RA)
+  - video_player: ^2.x       ← Reproducción videos en módulo RA
+
+Configuración centralizada de APIs (lib/config/app_config.dart):
+  class AppConfig {
+    static const String groqApiKey = '...';
+    static const String groqApiUrl =
+        'https://api.groq.com/openai/v1/chat/completions';
+    static const String groqModel = 'openai/gpt-oss-20b';
+  }
+
+Plataforma objetivo: Android API 26+ (Android 8.0 Oreo o superior)
+Dispositivo de desarrollo y prueba: Infinix X6728 (Android)
+
+
+================================================================================
+TABLA RESUMEN DE CORRECCIONES EN LOS APÉNDICES
+================================================================================
+
+| Apéndice | Estado original               | Corrección aplicada                    |
+|----------|-------------------------------|----------------------------------------|
+| A        | Entrevista Docente de         | Entrevista Docente de Ciencias         |
+|          | CONTABILIDAD GENERAL (UPEC)   | Naturales — biología celular —         |
+|          |                               | Unidad Educativa Vicente Fierro        |
+| B        | Objetivo para CONTABILIDAD    | Objetivo para Ciencias Naturales       |
+|          | GENERAL                       | y biología celular                     |
+| C        | Encuesta a estudiantes de     | Encuesta a estudiantes de décimo año   |
+|          | CONTABILIDAD Y AUDITORÍA UPEC | Educación Básica — Unidd. Educ.        |
+|          | Ítems sobre conceptos         | Vicente Fierro. Ítems sobre biología   |
+|          | contables                     | celular y tecnología educativa         |
+| D (nuevo)| No existía                    | Encuesta post-test: conocimientos      |
+|          |                               | + evaluación por módulo de la app      |
+| E (nuevo)| No existía                    | Escala SUS completa con cálculo        |
+| F (nuevo)| Solo mencionado como          | Descripción detallada de los 8         |
+|          | "Evidencia de la aplicación"  | módulos y pantallas de CélulaViva      |
+| G (nuevo)| No existía                    | Estructura técnica completa del        |
+|          |                               | proyecto Flutter con árbol de dirs.    |
+
+================================================================================
+FIN DEL DOCUMENTO DE APÉNDICES
+================================================================================

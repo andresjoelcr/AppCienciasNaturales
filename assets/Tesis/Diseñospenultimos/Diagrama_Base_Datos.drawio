@@ -1,0 +1,186 @@
+<mxfile host="app.diagrams.net" modified="2025-01-15T10:00:00.000Z" agent="Mozilla/5.0" etag="base-datos" version="22.1.0" type="device">
+  <diagram id="diagrama-bd" name="Diagrama de Base de Datos Firestore">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- TÍTULO -->
+        <mxCell id="titulo" value="ESQUEMA DE BASE DE DATOS - FIREBASE CLOUD FIRESTORE&#xa;Modelo de Datos NoSQL Orientado a Documentos" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#1a237e;" vertex="1" parent="1">
+          <mxGeometry x="280" y="20" width="550" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ====== COLECCIÓN USERS ====== -->
+        <mxCell id="users-collection" value="📁 COLECCIÓN: users" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#fff8e1;strokeColor=#ff8f00;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="280" height="250" as="geometry" />
+        </mxCell>
+
+        <mxCell id="users-doc" value="📄 Documento: {userId}" style="text;strokeColor=#ff8f00;fillColor=#fffde7;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontStyle=1;fontSize=11;" vertex="1" parent="users-collection">
+          <mxGeometry y="30" width="280" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="users-fields" value="   uid: string (PK)&#xa;   email: string&#xa;   displayName: string&#xa;   photoURL: string | null&#xa;   createdAt: timestamp&#xa;   lastLogin: timestamp&#xa;   isActive: boolean" style="text;strokeColor=none;fillColor=#ffffff;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=10;fontFamily=Courier New;" vertex="1" parent="users-collection">
+          <mxGeometry y="55" width="280" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="users-subcolecciones" value="📂 Subcolecciones:" style="text;strokeColor=#ff8f00;fillColor=#fff3e0;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontStyle=1;fontSize=10;" vertex="1" parent="users-collection">
+          <mxGeometry y="165" width="280" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="users-sub-list" value="   → progress/&#xa;   → statistics/&#xa;   → chatHistory/&#xa;   → achievements/" style="text;strokeColor=none;fillColor=#ffffff;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=10;fontFamily=Courier New;" vertex="1" parent="users-collection">
+          <mxGeometry y="185" width="280" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- ====== SUBCOLECCIÓN PROGRESS ====== -->
+        <mxCell id="progress-collection" value="📁 users/{userId}/progress" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#e3f2fd;strokeColor=#1565c0;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="400" y="100" width="250" height="170" as="geometry" />
+        </mxCell>
+
+        <mxCell id="progress-doc" value="📄 Documento: {progressId}" style="text;strokeColor=#1565c0;fillColor=#bbdefb;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontStyle=1;fontSize=11;" vertex="1" parent="progress-collection">
+          <mxGeometry y="30" width="250" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="progress-fields" value="   progressId: string (PK)&#xa;   userId: string (FK)&#xa;   temaId: string&#xa;   subtemaId: string&#xa;   completed: boolean&#xa;   score: number (0-100)&#xa;   attempts: number&#xa;   completedAt: timestamp&#xa;   lastAccessedAt: timestamp" style="text;strokeColor=none;fillColor=#ffffff;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=10;fontFamily=Courier New;" vertex="1" parent="progress-collection">
+          <mxGeometry y="55" width="250" height="115" as="geometry" />
+        </mxCell>
+
+        <!-- ====== SUBCOLECCIÓN STATISTICS ====== -->
+        <mxCell id="statistics-collection" value="📁 users/{userId}/statistics" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#e8f5e9;strokeColor=#4caf50;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="100" width="250" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="statistics-doc" value="📄 Documento: summary" style="text;strokeColor=#4caf50;fillColor=#c8e6c9;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontStyle=1;fontSize=11;" vertex="1" parent="statistics-collection">
+          <mxGeometry y="30" width="250" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="statistics-fields" value="   totalTimeSpent: number (min)&#xa;   totalSessions: number&#xa;   quizzesCompleted: number&#xa;   quizzesPassed: number&#xa;   averageScore: number&#xa;   topicsCompleted: number&#xa;   subtopicsCompleted: number&#xa;   chatInteractions: number&#xa;   scannerUsages: number&#xa;   arSessionsCount: number&#xa;   lastActivity: timestamp" style="text;strokeColor=none;fillColor=#ffffff;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=10;fontFamily=Courier New;" vertex="1" parent="statistics-collection">
+          <mxGeometry y="55" width="250" height="145" as="geometry" />
+        </mxCell>
+
+        <!-- ====== SUBCOLECCIÓN CHAT HISTORY ====== -->
+        <mxCell id="chat-collection" value="📁 users/{userId}/chatHistory" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#f3e5f5;strokeColor=#9c27b0;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="380" width="280" height="220" as="geometry" />
+        </mxCell>
+
+        <mxCell id="chat-doc" value="📄 Documento: {chatId}" style="text;strokeColor=#9c27b0;fillColor=#e1bee7;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontStyle=1;fontSize=11;" vertex="1" parent="chat-collection">
+          <mxGeometry y="30" width="280" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="chat-fields" value="   chatId: string (PK)&#xa;   userId: string (FK)&#xa;   title: string&#xa;   topic: string&#xa;   messages: array [&#xa;      {&#xa;         role: 'user' | 'assistant'&#xa;         content: string&#xa;         timestamp: timestamp&#xa;      }&#xa;   ]&#xa;   createdAt: timestamp&#xa;   updatedAt: timestamp&#xa;   messageCount: number" style="text;strokeColor=none;fillColor=#ffffff;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=10;fontFamily=Courier New;" vertex="1" parent="chat-collection">
+          <mxGeometry y="55" width="280" height="165" as="geometry" />
+        </mxCell>
+
+        <!-- ====== SUBCOLECCIÓN ACHIEVEMENTS ====== -->
+        <mxCell id="achievements-collection" value="📁 users/{userId}/achievements" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#fce4ec;strokeColor=#e91e63;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="400" y="310" width="250" height="170" as="geometry" />
+        </mxCell>
+
+        <mxCell id="achievements-doc" value="📄 Documento: {achievementId}" style="text;strokeColor=#e91e63;fillColor=#f8bbd9;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontStyle=1;fontSize=11;" vertex="1" parent="achievements-collection">
+          <mxGeometry y="30" width="250" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="achievements-fields" value="   achievementId: string (PK)&#xa;   userId: string (FK)&#xa;   type: string&#xa;   title: string&#xa;   description: string&#xa;   icon: string&#xa;   unlockedAt: timestamp&#xa;   progress: number (0-100)" style="text;strokeColor=none;fillColor=#ffffff;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=10;fontFamily=Courier New;" vertex="1" parent="achievements-collection">
+          <mxGeometry y="55" width="250" height="115" as="geometry" />
+        </mxCell>
+
+        <!-- ====== COLECCIÓN CONTENT (Opcional) ====== -->
+        <mxCell id="content-collection" value="📁 COLECCIÓN: content (opcional)" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#e0f7fa;strokeColor=#00838f;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="340" width="280" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="content-doc" value="📄 Documento: {temaId}" style="text;strokeColor=#00838f;fillColor=#b2ebf2;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontStyle=1;fontSize=11;" vertex="1" parent="content-collection">
+          <mxGeometry y="30" width="280" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="content-fields" value="   temaId: string (PK)&#xa;   titulo: string&#xa;   descripcion: string&#xa;   orden: number&#xa;   subtemas: array [&#xa;      {&#xa;         subtemaId: string&#xa;         titulo: string&#xa;         contenido: string&#xa;         imagenes: array[string]&#xa;         videoUrl: string | null&#xa;      }&#xa;   ]&#xa;   quizzes: array[Quiz]" style="text;strokeColor=none;fillColor=#ffffff;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=10;fontFamily=Courier New;" vertex="1" parent="content-collection">
+          <mxGeometry y="55" width="280" height="145" as="geometry" />
+        </mxCell>
+
+        <!-- ====== RELACIONES ====== -->
+        <mxCell id="rel1" value="1:N" style="endArrow=ERmany;startArrow=ERone;html=1;strokeWidth=2;strokeColor=#1565c0;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="180" as="sourcePoint" />
+            <mxPoint x="400" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="rel2" value="1:1" style="endArrow=ERone;startArrow=ERone;html=1;strokeWidth=2;strokeColor=#4caf50;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="180" as="sourcePoint" />
+            <mxPoint x="700" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="rel3" value="1:N" style="endArrow=ERmany;startArrow=ERone;html=1;strokeWidth=2;strokeColor=#9c27b0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="350" as="sourcePoint" />
+            <mxPoint x="180" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="rel4" value="1:N" style="endArrow=ERmany;startArrow=ERone;html=1;strokeWidth=2;strokeColor=#e91e63;exitX=1;exitY=0.7;entryX=0;entryY=0.3;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="280" as="sourcePoint" />
+            <mxPoint x="400" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ====== LEYENDA ====== -->
+        <mxCell id="leyenda-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#9e9e9e;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="620" width="940" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leyenda-title" value="LEYENDA" style="text;html=1;strokeColor=none;fillColor=#424242;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="50" y="630" width="80" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff8e1;strokeColor=#ff8f00;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="660" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1-text" value="Colección principal" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="75" y="655" width="100" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="180" y="660" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2-text" value="Subcolección" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="205" y="655" width="80" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg3" value="PK" style="text;html=1;strokeColor=none;fillColor=#ffeb3b;align=center;verticalAlign=middle;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="660" width="25" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3-text" value="Primary Key" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="655" width="70" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg4" value="FK" style="text;html=1;strokeColor=none;fillColor=#ce93d8;align=center;verticalAlign=middle;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="660" width="25" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4-text" value="Foreign Key" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="430" y="655" width="70" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg5" value="1:N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="660" width="30" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5-text" value="Relación uno a muchos" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="545" y="655" width="130" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg6" value="1:1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="660" width="30" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg6-text" value="Relación uno a uno" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="715" y="655" width="110" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="info-text" value="Nota: Firebase Cloud Firestore es una base de datos NoSQL orientada a documentos. Las colecciones contienen documentos, y los documentos pueden contener subcolecciones.&#xa;Los datos locales (contenido educativo, quizzes) se almacenan en assets/ y se cargan con CelulaData." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=2;fontColor=#616161;" vertex="1" parent="1">
+          <mxGeometry x="50" y="685" width="920" height="30" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

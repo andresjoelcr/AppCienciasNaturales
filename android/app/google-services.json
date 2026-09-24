@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "327962077758",
+    "firebase_url": "https://cienciasnaturales-f5577-default-rtdb.firebaseio.com",
+    "project_id": "cienciasnaturales-f5577",
+    "storage_bucket": "cienciasnaturales-f5577.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327962077758:android:012cd9c881d3cfe02e3f6f",
+        "android_client_info": {
+          "package_name": "com.example.mi_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "327962077758-4v844udsj9sg2okfv532f52k40uage6b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeXi5DAXN1BfnOSzy0cUPYoL9aJPXfqwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "327962077758-4v844udsj9sg2okfv532f52k40uage6b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

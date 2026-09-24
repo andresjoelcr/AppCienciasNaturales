@@ -1,0 +1,278 @@
+<mxfile host="app.diagrams.net" modified="2024-01-15T10:00:00.000Z" agent="Claude AI" version="22.1.0" type="device">
+  <diagram name="Arquitectura IA Multi-Modelo" id="arquitectura-ia">
+    <mxGraphModel dx="1100" dy="750" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Título -->
+        <mxCell id="title" value="Figura 2. Arquitectura de Inteligencia Artificial Multi-Modelo" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#1a1a1a;" parent="1" vertex="1">
+          <mxGeometry x="220" y="15" width="450" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Usuario -->
+        <mxCell id="user" value="Usuario&#xa;(Estudiante)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="40" y="250" width="40" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Tipos de entrada -->
+        <mxCell id="input-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="220" width="100" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="input-label" value="Entrada" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="125" y="225" width="50" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="text-in" value="Texto" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="115" y="245" width="70" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="voice-in" value="Voz (STT)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="115" y="275" width="70" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="image-in" value="Imagen" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="115" y="305" width="70" height="25" as="geometry"/>
+        </mxCell>
+
+        <!-- Flecha a subsistemas -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="285" as="sourcePoint"/>
+            <mxPoint x="240" y="285" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- SUBSISTEMAS DE IA -->
+        <mxCell id="subsystems" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="240" y="60" width="340" height="480" as="geometry"/>
+        </mxCell>
+        <mxCell id="sub-label" value="SUBSISTEMAS DE IA" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="70" width="140" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- Subsistema 1: Chatbot -->
+        <mxCell id="chatbot-sys" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="260" y="100" width="300" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="chat-label" value="1. CHATBOT EDUCATIVO" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontStyle=1;fontColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="335" y="105" width="150" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="chat-context" value="GuiaContextService&#xa;(Inyección de Contexto)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#82b366;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="275" y="125" width="100" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="chat-prompt" value="Prompt Engineering&#xa;+ Restricción Dominio" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#82b366;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="385" y="125" width="100" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="chat-features" value="Tutoría conversacional | Respuestas ancladas en currículo | Speech-to-Text" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=7;" parent="1" vertex="1">
+          <mxGeometry x="275" y="165" width="270" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="chat-model" value="LLaMA 3.3 70B" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="495" y="128" width="55" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Subsistema 2: Quiz Generator -->
+        <mxCell id="quiz-sys" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="260" y="225" width="300" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="quiz-label" value="2. GENERACIÓN DE QUIZZES" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontStyle=1;fontColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="325" y="230" width="170" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="quiz-content" value="Recuperación&#xa;de Contenido" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#d6b656;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="275" y="250" width="75" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="quiz-prompt" value="Prompt&#xa;Estructurado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#d6b656;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="360" y="250" width="70" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="quiz-parse" value="Parsing&#xa;JSON" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#d6b656;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="440" y="250" width="55" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="quiz-features" value="Dificultad configurable | Preguntas variadas | Explicaciones formativas" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=7;" parent="1" vertex="1">
+          <mxGeometry x="275" y="290" width="270" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="quiz-model" value="LLaMA 3.3 70B" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="495" y="253" width="55" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Subsistema 3: Image Recognition -->
+        <mxCell id="scanner-sys" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="260" y="350" width="300" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="scanner-label" value="3. RECONOCIMIENTO DE IMÁGENES" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontStyle=1;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="310" y="355" width="200" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="stage1" value="Etapa 1: Gemini&#xa;Vision (Primario)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="275" y="380" width="85" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="stage2" value="Etapa 2: TFLite&#xa;MobileNet (Local)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="370" y="380" width="85" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="stage3" value="Etapa 3: LLaMA&#xa;Descripciones" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="465" y="380" width="85" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="arrow-s1" value="" style="endArrow=classic;html=1;strokeColor=#666666;fontSize=8;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="360" y="400" as="sourcePoint"/>
+            <mxPoint x="370" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-s2" value="" style="endArrow=classic;html=1;strokeColor=#666666;fontSize=8;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="455" y="400" as="sourcePoint"/>
+            <mxPoint x="465" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="fallback-label" value="Fallback" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=7;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="355" y="420" width="35" height="10" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="scanner-features" value="Degradación elegante | Identificación multimodal | Traducción ES | Descripciones educativas" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=7;" parent="1" vertex="1">
+          <mxGeometry x="275" y="430" width="280" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="models-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#b85450;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="275" y="450" width="275" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="models-label" value="Modelos:" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=8;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="280" y="455" width="50" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="gemini-m" value="Gemini 1.5 Flash" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=7;" parent="1" vertex="1">
+          <mxGeometry x="285" y="470" width="70" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="mobilenet-m" value="MobileNet V2" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=7;" parent="1" vertex="1">
+          <mxGeometry x="365" y="470" width="65" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="llama-m" value="LLaMA 3.3 70B" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=7;" parent="1" vertex="1">
+          <mxGeometry x="440" y="470" width="70" height="25" as="geometry"/>
+        </mxCell>
+
+        <!-- Servicios Cloud -->
+        <mxCell id="cloud-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="620" y="60" width="140" height="230" as="geometry"/>
+        </mxCell>
+        <mxCell id="cloud-label" value="SERVICIOS CLOUD" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontStyle=1;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="635" y="70" width="110" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="groq-api" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="635" y="95" width="110" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="groq-label" value="Groq API" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="660" y="100" width="60" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="llama-icon" value="LLaMA 3.3&#xa;70B" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="655" y="120" width="70" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="gemini-api" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="635" y="185" width="110" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="gemini-label" value="Google AI" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="660" y="190" width="60" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="gemini-icon" value="Gemini 1.5&#xa;Flash" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="655" y="210" width="70" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- On-Device -->
+        <mxCell id="device-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="620" y="310" width="140" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="device-label" value="ON-DEVICE ML" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontStyle=1;fontColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="645" y="320" width="90" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="tflite-icon" value="TensorFlow Lite&#xa;MobileNet V2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#d79b00;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="640" y="345" width="100" height="45" as="geometry"/>
+        </mxCell>
+
+        <!-- Conexiones -->
+        <mxCell id="conn1" value="" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=1;strokeColor=#666666;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="560" y="150" as="sourcePoint"/>
+            <mxPoint x="635" y="150" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn2" value="" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=1;strokeColor=#666666;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="560" y="275" as="sourcePoint"/>
+            <mxPoint x="635" y="200" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn3" value="" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=1;strokeColor=#666666;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="560" y="400" as="sourcePoint"/>
+            <mxPoint x="635" y="360" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Salidas -->
+        <mxCell id="output-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6e6e6;strokeColor=#666666;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="620" y="430" width="140" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="output-label" value="SALIDAS" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="660" y="438" width="60" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="out1" value="Respuestas&#xa;Educativas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="635" y="460" width="55" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="out2" value="Quizzes&#xa;Generados" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="695" y="460" width="55" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="out3" value="Identificaciones&#xa;Visuales" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="635" y="500" width="115" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Leyenda -->
+        <mxCell id="legend" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#999999;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="560" width="720" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg-title" value="LEYENDA:" style="text;html=1;strokeColor=none;fillColor=none;fontSize=9;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="570" width="55" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="l1" value="" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="110" y="572" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1t" value="Chatbot" style="text;html=1;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="125" y="570" width="45" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="l2" value="" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="175" y="572" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2t" value="Quiz Gen" style="text;html=1;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="190" y="570" width="50" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="l3" value="" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="245" y="572" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3t" value="Scanner" style="text;html=1;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="260" y="570" width="45" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="l4" value="" style="ellipse;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="310" y="572" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4t" value="LLM" style="text;html=1;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="325" y="570" width="30" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="l5" value="" style="rounded=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="360" y="572" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="l5t" value="ML Local" style="text;html=1;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="375" y="570" width="45" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="l6" value="" style="ellipse;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="425" y="572" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="l6t" value="Vision Model" style="text;html=1;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="440" y="570" width="60" height="15" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,591 @@
+<mxfile host="app.diagrams.net" modified="2026-04-02T00:00:00.000Z" agent="Claude" version="24.0.0" type="device">
+  <diagram name="Arquitectura IA - Congreso Educación" id="congreso-ia-arch">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="850" math="0" shadow="1">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ================================================================
+             TÍTULO
+        ================================================================ -->
+        <mxCell id="titulo" value="Arquitectura de Inteligencia Artificial — Aplicación Móvil Educativa de Ciencias Naturales"
+          style="text;html=1;align=center;verticalAlign=middle;fontSize=17;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#1B3A4B;"
+          vertex="1" parent="1">
+          <mxGeometry x="80" y="12" width="1240" height="36" as="geometry"/>
+        </mxCell>
+
+        <!-- ================================================================
+             PANEL IZQUIERDO: ESTUDIANTE
+        ================================================================ -->
+        <mxCell id="panel-student" value=""
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=3;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="20" y="60" width="170" height="700" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lbl-student" value="ESTUDIANTE"
+          style="text;html=1;align=center;fontSize=13;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#1B5E20;"
+          vertex="1" parent="1">
+          <mxGeometry x="20" y="68" width="170" height="22" as="geometry"/>
+        </mxCell>
+
+        <!-- Icono persona (círculo + rect) -->
+        <mxCell id="person-head" value=""
+          style="ellipse;fillColor=#2E7D32;strokeColor=#1B5E20;strokeWidth=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="82" y="98" width="46" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="person-body" value=""
+          style="rounded=1;fillColor=#2E7D32;strokeColor=#1B5E20;strokeWidth=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="72" y="148" width="66" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Entradas del estudiante -->
+        <mxCell id="sec-entrada" value="ENTRADAS"
+          style="text;html=1;align=center;fontSize=11;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#2E7D32;"
+          vertex="1" parent="1">
+          <mxGeometry x="30" y="212" width="150" height="18" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="in-texto" value="💬  Texto escrito"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="30" y="236" width="150" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="in-voz" value="🎤  Voz (Speech-to-Text)"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="30" y="280" width="150" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="in-imagen" value="📷  Fotografía"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="30" y="324" width="150" height="36" as="geometry"/>
+        </mxCell>
+
+        <!-- Resultados al estudiante -->
+        <mxCell id="sec-salida" value="RESULTADOS"
+          style="text;html=1;align=center;fontSize=11;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#2E7D32;"
+          vertex="1" parent="1">
+          <mxGeometry x="30" y="390" width="150" height="18" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="out-resp" value="✅  Respuestas&#xa;personalizadas"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="30" y="414" width="150" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="out-quiz" value="📝  Evaluaciones&#xa;adaptativas"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="30" y="462" width="150" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="out-scan" value="🔬  Identificación&#xa;de organismos"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="30" y="510" width="150" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="out-xp" value="🏆  XP · Logros · Racha"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="30" y="558" width="150" height="36" as="geometry"/>
+        </mxCell>
+
+        <!-- Flecha bidireccional estudiante <-> app -->
+        <mxCell id="arrow-student-app" value="interacción"
+          style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;startArrow=classic;startFill=1;endFill=1;strokeWidth=3;strokeColor=#2E7D32;fontSize=10;fontColor=#2E7D32;align=center;"
+          edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="380" as="sourcePoint"/>
+            <mxPoint x="230" y="380" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ================================================================
+             PANEL CENTRAL: APP MÓVIL FLUTTER
+        ================================================================ -->
+        <mxCell id="panel-app" value=""
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#424242;strokeWidth=3;arcSize=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="220" y="60" width="680" height="700" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lbl-app" value="📱   APP MÓVIL  —  Flutter (Android · iOS)"
+          style="text;html=1;align=center;fontSize=14;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#212121;"
+          vertex="1" parent="1">
+          <mxGeometry x="220" y="68" width="680" height="24" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================
+             MÓDULO 1: CHATBOT EDUCATIVO
+        ============================================================ -->
+        <mxCell id="mod-chatbot" value=""
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#388E3C;strokeWidth=2;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="232" y="104" width="210" height="380" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lbl-chat-icon" value="💬"
+          style="text;html=1;align=center;fontSize=34;fillColor=none;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="302" y="110" width="70" height="44" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lbl-chatbot" value="CHATBOT EDUCATIVO"
+          style="text;html=1;align=center;fontSize=12;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#1B5E20;"
+          vertex="1" parent="1">
+          <mxGeometry x="232" y="154" width="210" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="chat-desc" value="Tutor conversacional especializado&#xa;en Ciencias Naturales"
+          style="text;html=1;align=center;fontSize=10;fillColor=none;strokeColor=none;fontColor=#2E7D32;"
+          vertex="1" parent="1">
+          <mxGeometry x="232" y="176" width="210" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="chat-feat" value="• Responde en español (texto y voz)&#xa;• Contexto inyectado desde la guía&#xa;• Restringe temas a Ciencias Nat.&#xa;• Guarda historial en la nube&#xa;• Reconoce logros por preguntas"
+          style="text;html=1;align=left;fontSize=10;fillColor=#FFFFFF;strokeColor=#388E3C;rounded=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="242" y="212" width="190" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="chat-prompt-box" value="Prompt Engineering&#xa;+ Inyección de Guía Didáctica"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;fontSize=10;fontStyle=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="242" y="312" width="190" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="chat-model-badge" value="🧠  LLaMA 3.3 70B  (Groq API)"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#6A1B9A;fontSize=11;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="242" y="362" width="190" height="36" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="chat-tech" value="GuiaContextService • SpeechToText • Firestore"
+          style="text;html=1;align=center;fontSize=8;fontColor=#555555;fillColor=none;strokeColor=none;fontStyle=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="232" y="404" width="210" height="16" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================
+             MÓDULO 2: GENERADOR DE QUIZZES
+        ============================================================ -->
+        <mxCell id="mod-quiz" value=""
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;strokeWidth=2;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="458" y="104" width="210" height="380" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lbl-quiz-icon" value="📝"
+          style="text;html=1;align=center;fontSize=34;fillColor=none;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="528" y="110" width="70" height="44" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lbl-quiz" value="GENERADOR DE QUIZZES"
+          style="text;html=1;align=center;fontSize=12;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#7D5E00;"
+          vertex="1" parent="1">
+          <mxGeometry x="458" y="154" width="210" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="quiz-desc" value="Evaluaciones dinámicas generadas&#xa;por IA sobre cada subtema"
+          style="text;html=1;align=center;fontSize=10;fillColor=none;strokeColor=none;fontColor=#F57F17;"
+          vertex="1" parent="1">
+          <mxGeometry x="458" y="176" width="210" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="quiz-feat" value="• 3 niveles de dificultad&#xa;• Número configurable (3-10 Qs)&#xa;• Preguntas variadas (def./aplic.)&#xa;• Distractores plausibles&#xa;• Retroalimentación formativa"
+          style="text;html=1;align=left;fontSize=10;fillColor=#FFFFFF;strokeColor=#F9A825;rounded=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="468" y="212" width="190" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="quiz-prompt-box" value="Prompt estructurado (JSON)&#xa;temperatura 0.7 · max 2500 tokens"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontSize=10;fontStyle=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="468" y="312" width="190" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="quiz-model-badge" value="🧠  LLaMA 3.3 70B  (Groq API)"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#6A1B9A;fontSize=11;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="468" y="362" width="190" height="36" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="quiz-tech" value="QuizGeneratorService • GuiaContextService • Firestore"
+          style="text;html=1;align=center;fontSize=8;fontColor=#555555;fillColor=none;strokeColor=none;fontStyle=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="458" y="404" width="210" height="16" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================
+             MÓDULO 3: ESCÁNER DE IMÁGENES
+        ============================================================ -->
+        <mxCell id="mod-scanner" value=""
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#C62828;strokeWidth=2;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="684" y="104" width="204" height="380" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lbl-scan-icon" value="🔍"
+          style="text;html=1;align=center;fontSize=34;fillColor=none;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="752" y="110" width="68" height="44" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lbl-scanner" value="ESCÁNER DE IMÁGENES"
+          style="text;html=1;align=center;fontSize=12;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#7F0000;"
+          vertex="1" parent="1">
+          <mxGeometry x="684" y="154" width="204" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="scan-desc" value="Identificación de seres vivos&#xa;con 3 modelos en cascada"
+          style="text;html=1;align=center;fontSize=10;fillColor=none;strokeColor=none;fontColor=#C62828;"
+          vertex="1" parent="1">
+          <mxGeometry x="684" y="176" width="204" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- 3 etapas cascada -->
+        <mxCell id="stage1-box" value="① Gemini 1.5 Flash (Primario)&#xa;Nombre común · científico · hábitat"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=10;"
+          vertex="1" parent="1">
+          <mxGeometry x="694" y="212" width="184" height="46" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="arrow-s12" value="sin red →"
+          style="text;html=1;align=center;fontSize=9;fontColor=#B71C1C;fillColor=none;strokeColor=none;fontStyle=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="694" y="260" width="184" height="16" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="stage2-box" value="② MobileNet V2 (Local · TFLite)&#xa;Clasificación sin conexión"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#E65100;fontSize=10;"
+          vertex="1" parent="1">
+          <mxGeometry x="694" y="278" width="184" height="46" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="arrow-s23" value="descripción →"
+          style="text;html=1;align=center;fontSize=9;fontColor=#B71C1C;fillColor=none;strokeColor=none;fontStyle=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="694" y="326" width="184" height="16" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="stage3-box" value="③ LLaMA 3.3 70B (Groq)&#xa;Genera descripción educativa"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#6A1B9A;fontSize=10;"
+          vertex="1" parent="1">
+          <mxGeometry x="694" y="344" width="184" height="46" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="scan-tech" value="ScannerService • Gemini API • TFLite • Groq"
+          style="text;html=1;align=center;fontSize=8;fontColor=#555555;fillColor=none;strokeColor=none;fontStyle=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="684" y="396" width="204" height="16" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================
+             GAMIFICACIÓN (barra inferior dentro del app)
+        ============================================================ -->
+        <mxCell id="gamif-bg" value=""
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=2;arcSize=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="232" y="504" width="662" height="84" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="gamif-title" value="🏆   SISTEMA DE GAMIFICACIÓN"
+          style="text;html=1;align=center;fontSize=13;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#0D47A1;"
+          vertex="1" parent="1">
+          <mxGeometry x="232" y="510" width="662" height="22" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="gam-xp" value="⭐ XP y Niveles"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="242" y="536" width="140" height="36" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="gam-badges" value="🏅 Logros / Badges"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="396" y="536" width="150" height="36" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="gam-streak" value="🔥 Racha de estudio"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="560" y="536" width="152" height="36" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="gam-progress" value="📊 Progreso por subtema"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="726" y="536" width="158" height="36" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================
+             FIREBASE (barra inferior 2 dentro del app)
+        ============================================================ -->
+        <mxCell id="firebase-bg" value=""
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;strokeWidth=2;arcSize=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="232" y="602" width="662" height="146" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="firebase-title" value="🔥   FIREBASE  (Google Cloud)"
+          style="text;html=1;align=center;fontSize=13;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#BF360C;"
+          vertex="1" parent="1">
+          <mxGeometry x="232" y="608" width="662" height="22" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="fb-auth" value="🔐  Authentication&#xa;Google Sign-In"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="242" y="634" width="195" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="fb-firestore" value="🗄️  Cloud Firestore&#xa;Progreso · Chat · Logros"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="451" y="634" width="220" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="fb-analytics" value="📈  Estadísticas&#xa;Quizzes · Rachas · XP"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="685" y="634" width="199" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- ================================================================
+             PANEL DERECHO: MODELOS DE IA EXTERNOS
+        ================================================================ -->
+        <mxCell id="panel-ai" value=""
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;strokeWidth=3;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="930" y="60" width="240" height="700" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lbl-ai" value="MODELOS DE IA"
+          style="text;html=1;align=center;fontSize=13;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#4A148C;"
+          vertex="1" parent="1">
+          <mxGeometry x="930" y="68" width="240" height="22" as="geometry"/>
+        </mxCell>
+
+        <!-- GROQ API -->
+        <mxCell id="groq-box" value=""
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#6A1B9A;strokeWidth=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="944" y="100" width="212" height="220" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="groq-logo" value="GROQ API"
+          style="text;html=1;align=center;fontSize=15;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#4A148C;"
+          vertex="1" parent="1">
+          <mxGeometry x="944" y="108" width="212" height="26" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="llama-badge" value="🧠  LLaMA 3.3 70B"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#6A1B9A;fontSize=13;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="960" y="142" width="180" height="36" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="groq-uses" value="Usos en la app:"
+          style="text;html=1;align=left;fontSize=10;fontStyle=1;fillColor=none;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="960" y="186" width="180" height="16" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="groq-use1" value="💬 Chatbot educativo"
+          style="text;html=1;align=left;fontSize=10;fillColor=none;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="964" y="204" width="180" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="groq-use2" value="📝 Generación de quizzes"
+          style="text;html=1;align=left;fontSize=10;fillColor=none;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="964" y="222" width="180" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="groq-use3" value="🔬 Descripciones educativas"
+          style="text;html=1;align=left;fontSize=10;fillColor=none;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="964" y="240" width="180" height="16" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="groq-params" value="temp 0.3–0.7 · ctx completo"
+          style="text;html=1;align=center;fontSize=9;fontColor=#6A1B9A;fillColor=none;strokeColor=none;fontStyle=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="944" y="262" width="212" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="groq-note" value="✦ Alta velocidad de inferencia&#xa;✦ Óptimo para respuestas en tiempo real"
+          style="text;html=1;align=center;fontSize=9;fillColor=none;strokeColor=none;fontColor=#4A148C;"
+          vertex="1" parent="1">
+          <mxGeometry x="944" y="280" width="212" height="32" as="geometry"/>
+        </mxCell>
+
+        <!-- Flecha App → Groq -->
+        <mxCell id="arr-app-groq" value="petición LLM"
+          style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;startArrow=classic;startFill=1;endFill=1;strokeWidth=2;strokeColor=#6A1B9A;fontSize=9;fontColor=#6A1B9A;"
+          edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="210" as="sourcePoint"/>
+            <mxPoint x="944" y="210" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- GOOGLE AI / GEMINI -->
+        <mxCell id="gemini-box" value=""
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="944" y="340" width="212" height="170" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="gemini-logo" value="GOOGLE AI"
+          style="text;html=1;align=center;fontSize=15;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#0D47A1;"
+          vertex="1" parent="1">
+          <mxGeometry x="944" y="348" width="212" height="26" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="gemini-badge" value="⚡  Gemini 1.5 Flash"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90CAF9;strokeColor=#1565C0;fontSize=13;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="960" y="380" width="180" height="36" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="gemini-use" value="🔍 Identificación visual multimodal&#xa;→ imagen + texto en un solo modelo&#xa;temp 0.2 · max 500 tokens"
+          style="text;html=1;align=center;fontSize=10;fillColor=none;strokeColor=none;fontColor=#0D47A1;"
+          vertex="1" parent="1">
+          <mxGeometry x="944" y="422" width="212" height="52" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="gemini-note" value="✦ Primario para reconocimiento&#xa;✦ Fallback: MobileNet V2 (local)"
+          style="text;html=1;align=center;fontSize=9;fillColor=none;strokeColor=none;fontColor=#1565C0;"
+          vertex="1" parent="1">
+          <mxGeometry x="944" y="476" width="212" height="26" as="geometry"/>
+        </mxCell>
+
+        <!-- Flecha App → Gemini -->
+        <mxCell id="arr-app-gemini" value="imagen + prompt"
+          style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;startArrow=classic;startFill=1;endFill=1;strokeWidth=2;strokeColor=#1565C0;fontSize=9;fontColor=#1565C0;"
+          edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="420" as="sourcePoint"/>
+            <mxPoint x="944" y="420" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- TFLITE ON-DEVICE -->
+        <mxCell id="tflite-box" value=""
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#F57F17;strokeWidth=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="944" y="528" width="212" height="130" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="tflite-logo" value="ON-DEVICE ML"
+          style="text;html=1;align=center;fontSize=13;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#E65100;"
+          vertex="1" parent="1">
+          <mxGeometry x="944" y="536" width="212" height="22" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="tflite-badge" value="🤖  MobileNet V2 (TFLite)"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE082;strokeColor=#F57F17;fontSize=12;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="960" y="564" width="180" height="34" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="tflite-desc" value="Clasificación local sin internet&#xa;Entrada: 224×224 px · 1000 clases&#xa;✦ Garantiza disponibilidad offline"
+          style="text;html=1;align=center;fontSize=9;fillColor=none;strokeColor=none;fontColor=#E65100;"
+          vertex="1" parent="1">
+          <mxGeometry x="944" y="602" width="212" height="46" as="geometry"/>
+        </mxCell>
+
+        <!-- Flecha App → TFLite -->
+        <mxCell id="arr-app-tflite" value="fallback local"
+          style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;startArrow=classic;startFill=1;endFill=1;strokeWidth=2;strokeColor=#F57F17;fontSize=9;fontColor=#F57F17;"
+          edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="590" as="sourcePoint"/>
+            <mxPoint x="944" y="590" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ================================================================
+             LEYENDA INFERIOR
+        ================================================================ -->
+        <mxCell id="legend-bg" value=""
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#90A4AE;dashed=1;strokeWidth=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="20" y="778" width="1150" height="46" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="leg-t" value="LEYENDA:"
+          style="text;html=1;align=left;fontSize=10;fontStyle=1;fillColor=none;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="30" y="790" width="70" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="l1c" value="" style="rounded=1;fillColor=#E8F5E9;strokeColor=#388E3C;" vertex="1" parent="1">
+          <mxGeometry x="108" y="793" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1t" value="Chatbot" style="text;html=1;fontSize=9;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="126" y="790" width="60" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="l2c" value="" style="rounded=1;fillColor=#FFFDE7;strokeColor=#F9A825;" vertex="1" parent="1">
+          <mxGeometry x="196" y="793" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2t" value="Quiz Gen" style="text;html=1;fontSize=9;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="214" y="790" width="60" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="l3c" value="" style="rounded=1;fillColor=#FCE4EC;strokeColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="284" y="793" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3t" value="Escáner" style="text;html=1;fontSize=9;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="302" y="790" width="60" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="l4c" value="" style="rounded=1;fillColor=#EDE7F6;strokeColor=#6A1B9A;" vertex="1" parent="1">
+          <mxGeometry x="372" y="793" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4t" value="LLM (LLaMA)" style="text;html=1;fontSize=9;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="390" y="790" width="80" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="l5c" value="" style="rounded=1;fillColor=#E3F2FD;strokeColor=#1565C0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="793" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="l5t" value="Vision (Gemini)" style="text;html=1;fontSize=9;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="498" y="790" width="90" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="l6c" value="" style="rounded=1;fillColor=#FFF8E1;strokeColor=#F57F17;" vertex="1" parent="1">
+          <mxGeometry x="598" y="793" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="l6t" value="ML Local (TFLite)" style="text;html=1;fontSize=9;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="616" y="790" width="100" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="l7c" value="" style="rounded=1;fillColor=#FFF3E0;strokeColor=#E65100;" vertex="1" parent="1">
+          <mxGeometry x="726" y="793" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="l7t" value="Firebase (Google)" style="text;html=1;fontSize=9;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="744" y="790" width="100" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="l8c" value="" style="rounded=1;fillColor=#E8F5E9;strokeColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="854" y="793" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="l8t" value="Estudiante / Resultados" style="text;html=1;fontSize=9;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="872" y="790" width="130" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="leg-note" value="Miranda et al., 2026  ·  ARTMIS4TEL"
+          style="text;html=1;align=right;fontSize=9;fontStyle=2;fontColor=#777777;fillColor=none;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="1020" y="790" width="240" height="20" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

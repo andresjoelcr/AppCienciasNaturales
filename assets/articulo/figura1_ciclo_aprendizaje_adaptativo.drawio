@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-01-15T10:00:00.000Z" agent="Mozilla/5.0" version="22.1.0" type="device">
+  <diagram name="Figura 1 - Ciclo Aprendizaje Adaptativo" id="ciclo-aprendizaje-mi-app">
+    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="650" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Título Principal -->
+        <mxCell id="titulo" value="Navegando la Toma de Decisiones con Agentes y Entornos" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="175" y="20" width="500" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- POLICY & VALUE FUNCTION (Arriba Izquierda) -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <mxCell id="policy_container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#388e3c;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="70" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="policy_title" value="Política y Función de Valor" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="90" y="75" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="policy_desc" value="La estrategia y predicciones&#xa;que guían al agente" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="90" y="95" width="180" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Icono TensorFlow + Google AI -->
+        <mxCell id="policy_icon1" value="TensorFlow Lite" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="95" y="130" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="policy_icon2" value="Google Gen AI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="185" y="130" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="policy_desc2" value="Clasificación de células + Respuestas del chatbot" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=8;fontColor=#616161;" vertex="1" parent="1">
+          <mxGeometry x="90" y="158" width="180" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- META-AGENTE IA (Arriba Derecha) -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <mxCell id="meta_container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1976d2;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="570" y="70" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="meta_title" value="Meta-Agente IA" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="580" y="75" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="meta_desc" value="Toma de decisiones con&#xa;SMA y Enrutador Inteligente" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="580" y="95" width="180" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Servicios del Meta-Agente -->
+        <mxCell id="meta_s1" value="ScannerService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="580" y="128" width="85" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="meta_s2" value="ChatService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="675" y="128" width="85" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="meta_s3" value="GuiaContextService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="625" y="155" width="100" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- REWARDS - RECOMPENSAS (Abajo Izquierda) -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <mxCell id="rewards_container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="340" width="200" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="rewards_title" value="Recompensas (Gamificación)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="90" y="345" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rewards_desc" value="Evalúa resultados de tutoría&#xa;y señales de retroalimentación&#xa;que indican la calidad de las acciones" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="90" y="365" width="180" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Elementos de recompensa -->
+        <mxCell id="r1" value="Quiz correctos (+XP)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffecb3;strokeColor=#ff9800;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="95" y="410" width="85" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" value="Escaneo exitoso (+pts)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffecb3;strokeColor=#ff9800;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="185" y="410" width="85" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="r3" value="Progreso en lecciones" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffecb3;strokeColor=#ff9800;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="95" y="437" width="85" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="r4" value="Logros desbloqueados" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffecb3;strokeColor=#ff9800;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="185" y="437" width="85" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- ENVIRONMENT - ENTORNO (Abajo Derecha) -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <mxCell id="env_container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#c2185b;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="570" y="340" width="200" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="env_title" value="Entorno (Environment)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#ad1457;" vertex="1" parent="1">
+          <mxGeometry x="580" y="345" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="env_desc" value="El mundo externo donde operan&#xa;los agentes de IA. Registra datos&#xa;académicos y estado del usuario" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="580" y="365" width="180" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Elementos del entorno -->
+        <mxCell id="e1" value="Flutter App" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8bbd9;strokeColor=#c2185b;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="410" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="Firebase" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8bbd9;strokeColor=#c2185b;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="410" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="Contenido educativo (La Célula)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8bbd9;strokeColor=#c2185b;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="610" y="440" width="130" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- CENTRO - mi_app -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <mxCell id="center_container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ede7f6;strokeColor=#7b1fa2;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="325" y="220" width="200" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="center_title" value="mi_app" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#6a1b9a;" vertex="1" parent="1">
+          <mxGeometry x="375" y="230" width="100" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="center_desc" value="Sistema Inteligente de Tutoría&#xa;para Ciencias Naturales" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="340" y="255" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="center_icon" value="Educación sobre La Célula" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1c4e9;strokeColor=#7b1fa2;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="355" y="290" width="140" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- ACTIONS - ACCIONES (Abajo Centro) -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <mxCell id="actions_container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2f1;strokeColor=#00897b;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="300" y="500" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="actions_title" value="Acciones (Actions)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#00695c;" vertex="1" parent="1">
+          <mxGeometry x="350" y="505" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="actions_desc" value="Las opciones disponibles para el sistema de IA" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="310" y="525" width="230" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- Acciones -->
+        <mxCell id="a1" value="Analizar célula" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b2dfdb;strokeColor=#00897b;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="310" y="545" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" value="Generar respuesta" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b2dfdb;strokeColor=#00897b;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="385" y="545" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" value="Adaptar contenido" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b2dfdb;strokeColor=#00897b;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="470" y="545" width="75" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" value="Evaluar quiz" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b2dfdb;strokeColor=#00897b;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="570" width="65" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="a5" value="Personalizar feedback" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b2dfdb;strokeColor=#00897b;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="405" y="570" width="90" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- FLECHAS DE CONEXIÓN -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+
+        <!-- Policy -> Meta-Agent -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;strokeColor=#388e3c;strokeWidth=2;curved=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="130" as="sourcePoint" />
+            <mxPoint x="570" y="130" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="425" y="80" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Meta-Agent -> Environment -->
+        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;strokeColor=#1976d2;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="190" as="sourcePoint" />
+            <mxPoint x="670" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Environment -> Actions -->
+        <mxCell id="arrow3" value="" style="endArrow=classic;html=1;strokeColor=#c2185b;strokeWidth=2;curved=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="450" as="sourcePoint" />
+            <mxPoint x="550" y="530" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="560" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Actions -> Rewards -->
+        <mxCell id="arrow4" value="" style="endArrow=classic;html=1;strokeColor=#00897b;strokeWidth=2;curved=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="530" as="sourcePoint" />
+            <mxPoint x="280" y="450" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="290" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Rewards -> Policy -->
+        <mxCell id="arrow5" value="" style="endArrow=classic;html=1;strokeColor=#ff9800;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="340" as="sourcePoint" />
+            <mxPoint x="180" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Centro connections -->
+        <mxCell id="arrow6" value="" style="endArrow=classic;startArrow=classic;html=1;strokeColor=#7b1fa2;strokeWidth=2;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="325" y="275" as="sourcePoint" />
+            <mxPoint x="280" y="275" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow7" value="" style="endArrow=classic;startArrow=classic;html=1;strokeColor=#7b1fa2;strokeWidth=2;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="525" y="275" as="sourcePoint" />
+            <mxPoint x="570" y="275" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow8" value="" style="endArrow=classic;startArrow=classic;html=1;strokeColor=#7b1fa2;strokeWidth=2;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="425" y="330" as="sourcePoint" />
+            <mxPoint x="425" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- PIE DE FIGURA -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <mxCell id="caption" value="Figura 1. Ciclo de Aprendizaje Adaptativo del Meta-Agente Coordinador en mi_app." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=2;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="175" y="610" width="500" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

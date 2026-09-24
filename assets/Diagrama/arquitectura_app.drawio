@@ -1,0 +1,309 @@
+<mxfile host="app.diagrams.net" modified="2024-02-10T22:00:00.000Z" agent="Claude" version="22.1.0" type="device">
+  <diagram id="arquitectura-app" name="Arquitectura de la Aplicacion">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ==================== TITULO ==================== -->
+        <mxCell id="titulo" value="ARQUITECTURA DE LA APLICACION - MI APP CIENCIAS NATURALES" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;fontStyle=1;fillColor=#1B5E20;fontColor=#ffffff;strokeColor=#1B5E20;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="1000" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CAPA USUARIO ==================== -->
+        <mxCell id="capa_usuario" value="CAPA DE USUARIO" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#E8F5E9;fontColor=#2E7D32;strokeColor=#2E7D32;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="40" y="90" width="1320" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="usuario" value="&#128100;&#10;Usuario" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1;fillColor=#4CAF50;fontColor=#ffffff;strokeColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="80" y="115" width="100" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dispositivo" value="&#128241;&#10;Dispositivo Android" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fillColor=#81C784;fontColor=#ffffff;strokeColor=#4CAF50;" vertex="1" parent="1">
+          <mxGeometry x="220" y="115" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="camara" value="&#128247; Camara" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#A5D6A7;fontColor=#1B5E20;strokeColor=#4CAF50;" vertex="1" parent="1">
+          <mxGeometry x="360" y="115" width="80" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="microfono" value="&#127908; Microfono" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#A5D6A7;fontColor=#1B5E20;strokeColor=#4CAF50;" vertex="1" parent="1">
+          <mxGeometry x="450" y="115" width="80" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="galeria" value="&#128444; Galeria" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#A5D6A7;fontColor=#1B5E20;strokeColor=#4CAF50;" vertex="1" parent="1">
+          <mxGeometry x="540" y="115" width="80" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Flecha usuario a dispositivo -->
+        <mxCell id="arrow1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2E7D32;strokeWidth=2;" edge="1" parent="1" source="usuario" target="dispositivo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CAPA APLICACION FLUTTER ==================== -->
+        <mxCell id="capa_flutter" value="CAPA DE APLICACION (Flutter/Dart)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#E3F2FD;fontColor=#1565C0;strokeColor=#1565C0;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="40" y="210" width="1320" height="280" as="geometry" />
+        </mxCell>
+
+        <!-- Main App -->
+        <mxCell id="main_app" value="main.dart&#10;MaterialApp" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#1976D2;fontColor=#ffffff;strokeColor=#0D47A1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="235" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Screens -->
+        <mxCell id="screens_label" value="PANTALLAS (Screens)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#1565C0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="295" width="150" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="login_screen" value="&#128274;&#10;LoginScreen" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#42A5F5;fontColor=#ffffff;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="320" width="100" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="home_screen" value="&#127968;&#10;HomeScreen" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#42A5F5;fontColor=#ffffff;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="200" y="320" width="100" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="chat_screen" value="&#128172;&#10;ChatScreen" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#42A5F5;fontColor=#ffffff;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="320" width="100" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="guia_screen" value="&#128218;&#10;GuiaHomeScreen" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#42A5F5;fontColor=#ffffff;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="440" y="320" width="100" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="scanner_screen" value="&#128247;&#10;ScannerScreen" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#42A5F5;fontColor=#ffffff;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="560" y="320" width="100" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ar_screen" value="&#127916;&#10;ARScreenSimple" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#42A5F5;fontColor=#ffffff;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="680" y="320" width="100" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="profile_screen" value="&#128100;&#10;ProfileScreen" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#42A5F5;fontColor=#ffffff;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="800" y="320" width="100" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="history_screen" value="&#128220;&#10;ChatHistoryScreen" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#42A5F5;fontColor=#ffffff;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="920" y="320" width="110" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Services -->
+        <mxCell id="services_label" value="SERVICIOS (Services)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#1565C0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="390" width="150" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="auth_service" value="AuthService&#10;(Firebase Auth)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#64B5F6;fontColor=#0D47A1;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="415" width="110" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="firestore_service" value="FirestoreService&#10;(Cloud Firestore)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#64B5F6;fontColor=#0D47A1;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="210" y="415" width="110" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="scanner_service" value="ScannerService&#10;(Gemini + TFLite)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#64B5F6;fontColor=#0D47A1;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="340" y="415" width="110" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="marker_detector" value="SimpleMarkerDetector&#10;(Color Detection)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#64B5F6;fontColor=#0D47A1;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="470" y="415" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="guia_context" value="GuiaContextService&#10;(Contenido)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#64B5F6;fontColor=#0D47A1;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="610" y="415" width="110" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Data -->
+        <mxCell id="data_label" value="DATOS" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#1565C0;" vertex="1" parent="1">
+          <mxGeometry x="800" y="390" width="80" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="celula_data" value="CelulaData&#10;(5 Subtemas)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#90CAF9;fontColor=#0D47A1;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="760" y="415" width="100" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="models" value="Models&#10;(Quiz, Subtema...)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#90CAF9;fontColor=#0D47A1;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="880" y="415" width="100" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Theme -->
+        <mxCell id="theme" value="AppTheme&#10;AppColors" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#BBDEFB;fontColor=#0D47A1;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="415" width="90" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CAPA APIS EXTERNAS ==================== -->
+        <mxCell id="capa_apis" value="CAPA DE APIS EXTERNAS" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#FFF3E0;fontColor=#E65100;strokeColor=#E65100;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="40" y="510" width="1320" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="groq_api" value="&#129302;&#10;GROQ API&#10;(LLaMA 3.3 70B)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;fillColor=#FF9800;fontColor=#ffffff;strokeColor=#E65100;" vertex="1" parent="1">
+          <mxGeometry x="80" y="540" width="130" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="gemini_api" value="&#10024;&#10;GEMINI API&#10;(Vision + Text)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;fillColor=#FF9800;fontColor=#ffffff;strokeColor=#E65100;" vertex="1" parent="1">
+          <mxGeometry x="240" y="540" width="130" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="youtube_api" value="&#9654;&#10;YOUTUBE&#10;(Videos Educativos)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;fillColor=#FF5722;fontColor=#ffffff;strokeColor=#BF360C;" vertex="1" parent="1">
+          <mxGeometry x="400" y="540" width="130" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="speech_api" value="&#127908;&#10;SPEECH TO TEXT&#10;(Google)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;fillColor=#FFA726;fontColor=#ffffff;strokeColor=#E65100;" vertex="1" parent="1">
+          <mxGeometry x="560" y="540" width="130" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="tflite" value="&#129504;&#10;TFLITE&#10;(MobileNet V2)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;fillColor=#FFB74D;fontColor=#E65100;strokeColor=#E65100;" vertex="1" parent="1">
+          <mxGeometry x="720" y="540" width="130" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CAPA FIREBASE ==================== -->
+        <mxCell id="capa_firebase" value="CAPA DE BACKEND (Firebase)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#FCE4EC;fontColor=#C2185B;strokeColor=#C2185B;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="40" y="650" width="1320" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="firebase_auth" value="&#128274;&#10;Firebase Auth&#10;(Google Sign-In)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;fillColor=#E91E63;fontColor=#ffffff;strokeColor=#880E4F;" vertex="1" parent="1">
+          <mxGeometry x="120" y="680" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cloud_firestore" value="&#128451;&#10;Cloud Firestore&#10;(Base de Datos)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;fillColor=#E91E63;fontColor=#ffffff;strokeColor=#880E4F;" vertex="1" parent="1">
+          <mxGeometry x="300" y="680" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Colecciones Firestore -->
+        <mxCell id="col_users" value="users" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#F48FB1;fontColor=#880E4F;strokeColor=#C2185B;" vertex="1" parent="1">
+          <mxGeometry x="480" y="680" width="80" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col_sessions" value="chat_sessions" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#F48FB1;fontColor=#880E4F;strokeColor=#C2185B;" vertex="1" parent="1">
+          <mxGeometry x="570" y="680" width="90" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col_messages" value="messages" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#F48FB1;fontColor=#880E4F;strokeColor=#C2185B;" vertex="1" parent="1">
+          <mxGeometry x="670" y="680" width="80" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col_progress" value="progress" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#F48FB1;fontColor=#880E4F;strokeColor=#C2185B;" vertex="1" parent="1">
+          <mxGeometry x="480" y="720" width="80" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col_achievements" value="achievements" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#F48FB1;fontColor=#880E4F;strokeColor=#C2185B;" vertex="1" parent="1">
+          <mxGeometry x="570" y="720" width="90" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== ASSETS ==================== -->
+        <mxCell id="assets_box" value="ASSETS LOCALES" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#E8EAF6;fontColor=#303F9F;strokeColor=#303F9F;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="900" y="510" width="440" height="260" as="geometry" />
+        </mxCell>
+
+        <mxCell id="asset_celula" value="&#128300; assets/celula/&#10;(Imagenes educativas)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#7986CB;fontColor=#ffffff;strokeColor=#3F51B5;" vertex="1" parent="1">
+          <mxGeometry x="920" y="545" width="130" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="asset_marcadores" value="&#127912; assets/marcadores/&#10;(Marcadores AR)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#7986CB;fontColor=#ffffff;strokeColor=#3F51B5;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="545" width="130" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="asset_models" value="&#129504; assets/models/&#10;(TFLite + Labels)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#7986CB;fontColor=#ffffff;strokeColor=#3F51B5;" vertex="1" parent="1">
+          <mxGeometry x="920" y="610" width="130" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="asset_libro" value="&#128214; assets/libro/&#10;(Recursos guia)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#7986CB;fontColor=#ffffff;strokeColor=#3F51B5;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="610" width="130" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Marcadores detalle -->
+        <mxCell id="marcador1" value="&#128308; Celula" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#9FA8DA;fontColor=#1A237E;strokeColor=#5C6BC0;" vertex="1" parent="1">
+          <mxGeometry x="920" y="680" width="65" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="marcador2" value="&#128994; C.Animal" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#9FA8DA;fontColor=#1A237E;strokeColor=#5C6BC0;" vertex="1" parent="1">
+          <mxGeometry x="995" y="680" width="65" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="marcador3" value="&#128309; C.Vegetal" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#9FA8DA;fontColor=#1A237E;strokeColor=#5C6BC0;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="680" width="65" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="marcador4" value="&#128995; Organelos" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#9FA8DA;fontColor=#1A237E;strokeColor=#5C6BC0;" vertex="1" parent="1">
+          <mxGeometry x="1145" y="680" width="65" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== FLECHAS DE CONEXION ==================== -->
+        <!-- Main a Screens -->
+        <mxCell id="arrow_main" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1565C0;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="main_app">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="320" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="680" y="300" />
+              <mxPoint x="500" y="300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Services a APIs -->
+        <mxCell id="arrow_groq" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E65100;strokeWidth=1;dashed=1;" edge="1" parent="1" source="chat_screen" target="groq_api">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arrow_gemini" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E65100;strokeWidth=1;dashed=1;" edge="1" parent="1" source="scanner_service" target="gemini_api">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Auth a Firebase -->
+        <mxCell id="arrow_auth" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#C2185B;strokeWidth=1;dashed=1;" edge="1" parent="1" source="auth_service" target="firebase_auth">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arrow_firestore" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#C2185B;strokeWidth=1;dashed=1;" edge="1" parent="1" source="firestore_service" target="cloud_firestore">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== LEYENDA ==================== -->
+        <mxCell id="leyenda_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fillColor=#FAFAFA;strokeColor=#BDBDBD;" vertex="1" parent="1">
+          <mxGeometry x="40" y="790" width="400" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leyenda_title" value="LEYENDA" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="50" y="795" width="80" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ley1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42A5F5;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="820" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="ley1_text" value="Pantallas" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="75" y="817" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ley2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#64B5F6;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="140" y="820" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="ley2_text" value="Servicios" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="165" y="817" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ley3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9800;strokeColor=#E65100;" vertex="1" parent="1">
+          <mxGeometry x="230" y="820" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="ley3_text" value="APIs Externas" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="255" y="817" width="80" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ley4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E91E63;strokeColor=#880E4F;" vertex="1" parent="1">
+          <mxGeometry x="340" y="820" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="ley4_text" value="Firebase" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="365" y="817" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ley5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7986CB;strokeColor=#3F51B5;" vertex="1" parent="1">
+          <mxGeometry x="50" y="845" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="ley5_text" value="Assets Locales" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="75" y="842" width="90" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Footer -->
+        <mxCell id="footer" value="Arquitectura desarrollada con Flutter 3.x + Firebase + IA (Gemini/Groq) - Febrero 2024" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#999999;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="500" y="880" width="500" height="30" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

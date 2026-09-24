@@ -1,0 +1,38 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function ownsUser(userId) {
+      return signedIn() && request.auth.uid == userId;
+    }
+
+    function ownsSession(sessionId) {
+      return signedIn()
+          && get(/databases/$(database)/documents/chat_sessions/$(sessionId)).data.userId
+              == request.auth.uid;
+    }
+
+    match /users/{userId} {
+      allow read, create, update, delete: if ownsUser(userId);
+
+      match /{document=**} {
+        allow read, write: if ownsUser(userId);
+      }
+    }
+
+    match /chat_sessions/{sessionId} {
+      allow create: if signedIn()
+          && request.resource.data.userId == request.auth.uid;
+      allow read, update, delete: if signedIn()
+          && resource.data.userId == request.auth.uid;
+
+      match /messages/{messageId} {
+        allow read, write: if ownsSession(sessionId);
+      }
+    }
+  }
+}

@@ -1,0 +1,244 @@
+<mxfile host="app.diagrams.net" modified="2024-01-15T10:00:00.000Z" agent="Claude AI" version="22.1.0" type="device">
+  <diagram name="AI Architecture" id="ai-architecture-diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="Multi-Model AI Architecture for Educational Mobile Application" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#1a1a1a;" parent="1" vertex="1">
+          <mxGeometry x="350" y="20" width="500" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Mobile Client Layer -->
+        <mxCell id="client-layer" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="40" y="80" width="280" height="340" as="geometry"/>
+        </mxCell>
+        <mxCell id="client-label" value="MOBILE CLIENT (Flutter)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#1a1a1a;" parent="1" vertex="1">
+          <mxGeometry x="80" y="90" width="200" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- UI Components -->
+        <mxCell id="chat-screen" value="Chat Screen&#xa;(Conversational UI)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="60" y="120" width="110" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="quiz-screen" value="Quiz Screen&#xa;(Assessment UI)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="190" y="120" width="110" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="scanner-screen" value="Scanner Screen&#xa;(Camera UI)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="60" y="180" width="110" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="speech-input" value="Speech-to-Text&#xa;Input" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="190" y="180" width="110" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Service Layer -->
+        <mxCell id="service-layer" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="250" width="260" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="service-label" value="AI SERVICES LAYER" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="120" y="255" width="120" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="chat-service" value="GuiaContext&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="60" y="275" width="70" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="quiz-service" value="QuizGenerator&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="140" y="275" width="70" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="scanner-service" value="Scanner&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="220" y="275" width="70" height="45" as="geometry"/>
+        </mxCell>
+
+        <!-- On-Device ML -->
+        <mxCell id="tflite-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="50" y="345" width="260" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="tflite-label" value="ON-DEVICE ML (TensorFlow Lite)" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="90" y="350" width="180" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="mobilenet" value="MobileNet V2&#xa;(Image Classification)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#d79b00;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="70" y="368" width="100" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="labels" value="ImageNet Labels&#xa;(1000 classes)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#d79b00;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="185" y="368" width="100" height="35" as="geometry"/>
+        </mxCell>
+
+        <!-- Cloud AI Layer -->
+        <mxCell id="cloud-layer" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="380" y="80" width="340" height="330" as="geometry"/>
+        </mxCell>
+        <mxCell id="cloud-label" value="CLOUD AI SERVICES" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#1a1a1a;" parent="1" vertex="1">
+          <mxGeometry x="470" y="90" width="160" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- Groq API -->
+        <mxCell id="groq-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="400" y="120" width="140" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="groq-label" value="GROQ API" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontStyle=1;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="430" y="125" width="80" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="llama-model" value="LLaMA 3.3 70B&#xa;Versatile" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="420" y="150" width="100" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="llama-tasks" value="- Chatbot Responses&#xa;- Quiz Generation&#xa;- Description Generation" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="410" y="200" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Gemini API -->
+        <mxCell id="gemini-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="560" y="120" width="140" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="gemini-label" value="GOOGLE GEMINI" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontStyle=1;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="575" y="125" width="110" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="gemini-model" value="Gemini 1.5&#xa;Flash" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="580" y="150" width="100" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="gemini-tasks" value="- Multimodal Vision&#xa;- Image Analysis&#xa;- Species Identification" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="570" y="200" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- AI Capabilities Box -->
+        <mxCell id="capabilities-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="400" y="275" width="300" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="cap-label" value="AI CAPABILITIES" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="490" y="280" width="120" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="cap1" value="Context-Aware&#xa;Tutoring" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="410" y="305" width="85" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="cap2" value="Adaptive Quiz&#xa;Generation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="505" y="305" width="85" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="cap3" value="Visual Object&#xa;Recognition" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="600" y="305" width="85" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="cap4" value="Domain-Restricted&#xa;Responses" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="455" y="350" width="85" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="cap5" value="Pedagogical&#xa;Explanations" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="550" y="350" width="85" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Data Layer -->
+        <mxCell id="data-layer" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6e6e6;strokeColor=#666666;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="780" y="80" width="200" height="330" as="geometry"/>
+        </mxCell>
+        <mxCell id="data-label" value="DATA LAYER" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#1a1a1a;" parent="1" vertex="1">
+          <mxGeometry x="830" y="90" width="100" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- Firebase -->
+        <mxCell id="firebase-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="800" y="120" width="160" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="firebase-label" value="Firebase Firestore" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontStyle=1;fontColor=#FF9800;" parent="1" vertex="1">
+          <mxGeometry x="825" y="125" width="110" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="fb1" value="User Profiles" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="810" y="150" width="65" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="fb2" value="Chat History" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="885" y="150" width="65" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="fb3" value="Progress Data" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="810" y="180" width="65" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="fb4" value="Achievements" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="885" y="180" width="65" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="fb5" value="Quiz Results" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="845" y="210" width="70" height="25" as="geometry"/>
+        </mxCell>
+
+        <!-- Local Data -->
+        <mxCell id="local-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="800" y="265" width="160" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="local-label" value="Embedded Content" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontStyle=1;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="825" y="270" width="110" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="loc1" value="Educational&#xa;Guide Content" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="810" y="295" width="65" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="loc2" value="Glossary&#xa;Terms" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="885" y="295" width="65" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="loc3" value="Static Quizzes" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="810" y="345" width="65" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="loc4" value="ML Models&#xa;(TFLite)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="885" y="345" width="65" height="35" as="geometry"/>
+        </mxCell>
+
+        <!-- Connections -->
+        <mxCell id="conn1" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#666666;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="250" as="sourcePoint"/>
+            <mxPoint x="380" y="250" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn1-label" value="API Calls&#xa;(HTTPS)" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="325" y="225" width="50" height="25" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="conn2" value="" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="720" y="250" as="sourcePoint"/>
+            <mxPoint x="780" y="250" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn2-label" value="Data&#xa;Sync" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="730" y="225" width="40" height="25" as="geometry"/>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#999999;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="440" width="940" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-title" value="LEGEND:" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="450" width="60" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="110" y="452" width="20" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1-t" value="Client Layer" style="text;html=1;strokeColor=none;fillColor=none;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="135" y="450" width="70" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="210" y="452" width="20" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg2-t" value="Cloud AI" style="text;html=1;strokeColor=none;fillColor=none;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="235" y="450" width="60" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="300" y="452" width="20" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg3-t" value="On-Device ML" style="text;html=1;strokeColor=none;fillColor=none;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="325" y="450" width="80" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="410" y="452" width="20" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg4-t" value="AI Services" style="text;html=1;strokeColor=none;fillColor=none;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="435" y="450" width="70" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="510" y="452" width="20" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg5-t" value="UI Components" style="text;html=1;strokeColor=none;fillColor=none;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="535" y="450" width="85" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg6" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="625" y="452" width="20" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg6-t" value="LLM Models" style="text;html=1;strokeColor=none;fillColor=none;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="650" y="450" width="70" height="20" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

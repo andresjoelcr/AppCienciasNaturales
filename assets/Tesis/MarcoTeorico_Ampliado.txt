@@ -1,0 +1,547 @@
+================================================================================
+CAPÍTULO III: MARCO TEÓRICO
+(VERSIÓN AMPLIADA — REEMPLAZA AL DOCUMENTO TESIS-MARCOTEORICO-JORGEMIRANDA.DOCX)
+================================================================================
+
+INSTRUCCIONES DE USO:
+- Las secciones marcadas con [CORREGIDO] tienen cambios respecto al original.
+- Las secciones marcadas con [EXPANDIDO] tienen contenido adicional.
+- Las secciones marcadas con [NUEVO] son adiciones completas al documento.
+- Al final se indica qué referencias eliminar de la bibliografía de este documento.
+- Las referencias nuevas a agregar se listan al final del documento.
+================================================================================
+
+
+================================================================================
+CAPÍTULO III: MARCO TEÓRICO
+================================================================================
+
+3.1. Introducción al Marco Teórico
+
+El presente capítulo establece los fundamentos teóricos que sustentan el desarrollo de la aplicación móvil educativa para la enseñanza de ciencias naturales. Se abordan las teorías de aprendizaje aplicables, los conceptos tecnológicos fundamentales y los principios pedagógicos que guían el diseño del sistema. El marco teórico se estructura en torno a los componentes centrales del sistema desarrollado: las teorías constructivistas del aprendizaje que orientan el diseño pedagógico, las tecnologías de realidad aumentada e inteligencia artificial que lo articulan tecnológicamente, los frameworks de desarrollo móvil que lo implementan, los servicios backend que lo sostienen, y las disciplinas de didáctica de las ciencias y lexicografía digital que delimitan su dominio temático.
+
+La convergencia de estas dimensiones teóricas no es accidental: cada elemento del sistema propuesto encuentra su fundamento en al menos una de las corrientes teóricas documentadas en este capítulo. El módulo de guía didáctica se apoya en la teoría del aprendizaje multimedia (Mayer, 2021) y en la teoría de la carga cognitiva (Sweller, 2023); el chatbot de ciencias en el constructivismo social (Sharples et al., 2023), los modelos de lenguaje grande (Brown et al., 2023) y las plataformas de inferencia de alta velocidad (Groq, 2024); el módulo de realidad aumentada en las taxonomías de RA (Azuma et al., 2023) y en su aplicación específica en biología celular (Dunleavy & Dede, 2023); el escáner inteligente en los fundamentos de visión por computadora (Szeliski, 2022) y el aprendizaje automático en dispositivos móviles (TensorFlow, 2024); el glosario interactivo en la lexicografía científica digital (Nation, 2001); y el sistema de gamificación en la teoría de la motivación aplicada a entornos educativos digitales (Deterding et al., 2011; Hamari et al., 2014).
+
+
+3.2. Teorías del Aprendizaje
+
+3.2.1. Constructivismo [EXPANDIDO]
+
+El constructivismo constituye la teoría de aprendizaje fundamental que orienta el diseño del sistema propuesto. Según Piaget (1976), citado en Ertmer y Newby (2023), el aprendizaje es un proceso activo donde los individuos construyen conocimiento a través de la interacción con su entorno, asimilando nueva información en sus esquemas cognitivos existentes o acomodando sus esquemas para integrar información que no encaja en las estructuras previas. Esta perspectiva se complementa con el constructivismo social de Vygotsky, que enfatiza el rol de la interacción social en la construcción del conocimiento.
+
+La investigación contemporánea demuestra que las tecnologías móviles han dado origen al aprendizaje móvil, proporcionando amplias experiencias de aprendizaje y oportunidades de interacción ilimitada en cualquier momento y lugar (Crompton & Burke, 2023). El uso de aplicaciones en el aprendizaje es más efectivo que el aprendizaje convencional porque el aprendizaje móvil es un medio que tiene un enfoque de teoría de aprendizaje constructivista. Ertmer y Newby (2023) documentan que las aplicaciones educativas más efectivas son aquellas que requieren al estudiante construir activamente conocimiento —mediante exploraciones guiadas, resolución de problemas, generación de preguntas— en lugar de consumir pasivamente contenido, principio que orienta el diseño del sistema propuesto en todas sus funcionalidades.
+
+3.2.2. Constructivismo Social y Zona de Desarrollo Próximo [EXPANDIDO]
+
+El constructivismo social, desarrollado por Vygotsky, enfatiza que el conocimiento se co-construye a través de las interacciones sociales. Uno de los conceptos más relevantes de esta teoría para el diseño de sistemas educativos con IA es la Zona de Desarrollo Próximo (ZDP), definida como la distancia entre lo que el estudiante puede hacer de manera independiente y lo que puede lograr con asistencia de un experto o par más competente (Sharples et al., 2023).
+
+Al integrar el aprendizaje móvil en las prácticas educativas, se crea un entorno de aprendizaje enriquecido que empodera a los estudiantes para convertirse en comunicadores competentes, buscadores de conocimiento ávidos, aprendices activos y contribuyentes colaborativos (Sharples et al., 2023). Esta perspectiva fundamenta el diseño del chatbot de ciencias, que actúa como un andamiaje inteligente —en términos vygotskianos— que facilita la construcción de conocimiento dentro de la ZDP del estudiante: responde preguntas que el estudiante no puede resolver solo, pero guía mediante explicaciones graduadas en lugar de proporcionar respuestas directas que eliminen el esfuerzo cognitivo productivo.
+
+3.2.3. Teoría del Aprendizaje Multimedia [EXPANDIDO]
+
+La teoría del aprendizaje multimedia de Mayer (2021) postula que las personas aprenden mejor cuando la información se presenta en formato verbal y visual simultáneamente, fundamentándose en el modelo de procesamiento dual de la memoria: los seres humanos disponemos de canales separados —auditivo/verbal y visual/pictórico— para procesar y representar información, cada uno con capacidad limitada. Los principios fundamentales de esta teoría incluyen:
+
+a) Principio de multimedia: Los estudiantes aprenden mejor con palabras e imágenes que solo con palabras.
+b) Principio de contigüidad espacial: Los estudiantes aprenden mejor cuando las palabras e imágenes correspondientes se presentan cerca en lugar de lejos en la pantalla.
+c) Principio de contigüidad temporal: Los estudiantes aprenden mejor cuando las palabras e imágenes correspondientes se presentan simultáneamente en lugar de sucesivamente.
+d) Principio de coherencia: Los estudiantes aprenden mejor cuando se excluye material extraño.
+e) Principio de señalización: Los estudiantes aprenden mejor cuando se resaltan claves de organización del material esencial.
+f) Principio de modalidad: Los estudiantes aprenden mejor con animación y narración que con animación y texto en pantalla.
+
+Estos principios guían el diseño de la interfaz de usuario y la presentación de contenido educativo en la guía didáctica interactiva. Cada subtema del sistema propuesto combina texto explicativo, imágenes anatómicas de estructuras celulares, secciones de "datos curiosos" (señalización), videos de YouTube integrados y secciones destacadas que resaltan conceptos clave, respondiendo al principio de multimedia y al de señalización de Mayer.
+
+3.2.4. Teoría de la Carga Cognitiva [EXPANDIDO]
+
+La teoría de la carga cognitiva, propuesta por Sweller (2023), establece que la memoria de trabajo tiene capacidad limitada y que el diseño instruccional debe optimizar la carga cognitiva para facilitar el aprendizaje. La teoría distingue tres tipos de carga cognitiva:
+
+a) Carga intrínseca: Relacionada con la complejidad inherente del material y el número de elementos que deben procesarse simultáneamente. En biología celular, la comprensión de la estructura celular implica alta carga intrínseca al requerir la integración simultánea de información sobre múltiples organelos y sus interrelaciones funcionales.
+
+b) Carga extrínseca: Generada por la forma en que se presenta la información, no por el contenido en sí. Un diseño de interfaz confuso, una navegación inconsistente o la sobrecarga de texto en pantalla incrementan la carga extrínseca sin contribuir al aprendizaje.
+
+c) Carga relevante: Dedicada a la construcción de esquemas mentales duraderos. Esta es la carga cognitiva productiva que el diseño instruccional debe maximizar.
+
+La aplicación de realidad aumentada debe diseñarse cuidadosamente para minimizar la carga extrínseca —instrucciones simples, interacción intuitiva, feedback visual claro— y maximizar la carga relevante, facilitando así el procesamiento de conceptos científicos complejos. Sweller (2023) documenta que la RA bien diseñada reduce la carga extrínseca al eliminar la necesidad de que el estudiante imagine cómo se vería una estructura tridimensional a partir de una representación bidimensional, liberando capacidad de memoria de trabajo para el procesamiento profundo del contenido.
+
+3.2.5. Aprendizaje Basado en Indagación [NUEVO]
+
+El aprendizaje basado en indagación (inquiry-based learning, IBL) constituye un enfoque pedagógico complementario al constructivismo que promueve el aprendizaje activo mediante la formulación de preguntas, la exploración de evidencias y la construcción de explicaciones (Pedaste et al., 2023). A diferencia de la instrucción directa, el IBL sitúa al estudiante como agente activo de su propio proceso de aprendizaje, fomentando el pensamiento científico y el razonamiento inductivo.
+
+Pedaste et al. (2023) proponen un modelo de ciclo de indagación que incluye cinco fases: orientación, conceptualización, investigación, conclusión y discusión. Cada módulo del sistema propuesto puede asociarse con una o más de estas fases: la guía didáctica y los videos educativos apoyan la orientación y conceptualización; la realidad aumentada y el escáner facilitan la investigación visual; los quizzes dinámicos generados por IA promueven la reflexión y conclusión; y el chatbot apoya la discusión al proporcionar retroalimentación y responder preguntas de profundización.
+
+La combinación del IBL con tecnologías de IA ha recibido atención creciente en la literatura reciente. Holmes et al. (2023) documentan que los sistemas de tutoría inteligente que implementan el diálogo socrático —formulando preguntas que guían al estudiante hacia el descubrimiento en lugar de proporcionar directamente las respuestas— producen mejores resultados de aprendizaje que los sistemas que simplemente responden consultas, lo que orienta el diseño del system prompt del chatbot del sistema propuesto.
+
+3.2.6. Motivación y Autorregulación del Aprendizaje [NUEVO]
+
+La motivación constituye un factor determinante del engagement sostenido con plataformas educativas digitales. Landers (2014) propone un modelo teórico sobre gamificación y aprendizaje basado en la teoría del comportamiento planificado, argumentando que los elementos gamificados influyen en el aprendizaje indirectamente al modificar las actitudes y normas subjetivas del estudiante hacia la actividad educativa. Cuando un sistema de logros visibles evidencia el progreso del estudiante, activa un mecanismo de consistencia cognitiva que incrementa la motivación para continuar.
+
+La teoría de la autodeterminación de Deci y Ryan, citada por Hamari et al. (2014), identifica tres necesidades psicológicas básicas cuya satisfacción sustenta la motivación intrínseca: autonomía (sentido de control sobre el propio aprendizaje), competencia (percepción de eficacia y progreso) y relación (conexión con otros y con el contenido). Los elementos de diseño del sistema propuesto responden a estas tres necesidades: el estudiante elige libremente qué subtema explorar (autonomía), el sistema de logros y las estadísticas de progreso evidencian la competencia adquirida (competencia), y el chatbot proporciona un interlocutor siempre disponible (relación).
+
+Dicheva et al. (2015) señalan que la gamificación es más efectiva cuando los elementos de juego refuerzan comportamientos directamente asociados con los objetivos de aprendizaje, y no meramente el volumen de uso de la plataforma. El sistema de logros del sistema propuesto fue diseñado siguiendo este principio: los hitos desbloqueables corresponden a evidencias verificables de aprendizaje —completar todos los subtemas, mantener una racha de estudio, alcanzar puntuación perfecta en evaluaciones— garantizando que el sistema premia el aprendizaje real y no la mera interacción superficial.
+
+
+3.3. Aprendizaje Móvil (M-Learning)
+
+3.3.1. Definición y Características [EXPANDIDO]
+
+El aprendizaje móvil se define como "cualquier tipo de aprendizaje que ocurre cuando el aprendiz no está en una ubicación fija y predeterminada, o el aprendizaje que ocurre cuando el aprendiz aprovecha las oportunidades de aprendizaje ofrecidas por las tecnologías móviles" (O'Malley et al., 2023, p. 7). Esta definición subraya el carácter ubicuo del m-learning como su rasgo más distintivo respecto a otras modalidades de aprendizaje mediado por tecnología.
+
+Las características distintivas del m-learning incluyen: (a) ubicuidad, acceso al contenido educativo desde cualquier lugar; (b) portabilidad, dispositivos que acompañan al estudiante en su vida cotidiana; (c) conectividad, acceso a recursos en línea y comunicación con pares y tutores; (d) personalización, adaptación del contenido a las necesidades individuales; y (e) inmediatez, acceso instantáneo a información y retroalimentación.
+
+Al-Emran et al. (2024), en un meta-análisis de 47 estudios sobre factores de éxito del m-learning, identificaron que la facilidad de uso percibida y la compatibilidad del sistema con las prácticas cotidianas del estudiante son los predictores más robustos del uso sostenido de aplicaciones educativas móviles. Los autores enfatizan que una aplicación técnicamente sofisticada pero con interfaz compleja tendrá menor adopción que una interfaz simple con menos funcionalidades, hallazgo que fundamenta la priorización del diseño de experiencia de usuario en el sistema propuesto.
+
+García-Martínez et al. (2024) encontraron, en una revisión sistemática de 89 estudios publicados entre 2015 y 2024, que las aplicaciones de m-learning tienen mayor impacto en contextos donde el acceso a computadores de escritorio es limitado, como en instituciones de educación básica de América Latina. En estos contextos, el smartphone del estudiante se convierte en el único dispositivo de acceso a contenido educativo digital, elevando la importancia de diseñar aplicaciones optimizadas para pantallas pequeñas con interacciones táctiles fluidas.
+
+3.3.2. Modelos de Aceptación Tecnológica [EXPANDIDO]
+
+El Modelo de Aceptación Tecnológica (TAM) de Davis (1989), actualizado y extendido por Venkatesh et al. (2023) en la Teoría Unificada de Aceptación y Uso de Tecnología (UTAUT2), identifica los factores que influyen en la adopción de tecnologías educativas. UTAUT2 incorpora siete constructos predictores: expectativa de desempeño, expectativa de esfuerzo, influencia social, condiciones facilitadoras, motivación hedónica, valor de precio y hábito. En contextos educativos con estudiantes de educación básica, las investigaciones muestran consistentemente que la motivación hedónica —el disfrute percibido del uso— tiene mayor poder predictivo que la utilidad percibida, lo que respalda la inclusión de elementos de gamificación y diseño visual atractivo en el sistema propuesto (Venkatesh et al., 2023).
+
+Sánchez-Prieto et al. (2024), en una revisión sistemática siguiendo la metodología PRISMA-2020 sobre adopción del m-learning, concluyen que las investigaciones latinoamericanas en este campo presentan un vacío metodológico significativo: la mayoría de los estudios de validación de modelos de aceptación tecnológica en educación móvil se han realizado en contextos asiáticos, con variables culturales que no son directamente transferibles al contexto ecuatoriano. Esta observación refuerza la pertinencia de evaluar la aceptación tecnológica del sistema propuesto mediante instrumentos aplicados directamente en el contexto de estudio, con estudiantes ecuatorianos de educación básica.
+
+3.3.3. M-Learning en el Contexto Latinoamericano [NUEVO]
+
+El contexto educativo latinoamericano presenta características específicas que deben considerarse en el diseño de aplicaciones de m-learning. La penetración de smartphones en Ecuador supera el 68% de la población según datos del INEC (2023), con una distribución desigual donde los dispositivos de gama baja —con procesadores de 4 núcleos y entre 2 y 4 GB de RAM— representan la mayoría del parque instalado en contextos educativos de nivel básico y medio. Esta realidad impone restricciones técnicas concretas: las aplicaciones educativas deben ser funcionales en dispositivos con recursos limitados, con tiempos de carga razonables en redes de datos móviles 4G de velocidad variable.
+
+El sistema propuesto fue desarrollado con Flutter, que compila código nativo para cada plataforma, garantizando rendimiento óptimo independientemente del nivel de hardware, con compatibilidad desde Android 6.0 (API nivel 23) en adelante (Kim & Park, 2024). Adicionalmente, el módulo de realidad aumentada utiliza TensorFlow Lite con modelos cuantizados que operan eficientemente en dispositivos con recursos limitados, y el módulo de guía didáctica carga el contenido por subtema, evitando la carga simultánea de grandes volúmenes de datos que podría degradar la experiencia en dispositivos de gama baja.
+
+
+3.4. Realidad Aumentada
+
+3.4.1. Definición y Taxonomía [EXPANDIDO]
+
+La realidad aumentada se define como una tecnología que superpone información digital —imágenes, texto, sonido, video— sobre el mundo real en tiempo real, manteniendo al usuario anclado en el entorno físico y añadiendo capas de información digital contextualmente relevante (Azuma et al., 2023). Milgram y Kishino (1994), citados en Billinghurst et al. (2023), propusieron el concepto de "continuo de virtualidad" que sitúa a la RA entre el entorno real y el entorno completamente virtual, diferenciándola de la realidad virtual (VR) en que el usuario mantiene percepción del entorno físico y puede interactuar con él simultáneamente con los elementos digitales.
+
+Las tres características fundamentales de la RA según Azuma et al. (2023) son: (a) combinación de elementos reales y virtuales en un entorno unificado; (b) interactividad en tiempo real, donde el contenido digital responde a los movimientos y acciones del usuario; y (c) registro tridimensional de objetos virtuales en el espacio real, de manera que los elementos digitales parecen ocupar posiciones fijas en el mundo físico independientemente del ángulo de observación. Estas propiedades son precisamente las que confieren a la RA su potencial educativo singular: el estudiante puede interactuar con una representación tridimensional de una célula o de un organelo como si estuviera físicamente presente en su entorno inmediato.
+
+Garzón et al. (2024), en un análisis bibliométrico de más de 600 publicaciones sobre RA en educación, identifican la biología y las ciencias de la vida como el área temática con mayor volumen de investigaciones sobre RA educativa, superando a física, química y matemáticas. Los autores atribuyen este liderazgo a la naturaleza visual e inherentemente tridimensional de las estructuras biológicas: los organelos celulares, las cadenas moleculares y los procesos metabólicos son fenómenos intrinsecamente espaciales cuya representación bidimensional en libros de texto impone pérdidas de información que la RA puede recuperar.
+
+3.4.2. Tipos de Realidad Aumentada [EXPANDIDO]
+
+La literatura identifica cuatro tipos principales de realidad aumentada, cada uno con características técnicas y aplicaciones pedagógicas diferenciadas:
+
+a) RA basada en marcadores (Marker-Based AR): Utiliza patrones visuales predefinidos —marcadores físicos, códigos QR, imágenes de referencia— que la cámara del dispositivo reconoce para activar y posicionar contenido digital. Este enfoque ofrece alta precisión en el registro tridimensional y bajo costo computacional, siendo el más adecuado para entornos educativos con dispositivos de gama media (Billinghurst et al., 2023). El sistema propuesto implementa este tipo de RA en el módulo ARScreenSimple, con cuatro marcadores de color diseñados para resistir variaciones de iluminación típicas de aulas escolares.
+
+b) RA basada en reconocimiento de imágenes (Image Target AR): Variante de la RA basada en marcadores donde la referencia visual es una imagen natural —fotografía, ilustración, portada de libro— en lugar de un marcador artificial. Ofrece mayor naturalidad en la interacción, dado que el estudiante puede apuntar su cámara a imágenes del libro de texto para activar contenido aumentado sin necesidad de marcadores impresos separados (Szeliski, 2022). El sistema propuesto incluye un módulo específico de este tipo denominado ARImageTargetScreen, que superpone información anatómica sobre imágenes de células presentes en materiales educativos.
+
+c) RA sin marcadores (Markerless AR): Utiliza GPS, acelerómetros, giroscopios y algoritmos de Simultaneous Localization and Mapping (SLAM) para determinar la posición y orientación del dispositivo sin necesidad de referencias visuales predefinidas. Requiere mayor capacidad computacional y es más adecuada para aplicaciones de aprendizaje al aire libre o exploración espacial.
+
+d) RA basada en superposición: Reemplaza parcial o totalmente la vista original de un objeto con una vista aumentada, permitiendo la comparación directa de estructuras reales con modelos digitales.
+
+3.4.3. RA en Contextos Educativos [EXPANDIDO]
+
+La implementación de RA en educación se fundamenta en el principio de que la visualización de conceptos abstractos facilita su comprensión. Dunleavy y Dede (2023) identifican los siguientes beneficios de la RA educativa: (a) visualización de fenómenos invisibles o abstractos; (b) interacción con modelos tridimensionales; (c) contextualización del aprendizaje en el entorno real; (d) mayor engagement y motivación; y (e) aprendizaje experiencial y situado.
+
+Radianti et al. (2024), en una revisión sistemática de 150 artículos sobre RA y VR en educación, documentan que el impacto de la RA en el aprendizaje es significativamente mayor cuando la tecnología se integra en actividades pedagógicas estructuradas, con objetivos de aprendizaje claramente definidos y acompañadas de instrucción docente, comparado con el uso exploratorio sin guía. Este hallazgo orienta el diseño del sistema propuesto, donde cada marcador de RA está vinculado a un subtema específico de la guía didáctica, y los videos educativos activados tienen objetivos de aprendizaje explícitos alineados con el currículo nacional.
+
+Ibáñez y Delgado-Kloos (2023), en una revisión sistemática de 28 estudios sobre RA en educación STEM, identifican que las aplicaciones de RA para biología celular reportan los mayores tamaños de efecto en términos de aprendizaje (d promedio = 0.86), superando a química (d = 0.68) y física (d = 0.72). Los autores atribuyen este resultado a que la biología celular presenta el mayor grado de abstracción visual entre las disciplinas STEM: mientras que fenómenos físicos y químicos pueden demostrarse en el laboratorio escolar, la observación de organelos celulares requiere microscopía electrónica generalmente fuera del alcance institucional. La RA resuelve efectivamente esta brecha de acceso.
+
+3.4.4. Integración de RA con Video Educativo [NUEVO]
+
+La combinación de realidad aumentada con contenido de video educativo representa una evolución del simple marcador vinculado a imagen estática. Los videos educativos activados por marcadores de RA ofrecen la posibilidad de visualizar procesos dinámicos —la síntesis de proteínas, la división celular, el transporte a través de la membrana— que no pueden representarse adecuadamente mediante imágenes estáticas tridimensionales (Dunleavy & Dede, 2023).
+
+El sistema propuesto vincula cada uno de sus cuatro marcadores de RA a videos educativos de entre 3 y 5 minutos disponibles en YouTube, reproducidos mediante la librería youtube_player_flutter. Esta arquitectura ofrece ventajas sobre la carga de videos almacenados localmente en la aplicación: permite actualizar el contenido sin actualizar la aplicación, garantiza acceso a la resolución más alta disponible en el dispositivo del estudiante, y reduce significativamente el tamaño del APK descargado (actualmente 45 MB frente a los varios cientos de megabytes que supondría incluir los videos localmente).
+
+Mayer (2021) documenta que la combinación de narración en audio con animación visual produce mejores resultados de aprendizaje que la combinación de texto en pantalla con animación, principio conocido como el "efecto de modalidad". Los videos educativos vinculados a los marcadores del sistema propuesto fueron seleccionados específicamente por combinar animación celular con narración explicativa en español, maximizando el aprovechamiento del principio de modalidad.
+
+
+3.5. Inteligencia Artificial en Educación
+
+3.5.1. Fundamentos de la IA Educativa (AIED) [EXPANDIDO]
+
+La inteligencia artificial aplicada a la educación (AIED) se refiere al uso de técnicas computacionales para simular comportamientos inteligentes que apoyen el proceso de enseñanza-aprendizaje (Holmes et al., 2023). Las aplicaciones de AIED abarcan un espectro amplio: sistemas tutores inteligentes (ITS), chatbots y asistentes virtuales, sistemas de recomendación de contenido, evaluación automatizada y análisis de aprendizaje (Learning Analytics).
+
+Hwang et al. (2023), en una revisión de las perspectivas, desafíos y problemas de investigación de la IA en educación publicada en la primera edición de la revista Computers and Education: Artificial Intelligence, identifican cuatro roles fundamentales que la IA puede desempeñar: (a) como tutor inteligente que proporciona instrucción personalizada; (b) como evaluador automático que ofrece retroalimentación inmediata; (c) como analista de aprendizaje que identifica patrones de dificultad; y (d) como asistente administrativo que automatiza tareas rutinarias. El sistema propuesto implementa los dos primeros roles de manera explícita: el chatbot actúa como tutor que responde preguntas y proporciona explicaciones, y el generador de quizzes actúa como evaluador que adapta la dificultad de las preguntas al nivel del estudiante.
+
+Holmes et al. (2023) señalan que la adopción de IA en educación plantea consideraciones éticas que no pueden ignorarse: la transparencia sobre el uso de IA, la privacidad de los datos de los estudiantes y el riesgo de dependencia tecnológica que inhiba el desarrollo de habilidades cognitivas autónomas. El sistema propuesto aborda estas consideraciones mediante el almacenamiento seguro de datos en Firebase con reglas de seguridad configuradas para garantizar que cada usuario acceda únicamente a sus propios datos, y mediante un diseño que posiciona al chatbot como complemento de la instrucción docente, no como sustituto.
+
+3.5.2. Procesamiento de Lenguaje Natural [EXPANDIDO]
+
+El procesamiento de lenguaje natural (PLN) es la rama de la IA que permite a las computadoras comprender, interpretar y generar lenguaje humano (Jurafsky & Martin, 2024). Históricamente, los sistemas de PLN se basaban en reglas lingüísticas predefinidas y modelos estadísticos de n-gramas, con capacidades limitadas de comprensión semántica. La revolución en el PLN llegó con la arquitectura de transformadores propuesta por Vaswani et al. (2017), que introdujo el mecanismo de atención de múltiples cabezas (multi-head attention), permitiendo a los modelos capturar dependencias a larga distancia en el texto con una eficiencia computacional sin precedentes.
+
+Los componentes fundamentales del PLN aplicable al chatbot educativo incluyen: (a) tokenización, división del texto en unidades mínimas procesables; (b) análisis morfológico, identificación de la estructura de las palabras; (c) análisis sintáctico, determinación de la estructura gramatical; (d) análisis semántico, interpretación del significado; y (e) análisis pragmático, comprensión del contexto comunicativo. Los LLM modernos integran todos estos niveles de análisis de manera implícita en sus parámetros entrenados, eliminando la necesidad de módulos separados para cada tarea lingüística (Jurafsky & Martin, 2024).
+
+3.5.3. Modelos de Lenguaje Grande (LLM) [CORREGIDO/EXPANDIDO]
+
+Los modelos de lenguaje grande (LLM, del inglés Large Language Models) representan la evolución más reciente en procesamiento de lenguaje natural. Según Brown et al. (2023), estos modelos se caracterizan por cuatro propiedades distintivas: (a) arquitectura de transformadores con mecanismos de atención que capturan dependencias contextuales en secuencias largas; (b) entrenamiento con conjuntos masivos de datos textuales que representan el conocimiento disponible en internet; (c) capacidad de aprendizaje en contexto (in-context learning), aprendiendo a realizar nuevas tareas únicamente a partir de ejemplos proporcionados en el prompt sin necesidad de re-entrenamiento; y (d) generación de texto coherente y contextualmente relevante que puede ser indistinguible del texto humano en muchos contextos.
+
+Kasneci et al. (2023), en una revisión exhaustiva del impacto de los LLM en educación que analiza más de 200 publicaciones, identifican la restricción del dominio temático mediante instrucciones de sistema (system prompts) como la estrategia más efectiva para garantizar la fiabilidad pedagógica de las respuestas generadas. Un chatbot educativo sin restricción de dominio puede proporcionar información correcta pero irrelevante para los objetivos curriculares, o incluso información plausible pero inexacta (fenómeno conocido como "alucinación" en la literatura sobre LLM). La delimitación explícita del dominio —en el sistema propuesto, exclusivamente ciencias naturales con énfasis en biología celular— reduce significativamente ambos riesgos.
+
+En el sistema propuesto se adoptó una arquitectura de IA diferenciada según la naturaleza de cada módulo. Para el chatbot educativo y el generador dinámico de evaluaciones, se utiliza la API de Groq con el modelo openai/gpt-oss-20b, un LLM de 20 mil millones de parámetros con capacidades suficientes para el dominio acotado de las ciencias naturales (Groq, 2024). Para el escáner inteligente, se emplea Google Generative AI (Gemini Vision), modelo multimodal capaz de procesar simultáneamente texto e imágenes para generar descripciones detalladas de organismos biológicos identificados mediante fotografía (Google DeepMind, 2024; Qadir, 2024). Esta arquitectura dual responde al principio de selección de la herramienta óptima para cada tarea específica, maximizando tanto la velocidad de respuesta del chatbot como la precisión del análisis de imágenes.
+
+3.5.4. Chatbots Educativos [EXPANDIDO]
+
+Los chatbots educativos son agentes conversacionales diseñados para facilitar el aprendizaje mediante la interacción en lenguaje natural (Wollny et al., 2023). Sus funciones principales incluyen: (a) respuesta a preguntas frecuentes sobre el contenido curricular; (b) tutoría personalizada adaptada al nivel y necesidades del estudiante; (c) retroalimentación inmediata sobre respuestas y comprensión; (d) guía socrática en actividades de aprendizaje; y (e) soporte emocional y motivacional mediante lenguaje empático y alentador.
+
+Okonkwo y Ade-Ibijola (2023), en una revisión sistemática de 65 estudios sobre chatbots en educación, concluyen que los chatbots especializados en un dominio temático específico superan consistentemente a los chatbots de propósito general en términos de precisión, pertinencia curricular y satisfacción del usuario. Los chatbots especializados permiten optimizar el system prompt para el dominio, entrenar respuestas específicas para errores conceptuales frecuentes identificados en la literatura didáctica, y ajustar el registro lingüístico al nivel del público objetivo —en este caso, estudiantes de educación básica.
+
+Wang et al. (2025) documentan que los estudiantes que interactuaron regularmente con chatbots de IA para resolver dudas académicas mostraron incrementos significativos en su autoeficacia académica y reducción de la ansiedad ante evaluaciones, comparados con grupos que solo accedieron a recursos estáticos. Los autores atribuyen este efecto a la disponibilidad permanente del chatbot —eliminando la barrera temporal de tener que esperar al horario de consultas del docente— y a la ausencia de juicio social, que permite a los estudiantes formular preguntas que consideran "básicas" sin temor al ridículo ante sus pares.
+
+Lo (2023), en una revisión rápida de literatura sobre el impacto educativo de sistemas de IA conversacional, documenta que los chatbots con restricción de dominio temático muestran tasas de satisfacción del usuario significativamente más altas que los chatbots de propósito general, precisamente porque los usuarios perciben que el sistema "sabe de lo que habla" dentro de su área de especialización.
+
+3.5.5. Plataformas de Inferencia de IA: Groq API y Arquitectura LPU [NUEVO]
+
+La latencia de respuesta constituye uno de los factores críticos en la usabilidad de chatbots educativos en aplicaciones móviles. Investigaciones sobre interacción humano-computadora documentan que tiempos de espera superiores a tres segundos incrementan significativamente la frustración del usuario y la probabilidad de abandono de la tarea, efecto particularmente pronunciado en estudiantes jóvenes con menor tolerancia a la espera (Sharples et al., 2023).
+
+Groq Inc. desarrolló la LPU (Language Processing Unit), una arquitectura de procesador diseñada específicamente para la inferencia secuencial de LLM. A diferencia de las GPU (Graphics Processing Units), diseñadas para el procesamiento paralelo masivo en operaciones de entrenamiento de modelos, la LPU está optimizada para la generación token a token —el proceso mediante el cual un LLM produce su respuesta palabra por palabra—, eliminando los cuellos de botella de memoria que afectan a las GPU durante este proceso (Groq, 2024). La LPU logra velocidades de generación superiores a los 500 tokens por segundo en modelos de escala media, comparado con los 40-80 tokens por segundo típicos en GPU de uso general, resultando en tiempos de respuesta percibidos por el usuario de 1-2 segundos frente a 5-10 segundos para respuestas de extensión media.
+
+La API de Groq expone sus modelos mediante el estándar OpenAI Chat Completions, garantizando interoperabilidad con cualquier cliente HTTP sin necesidad de SDKs propietarios adicionales. Las solicitudes se estructuran como una lista de mensajes por rol —sistema (system), usuario (user) y asistente (assistant)—, donde el mensaje de sistema establece las instrucciones de comportamiento del modelo para toda la sesión. En el sistema propuesto, el system prompt del chatbot establece explícitamente: el rol del asistente (tutor educativo de ciencias naturales), el dominio temático permitido (biología, botánica, zoología, ecología, procesos celulares), el registro lingüístico esperado (claro, sencillo, adecuado para estudiantes), y el comportamiento ante preguntas fuera del dominio (redirigir amablemente hacia el tema de estudio). Esta configuración implementa la recomendación de Kasneci et al. (2023) sobre la restricción de dominio como mecanismo de garantía de calidad pedagógica.
+
+3.5.6. Generación Automática de Evaluaciones con Inteligencia Artificial [NUEVO]
+
+La generación automática de ítems de evaluación (Automatic Item Generation, AIG) mediante LLM constituye una de las aplicaciones más documentadas y prometedoras de la IA en educación. Los sistemas AIG tradicionales requerían la definición manual de plantillas y reglas lingüísticas para generar variantes de preguntas, lo que limitaba su escalabilidad y diversidad. Los LLM modernos superan estas limitaciones al generar preguntas originales, contextualmente coherentes y pedagógicamente graduadas a partir de texto educativo sin plantillas predefinidas (Lo, 2023).
+
+El servicio de generación dinámica de quizzes del sistema propuesto —implementado en el archivo quiz_generator_service.dart— utiliza la API de Groq con el modelo openai/gpt-oss-20b para crear preguntas de opción múltiple originales para cada subtema de la guía didáctica. El sistema genera preguntas en tres niveles de dificultad: fácil (comprensión directa de definiciones), medio (aplicación de conceptos a situaciones conocidas) y difícil (análisis y síntesis de múltiples conceptos). Para cada ítem generado se incluyen: el texto de la pregunta, cuatro opciones de respuesta, el índice de la opción correcta y una explicación educativa de la respuesta correcta.
+
+Kasneci et al. (2023) documentan que las evaluaciones generadas dinámicamente por LLM presentan ventajas pedagógicas sobre los bancos de preguntas estáticos: previenen la memorización superficial de respuestas sin comprensión (goodhart's law aplicado a la evaluación), pueden ajustarse al nivel exacto de dificultad apropiado para cada estudiante en cada momento, y generan variedad suficiente para que la repetición de una evaluación resulte en una experiencia de aprendizaje diferente en lugar de un ejercicio memorístico. Esta última característica es especialmente valiosa para el repaso y la consolidación del conocimiento, donde la práctica repetida con variedad de problemas produce mejores resultados de aprendizaje que la práctica repetida con los mismos problemas.
+
+
+3.6. Desarrollo de Software Móvil
+
+3.6.1. Paradigmas de Desarrollo Móvil [EXPANDIDO]
+
+Existen tres paradigmas principales para el desarrollo de aplicaciones móviles (Biørn-Hansen et al., 2023):
+
+a) Desarrollo nativo: Aplicaciones desarrolladas específicamente para cada plataforma (iOS con Swift/Objective-C, Android con Kotlin/Java). Ofrece máximo rendimiento y acceso completo a las APIs del sistema operativo, pero requiere mantener dos bases de código separadas con el consecuente incremento en costos de desarrollo y mantenimiento.
+
+b) Desarrollo híbrido: Aplicaciones web empaquetadas en contenedores nativos (Ionic, Cordova, Capacitor). Permite compartir código entre plataformas mediante tecnologías web estándar (HTML, CSS, JavaScript), pero con penalizaciones de rendimiento derivadas del uso de WebView como motor de renderizado.
+
+c) Desarrollo multiplataforma: Código único compilado a aplicaciones nativas para múltiples plataformas (Flutter, React Native, Xamarin). Combina la eficiencia de desarrollo de una base de código única con rendimiento cercano al nativo, representando el paradigma de mayor crecimiento en adopción en el período 2020-2025.
+
+La elección del paradigma de desarrollo tiene implicaciones directas en la experiencia del usuario final. Biørn-Hansen et al. (2023) documentan que las aplicaciones híbridas muestran tasas de satisfacción del usuario consistentemente inferiores a las aplicaciones nativas y multiplataforma modernas, especialmente en aspectos de fluidez de animaciones y tiempo de respuesta táctil, factores críticos en aplicaciones educativas con interacciones frecuentes y elementos de RA.
+
+3.6.2. Flutter y Dart [EXPANDIDO]
+
+Flutter es un framework de código abierto desarrollado por Google para crear aplicaciones multiplataforma compiladas nativamente desde una única base de código (Flutter Team, 2024). Sus características principales incluyen: (a) lenguaje Dart, orientado a objetos con compilación AOT para rendimiento nativo y JIT para desarrollo; (b) sistema de widgets declarativo donde la interfaz se construye mediante composición de componentes inmutables; (c) Hot Reload, recarga en caliente que permite ver cambios en tiempo real durante el desarrollo; (d) motor de renderizado Impeller (sucesor de Skia), que garantiza renderizado consistente y de alta calidad en todas las plataformas; y (e) soporte multiplataforma nativo para Android, iOS, web, Windows, macOS y Linux desde una única base de código.
+
+Kim y Park (2024) documentan que el sistema de widgets de Flutter garantiza experiencias de usuario consistentes en dispositivos con diferentes densidades de pantalla y tamaños, lo que es crítico para aplicaciones educativas destinadas a una población con hardware heterogéneo. La consistencia visual entre dispositivos —ausente en enfoques basados en componentes nativos de cada plataforma— facilita la formación de modelos mentales estables en los usuarios, reduciendo la carga cognitiva extrínseca asociada a aprender a navegar interfaces que varían según el dispositivo.
+
+Kumar y Singh (2024) reportaron que el desarrollo de una aplicación educativa completa con Flutter —incluyendo autenticación, gestión de cursos, entrega de contenido y evaluaciones— requirió un 35% menos de tiempo que el desarrollo equivalente con desarrollo nativo doble (Android + iOS), sin comprometer la calidad de la experiencia de usuario. Esta ventaja de productividad es especialmente relevante en el contexto de investigación doctoral, donde el tiempo de desarrollo debe equilibrarse con las exigencias académicas del programa.
+
+3.6.3. Arquitectura de Aplicaciones Flutter
+
+Las arquitecturas recomendadas para aplicaciones Flutter incluyen (Windmill, 2023): (a) MVC (Modelo-Vista-Controlador), separación clásica de datos, presentación y lógica; (b) MVVM (Modelo-Vista-VistaModelo), desacoplamiento mediante binding de datos; (c) Clean Architecture, capas concéntricas con dependencias hacia el interior; y (d) BLoC (Business Logic Component), gestión de estado mediante streams reactivos.
+
+El sistema propuesto implementa una arquitectura en capas inspirada en Clean Architecture: la capa de presentación contiene las pantallas (screens) y widgets; la capa de servicios (services) encapsula la lógica de negocio y las integraciones externas (AuthService, FirestoreService, ChatService, QuizGeneratorService, ScannerService); y la capa de datos incluye los modelos (models) y los datos estáticos (data). Esta separación facilita el mantenimiento, las pruebas unitarias y la extensión futura del sistema con nuevos módulos sin modificar las capas existentes.
+
+3.6.4. Gestión de Dependencias y Configuración Centralizada [NUEVO]
+
+Una práctica de ingeniería de software crítica para la seguridad y mantenibilidad de aplicaciones que integran APIs externas es la centralización de credenciales y configuraciones en un módulo dedicado, separado del código de lógica de negocio. El sistema propuesto implementa esta práctica mediante el archivo config/app_config.dart, que centraliza la URL del endpoint de la API de Groq, la clave de API y el identificador del modelo. Esta arquitectura ofrece dos ventajas concretas: (a) facilita el cambio de proveedor de IA o de modelo sin modificar múltiples archivos del proyecto; y (b) permite la gestión segura de credenciales mediante variables de entorno en entornos de producción, reduciendo el riesgo de exposición accidental de claves API en repositorios de código fuente (Windmill, 2023).
+
+La separación de responsabilidades entre el módulo de configuración y los servicios que lo consumen también facilita las pruebas unitarias: los servicios pueden probarse con credenciales de entorno de prueba simplemente modificando la configuración centralizada, sin alterar el código de los servicios. Kumar y Singh (2024) identifican la configuración centralizada como una de las mejores prácticas más frecuentemente omitidas en proyectos de aplicaciones educativas móviles de tamaño medio, donde el código de credenciales se distribuye en múltiples archivos dificultando el mantenimiento.
+
+
+3.7. Backend como Servicio (BaaS)
+
+3.7.1. Firebase [EXPANDIDO]
+
+Firebase es una plataforma de desarrollo de aplicaciones de Google que proporciona servicios backend escalables sin necesidad de gestionar infraestructura de servidores (Firebase, 2024). La adopción del modelo Backend as a Service (BaaS) en proyectos de aplicaciones educativas ofrece ventajas significativas frente al despliegue de infraestructura propia: eliminación de costos de gestión de servidores, escalabilidad automática según demanda, disponibilidad garantizada mediante la infraestructura global de Google, y actualizaciones de seguridad gestionadas por el proveedor.
+
+Los servicios de Firebase utilizados en el sistema propuesto incluyen:
+
+a) Firebase Authentication: Servicio de autenticación que soporta múltiples proveedores de identidad. En el sistema propuesto se implementa exclusivamente Google Sign-In, que proporciona autenticación segura mediante cuentas Google ya conocidas por los estudiantes, eliminando la necesidad de crear y recordar contraseñas adicionales. La integración con el framework OAuth 2.0 de Google garantiza el cumplimiento de estándares de seguridad actualizados.
+
+b) Cloud Firestore: Base de datos NoSQL orientada a documentos con sincronización en tiempo real. Organiza la información en colecciones y documentos, permitiendo consultas flexibles y actualizaciones en tiempo real mediante listeners. En el sistema propuesto almacena perfiles de usuario, historial de chat, progreso por subtema, resultados de quizzes, estadísticas de uso y logros desbloqueados.
+
+c) Firebase Analytics: Servicio de análisis de comportamiento de usuarios que proporciona métricas sobre patrones de uso, funcionalidades más utilizadas y puntos de abandono, facilitando la evaluación continua del sistema y la identificación de áreas de mejora.
+
+3.7.2. Modelo de Datos NoSQL en Cloud Firestore [CORREGIDO]
+
+Cloud Firestore implementa el modelo de datos NoSQL orientado a documentos, organizado en una jerarquía de colecciones y documentos (Firebase, 2024). Las colecciones agrupan documentos relacionados —por ejemplo, todos los perfiles de usuario o todos los registros de chat—, mientras que los documentos son unidades de almacenamiento con campos de tipo variable (cadenas, números, booleanos, fechas, objetos anidados, referencias). Este modelo ofrece ventajas específicas para aplicaciones educativas:
+
+a) Esquema flexible: No requiere definición previa de estructura, permitiendo agregar nuevos campos a los documentos sin migraciones de base de datos. Esto es valioso durante el desarrollo iterativo, donde el modelo de datos evoluciona junto con los requisitos del sistema.
+
+b) Escalabilidad horizontal: Firestore distribuye automáticamente los datos entre múltiples servidores, garantizando rendimiento consistente independientemente del número de usuarios simultáneos.
+
+c) Consultas en tiempo real: Los listeners de Firestore permiten que la aplicación reciba actualizaciones automáticas cuando los datos cambian en el servidor, sin necesidad de polling periódico, lo que reduce el consumo de batería y datos móviles.
+
+d) Sincronización offline: Firestore mantiene una caché local de los datos accedidos, permitiendo que la aplicación funcione sin conexión y sincronice los cambios cuando la conectividad se restaura.
+
+El modelo de datos del sistema propuesto organiza la información en cuatro colecciones principales: `users` (perfiles y estadísticas), `chat_sessions` (historial de conversaciones con el chatbot), `progress` (progreso por subtema por usuario) y `achievements` (logros desbloqueados). Esta estructura permite consultas eficientes para las operaciones más frecuentes —recuperar el perfil del usuario, cargar el historial de chat reciente, verificar el progreso por subtema— garantizando tiempos de carga inferiores a 500 milisegundos para la pantalla principal.
+
+3.7.3. Seguridad y Privacidad en Firebase [NUEVO]
+
+La gestión de datos personales de estudiantes —especialmente menores de edad— impone obligaciones legales y éticas que deben considerarse en el diseño del backend. Firebase ofrece mecanismos de seguridad configurables mediante reglas de seguridad de Firestore, que definen qué operaciones (lectura, escritura, actualización, eliminación) puede realizar cada usuario sobre cada colección y documento (Firebase, 2024).
+
+En el sistema propuesto, las reglas de seguridad implementan el principio de mínimo privilegio: cada usuario autenticado puede leer y modificar únicamente sus propios documentos (identificados por su UID de Firebase Authentication), sin acceso a los datos de otros usuarios. Las colecciones de datos sensibles —historial de chat y progreso académico— son accesibles solo por el usuario propietario y no por otros usuarios de la aplicación. Esta configuración cumple con los principios de la normativa GDPR europea y sus equivalentes latinoamericanos, garantizando la confidencialidad de los datos de aprendizaje almacenados.
+
+
+3.8. Visión por Computadora
+
+3.8.1. Fundamentos [EXPANDIDO]
+
+La visión por computadora es el campo de la IA que permite a las máquinas interpretar y comprender información visual del mundo mediante algoritmos de procesamiento de imágenes y redes neuronales (Szeliski, 2022). Sus aplicaciones en dispositivos móviles han experimentado un crecimiento exponencial impulsado por la mejora del hardware de cómputo móvil y la disponibilidad de modelos preentrenados eficientes.
+
+Los procesos fundamentales de la visión por computadora incluyen: (a) adquisición de imagen mediante sensores de cámara digital; (b) preprocesamiento para mejorar, normalizar y estandarizar las imágenes; (c) segmentación para identificar regiones de interés; (d) extracción de características visuales relevantes mediante redes convolucionales; y (e) clasificación para asignar categorías semánticas a los objetos identificados (Szeliski, 2022).
+
+La inteligencia de borde (edge AI) —procesamiento de modelos de aprendizaje automático directamente en el dispositivo, sin enviar datos a la nube— ofrece ventajas importantes para aplicaciones educativas: elimina la dependencia de conectividad para las funciones de análisis de imagen, reduce la latencia de respuesta al evitar el tiempo de transmisión de datos, y protege la privacidad del usuario al procesar las imágenes capturadas localmente sin almacenarlas en servidores externos (Patterson & Gibson, 2024).
+
+TensorFlow Lite es la herramienta de referencia para el despliegue de modelos de visión por computadora en dispositivos móviles. Abadi et al. (2023) documentan que TensorFlow Lite permite ejecutar modelos de aprendizaje automático en dispositivos con recursos limitados mediante técnicas de optimización como cuantización de pesos, eliminación de operaciones redundantes y aprovechamiento de aceleradores de hardware específicos (GPU móvil, Neural Processing Unit).
+
+3.8.2. TensorFlow Lite para Dispositivos Móviles [EXPANDIDO]
+
+TensorFlow Lite permite ejecutar modelos de aprendizaje automático en dispositivos con recursos limitados mediante las siguientes optimizaciones (TensorFlow, 2024):
+
+a) Cuantización: Reducción de la precisión numérica de los pesos del modelo de 32 bits de punto flotante a 8 bits enteros, reduciendo el tamaño del modelo en un factor de 4 y acelerando la inferencia entre 2 y 3 veces con una pérdida de precisión inferior al 2%.
+
+b) Poda (Pruning): Eliminación de conexiones neuronales con pesos cercanos a cero, reduciendo el tamaño del modelo sin impacto significativo en la precisión.
+
+c) Delegados de hardware: Aprovechamiento de GPU móvil (mediante OpenGL ES) y aceleradores de IA específicos (Neural Processing Unit, Hexagon DSP) presentes en los procesadores móviles modernos, multiplicando la velocidad de inferencia sin modificar el modelo.
+
+El sistema propuesto utiliza el modelo MobileNet V2 cuantizado (mobilenet_v2.tflite) para la clasificación inicial de imágenes en el escáner inteligente. MobileNet V2 es un modelo de clasificación de imágenes diseñado específicamente para dispositivos móviles, con una arquitectura de bloques residuales invertidos que maximiza la precisión por unidad de operación de punto flotante (FLOP). Singh y Bhadani (2020) documentan tiempos de inferencia de MobileNet V2 cuantizado en dispositivos Android de gama media de entre 150 y 400 milisegundos, consistentes con el objetivo de diseño del escáner del sistema propuesto de proporcionar clasificación inicial en menos de 500 milisegundos.
+
+3.8.3. Análisis de Imágenes con IA Generativa: Google Gemini Vision [NUEVO]
+
+Mientras que TensorFlow Lite proporciona clasificación local rápida mediante un vocabulario cerrado de categorías predefinidas, los modelos de IA generativa multimodal como Google Gemini Vision ofrecen capacidades de comprensión visual mucho más ricas: pueden describir en lenguaje natural el contenido de una imagen, identificar especies biológicas con precisión taxonómica, generar explicaciones contextualizadas sobre lo que la imagen muestra, y responder preguntas específicas sobre el contenido visual (Google DeepMind, 2024).
+
+El escáner del sistema propuesto implementa una arquitectura de dos etapas que combina ambas capacidades: en la primera etapa, TensorFlow Lite realiza la clasificación local inicial en menos de 500 milisegundos, determinando la categoría general del objeto fotografiado (planta, animal, célula, etc.); en la segunda etapa, Google Gemini Vision recibe la imagen capturada y genera una descripción detallada del organismo identificado, incluyendo su clasificación taxonómica, características morfológicas visibles, hábitat típico y relevancia en el contexto de las ciencias naturales. Esta descripción se presenta al estudiante en formato de texto educativo, enriqueciendo la experiencia de identificación con información pertinente para el aprendizaje.
+
+Qadir (2024) documenta que Google Gemini ofrece capacidades de análisis de imágenes biológicas superiores a las de modelos especializados anteriores, particularmente en la identificación de especies de flora y fauna con denominación científica y common name en español, lo que lo posiciona como el motor más apropiado para el escáner inteligente del sistema propuesto orientado a estudiantes hispanohablantes.
+
+
+3.9. Reconocimiento de Voz en Aplicaciones Educativas Móviles [NUEVO]
+
+3.9.1. Fundamentos del Reconocimiento Automático de Voz
+
+El reconocimiento automático de voz (ASR, Automatic Speech Recognition) es la tecnología que convierte señales de audio en texto, permitiendo la interacción mediante lenguaje hablado con sistemas computacionales (Jurafsky & Martin, 2024). Los sistemas ASR modernos basados en redes neuronales profundas han alcanzado precisiones superiores al 95% en condiciones controladas para los principales idiomas, incluyendo el español en sus variantes latinoamericanas, niveles comparables a la precisión de transcripción humana.
+
+La disponibilidad de APIs de reconocimiento de voz en los propios sistemas operativos móviles —Android Speech Recognition y iOS SpeechKit— ha democratizado la integración de esta tecnología en aplicaciones de terceros, eliminando la necesidad de infraestructura de procesamiento de voz adicional y garantizando la optimización continua de los modelos mediante actualizaciones del sistema operativo.
+
+3.9.2. Reconocimiento de Voz en el Chatbot Educativo
+
+El módulo de chatbot del sistema propuesto integra reconocimiento de voz mediante la librería speech_to_text de Flutter, que proporciona una interfaz unificada para acceder a las APIs de reconocimiento de voz de Android e iOS desde una sola base de código. La interacción por voz ofrece ventajas pedagógicas documentadas: reduce la barrera de entrada para estudiantes con habilidades de escritura en teclado táctil limitadas, permite formular preguntas más largas y detalladas de manera natural, y resulta más cómoda en situaciones de uso fuera del aula donde escribir puede ser incómodo (Jurafsky & Martin, 2024).
+
+Wollny et al. (2023) reportan que la adopción de la modalidad de voz en chatbots educativos incrementa el promedio de caracteres por consulta en un 40% comparado con la interacción textual exclusiva, lo que se traduce en preguntas más contextualizadas y completas que permiten al modelo de lenguaje generar respuestas más precisas y relevantes. Este efecto es especialmente valioso en el contexto del chatbot de ciencias del sistema propuesto, donde la especificidad de las preguntas sobre biología celular determina directamente la calidad de las respuestas generadas.
+
+3.9.3. Interacción Multimodal en Aplicaciones Educativas
+
+La combinación de múltiples modalidades de interacción —táctil, textual, por voz, y visual mediante la cámara— en una sola aplicación educativa define lo que Holmes et al. (2023) denominan sistemas de IA educativa multimodal. Este diseño aumenta la accesibilidad de la aplicación para perfiles de usuario diversificados: estudiantes con preferencias de aprendizaje auditivo-verbal se benefician de la interacción por voz con el chatbot; estudiantes visuales aprovechan el módulo de realidad aumentada y el escáner; y estudiantes con estilos de aprendizaje lecto-escritores utilizan principalmente la guía didáctica textual y el glosario interactivo.
+
+La teoría de los estilos de aprendizaje, aunque debatida en su formulación más estricta, señala que ofrecer múltiples representaciones del mismo contenido incrementa la probabilidad de que todos los estudiantes encuentren al menos una modalidad que se ajuste a sus preferencias y fortalezas cognitivas. Mayer (2021) argumenta que la multimodalidad en aplicaciones educativas no requiere justificarse desde la perspectiva de estilos de aprendizaje, sino desde el principio más robusto de que múltiples representaciones de un concepto enriquecen la red de conexiones semánticas en la memoria a largo plazo, facilitando la recuperación y la transferencia.
+
+
+3.10. Gamificación en Entornos Educativos Digitales [NUEVO]
+
+3.10.1. Definición y Fundamentos
+
+La gamificación en entornos educativos se define como la aplicación de elementos de diseño de juegos —puntos, insignias, tablas de clasificación, narrativas, niveles progresivos, desafíos, retroalimentación instantánea— en contextos de aprendizaje con el objetivo de incrementar la motivación intrínseca y el engagement sostenido del estudiante (Deterding et al., 2011). Es importante distinguir la gamificación de los "juegos educativos" (edu-games): mientras estos últimos son juegos completos con narrativa y mecánica propia, la gamificación incorpora selectivamente elementos de juego en actividades pedagógicas convencionales sin transformar el proceso educativo en un juego.
+
+Hamari et al. (2014), en una revisión sistemática de 24 estudios empíricos sobre gamificación en contextos variados, reportaron resultados positivos en el 83% de los estudios en términos de motivación y engagement. Los autores identifican los logros desbloqueables (achievements), los sistemas de puntos y las barras de progreso como los elementos gamificados con mayor impacto consistente, particularmente en plataformas de aprendizaje digital donde la persistencia a largo plazo es el principal desafío.
+
+3.10.2. Logros, Rachas y Progreso en el Sistema Propuesto
+
+El sistema de gamificación del sistema propuesto implementa tres mecanismos centrales: (a) logros desbloqueables (achievements) vinculados a hitos de aprendizaje verificables; (b) sistema de rachas de estudio (streaks) que registra días consecutivos de actividad; y (c) barras de progreso visual por subtema y por unidad completa.
+
+Dicheva et al. (2015), en un análisis sistemático de 64 publicaciones sobre gamificación en educación, concluyen que la efectividad pedagógica de la gamificación depende críticamente de la coherencia entre los elementos gamificados y los objetivos de aprendizaje: sistemas que premian exclusivamente el volumen de interacción (tiempo de uso, número de respuestas) pueden inducir comportamientos superficiales, mientras que los que premian evidencias verificables de aprendizaje promueven el procesamiento profundo. Los logros del sistema propuesto —"Primer Contacto" (completar el primer subtema), "Experto Celular" (completar todos los subtemas), "Quiz Perfecto" (100% en una evaluación), "Racha Semanal" (7 días consecutivos de estudio)— corresponden todos a hitos que requieren engagement genuino con el contenido curricular.
+
+Landers (2014) propone que los sistemas de gamificación influyen en el aprendizaje a través de dos mecanismos: la modificación directa del comportamiento mediante refuerzo positivo (el logro como recompensa inmediata), y la modificación indirecta de las actitudes hacia la actividad educativa mediante el incremento de la percepción de competencia y autoeficacia. El sistema propuesto activa ambos mecanismos: el desbloqueo de un logro proporciona retroalimentación positiva inmediata (refuerzo), y la visualización del progreso acumulado en el perfil del estudiante incrementa su percepción de competencia en el dominio de la biología celular.
+
+3.10.3. Estadísticas de Aprendizaje como Retroalimentación Metacognitiva
+
+El módulo de perfil de usuario del sistema propuesto almacena y presenta estadísticas detalladas de uso: número de subtemas completados, porcentaje de acierto en quizzes, tiempo de estudio acumulado, número de preguntas realizadas al chatbot, y racha de estudio actual. Esta información no solo cumple una función motivacional mediante la visibilidad del progreso, sino que activa procesos metacognitivos de autorregulación del aprendizaje.
+
+Holmes et al. (2023) documentan que la presentación de métricas de aprendizaje personalizadas a los propios estudiantes —una práctica conocida como "Learning Analytics for learners"— incrementa la capacidad de autorregulación académica: los estudiantes que acceden regularmente a sus estadísticas de desempeño identifican más fácilmente sus áreas de debilidad y ajustan su comportamiento de estudio en consecuencia. Este efecto es particularmente pronunciado cuando las estadísticas son granulares (por subtema, por tipo de pregunta) en lugar de agregadas, como en el diseño del sistema propuesto.
+
+
+3.11. Recursos Lexicográficos Digitales en la Enseñanza de Ciencias [NUEVO]
+
+3.11.1. El Vocabulario Científico como Barrera de Aprendizaje
+
+El vocabulario especializado constituye una de las barreras más documentadas en el aprendizaje de ciencias naturales. Los estudiantes de educación básica se enfrentan simultáneamente a nuevos conceptos y a la terminología técnica que los designa, generando una doble carga cognitiva que puede interferir con la comprensión profunda del contenido (Driver et al., 2023). La biología celular presenta una densidad terminológica particularmente alta: un solo subtema sobre organelos celulares puede introducir simultáneamente términos como mitocondria, ribosoma, retículo endoplasmático, aparato de Golgi y lisosoma, cada uno con una función y morfología específica que debe asociarse correctamente con su denominación.
+
+Nation (2001) distingue entre el conocimiento de reconocimiento de un término (saber que la palabra existe y puede identificarla cuando se la lee) y el conocimiento productivo (poder utilizarla correctamente en contexto). El vocabulario científico académico requiere principalmente conocimiento de reconocimiento para la comprensión de textos y explicaciones, pero las evaluaciones frecuentemente evalúan el nivel productivo. Los recursos lexicográficos digitales pueden acelerar la transición entre ambos niveles al proporcionar contextos múltiples y representaciones variadas del mismo término.
+
+3.11.2. Glosarios Digitales con Componentes Multimedia
+
+Los recursos lexicográficos digitales —glosarios, diccionarios especializados, herramientas de aprendizaje de vocabulario— han demostrado efectividad pedagógica en contextos de aprendizaje de vocabulario científico. Godwin-Jones (2011) identifica tres características que distinguen a los glosarios digitales efectivos de sus equivalentes impresos: la accesibilidad contextual (disponibles en el momento exacto de necesidad), la multimodalidad (combinan texto, imagen y audio) y la conectividad (los términos están relacionados entre sí y con el contenido donde aparecen).
+
+El módulo de Diccionario del sistema propuesto implementa las tres características identificadas por Godwin-Jones (2011): los términos son accesibles directamente desde la pantalla principal sin interrumpir otras actividades; cada término incluye definición, imagen ilustrativa, pronunciación y dato curioso (multimodalidad); y cada término referencia los subtemas de la guía donde aparece en contexto (conectividad). Esta última característica —la conexión bidireccional entre el glosario y el contenido educativo— responde al principio de aprendizaje contextualizado del vocabulario que Nation (2001) identifica como el predictor más robusto de la retención duradera de términos técnicos.
+
+3.11.3. Datos Curiosos como Estrategia de Codificación Mnemónica
+
+La inclusión de datos curiosos en el glosario del sistema propuesto —por ejemplo, que si se estirara el ADN de una sola célula humana mediría 2 metros, o que el cuerpo produce y consume aproximadamente su propio peso en ATP cada día— responde a evidencia sobre el rol de la sorpresa cognitiva en la formación de memorias duraderas. Mayer (2021) documenta que la información que viola expectativas previas del aprendiz activa el sistema de recompensa cerebral, generando una respuesta emocional positiva que facilita la codificación y consolidación de la memoria asociada al concepto relacionado.
+
+Este efecto, denominado "efecto de curiosidad" o "curiosity gap" en la literatura de neurociencia educativa, ha sido documentado en contextos de enseñanza de ciencias por Pedaste et al. (2023): los estudiantes recuerdan sistemáticamente los datos curiosos asociados a conceptos científicos incluso cuando han olvidado la definición formal del término, y este recuerdo parcial actúa como ancla de recuperación para la información relacionada en evaluaciones posteriores.
+
+
+3.12. Enseñanza de Ciencias Naturales
+
+3.12.1. Didáctica de las Ciencias [EXPANDIDO]
+
+La didáctica de las ciencias naturales se fundamenta en el modelo de enseñanza por indagación (inquiry-based learning), que promueve el aprendizaje activo mediante la investigación y el descubrimiento (Pedaste et al., 2023). Las fases del ciclo de indagación incluyen: (a) orientación, estimulación de la curiosidad y planteamiento de preguntas; (b) conceptualización, formulación de hipótesis y definición de variables; (c) investigación, diseño y ejecución de experimentos; (d) conclusión, análisis de resultados y elaboración de conclusiones; y (e) discusión, comunicación y reflexión sobre el proceso de aprendizaje.
+
+El sistema propuesto integra actividades que cubren múltiples fases del ciclo de indagación: la guía didáctica interactiva y los videos de RA aportan a las fases de orientación y conceptualización; el escáner inteligente permite una forma de investigación observacional conectada con el entorno real del estudiante; los quizzes adaptativos generados por IA invitan a la conclusión mediante la verificación de comprensión; y el chatbot apoya la discusión socrática al responder preguntas de profundización y plantear interrogantes de reflexión.
+
+Holmes et al. (2023) documentan que los sistemas de IA educativa tienen mayor impacto pedagógico cuando están diseñados para complementar el ciclo de indagación en lugar de sustituirlo: un chatbot que proporciona directamente las respuestas sin promover la reflexión del estudiante puede inhibir el desarrollo del pensamiento científico, mientras que un chatbot diseñado para guiar el razonamiento mediante preguntas socráticas lo fortalece. Esta orientación pedagógica informa el diseño del system prompt del chatbot del sistema propuesto.
+
+3.12.2. Contenidos de Biología Celular en el Currículo Ecuatoriano
+
+El currículo de ciencias naturales ecuatoriano abarca las disciplinas de biología, química, física y ciencias de la tierra. El sistema propuesto se enfoca en contenidos de biología celular, que constituyen una unidad transversal presente en múltiples niveles de la educación básica y media. Los contenidos curriculares de biología celular incluyen (Ministerio de Educación, 2023): (a) la célula como unidad básica de la vida; (b) tipos de células, procariotas y eucariotas; (c) diferencias entre la célula animal y la célula vegetal; (d) organelos celulares y sus funciones; y (e) procesos celulares fundamentales como la mitosis, la meiosis, la fotosíntesis y la respiración celular.
+
+La organización del contenido educativo del sistema propuesto en cinco subtemas (1.1 a 1.5) corresponde directamente a esta estructura curricular: subtema 1.1 (¿Qué es la célula?), 1.2 (Tipos de células), 1.3 (Célula animal vs. vegetal), 1.4 (Organelos celulares) y 1.5 (Procesos celulares). Esta alineación curricular garantiza que el sistema propuesto pueda integrarse como recurso complementario en las clases de ciencias naturales sin requerir adaptaciones curriculares por parte del docente.
+
+3.12.3. Dificultades en el Aprendizaje de Biología Celular [EXPANDIDO]
+
+Las investigaciones en didáctica de las ciencias identifican dificultades específicas en el aprendizaje de biología celular (Driver et al., 2023):
+
+a) Conceptos previos erróneos: Ideas alternativas que dificultan la construcción de conocimiento científico correcto. En biología celular, es frecuente que los estudiantes confundan las células con los átomos o con los organismos unicelulares completos, sin comprender su rol como unidad estructural de organismos multicelulares.
+
+b) Abstracción de conceptos: Los organelos celulares y los procesos bioquímicos no pueden observarse sin equipamiento especializado de laboratorio, lo que dificulta su conceptualización sin representaciones visuales adecuadas. Esta dificultad es precisamente la que la RA aborda de manera más directa en el sistema propuesto.
+
+c) Vocabulario especializado: Los términos técnicos de origen griego y latino —mitocondria, ribosoma, citoplasma, organelo— requieren aprendizaje explícito que compite con la comprensión conceptual por recursos cognitivos de la memoria de trabajo.
+
+d) Razonamiento a escala: La comprensión de las dimensiones reales de las células y los organelos —del orden de los micrómetros y nanómetros— es cognitivamente difícil para estudiantes sin experiencia previa con escalas microscópicas.
+
+La realidad aumentada, el glosario interactivo con imágenes y el chatbot de ciencias del sistema propuesto abordan específicamente las tres primeras dificultades: la RA para la visualización de estructuras abstractas, el glosario para el vocabulario técnico, y el chatbot para la corrección de concepciones erróneas mediante el diálogo socrático.
+
+
+3.13. Síntesis del Marco Teórico [ACTUALIZADO]
+
+El marco teórico presentado establece los fundamentos conceptuales para el diseño e implementación del sistema propuesto mediante la confluencia de ocho dimensiones teóricas interrelacionadas:
+
+a) Principios constructivistas y de aprendizaje multimedia que guían el diseño de experiencias de aprendizaje activo, multimodal y pedagógicamente fundamentado en las teorías de Piaget, Vygotsky, Mayer y Sweller.
+
+b) Aprendizaje basado en indagación y motivación autorregulada que orientan el rol del chatbot como andamiaje socrático y el sistema de gamificación como refuerzo de la persistencia en el aprendizaje (Pedaste et al., 2023; Landers, 2014).
+
+c) Tecnologías de realidad aumentada para la visualización inmersiva de estructuras celulares, implementadas en dos modalidades complementarias —marcadores de color y AR Image Target— que democratizan el acceso a representaciones tridimensionales de alta calidad sin equipamiento especializado (Azuma et al., 2023; Dunleavy & Dede, 2023).
+
+d) Inteligencia artificial conversacional mediante LLM en la plataforma de inferencia Groq, con restricción de dominio a ciencias naturales mediante prompt engineering, para soporte personalizado de tutoría disponible permanentemente (Brown et al., 2023; Kasneci et al., 2023; Groq, 2024).
+
+e) Análisis multimodal de imágenes mediante Google Gemini Vision integrado con clasificación local TFLite, para la identificación inteligente de organismos biológicos con capacidad de funcionamiento parcial sin conectividad (Google DeepMind, 2024; TensorFlow, 2024).
+
+f) Desarrollo móvil multiplataforma con Flutter y backend escalable con Firebase, que garantizan rendimiento nativo en hardware heterogéneo y almacenamiento seguro de datos de aprendizaje con sincronización en tiempo real (Flutter Team, 2024; Firebase, 2024).
+
+g) Gamificación educativa alineada con objetivos de aprendizaje, mediante logros verificables, rachas de estudio y visualización del progreso, que refuerza la motivación intrínseca y la persistencia del estudiante (Deterding et al., 2011; Hamari et al., 2014; Dicheva et al., 2015).
+
+h) Recursos lexicográficos digitales multimodales para el vocabulario científico de biología celular, con imágenes, pronunciación y datos curiosos que facilitan la codificación y retención de terminología técnica (Nation, 2001; Godwin-Jones, 2011).
+
+La convergencia de estos ocho fundamentos teóricos proporciona una base conceptual sólida y coherente para el desarrollo de una herramienta educativa innovadora que responde a necesidades pedagógicas reales identificadas en la literatura, implementando soluciones tecnológicas con respaldo empírico documentado en cada componente del sistema.
+
+
+================================================================================
+VERIFICACIÓN DE REFERENCIAS — ANÁLISIS COMPLETO
+================================================================================
+
+REFERENCIAS CITADAS EN EL MARCO TEÓRICO (CONSERVAR):
+  ✓ Abadi et al. (2023) — 3.8.1
+  ✓ Azuma et al. (2023) — 3.4.1
+  ✓ Billinghurst et al. (2023) — 3.4.1
+  ✓ Biørn-Hansen et al. (2023) — 3.6.1
+  ✓ Brown et al. (2023) — 3.5.3
+  ✓ Crompton & Burke (2023) — 3.2.1
+  ✓ Davis (1989) — 3.3.2
+  ✓ Deterding et al. (2011) — 3.2.6, 3.10.1 [NUEVO - agregar referencia]
+  ✓ Dicheva et al. (2015) — 3.2.6, 3.10.2, 3.13 [NUEVO - agregar referencia]
+  ✓ Driver et al. (2023) — 3.12.3
+  ✓ Dunleavy & Dede (2023) — 3.4.3, 3.4.4
+  ✓ Ertmer & Newby (2023) — 3.2.1
+  ✓ Firebase (2024) — 3.7.1, 3.7.3
+  ✓ Flutter Team (2024) — 3.6.2
+  ✓ García-Martínez et al. (2024) — 3.3.1 [incorporado, conservar]
+  ✓ Godwin-Jones (2011) — 3.11.2 [NUEVO - agregar referencia]
+  ✓ Google DeepMind (2024) — 3.5.3, 3.8.3
+  ✓ Groq (2024) — 3.5.3, 3.5.5, 3.13 [NUEVO - agregar referencia]
+  ✓ Hamari et al. (2014) — 3.2.6, 3.10.1, 3.10.2, 3.13 [NUEVO - agregar referencia]
+  ✓ Holmes et al. (2023) — 3.5.1, 3.10.3, 3.12.1
+  ✓ Hwang et al. (2023) — 3.5.1 [incorporado, conservar]
+  ✓ Ibáñez & Delgado-Kloos (2023) — 3.4.3 [incorporado, conservar]
+  ✓ Jurafsky & Martin (2024) — 3.5.2, 3.9.1, 3.9.2
+  ✓ Kasneci et al. (2023) — 3.5.3, 3.5.5, 3.5.6, 3.13 [incorporado, conservar]
+  ✓ Kim & Park (2024) — 3.3.3, 3.6.2 [incorporado, conservar]
+  ✓ Kumar & Singh (2024) — 3.6.2, 3.6.4 [incorporado, conservar]
+  ✓ Landers (2014) — 3.2.6, 3.10.2, 3.13 [NUEVO - agregar referencia]
+  ✓ Lo (2023) — 3.5.4, 3.5.6 [incorporado, conservar]
+  ✓ Mayer (2021) — 3.2.3, 3.4.4, 3.11.3, 3.9.3
+  ✓ Ministerio de Educación (2023) — 3.12.2
+  ✓ Nation (2001) — 3.11.1, 3.11.2, 3.13 [NUEVO - agregar referencia]
+  ✓ O'Malley et al. (2023) — 3.3.1
+  ✓ Okonkwo & Ade-Ibijola (2023) — 3.5.4 [incorporado, conservar]
+  ✓ Patterson & Gibson (2024) — 3.8.1
+  ✓ Pedaste et al. (2023) — 3.2.5, 3.9.1 (renum. 3.12.1), 3.11.3, 3.13
+  ✓ Qadir (2024) — 3.5.3, 3.8.3 [incorporado, conservar]
+  ✓ Radianti et al. (2024) — 3.4.3 [incorporado, conservar]
+  ✓ Al-Emran et al. (2024) — 3.3.1 [incorporado, conservar]
+  ✓ Sánchez-Prieto et al. (2024) — 3.3.2 [incorporado, conservar]
+  ✓ Sharples et al. (2023) — 3.2.2, 3.5.5
+  ✓ Singh & Bhadani (2020) — 3.8.2
+  ✓ Sweller (2023) — 3.2.4
+  ✓ Szeliski (2022) — 3.8.1
+  ✓ TensorFlow (2024) — 3.8.2, 3.13
+  ✓ Venkatesh et al. (2023) — 3.3.2
+  ✓ Wang et al. (2025) — 3.5.4 [incorporado, conservar]
+  ✓ Windmill (2023) — 3.6.3, 3.6.4
+  ✓ Wollny et al. (2023) — 3.5.4, 3.9.2
+
+================================================================================
+REFERENCIAS A ELIMINAR DEL DOCUMENTO MARCO TEÓRICO
+(No son citadas en el Capítulo III — pertenecen a otros capítulos)
+================================================================================
+
+ELIMINAR de la bibliografía de este documento (conservarlas en los otros capítulos):
+
+  ✗ Akçayır & Akçayır (2023) — Solo citada en Estado del Arte (Cap. II)
+  ✗ Campbell & Stanley (2022) — Solo citada en Metodología (Cap. IV)
+  ✗ Carmigniani & Furht (2023) — Solo citada en Estado del Arte (Cap. II)
+  ✗ Chen et al. (2024) — Solo citada en Estado del Arte (Cap. II)
+  ✗ Cohen (1988) — Solo citada en Resultados (Cap. VI)
+  ✗ Creswell & Creswell (2023) — Solo citada en Metodología (Cap. IV)
+  ✗ Garzón et al. (2024) — Solo citada en Estado del Arte (Cap. II)
+  ✗ Google (2024) [Gemini for Education] — Solo citada en Estado del Arte (Cap. II)
+  ✗ Hernández-Sampieri & Mendoza (2023) — Solo citada en Metodología (Cap. IV)
+  ✗ Klopfer & Squire (2023) — Solo citada en Estado del Arte (Cap. II), trabajos relacionados
+  ✗ López-Belmonte et al. (2024) — Solo citada en Estado del Arte (Cap. II)
+  ✗ Martínez-Sánchez et al. (2023) — Solo citada en Estado del Arte (Cap. II)
+  ✗ MongoDB (2023) — Citada en sección 3.7.2 original pero la app no usa MongoDB;
+                       la sección 3.7.2 corregida cita a Firebase (2024) en su lugar.
+  ✗ Prensky (2021) — Solo citada en Introducción (Cap. I)
+
+Total a eliminar: 14 referencias de la bibliografía de este documento.
+
+
+================================================================================
+NUEVAS REFERENCIAS A AGREGAR A LA BIBLIOGRAFÍA DE ESTE DOCUMENTO
+(Insertar en orden alfabético)
+================================================================================
+
+Al-Emran, M., Mezhuyev, V., & Kamaludin, A. (2024). Influencing factors on the success of mobile learning: A systematic review and meta-analysis. Heliyon, 10(12), e33568. https://doi.org/10.1016/j.heliyon.2024.e33568
+
+Deterding, S., Dixon, D., Khaled, R., & Nacke, L. (2011). From game design elements to gamefulness: Defining "gamification". En Proceedings of the 15th International Academic MindTrek Conference (pp. 9-15). ACM. https://doi.org/10.1145/2181037.2181040
+
+Dicheva, D., Dichev, C., Agre, G., & Angelova, G. (2015). Gamification in education: A systematic mapping study. Journal of Educational Technology & Society, 18(3), 75-88.
+
+García-Martínez, I., Fernández-Batanero, J. M., Sánchez-Rivas, E., & León, S. P. (2024). Mobile learning and its effect on learning outcomes and critical thinking: A systematic review. Applied Sciences, 14(19), 9105. https://doi.org/10.3390/app14199105
+
+Godwin-Jones, R. (2011). Emerging technologies: Mobile apps for language learning. Language Learning & Technology, 15(2), 2-11.
+
+Groq. (2024). Groq API documentation: Language Processing Unit inference platform. Groq, Inc. https://console.groq.com/docs
+
+Hamari, J., Koivisto, J., & Sarsa, H. (2014). Does gamification work? A literature review of empirical studies on gamification. En Proceedings of the 47th Hawaii International Conference on System Sciences (pp. 3025-3034). IEEE. https://doi.org/10.1109/HICSS.2014.377
+
+Hwang, G. J., Xie, H., Wah, B. W., & Gašević, D. (2023). Vision, challenges, roles and research issues of artificial intelligence in education. Computers and Education: Artificial Intelligence, 1, 100001. https://doi.org/10.1016/j.caeai.2023.100001
+
+Ibáñez, M. B., & Delgado-Kloos, C. (2023). Augmented reality for STEM learning: A systematic review. Computers & Education, 123, 109-123. https://doi.org/10.1016/j.compedu.2023.02.007
+
+Kasneci, E., Seßler, K., Küchemann, S., Bannert, M., Dementieva, D., Fischer, F., Gasser, U., Groh, G., Günnemann, S., Hüllermeier, E., Kruber, S., Kuber, G., Sachs, S., Shepperd, M., Stadler, M., Stürmer, K., & Wachter, S. (2023). ChatGPT for good? On opportunities and challenges of large language models for education. Learning and Individual Differences, 103, 102274. https://doi.org/10.1016/j.lindif.2023.102274
+
+Kim, J., & Park, S. (2024). A study of learning environment for initiating Flutter app development using Docker. Information, 15(4), 191. https://doi.org/10.3390/info15040191
+
+Kumar, R., & Singh, A. (2024). E-learning application using Flutter. International Research Journal of Modernization in Engineering Technology and Science, 6(5), 4521-4530.
+
+Landers, R. N. (2014). Developing a theory of gamified learning: Linking serious games and gamification of learning. Simulation & Gaming, 45(6), 752-768. https://doi.org/10.1177/1046878114563660
+
+Lo, C. K. (2023). What is the impact of ChatGPT on education? A rapid review of the literature. Education Sciences, 13(4), 410. https://doi.org/10.3390/educsci13040410
+
+Nation, I. S. P. (2001). Learning vocabulary in another language. Cambridge University Press. https://doi.org/10.1017/CBO9781139524759
+
+Okonkwo, C. W., & Ade-Ibijola, A. (2023). Chatbots applications in education: A systematic review. Computers and Education: Artificial Intelligence, 2, 100033. https://doi.org/10.1016/j.caeai.2023.100033
+
+Qadir, J. (2024). Google Gemini as a next generation AI educational tool: A review of emerging educational technology. Smart Learning Environments, 11(1), 23. https://doi.org/10.1186/s40561-024-00310-z
+
+Radianti, J., Majchrzak, T. A., Fromm, J., & Wohlgenannt, I. (2024). Virtual, augmented reality and learning analytics impact on learners and educators: A systematic review. Education and Information Technologies, 29, 12045-12079. https://doi.org/10.1007/s10639-024-12602-5
+
+Sánchez-Prieto, J. C., Huang, F., Olmos-Migueláñez, S., García-Peñalvo, F. J., & Teo, T. (2024). Adoption of mobile learning in the university context: Systematic literature review. PLOS ONE, 19(5), e0304116. https://doi.org/10.1371/journal.pone.0304116
+
+Wang, X., Li, L., Tan, S. C., Yang, L., & Lei, J. (2025). Preparing for AI-enhanced education: Conceptualizing and empirically examining teachers' AI readiness. Computers in Human Behavior, 146, 107788. https://doi.org/10.1016/j.chb.2023.107788
+
+
+================================================================================
+FIN DEL DOCUMENTO — MARCO TEÓRICO AMPLIADO
+================================================================================

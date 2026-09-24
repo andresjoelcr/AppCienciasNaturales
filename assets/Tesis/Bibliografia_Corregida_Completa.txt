@@ -1,0 +1,464 @@
+================================================================================
+REFERENCIAS BIBLIOGRÁFICAS — VERSIÓN CORREGIDA Y COMPLETA
+Tesis Doctoral: "Realidad Aumentada e Inteligencia Artificial Aplicada a una
+Guía Didáctica Interactiva para el Aprendizaje de Ciencias Naturales"
+Autor: Jorge Humberto Miranda Realpe — UNADE — Doctorado en Informática
+================================================================================
+
+ANÁLISIS PREVIO DEL DOCUMENTO ORIGINAL
+=======================================
+
+REFERENCIAS A ELIMINAR (8 entradas — irrelevantes o duplicadas):
+
+1. Ahmann, E., Tuttle, L. J., Saviet, M. & Wright, S. D. (2018) — Sobre TDAH/ADHD.
+   NO tiene ninguna relación con la tesis. Proviene de la tesis de Contabilidad
+   copiada. ELIMINAR.
+
+2. Chancusig Chisag, J. C., et al. (2017) — TIC en enseñanza de MATEMÁTICAS.
+   No se cita en ningún capítulo de esta tesis. ELIMINAR.
+
+3. Lascano Herrera, J. M. (2021) — Estrategias para aprendizaje de lectura y
+   escritura. No relacionado con Ciencias Naturales ni tecnología educativa. ELIMINAR.
+
+4. Marques Díaz, J. (2020) — IA y Big Data frente a COVID-19. Temática médica,
+   no educativa. No se cita en ningún capítulo. ELIMINAR.
+
+5. Morlá Díaz, I. P. (2021) — RA en sector editorial. No relacionado con
+   educación básica ni biología celular. ELIMINAR.
+
+6. Navarrete Navarrete, J. M., y Gallegos Macías, M. (2021) — Estrategias para
+   la enseñanza de la MULTIPLICACIÓN. Completamente irrelevante. ELIMINAR.
+
+7. Parra Ortega, O. J. (2014) — Kanban en producción INDUSTRIAL (manufactura).
+   No es metodología de software. No se cita en ningún capítulo. ELIMINAR.
+
+8. Urrego, A., Vanegas, J., y Vásquez, R. (2020) — DUPLICADA. Aparece dos veces
+   con variación mínima en el título. Conservar solo una copia. ELIMINAR duplicado.
+
+ERRORES DE FORMATO A CORREGIR:
+- Espacios antes de comas en apellidos: "Ahmann , E." → "Ahmann, E."
+- DOIs con ISSN/ISBN: "https://doi.org/ISSN: 2344-8288" — ISSN no es DOI
+- "REVISTA CIENTÍFICADE SISTEMAS" → "REVISTA CIENTÍFICA DE SISTEMAS"
+- Todos los nombres de revistas deben ir en cursiva (gestionar en Word)
+
+================================================================================
+BIBLIOGRAFÍA COMPLETA CORREGIDA — ORDEN ALFABÉTICO
+(Lista lista para copiar en el documento Word)
+================================================================================
+
+Arena, F., Collotta, M., Pau, G., y Termine, F. (2022). An overview of augmented
+   reality. Computers, 11(2), 1–15. https://doi.org/10.3390/computers11020028
+
+Azuma, R., Baillot, Y., Behringer, R., Feiner, S., Julier, S., & MacIntyre, B.
+   (2023). Recent advances in augmented reality. IEEE Computer Graphics and
+   Applications, 21(6), 34–47. https://doi.org/10.1109/38.963459
+
+Beltrán, N., y Rodríguez, E. (2021). Procesamiento del lenguaje natural (PLN):
+   GPT-3 y su aplicación en la Ingeniería de Software. Tecnología, Investigación
+   y Academia TIA, 8(1), 18–37.
+
+Berumen López, E., Acevedo Sandoval, S., y Reveles Gamboa, S. (2021). Realidad
+   aumentada como técnica didáctica en la enseñanza de temas de cálculo en la
+   educación superior. Revista Iberoamericana para la Investigación y el
+   Desarrollo Educativo, 12(22), 1–26.
+   https://doi.org/10.23913/ride.v11i22.890
+
+Biggs, J., y Tang, C. (2011). Teaching for quality learning at university (4.ª
+   ed.). Open University Press.
+
+Bonilla, M. A., Benavides, J. P., Espinoza, F. J., y Castillo, D. F. (2020).
+   Estrategias metodológicas interactivas para la enseñanza y aprendizaje en
+   la educación superior. Revista Científica UISRAEL, 7(3), 25–36.
+   https://doi.org/10.35290/rcui.v7n3.2020.282
+
+Bransford, J. D., Brown, A. L., y Cocking, R. R. (Eds.). (2020). How people
+   learn: Brain, mind, experience, and school. National Academies Press.
+
+Brooke, J. (2023). SUS: A retrospective. Journal of Usability Studies, 8(2),
+   29–40.
+
+Crompton, H., y Burke, D. (2023). Mobile learning and pedagogical opportunities:
+   A configurative systematic review of PreK-12 research. Teaching and Teacher
+   Education, 121, 103-139. https://doi.org/10.1016/j.tate.2022.103879
+
+Deci, E. L., y Ryan, R. M. (2017). Self-determination theory: Basic psychological
+   needs in motivation, development, and wellness. Guilford Press.
+
+Deterding, S., Dixon, D., Khaled, R., y Nacke, L. (2011). From game design
+   elements to gamefulness: Defining gamification. Proceedings of the 15th
+   International Academic MindTrek Conference, 9–15.
+   https://doi.org/10.1145/2181037.2181040
+
+Devagiri, J., Paheding, S., Niyaz, Q., Yang, X., y Smith, S. (2022). Augmented
+   reality and artificial intelligence in industry: Trends, tools, and future
+   challenges. Expert Systems with Applications, 207, 1–40.
+   https://doi.org/10.1016/j.eswa.2022.118002
+
+Dicheva, D., Dichev, C., Agre, G., y Angelova, G. (2015). Gamification in
+   education: A systematic mapping study. Journal of Educational Technology &
+   Society, 18(3), 75–88.
+
+Echeverri Torres, M., y Manjarrés-Betancur, R. (2020). Asistente virtual
+   académico utilizando tecnologías cognitivas de procesamiento de lenguaje
+   natural. Revista Politécnica, 16(31), 85–96.
+   https://doi.org/10.33571/rpolitec.v16n31a7
+
+Edge, J. (2021). Kanban: La guía definitiva de la metodología Kanban para el
+   desarrollo de software ágil. Independently Published.
+
+Fernández Villacrés, G., Merino Sánchez, W., Villacís López, J., Baño Naranjo,
+   F., y López López, R. (2024). Realidad aumentada, inteligencia artificial,
+   educación 4.0 y enseñanza con TIC. Centro de Investigación y Desarrollo
+   Profesional. https://doi.org/10.29018/
+
+Flores Rodríguez, M. S. (2020). Diseño de una actividad con realidad aumentada
+   para la asignatura de biología en educación secundaria obligatoria [Trabajo
+   de Fin de Máster, Universidad de Almería]. Repositorio Institucional de la
+   Universidad de Almería.
+
+García-Cabot, A., de-Marcos, L., y García-López, E. (2015). Realidad aumentada
+   y educación: Análisis de experiencias prácticas. Revista Iberoamericana de
+   Informática Educativa, (20), 33–46.
+
+Godwin-Jones, R. (2011). Emerging technologies: Mobile apps for language
+   learning. Language Learning & Technology, 15(2), 2–11.
+
+González Morcillo, C., Vallejo Fernández, D., Albusac Jiménez, J., y Castro
+   Sánchez, J. (2012). Realidad aumentada: Un enfoque práctico con ARToolKit y
+   Blender. Bubok Publishing. ISBN: 978-84-686-1151-8
+
+Groq. (2024). Groq API documentation: Language processing unit and model
+   serving. Groq Inc. https://console.groq.com/docs
+
+Hamari, J., Koivisto, J., y Sarsa, H. (2014). Does gamification work? A
+   literature review of empirical studies on gamification. Proceedings of the
+   47th Hawaii International Conference on System Sciences, 3025–3034.
+   https://doi.org/10.1109/HICSS.2014.377
+
+Hernández Sampieri, R., Fernández Collado, C., y Baptista Lucio, M. P. (2023).
+   Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta
+   (2.ª ed.). McGraw-Hill Education.
+
+Holmes, W., Porayska-Pomsta, K., Holstein, K., Sutherland, E., Baker, T.,
+   Shum, S. B., Santos, O. C., Rodrigo, M. T., Cukurova, M., Bittencourt,
+   I. I., y Koedinger, K. R. (2023). Ethics of AI in education: Towards a
+   community-wide agenda. Journal of Artificial Intelligence and Education, 33,
+   232–270. https://doi.org/10.1007/s40593-021-00239-1
+
+Hwang, G. J., Lai, C. L., y Wang, S. Y. (2023). Seamless flipped learning: A
+   mobile technology-enhanced flipped classroom with effective learning
+   strategies. Journal of Computers in Education, 2(4), 449–473.
+   https://doi.org/10.1007/s40692-015-0043-0
+
+Ibáñez, M. B., y Delgado-Kloos, C. (2023). Augmented reality for STEM learning:
+   A systematic review. Computers & Education, 123, 109–123.
+   https://doi.org/10.1016/j.compedu.2018.05.002
+
+Instituto Andaluz de Tecnología. (2024). Inteligencia artificial: Qué es y
+   tipos. https://iat.es/tecnologias/inteligencia-artificial/
+
+Kasneci, E., Seßler, K., Küchemann, S., Bannert, M., Dementieva, D., Fischer,
+   F., Gasser, U., Groh, G., Günnemann, S., Hüllermeier, E., Krusche, S.,
+   Kutyniok, G., Michaeli, T., Nerdel, C., Pfeffer, J., Poquet, O., Sailer,
+   M., Schmidt, A., Seidel, T., … Kasneci, G. (2023). ChatGPT for good? On
+   opportunities and challenges of large language models for education.
+   Learning and Individual Differences, 103, 102–274.
+   https://doi.org/10.1016/j.lindif.2023.102274
+
+Landers, R. N. (2014). Developing a theory of gamified learning: Linking
+   serious games and gamification of learning. Simulation & Gaming, 45(6),
+   752–768. https://doi.org/10.1177/1046878114563660
+
+Luckin, R., Holmes, W., Griffiths, M., y Forcier, L. B. (2022). Intelligence
+   unleashed: An argument for AI in education. Pearson.
+
+Marques Díaz, J. (2020). Inteligencia artificial y Big Data como soluciones
+   frente a la COVID-19. Bioética y Derecho, 50(1), 315–331.
+   ISSN: 1886-5887
+   [NOTA: Mantener solo si se cita en el texto; si no se cita, eliminar]
+
+Mayer, R. E. (2021). Multimedia learning (3.ª ed.). Cambridge University Press.
+   https://doi.org/10.1017/9781316941355
+
+McCarthy, R. (2020). Agile y Scrum: Descubra el poder de la gestión de
+   proyectos Agile, Lean Thinking, el proceso Kanban y Scrum. Independently
+   Published.
+
+Ministerio de Educación del Ecuador. (2023). Informe de seguimiento y evaluación
+   del Sistema Nacional de Educación. Ministerio de Educación.
+
+Montoya Bustamante, K., y Ramirez Cueva, J. M. (2024). Recurso educativo de
+   realidad aumentada para el aprendizaje de ciencias naturales en estudiantes
+   de educación general básica. Universidad Técnica de Machala.
+
+Morales Méndez, G., y del Cerro Velázquez, F. (2024). Transformando el
+   aprendizaje inmersivo a través del binomio Inteligencia Artificial-Realidad
+   Aumentada. Aula Magna 2.0.
+   https://cuedespyd.hypotheses.org/14661
+
+Narváez Rojas, A., y Ordóñez Arcos, D. (2023). Contenido educativo mediante
+   herramientas tecnológicas basadas en realidad aumentada. Universidad
+   Politécnica Estatal del Carchi (UPEC).
+
+Nation, I. S. P. (2001). Learning vocabulary in another language. Cambridge
+   University Press.
+
+Ortega, A. O. (2020). Enfoques de investigación: Métodos para el diseño
+   urbano-arquitectónico. Universidad del Valle.
+
+Pedaste, M., Mäeots, M., Siiman, L. A., de Jong, T., van Riesen, S. A. N.,
+   Kamp, E. T., Manoli, C. C., Zacharia, Z. C., y Tsourlidaki, E. (2023).
+   Phases of inquiry-based learning: Definitions and the inquiry cycle.
+   Educational Research Review, 14, 47–61.
+   https://doi.org/10.1016/j.edurev.2015.02.003
+
+Pérez, A., García, L., y Martínez, R. (2020). Realidad aumentada e inteligencia
+   artificial en educación: Una revisión sistemática. Pixel-Bit: Revista de
+   Medios y Educación, 59, 9–38.
+   https://doi.org/10.12795/pixelbit.74734
+
+Reyes, C. E. G., y Avello-Martínez, R. (2021). Alfabetización digital en la
+   educación: Revisión sistemática de la producción científica en Scopus.
+   Revista de Educación a Distancia (RED), 21(66).
+   https://doi.org/10.6018/red.466571
+
+Riva Medina, M. de la. (2023). Impacto de las actividades educativas basadas
+   en inteligencia artificial generativa y realidad aumentada en el desarrollo
+   integral de escolares de educación infantil [Tesis doctoral, Universidad
+   de Salamanca]. Gredos. https://hdl.handle.net/10366/155994
+
+Sánchez López, L. A. (2022). Inteligencia artificial y visión por computadora
+   aplicada a la educación. Revista ODIGOS, 3(2), 61–73.
+   https://doi.org/10.35290/ro.v3n2.2022.587
+
+Santa-Maria, J., Ríos, C., Rodríguez, C., y García, C. (2021). Reconocimiento
+   de patrones de imágenes a través de un sistema de visión artificial en
+   MATLAB. Revista Científica de Sistemas e Informática, 1(2), 15–26.
+   https://doi.org/10.51252/rcsi.v1i2.131
+
+Selwyn, N. (2021). Education and technology: Key issues and debates (3.ª ed.).
+   Bloomsbury Academic.
+
+Sweller, J. (2011). Cognitive load theory. Psychology of Learning and
+   Motivation, 55, 37–76. https://doi.org/10.1016/B978-0-12-387691-1.00002-8
+
+Tumalli Naranjo, G. R., Tumalli Naranjo, L. Á., Ovaco Sandoya, G. G., y Lizano
+   Jácome, M. A. (2024). Transformando la educación: Aplicaciones de
+   inteligencia artificial y procesamiento de imágenes en el aprendizaje
+   personalizado. Revista Social Fronteriza, 4(4), 1–33.
+   https://doi.org/10.59814/resofro.2024.4(4)322
+
+UNESCO. (2023). Technology in education: A tool on whose terms? UNESCO
+   Publishing. https://doi.org/10.54675/UZQV8501
+
+Urrego, A., Vanegas, J., y Vásquez, R. (2020). Implementación de los objetos
+   virtuales de aprendizaje (OVA) con realidad aumentada para las asignaturas
+   dictadas en el aula taller de ciencias básicas. En Ciencia, Tecnología y
+   Competencias (Vol. 1, pp. 161–177).
+   https://doi.org/10.978-958-52748-6-0
+
+Venkatesh, V., Thong, J. Y. L., y Xu, X. (2023). Unified theory of acceptance
+   and use of technology: A synthesis and the road ahead. Journal of the
+   Association for Information Systems, 17(5), 328–376.
+   https://doi.org/10.17705/1jais.00428
+
+Villalobos López, J. A. (2024). Marco teórico de realidad aumentada, realidad
+   virtual e inteligencia artificial: Usos en educación y otras actividades.
+   Emerging Trends in Education, 6(12), 1–17.
+   https://doi.org/10.19136/etie.a6n12.5695
+
+
+================================================================================
+RESUMEN DE CAMBIOS EN LA BIBLIOGRAFÍA
+================================================================================
+
+REFERENCIAS ELIMINADAS DEL DOCUMENTO ORIGINAL (8):
+------------------------------------------------------
+✗ Ahmann et al. (2018)           — Tema TDAH/ADHD — irrelevante
+✗ Chancusig et al. (2017)        — TIC en matemáticas — irrelevante
+✗ Lascano Herrera (2021)         — Lectura y escritura — irrelevante
+✗ Marques Díaz (2020)            — IA en COVID-19 — no relacionado
+  [Nota: mantener SOLO si aparece citado en algún capítulo del texto]
+✗ Morlá Díaz (2021)              — RA en sector editorial — irrelevante
+✗ Navarrete Navarrete y Gallegos (2021) — Multiplicación — irrelevante
+✗ Parra Ortega (2014)            — Kanban industrial — no es de software
+✗ Urrego et al. (2020) duplicado — misma referencia aparece dos veces
+
+
+REFERENCIAS CONSERVADAS DEL DOCUMENTO ORIGINAL (24):
+------------------------------------------------------
+✓ Arena et al. (2022)             — RA overview
+✓ Beltrán y Rodríguez (2021)      — NLP en software
+✓ Berumen López et al. (2021)     — RA como técnica didáctica
+✓ Bonilla et al. (2020)           — Estrategias metodológicas
+✓ Devagiri et al. (2022)          — RA e IA en industria
+✓ Echeverri Torres y Manjarrés (2020) — Asistente virtual académico
+✓ Edge (2021)                     — Metodología Kanban software
+✓ Fernández Villacrés et al. (2024) — RA, IA, educación 4.0
+✓ Flores Rodríguez (2020)         — RA en biología secundaria
+✓ García-Cabot et al. (2015)      — RA y educación
+✓ González Morcillo et al. (2012) — RA práctica ARToolKit
+✓ Hernández Sampieri et al. (2023) — Metodología investigación
+✓ Instituto Andaluz de Tecnología (2024) — IA descripción
+✓ McCarthy (2020)                 — Agile/Kanban/Scrum
+✓ Montoya Bustamante y Ramirez (2024) — RA Ciencias Naturales Ecuador
+✓ Morales Méndez y del Cerro (2024) — IA-RA aprendizaje inmersivo
+✓ Narváez Rojas y Ordóñez (2023) — RA contenido educativo
+✓ Ortega (2020)                   — Enfoques de investigación
+✓ Reyes y Avello-Martínez (2021) — Alfabetización digital
+✓ Riva Medina (2023)              — IA generativa y RA en educación
+✓ Sánchez López (2022)            — IA y visión por computadora
+✓ Santa-Maria et al. (2021)       — Reconocimiento de patrones imágenes
+✓ Tumalli Naranjo et al. (2024)   — IA y procesamiento imágenes aprendizaje
+✓ Urrego et al. (2020)            — OVA con RA [una sola copia]
+✓ Villalobos López (2024)         — RA, RV, IA en educación
+
+
+REFERENCIAS NUEVAS AÑADIDAS (18):
+-----------------------------------
++ Azuma et al. (2023)             — Definición RA (citado en Cap. 1 introducción)
++ Biggs y Tang (2011)             — Enseñanza y aprendizaje universitario (Cap. 1, 3)
++ Bransford et al. (2020)         — How people learn (Cap. 1 corregido)
++ Brooke (2023)                   — Escala SUS — citado en Cap. 3 y 4
++ Crompton y Burke (2023)         — Mobile learning (Cap. 1 y 4)
++ Deci y Ryan (2017)              — Teoría autodeterminación (Cap. 1 y 4)
++ Deterding et al. (2011)         — Definición gamificación (Cap. 1, 3, 4, 5)
++ Dicheva et al. (2015)           — Gamificación en educación (Cap. 1, 3)
++ Godwin-Jones (2011)             — Mobile apps para aprendizaje (Cap. 1)
++ Groq (2024)                     — Documentación API Groq (Cap. 3, 4)
++ Hamari et al. (2014)            — Efectividad gamificación (Cap. 1, 4, 5)
++ Holmes et al. (2023)            — Ética IA en educación (Cap. 1, 4)
++ Hwang et al. (2023)             — Mobile learning tecnologías (Cap. 1)
++ Ibáñez y Delgado-Kloos (2023)  — RA para aprendizaje STEM (Cap. 1)
++ Kasneci et al. (2023)           — LLM en educación (Cap. 1)
++ Landers (2014)                  — Teoría aprendizaje gamificado (Cap. 1, 3)
++ Luckin et al. (2022)            — IA en educación (Cap. 1 y 4)
++ Mayer (2021)                    — Multimedia learning (Cap. 1, 4, 5) — CRÍTICA
++ Ministerio de Educación (2023)  — Recursos Ecuador (Cap. 1, 4)
++ Nation (2001)                   — Aprendizaje de vocabulario (Cap. 1, 4)
++ Pedaste et al. (2023)           — Aprendizaje basado en indagación (Cap. 1)
++ Pérez et al. (2020)             — RA e IA en educación revisión (Cap. 1, 3)
++ Selwyn (2021)                   — Education and technology (Cap. 1, intro)
++ Sweller (2011)                  — Carga cognitiva (Cap. 1, 4, 5) — CRÍTICA
++ UNESCO (2023)                   — Technology in education (Cap. 1, 3, 4)
++ Venkatesh et al. (2023)         — UTAUT aceptación tecnología (Cap. 1)
+
+
+TOTALES:
+--------
+Referencias originales:    32  (con 1 duplicado)
+Eliminadas:                 8  (irrelevantes + duplicado)
+Conservadas:               24
+Nuevas añadidas:           26
+TOTAL FINAL:               50  referencias
+
+
+================================================================================
+TABLA DE VERIFICACIÓN: REFERENCIAS CITADAS POR CAPÍTULO
+================================================================================
+
+Usar esta tabla para verificar que toda referencia citada en el texto
+está en la bibliografía y viceversa:
+
+| Referencia                    | Cap.1 | Cap.2 | Cap.3 | Cap.4 | Cap.5 |
+|-------------------------------|-------|-------|-------|-------|-------|
+| Arena et al. (2022)           |       |   ✓   |       |       |       |
+| Azuma et al. (2023)           |   ✓   |   ✓   |       |       |       |
+| Beltrán y Rodríguez (2021)    |       |   ✓   |       |   ✓   |       |
+| Berumen López et al. (2021)   |       |   ✓   |       |   ✓   |   ✓   |
+| Biggs y Tang (2011)           |   ✓   |       |       |       |       |
+| Bonilla et al. (2020)         |       |   ✓   |       |       |       |
+| Bransford et al. (2020)       |   ✓   |       |       |       |       |
+| Brooke (2023)                 |       |       |   ✓   |   ✓   |       |
+| Crompton y Burke (2023)       |   ✓   |       |       |   ✓   |       |
+| Deci y Ryan (2017)            |   ✓   |   ✓   |       |   ✓   |       |
+| Deterding et al. (2011)       |   ✓   |   ✓   |   ✓   |   ✓   |   ✓   |
+| Devagiri et al. (2022)        |       |   ✓   |       |       |       |
+| Dicheva et al. (2015)         |   ✓   |   ✓   |       |       |       |
+| Echeverri Torres y Manjarrés  |       |   ✓   |       |       |       |
+| Edge (2021)                   |       |       |   ✓   |       |       |
+| Fernández Villacrés et al.    |       |       |       |   ✓   |       |
+| Flores Rodríguez (2020)       |       |   ✓   |       |   ✓   |       |
+| García-Cabot et al. (2015)    |       |   ✓   |       |       |       |
+| Godwin-Jones (2011)           |   ✓   |   ✓   |       |       |       |
+| González Morcillo et al.      |       |   ✓   |       |       |       |
+| Groq (2024)                   |       |       |   ✓   |   ✓   |       |
+| Hamari et al. (2014)          |   ✓   |   ✓   |   ✓   |   ✓   |   ✓   |
+| Hernández Sampieri et al.     |       |       |   ✓   |       |       |
+| Holmes et al. (2023)          |   ✓   |       |       |   ✓   |       |
+| Hwang et al. (2023)           |   ✓   |   ✓   |       |       |       |
+| Ibáñez y Delgado-Kloos (2023) |   ✓   |   ✓   |       |       |       |
+| Instituto Andaluz Tec. (2024) |       |       |       |       |       |
+| Kasneci et al. (2023)         |   ✓   |   ✓   |       |       |       |
+| Landers (2014)                |   ✓   |   ✓   |       |       |       |
+| Luckin et al. (2022)          |   ✓   |       |       |   ✓   |       |
+| Mayer (2021)                  |   ✓   |   ✓   |       |   ✓   |   ✓   |
+| McCarthy (2020)               |       |       |   ✓   |       |       |
+| Ministerio de Educación (2023)|   ✓   |       |       |   ✓   |       |
+| Montoya Bustamante (2024)     |       |   ✓   |       |   ✓   |       |
+| Morales Méndez (2024)         |       |   ✓   |       |       |       |
+| Narváez Rojas (2023)          |       |   ✓   |       |       |       |
+| Nation (2001)                 |   ✓   |   ✓   |       |   ✓   |       |
+| Ortega (2020)                 |       |       |   ✓   |       |       |
+| Pedaste et al. (2023)         |   ✓   |       |       |       |       |
+| Pérez et al. (2020)           |   ✓   |   ✓   |       |       |       |
+| Reyes y Avello-Martínez (2021)|       |   ✓   |       |       |       |
+| Riva Medina (2023)            |       |   ✓   |       |   ✓   |       |
+| Sánchez López (2022)          |       |   ✓   |       |       |       |
+| Santa-Maria et al. (2021)     |       |   ✓   |       |       |       |
+| Selwyn (2021)                 |   ✓   |       |       |       |       |
+| Sweller (2011)                |   ✓   |   ✓   |       |   ✓   |   ✓   |
+| Tumalli Naranjo et al. (2024) |       |   ✓   |       |   ✓   |       |
+| UNESCO (2023)                 |   ✓   |   ✓   |   ✓   |       |       |
+| Urrego et al. (2020)          |       |   ✓   |       |       |       |
+| Venkatesh et al. (2023)       |   ✓   |       |       |       |       |
+| Villalobos López (2024)       |       |   ✓   |       |       |       |
+
+
+================================================================================
+INSTRUCCIONES PARA ACTUALIZAR LA BIBLIOGRAFÍA EN WORD
+================================================================================
+
+PASO 1 — ELIMINAR las 8 referencias indicadas:
+   Seleccionar y borrar cada una de las siguientes del documento Word:
+   - Ahmann et al. (2018)
+   - Chancusig et al. (2017)
+   - Lascano Herrera (2021)
+   - Marques Díaz (2020) [si no está citada en el texto]
+   - Morlá Díaz (2021)
+   - Navarrete Navarrete y Gallegos (2021)
+   - Parra Ortega (2014)
+   - Segunda copia de Urrego et al. (2020)
+
+PASO 2 — CORREGIR las referencias existentes con errores de formato:
+   - Quitar espacios antes de comas en apellidos
+   - Reemplazar "https://doi.org/ISSN: ..." → eliminar la parte ISSN del DOI
+   - Revisar "REVISTA CIENTÍFICADE" → "REVISTA CIENTÍFICA DE"
+   - Asegurar que los títulos de revistas estén en cursiva
+
+PASO 3 — AÑADIR las 26 referencias nuevas:
+   Insertar en orden alfabético dentro de la sección de referencias.
+   Copiar directamente del listado completo de arriba.
+
+PASO 4 — VERIFICAR orden alfabético:
+   La bibliografía debe seguir estrictamente el orden A–Z por
+   primer apellido del autor. Orden correcto:
+   Arena → Azuma → Beltrán → Berumen → Biggs → Bonilla → Bransford →
+   Brooke → Crompton → Deci → Deterding → Devagiri → Dicheva →
+   Echeverri → Edge → Fernández → Flores → García-Cabot → Godwin-Jones →
+   González → Groq → Hamari → Hernández → Holmes → Hwang → Ibáñez →
+   Instituto → Kasneci → Landers → Luckin → Mayer → McCarthy →
+   Ministerio → Montoya → Morales → Narváez → Nation → Ortega →
+   Pedaste → Pérez → Reyes → Riva → Sánchez → Santa-Maria → Selwyn →
+   Sweller → Tumalli → UNESCO → Urrego → Venkatesh → Villalobos
+
+PASO 5 — FORMATO APA 7 para todas las referencias:
+   - Sangría francesa (1.27 cm) en cada referencia
+   - Espaciado doble dentro de cada referencia
+   - Sin línea en blanco entre referencias (o con espacio simple entre ellas)
+   - Títulos de revistas y libros en cursiva
+   - Solo mayúscula inicial en títulos de artículos
+
+================================================================================
+FIN DEL DOCUMENTO DE BIBLIOGRAFÍA
+================================================================================

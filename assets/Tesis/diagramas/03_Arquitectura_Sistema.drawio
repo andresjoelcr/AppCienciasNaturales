@@ -1,0 +1,157 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram id="arquitectura-sistema" name="Arquitectura del Sistema">
+    <mxGraphModel dx="1111" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="titulo" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#1a237e;" value="ARQUITECTURA DEL SISTEMA - APP CIENCIAS NATURALES" vertex="1">
+          <mxGeometry height="30" width="550" x="175" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="capa-ui" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;strokeWidth=3;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#1565c0;" value="CAPA DE PRESENTACIÓN (Flutter UI)" vertex="1">
+          <mxGeometry height="100" width="820" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ui1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=9;fontStyle=1;" value="Home&#xa;Screen" vertex="1">
+          <mxGeometry height="50" width="70" x="55" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="ui2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=9;fontStyle=1;" value="Login/&#xa;Register" vertex="1">
+          <mxGeometry height="50" width="70" x="135" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="ui3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=9;fontStyle=1;" value="Chatbot&#xa;IA" vertex="1">
+          <mxGeometry height="50" width="70" x="215" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="ui4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=9;fontStyle=1;" value="Scanner&#xa;IA" vertex="1">
+          <mxGeometry height="50" width="70" x="295" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="ui5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=9;fontStyle=1;" value="Realidad&#xa;Aumentada" vertex="1">
+          <mxGeometry height="50" width="80" x="375" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="ui6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=9;fontStyle=1;" value="Temas&#xa;Educativos" vertex="1">
+          <mxGeometry height="50" width="75" x="465" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="ui7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=9;fontStyle=1;" value="Cuestionarios&#xa;Quiz" vertex="1">
+          <mxGeometry height="50" width="80" x="550" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="ui8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=9;fontStyle=1;" value="Perfil&#xa;Usuario" vertex="1">
+          <mxGeometry height="50" width="70" x="640" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="ui9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=9;fontStyle=1;" value="Progreso&#xa;Estudiante" vertex="1">
+          <mxGeometry height="50" width="75" x="720" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-ui-serv" edge="1" parent="1" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=2;strokeColor=#424242;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="450" y="150" as="sourcePoint" />
+            <mxPoint x="450" y="175" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="capa-servicios" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;strokeWidth=3;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#2e7d32;" value="CAPA DE SERVICIOS (Providers + Controllers)" vertex="1">
+          <mxGeometry height="100" width="820" x="40" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="serv1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=9;fontStyle=1;" value="Auth&#xa;Service" vertex="1">
+          <mxGeometry height="50" width="75" x="55" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="serv2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=9;fontStyle=1;" value="Groq API&#xa;Service" vertex="1">
+          <mxGeometry height="50" width="80" x="145" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="serv3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=9;fontStyle=1;" value="Gemini&#xa;Service" vertex="1">
+          <mxGeometry height="50" width="75" x="240" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="serv4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=9;fontStyle=1;" value="TFLite&#xa;Service" vertex="1">
+          <mxGeometry height="50" width="75" x="330" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="serv5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=9;fontStyle=1;" value="Camera&#xa;Service" vertex="1">
+          <mxGeometry height="50" width="75" x="420" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="serv6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=9;fontStyle=1;" value="YouTube&#xa;Service" vertex="1">
+          <mxGeometry height="50" width="75" x="510" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="serv7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=9;fontStyle=1;" value="Speech&#xa;Service" vertex="1">
+          <mxGeometry height="50" width="75" x="600" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="serv8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=9;fontStyle=1;" value="Firestore&#xa;Service" vertex="1">
+          <mxGeometry height="50" width="80" x="690" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="serv9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=9;fontStyle=1;" value="Storage&#xa;Service" vertex="1">
+          <mxGeometry height="50" width="70" x="785" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-serv-data" edge="1" parent="1" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=2;strokeColor=#424242;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="450" y="275" as="sourcePoint" />
+            <mxPoint x="450" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="capa-modelos" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ef6c00;strokeWidth=3;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#ef6c00;" value="CAPA DE MODELOS (Entities)" vertex="1">
+          <mxGeometry height="75" width="820" x="40" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="model1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#fb8c00;fontSize=9;fontStyle=1;" value="User" vertex="1">
+          <mxGeometry height="35" width="70" x="55" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="model2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#fb8c00;fontSize=9;fontStyle=1;" value="Topic" vertex="1">
+          <mxGeometry height="35" width="70" x="140" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="model3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#fb8c00;fontSize=9;fontStyle=1;" value="Quiz" vertex="1">
+          <mxGeometry height="35" width="70" x="225" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="model4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#fb8c00;fontSize=9;fontStyle=1;" value="Question" vertex="1">
+          <mxGeometry height="35" width="75" x="310" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="model5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#fb8c00;fontSize=9;fontStyle=1;" value="Progress" vertex="1">
+          <mxGeometry height="35" width="70" x="400" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="model6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#fb8c00;fontSize=9;fontStyle=1;" value="ChatMessage" vertex="1">
+          <mxGeometry height="35" width="85" x="485" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="model7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#fb8c00;fontSize=9;fontStyle=1;" value="ARMarker" vertex="1">
+          <mxGeometry height="35" width="75" x="585" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="model8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#fb8c00;fontSize=9;fontStyle=1;" value="ScanResult" vertex="1">
+          <mxGeometry height="35" width="80" x="675" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="model9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#fb8c00;fontSize=9;fontStyle=1;" value="ARContent" vertex="1">
+          <mxGeometry height="35" width="75" x="770" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-data-ext" edge="1" parent="1" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=2;strokeColor=#424242;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="450" y="375" as="sourcePoint" />
+            <mxPoint x="450" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="capa-externa" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#c2185b;strokeWidth=3;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#c2185b;" value="SERVICIOS EXTERNOS (APIs + Cloud)" vertex="1">
+          <mxGeometry height="90" width="820" x="40" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="ext1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#e53935;fontSize=9;fontStyle=1;" value="Firebase&#xa;Authentication" vertex="1">
+          <mxGeometry height="45" width="95" x="55" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="ext2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#e53935;fontSize=9;fontStyle=1;" value="Cloud&#xa;Firestore" vertex="1">
+          <mxGeometry height="45" width="85" x="165" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="ext3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#e53935;fontSize=9;fontStyle=1;" value="Firebase&#xa;Storage" vertex="1">
+          <mxGeometry height="45" width="85" x="265" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="ext4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=9;fontStyle=1;" value="Groq API&#xa;(LLM Chatbot)" vertex="1">
+          <mxGeometry height="45" width="95" x="365" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="ext5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=9;fontStyle=1;" value="Google Gemini&#xa;(Vision AI)" vertex="1">
+          <mxGeometry height="45" width="95" x="475" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="ext6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#8e24aa;fontSize=9;fontStyle=1;" value="TensorFlow Lite&#xa;(ML Local)" vertex="1">
+          <mxGeometry height="45" width="95" x="585" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="ext7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#8e24aa;fontSize=9;fontStyle=1;" value="YouTube&#xa;Player API" vertex="1">
+          <mxGeometry height="45" width="85" x="695" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="ext8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b3e5fc;strokeColor=#0288d1;fontSize=9;fontStyle=1;" value="Speech to&#xa;Text API" vertex="1">
+          <mxGeometry height="45" width="75" x="795" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="leyenda" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eceff1;strokeColor=#607d8b;strokeWidth=1;dashed=1;verticalAlign=top;fontSize=10;fontStyle=1;fontColor=#455a64;" value="FLUJO DE DATOS" vertex="1">
+          <mxGeometry height="55" width="820" x="40" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="flujo1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#424242;" value="Usuario (Estudiante) → UI Flutter → Servicios/Providers → Modelos → APIs Externas/Firebase → Respuesta al Usuario" vertex="1">
+          <mxGeometry height="25" width="600" x="55" y="525" as="geometry" />
+        </mxCell>
+        <mxCell id="flutter-badge" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1565c0;strokeColor=#0d47a1;fontColor=#ffffff;fontSize=9;fontStyle=1;" value="Flutter&#xa;3.7.2" vertex="1">
+          <mxGeometry height="45" width="50" x="810" y="510" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

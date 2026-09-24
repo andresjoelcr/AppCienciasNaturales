@@ -1,0 +1,257 @@
+<mxfile host="app.diagrams.net" modified="2024-01-15T10:00:00.000Z" agent="Claude AI" version="22.1.0" type="device">
+  <diagram name="Pipeline Generación Quiz" id="pipeline-quiz">
+    <mxGraphModel dx="1000" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="950" pageHeight="500" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Título -->
+        <mxCell id="title" value="Figura 4. Pipeline de Generación Adaptativa de Quizzes con IA" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#1a1a1a;" parent="1" vertex="1">
+          <mxGeometry x="220" y="10" width="450" height="25" as="geometry"/>
+        </mxCell>
+
+        <!-- Etapa 1: Configuración -->
+        <mxCell id="e1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="30" y="50" width="120" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1-label" value="1. CONFIGURACIÓN" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=9;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="55" width="100" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="subtema" value="Subtema ID&#xa;(ej: &quot;1.1&quot;)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#6c8ebf;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="45" y="75" width="90" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="dificultad" value="Dificultad&#xa;fácil|medio|difícil" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#6c8ebf;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="45" y="110" width="90" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="num-preg" value="Nº Preguntas&#xa;(default: 5)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#6c8ebf;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="45" y="145" width="90" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="arr1" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="120" as="sourcePoint"/>
+            <mxPoint x="175" y="120" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Etapa 2: Recuperación -->
+        <mxCell id="e2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="175" y="50" width="120" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2-label" value="2. RECUPERACIÓN" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=9;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="185" y="55" width="100" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="guia-svc" value="GuiaContextService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#82b366;fontSize=8;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="185" y="75" width="100" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="content-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#82b366;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="185" y="105" width="100" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="cont-label" value="Contenido" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=8;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="210" y="108" width="50" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="cont-items" value="• Títulos&#xa;• Textos explicativos&#xa;• Conceptos clave&#xa;• Datos curiosos" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=6;" parent="1" vertex="1">
+          <mxGeometry x="190" y="120" width="90" height="55" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="arr2" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="295" y="120" as="sourcePoint"/>
+            <mxPoint x="320" y="120" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Etapa 3: Prompt -->
+        <mxCell id="e3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="320" y="50" width="150" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3-label" value="3. PROMPT ENGINEERING" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=9;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="330" y="55" width="130" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="sys-prompt" value="System: Experto educación" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#9673a6;fontSize=7;" parent="1" vertex="1">
+          <mxGeometry x="330" y="75" width="130" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="rules" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#9673a6;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="330" y="98" width="130" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="rules-label" value="Reglas:" style="text;html=1;strokeColor=none;fillColor=none;fontSize=7;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="335" y="100" width="35" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="rules-list" value="• 4 opciones exactas&#xa;• 1 respuesta correcta&#xa;• Distractores plausibles&#xa;• Explicaciones formativas&#xa;• Variar estilos&#xa;• Aleatorizar posición&#xa;• Solo JSON" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=6;" parent="1" vertex="1">
+          <mxGeometry x="335" y="112" width="120" height="65" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="arr3" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="470" y="120" as="sourcePoint"/>
+            <mxPoint x="495" y="120" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Etapa 4: LLM -->
+        <mxCell id="e4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="495" y="50" width="120" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4-label" value="4. INFERENCIA LLM" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=9;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="510" y="55" width="90" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="groq" value="Groq API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#b85450;fontSize=9;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="510" y="75" width="90" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="llama" value="LLaMA 3.3 70B" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="515" y="102" width="80" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="params" value="temp: 0.7&#xa;max_tokens: 2500&#xa;timeout: 30s" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=7;" parent="1" vertex="1">
+          <mxGeometry x="515" y="142" width="80" height="35" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="arr4" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="615" y="120" as="sourcePoint"/>
+            <mxPoint x="640" y="120" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Etapa 5: Parsing -->
+        <mxCell id="e5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="640" y="50" width="120" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5-label" value="5. PARSING" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=9;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="670" y="55" width="60" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="parse-steps" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#d6b656;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="650" y="75" width="100" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="parse-list" value="1. Limpiar markdown&#xa;2. Parse JSON&#xa;3. Validar esquema&#xa;4. Verificar índices" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=7;" parent="1" vertex="1">
+          <mxGeometry x="655" y="78" width="90" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="models" value="Quiz + Pregunta&#xa;Models" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#d6b656;fontSize=8;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="655" y="140" width="90" height="35" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="arr5" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="760" y="120" as="sourcePoint"/>
+            <mxPoint x="785" y="120" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Etapa 6: Resultado -->
+        <mxCell id="e6" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6e6e6;strokeColor=#666666;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="785" y="50" width="120" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6-label" value="6. RESULTADO" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=9;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="810" y="55" width="70" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="quiz-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="795" y="75" width="100" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="quiz-title" value="Quiz Generado" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=8;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="815" y="78" width="60" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="quiz-content" value="• Título: &quot;Quiz IA: {tema}&quot;&#xa;• N preguntas&#xa;• 4 opciones c/u&#xa;• Explicaciones" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=6;" parent="1" vertex="1">
+          <mxGeometry x="800" y="92" width="90" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="result-type" value="QuizGenerationResult&#xa;.success(Quiz)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#666666;fontSize=7;" parent="1" vertex="1">
+          <mxGeometry x="800" y="150" width="90" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Manejo de errores -->
+        <mxCell id="error-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#cc0000;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="30" y="210" width="875" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="error-label" value="MANEJO DE ERRORES" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontStyle=1;fontColor=#cc0000;" parent="1" vertex="1">
+          <mxGeometry x="40" y="215" width="130" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="err1" value="Red" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#cc0000;fontSize=8;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="45" y="235" width="50" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="err1-msg" value="&quot;Sin conexión a internet&quot;" style="text;html=1;strokeColor=none;fillColor=none;fontSize=7;" parent="1" vertex="1">
+          <mxGeometry x="40" y="255" width="110" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="err2" value="429" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#cc0000;fontSize=8;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="165" y="235" width="50" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="err2-msg" value="&quot;Demasiadas solicitudes&quot;" style="text;html=1;strokeColor=none;fillColor=none;fontSize=7;" parent="1" vertex="1">
+          <mxGeometry x="155" y="255" width="110" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="err3" value="Parse" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#cc0000;fontSize=8;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="285" y="235" width="50" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="err3-msg" value="&quot;Error al procesar respuesta&quot;" style="text;html=1;strokeColor=none;fillColor=none;fontSize=7;" parent="1" vertex="1">
+          <mxGeometry x="270" y="255" width="120" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="err4" value="Timeout" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#cc0000;fontSize=8;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="405" y="235" width="50" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="err4-msg" value="&quot;Tiempo de espera agotado&quot;" style="text;html=1;strokeColor=none;fillColor=none;fontSize=7;" parent="1" vertex="1">
+          <mxGeometry x="390" y="255" width="120" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="result-fail" value="QuizGenerationResult.failure(String error)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#cc0000;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="545" y="235" width="180" height="25" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="user-feedback" value="→ Mensaje amigable al usuario" style="text;html=1;strokeColor=none;fillColor=none;fontSize=8;fontStyle=2;" parent="1" vertex="1">
+          <mxGeometry x="740" y="240" width="150" height="15" as="geometry"/>
+        </mxCell>
+
+        <!-- Leyenda -->
+        <mxCell id="legend" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#999999;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="30" y="300" width="875" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg-title" value="ETAPAS:" style="text;html=1;strokeColor=none;fillColor=none;fontSize=9;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="310" width="50" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="95" y="312" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1t" value="Config" style="text;html=1;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="110" y="310" width="35" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="150" y="312" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2t" value="Recuperación" style="text;html=1;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="165" y="310" width="65" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="235" y="312" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3t" value="Prompt" style="text;html=1;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="250" y="310" width="40" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4" value="" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="295" y="312" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4t" value="LLM" style="text;html=1;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="310" y="310" width="30" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="l5" value="" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="345" y="312" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="l5t" value="Parsing" style="text;html=1;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="360" y="310" width="40" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="l6" value="" style="rounded=1;fillColor=#e6e6e6;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="405" y="312" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="l6t" value="Resultado" style="text;html=1;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="420" y="310" width="50" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="l7" value="" style="rounded=1;fillColor=#ffcccc;strokeColor=#cc0000;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="475" y="312" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="l7t" value="Errores" style="text;html=1;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="490" y="310" width="40" height="15" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

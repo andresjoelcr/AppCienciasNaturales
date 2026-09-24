@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(flutter devices:*)",
+      "WebFetch(domain:sketchfab.com)"
+    ]
+  }
+}
