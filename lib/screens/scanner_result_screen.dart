@@ -31,8 +31,11 @@ class ScannerResultScreen extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: IconButton(
-                  icon: const Icon(Icons.arrow_back_ios_rounded,
-                      color: Colors.white, size: 20),
+                  icon: const Icon(
+                    Icons.arrow_back_ios_rounded,
+                    color: Colors.white,
+                    size: 20,
+                  ),
                   onPressed: () => Navigator.pop(context),
                 ),
               ),
@@ -41,10 +44,7 @@ class ScannerResultScreen extends StatelessWidget {
               background: Stack(
                 fit: StackFit.expand,
                 children: [
-                  Image.file(
-                    imageFile,
-                    fit: BoxFit.cover,
-                  ),
+                  Image.file(imageFile, fit: BoxFit.cover),
                   // Gradient overlay
                   Container(
                     decoration: BoxDecoration(
@@ -136,114 +136,111 @@ class ScannerResultScreen extends StatelessWidget {
 
                   const SizedBox(height: 20),
 
-                  // Descripcion
-                  _buildInfoCard(
-                    icon: Icons.description_rounded,
-                    title: 'Descripcion',
-                    content: result.descripcion,
-                    color: AppColors.primaryGreen,
-                  ),
+                  // Lo escaneado no pertenece al temario
+                  if (!result.esDelTema) ...[
+                    _buildFueraDeTemaCard(),
+                    _buildEscanearDeNuevo(context),
+                  ] else ...[
+                    if (result.confianzaBaja) _buildAvisoConfianzaBaja(),
 
-                  const SizedBox(height: 16),
-
-                  // Habitat
-                  if (result.habitat.isNotEmpty &&
-                      result.habitat != 'No disponible')
+                    // Descripcion
                     _buildInfoCard(
-                      icon: Icons.location_on_rounded,
-                      title: 'Habitat',
-                      content: result.habitat,
-                      color: AppColors.oceanBlue,
+                      icon: Icons.description_rounded,
+                      title: 'Descripcion',
+                      content: result.descripcion,
+                      color: AppColors.primaryGreen,
                     ),
 
-                  if (result.habitat.isNotEmpty &&
-                      result.habitat != 'No disponible')
                     const SizedBox(height: 16),
 
-                  // Dato curioso
-                  if (result.datoCurioso.isNotEmpty)
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: AppColors.sunOrange.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(16),
-                        border: Border.all(
-                          color: AppColors.sunOrange.withOpacity(0.3),
-                        ),
+                    // Clasificacion
+                    if (result.clasificacion.isNotEmpty) ...[
+                      _buildInfoCard(
+                        icon: Icons.account_tree_rounded,
+                        title: 'Clasificacion cientifica',
+                        content: result.clasificacion,
+                        color: Colors.indigo.shade400,
                       ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: const Icon(
-                              Icons.lightbulb_rounded,
-                              color: AppColors.sunOrange,
-                              size: 22,
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Sabias que...?',
-                                  style: AppTextStyles.bodyMedium.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    color: AppColors.sunOrange,
-                                  ),
-                                ),
-                                const SizedBox(height: 4),
-                                Text(
-                                  result.datoCurioso,
-                                  style: AppTextStyles.bodyMedium.copyWith(
-                                    color: AppColors.darkText,
-                                    height: 1.5,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                      const SizedBox(height: 16),
+                    ],
 
-                  const SizedBox(height: 24),
-
-                  // Botón escanear de nuevo
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton.icon(
-                      onPressed: () => Navigator.pop(context),
-                      icon: const Icon(Icons.camera_alt_rounded),
-                      label: Text(
-                        'Escanear otra imagen',
-                        style: AppTextStyles.button.copyWith(
-                          color: Colors.white,
-                        ),
+                    // Habitat
+                    if (result.habitat.isNotEmpty)
+                      _buildInfoCard(
+                        icon: Icons.location_on_rounded,
+                        title: 'Habitat',
+                        content: result.habitat,
+                        color: AppColors.oceanBlue,
                       ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primaryGreen,
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                        shape: RoundedRectangleBorder(
+
+                    if (result.habitat.isNotEmpty) const SizedBox(height: 16),
+
+                    // Dato curioso
+                    if (result.datoCurioso.isNotEmpty)
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          color: AppColors.sunOrange.withOpacity(0.1),
                           borderRadius: BorderRadius.circular(16),
+                          border: Border.all(
+                            color: AppColors.sunOrange.withOpacity(0.3),
+                          ),
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: const Icon(
+                                Icons.lightbulb_rounded,
+                                color: AppColors.sunOrange,
+                                size: 22,
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Sabias que...?',
+                                    style: AppTextStyles.bodyMedium.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                      color: AppColors.sunOrange,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    result.datoCurioso,
+                                    style: AppTextStyles.bodyMedium.copyWith(
+                                      color: AppColors.darkText,
+                                      height: 1.5,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                  ),
+
+                    const SizedBox(height: 24),
+                    _buildEscanearDeNuevo(context),
+                  ],
 
                   const SizedBox(height: 16),
 
-                  // Powered by
+                  // Origen de la identificacion
                   Center(
                     child: Text(
-                      'Identificado con IA',
+                      result.esDelTema
+                          ? 'Deteccion con Groq Vision + ficha de Groq'
+                          : 'Detectado con Groq Vision',
                       style: AppTextStyles.caption.copyWith(
                         color: AppColors.greyText.withOpacity(0.6),
                       ),
@@ -260,18 +257,41 @@ class ScannerResultScreen extends StatelessWidget {
     );
   }
 
+  Widget _buildEscanearDeNuevo(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton.icon(
+        onPressed: () => Navigator.pop(context),
+        icon: const Icon(Icons.camera_alt_rounded),
+        label: Text(
+          'Escanear otra imagen',
+          style: AppTextStyles.button.copyWith(color: Colors.white),
+        ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.primaryGreen,
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _buildConfianzaCard() {
-    final color = result.confianza >= 75
-        ? AppColors.primaryGreen
-        : result.confianza >= 50
+    final color =
+        result.confianza >= 75
+            ? AppColors.primaryGreen
+            : result.confianza >= ScannerResult.umbralConfianzaBaja
             ? AppColors.sunOrange
             : Colors.red.shade600;
 
-    final label = result.confianza >= 75
-        ? 'Alta confianza'
-        : result.confianza >= 50
+    final label =
+        result.confianza >= 75
+            ? 'Identificacion segura'
+            : result.confianza >= ScannerResult.umbralConfianzaBaja
             ? 'Confianza media'
-            : 'Baja confianza';
+            : 'Identificacion dudosa';
 
     return Container(
       width: double.infinity,
@@ -308,6 +328,16 @@ class ScannerResultScreen extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          const SizedBox(height: 6),
+          Text(
+            'Estimacion de la IA sobre su propia certeza. No es una medida '
+            'exacta: si el nombre o la descripcion te parecen raros, es probable '
+            'que la foto no sea suficiente.',
+            style: AppTextStyles.caption.copyWith(
+              color: AppColors.greyText,
+              height: 1.4,
+            ),
           ),
           const SizedBox(height: 10),
           ClipRRect(
@@ -391,6 +421,16 @@ class ScannerResultScreen extends StatelessWidget {
         return AppColors.earthBrown;
       case 'hongo':
         return Colors.purple.shade400;
+      case 'fruta':
+        return Colors.red.shade400;
+      case 'verdura':
+        return Colors.green.shade600;
+      case 'flor':
+        return Colors.pink.shade400;
+      case 'mineral':
+        return Colors.indigo.shade300;
+      case 'roca':
+        return Colors.blueGrey.shade400;
       case 'celula':
         return AppColors.oceanBlue;
       case 'microorganismo':
@@ -412,6 +452,16 @@ class ScannerResultScreen extends StatelessWidget {
         return Icons.bug_report_rounded;
       case 'hongo':
         return Icons.forest_rounded;
+      case 'fruta':
+        return Icons.apple_rounded;
+      case 'verdura':
+        return Icons.eco_outlined;
+      case 'flor':
+        return Icons.local_florist_rounded;
+      case 'mineral':
+        return Icons.diamond_rounded;
+      case 'roca':
+        return Icons.terrain_rounded;
       case 'celula':
         return Icons.blur_circular_rounded;
       case 'microorganismo':
@@ -433,6 +483,16 @@ class ScannerResultScreen extends StatelessWidget {
         return 'Insecto';
       case 'hongo':
         return 'Hongo';
+      case 'fruta':
+        return 'Fruta';
+      case 'verdura':
+        return 'Verdura';
+      case 'flor':
+        return 'Flor';
+      case 'mineral':
+        return 'Mineral';
+      case 'roca':
+        return 'Roca';
       case 'celula':
         return 'Celula';
       case 'microorganismo':
@@ -440,7 +500,142 @@ class ScannerResultScreen extends StatelessWidget {
       case 'objeto':
         return 'Objeto';
       default:
-        return 'No identificado';
+        return 'Elemento';
     }
+  }
+
+  /// Panel que se muestra cuando lo escaneado no pertenece al temario.
+  Widget _buildFueraDeTemaCard() {
+    final motivo =
+        result.motivo.isNotEmpty
+            ? result.motivo
+            : 'No corresponde a los temas de ciencias naturales que trabaja esta guia.';
+
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: AppColors.sunOrange.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: AppColors.sunOrange.withOpacity(0.35)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: AppColors.sunOrange.withOpacity(0.15),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Icon(
+                  Icons.search_off_rounded,
+                  color: AppColors.sunOrange,
+                  size: 26,
+                ),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'No es parte de nuestra guia',
+                      style: AppTextStyles.heading3.copyWith(
+                        fontSize: 18,
+                        color: AppColors.earthBrown,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      'Escaneaste: ${result.nombreComun}',
+                      style: AppTextStyles.caption.copyWith(
+                        color: AppColors.greyText,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Text(
+            motivo,
+            style: AppTextStyles.bodyMedium.copyWith(
+              color: AppColors.darkText,
+              height: 1.6,
+            ),
+          ),
+          const SizedBox(height: 16),
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.7),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Icon(
+                  Icons.lightbulb_outline_rounded,
+                  size: 18,
+                  color: AppColors.oceanBlue,
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    'Prueba con una foto de cerca de un animal, planta, hongo, '
+                    'insecto, fruta, verdura, flor, roca o mineral. Puedes ver '
+                    'de que trata la guia en la seccion Guia.',
+                    style: AppTextStyles.caption.copyWith(
+                      color: AppColors.darkText,
+                      height: 1.5,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// Aviso de deteccion dudosa: se muestra junto a la ficha, no la reemplaza.
+  Widget _buildAvisoConfianzaBaja() {
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.red.shade600.withOpacity(0.08),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.red.shade600.withOpacity(0.25)),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(
+            Icons.warning_amber_rounded,
+            size: 22,
+            color: Colors.red.shade600,
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              'La IA no esta segura de esta identificacion y podria equivocarse. '
+              'Verifica que la foto sea nitida, que el elemento este centrado '
+              'y que no haya otros objetos tapandolo.',
+              style: AppTextStyles.bodyMedium.copyWith(
+                color: AppColors.darkText,
+                height: 1.5,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

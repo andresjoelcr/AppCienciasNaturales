@@ -7,8 +7,8 @@ import 'chat_screen.dart';
 import 'profile_screen.dart';
 import 'guia/guia_home_screen.dart';
 import 'scanner_screen.dart';
-import 'ar_screen_simple.dart';
 import 'ar_image_target_screen.dart';
+import 'unity_escaneo_screen.dart';
 import 'glosario/glosario_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -53,9 +53,7 @@ class _HomeScreenState extends State<HomeScreen>
         elevation: 0,
         toolbarHeight: 80,
         flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: AppColors.primaryGradient,
-          ),
+          decoration: const BoxDecoration(gradient: AppColors.primaryGradient),
         ),
         title: Row(
           children: [
@@ -150,10 +148,12 @@ class _HomeScreenState extends State<HomeScreen>
                 position: Tween<Offset>(
                   begin: const Offset(-0.5, 0),
                   end: Offset.zero,
-                ).animate(CurvedAnimation(
-                  parent: _animationController,
-                  curve: const Interval(0.0, 0.5, curve: Curves.easeOut),
-                )),
+                ).animate(
+                  CurvedAnimation(
+                    parent: _animationController,
+                    curve: const Interval(0.0, 0.5, curve: Curves.easeOut),
+                  ),
+                ),
                 child: FadeTransition(
                   opacity: _animationController,
                   child: Container(
@@ -176,16 +176,18 @@ class _HomeScreenState extends State<HomeScreen>
                           child: CircleAvatar(
                             radius: 28,
                             backgroundColor: Colors.white,
-                            backgroundImage: user?.photoURL != null
-                                ? NetworkImage(user!.photoURL!)
-                                : null,
-                            child: user?.photoURL == null
-                                ? const Icon(
-                                    Icons.person,
-                                    color: AppColors.primaryGreen,
-                                    size: 28,
-                                  )
-                                : null,
+                            backgroundImage:
+                                user?.photoURL != null
+                                    ? NetworkImage(user!.photoURL!)
+                                    : null,
+                            child:
+                                user?.photoURL == null
+                                    ? const Icon(
+                                      Icons.person,
+                                      color: AppColors.primaryGreen,
+                                      size: 28,
+                                    )
+                                    : null,
                           ),
                         ),
                         const SizedBox(width: 16),
@@ -275,9 +277,7 @@ class _HomeScreenState extends State<HomeScreen>
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const ChatScreen(),
-                    ),
+                    MaterialPageRoute(builder: (context) => const ChatScreen()),
                   );
                 },
               ),
@@ -314,26 +314,29 @@ class _HomeScreenState extends State<HomeScreen>
                   showModalBottomSheet(
                     context: context,
                     backgroundColor: Colors.transparent,
-                    builder: (_) => _ARModeSelector(
-                      onSimple: () {
-                        Navigator.pop(context);
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const ARScreenSimple(),
-                          ),
-                        );
-                      },
-                      onImageTarget: () {
-                        Navigator.pop(context);
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const ARImageTargetScreen(),
-                          ),
-                        );
-                      },
-                    ),
+                    builder:
+                        (_) => _ARModeSelector(
+                          onSimple: () {
+                            Navigator.pop(context);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                // Unity embebido: arranca en la escena indice 0,
+                                // que es EscanearTarjetas.
+                                builder: (_) => const UnityEscaneoScreen(),
+                              ),
+                            );
+                          },
+                          onImageTarget: () {
+                            Navigator.pop(context);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const ARImageTargetScreen(),
+                              ),
+                            );
+                          },
+                        ),
                   );
                 },
               ),
@@ -364,10 +367,12 @@ class _HomeScreenState extends State<HomeScreen>
                 position: Tween<Offset>(
                   begin: const Offset(0, 0.5),
                   end: Offset.zero,
-                ).animate(CurvedAnimation(
-                  parent: _animationController,
-                  curve: const Interval(0.5, 1.0, curve: Curves.easeOut),
-                )),
+                ).animate(
+                  CurvedAnimation(
+                    parent: _animationController,
+                    curve: const Interval(0.5, 1.0, curve: Curves.easeOut),
+                  ),
+                ),
                 child: Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
@@ -436,14 +441,16 @@ class _HomeScreenState extends State<HomeScreen>
       position: Tween<Offset>(
         begin: const Offset(0.5, 0),
         end: Offset.zero,
-      ).animate(CurvedAnimation(
-        parent: _animationController,
-        curve: Interval(
-          (0.1 + index * 0.1).clamp(0.0, 0.6),
-          (0.5 + index * 0.1).clamp(0.0, 1.0),
-          curve: Curves.easeOut,
+      ).animate(
+        CurvedAnimation(
+          parent: _animationController,
+          curve: Interval(
+            (0.1 + index * 0.1).clamp(0.0, 0.6),
+            (0.5 + index * 0.1).clamp(0.0, 1.0),
+            curve: Curves.easeOut,
+          ),
         ),
-      )),
+      ),
       child: FadeTransition(
         opacity: CurvedAnimation(
           parent: _animationController,
@@ -462,9 +469,7 @@ class _HomeScreenState extends State<HomeScreen>
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(18),
-                border: Border.all(
-                  color: color.withOpacity(0.2),
-                ),
+                border: Border.all(color: color.withOpacity(0.2)),
                 boxShadow: [
                   BoxShadow(
                     color: color.withOpacity(0.1),
@@ -481,11 +486,7 @@ class _HomeScreenState extends State<HomeScreen>
                       color: color.withOpacity(0.15),
                       borderRadius: BorderRadius.circular(14),
                     ),
-                    child: Icon(
-                      icon,
-                      size: 28,
-                      color: color,
-                    ),
+                    child: Icon(icon, size: 28, color: color),
                   ),
                   const SizedBox(width: 14),
                   Expanded(
@@ -539,9 +540,10 @@ class _HomeScreenState extends State<HomeScreen>
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: isAvailable
-                          ? color.withOpacity(0.15)
-                          : Colors.grey.withOpacity(0.1),
+                      color:
+                          isAvailable
+                              ? color.withOpacity(0.15)
+                              : Colors.grey.withOpacity(0.1),
                       shape: BoxShape.circle,
                     ),
                     child: Icon(
@@ -558,7 +560,6 @@ class _HomeScreenState extends State<HomeScreen>
       ),
     );
   }
-
 }
 
 // ---------------------------------------------------------------------------
@@ -568,10 +569,7 @@ class _ARModeSelector extends StatelessWidget {
   final VoidCallback onSimple;
   final VoidCallback onImageTarget;
 
-  const _ARModeSelector({
-    required this.onSimple,
-    required this.onImageTarget,
-  });
+  const _ARModeSelector({required this.onSimple, required this.onImageTarget});
 
   @override
   Widget build(BuildContext context) {
@@ -626,7 +624,8 @@ class _ARModeSelector extends StatelessWidget {
           _ModeOption(
             icon: Icons.biotech,
             title: 'AR Image Target',
-            subtitle: 'Apunta a una imagen de célula y ve información superpuesta',
+            subtitle:
+                'Apunta a una imagen de célula y ve información superpuesta',
             color: Colors.purple,
             badge: 'Nuevo',
             onTap: onImageTarget,
@@ -694,7 +693,9 @@ class _ModeOption extends StatelessWidget {
                       const SizedBox(width: 8),
                       Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 7, vertical: 2),
+                          horizontal: 7,
+                          vertical: 2,
+                        ),
                         decoration: BoxDecoration(
                           color: color,
                           borderRadius: BorderRadius.circular(10),
@@ -713,10 +714,7 @@ class _ModeOption extends StatelessWidget {
                   const SizedBox(height: 3),
                   Text(
                     subtitle,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.grey.shade600,
-                    ),
+                    style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
                   ),
                 ],
               ),

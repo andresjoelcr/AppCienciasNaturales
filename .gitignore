@@ -18,24 +18,30 @@ migrate_working_dir/
 *.iws
 .idea/
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
+# VS Code
+# El .vscode puede contener configuraciones útiles del proyecto.
+# Si quieres ignorarlo completamente, descomenta:
+# .vscode/
 
-# Flutter/Dart/Pub related
+# Flutter / Dart / Pub related
 **/doc/api/
 **/ios/Flutter/.last_build_id
 .dart_tool/
+.flutter-plugins
 .flutter-plugins-dependencies
+.packages
 .pub-cache/
 .pub/
 /build/
 /coverage/
 
-# Configuracion local y credenciales
+# Configuración local y credenciales
 .env
 .env.local
+
+# Copia temporal de credenciales
+# La genera tool/sync_env.ps1
+assets/groq.env
 
 # Symbolication related
 app.*.symbols
@@ -43,14 +49,27 @@ app.*.symbols
 # Obfuscation related
 app.*.map.json
 
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
+# Android generated files
+/android/.gradle/
+/android/build/
+/android/app/debug/
+/android/app/profile/
+/android/app/release/
 
+# Unity Android generated files
+/android/unityLibrary/build/
+/android/unityLibrary/src/main/Il2CppOutputProject/
+/android/unityLibrary/src/main/assets/bin/
+/android/unityLibrary/src/main/jniLibs/
+/android/unityLibrary/src/main/jniStaticLibs/
+/android/unityLibrary/symbols/
+/android/unityLibrary/src/main/cpp/
+
+# Gradle generated folders anywhere in the project
+**/.gradle/
+
+# Gradle / Java generated files
 *.hprof
+
 # Configuración local de Claude
 .claude/settings.local.json
-
-# Reportes generados por Gradle
-android/build/

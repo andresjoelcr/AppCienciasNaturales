@@ -1,20 +1,34 @@
-import 'dart:io';
 import 'dart:convert';
-import 'dart:typed_data';
-import 'package:flutter/services.dart';
+import 'dart:io';
+
 import 'package:http/http.dart' as http;
-import 'package:image/image.dart' as img;
-import 'package:tflite_flutter/tflite_flutter.dart';
+
 import '../config/app_config.dart';
 
+/// Resultado del escaneo inteligente.
+///
+/// Todo el proceso usa la API de Groq: `qwen/qwen3.8-27b` es el unico modelo
+/// con vision de la plataforma, asi que realiza la deteccion, y despues se usa
+/// el mismo servicio para redactar la ficha educativa.
 class ScannerResult {
   final String nombreComun;
   final String nombreCientifico;
   final String descripcion;
   final String habitat;
   final String datoCurioso;
+  final String clasificacion;
   final int confianza;
   final String tipo;
+
+  /// false cuando lo escaneado no pertence al temario de ciencias naturales.
+  final bool esDelTema;
+
+  /// Explicacion de por que se considera fuera de tema.
+  final String motivo;
+
+  /// Cuando la confianza es baja se avisa al estudiante en vez de mostrar la
+  /// ficha como si fuera certera.
+  final bool confianzaBaja;
 
   ScannerResult({
     required this.nombreComun,
@@ -22,483 +36,426 @@ class ScannerResult {
     required this.descripcion,
     required this.habitat,
     required this.datoCurioso,
+    required this.clasificacion,
     required this.confianza,
     required this.tipo,
+    required this.esDelTema,
+    this.motivo = '',
+    this.confianzaBaja = false,
   });
 
-  factory ScannerResult.error() {
+  /// Umbral bajo el cual la deteccion se considera poco fiable.
+  static const int umbralConfianzaBaja = 55;
+
+  factory ScannerResult.fueraDeTema({
+    required String nombre,
+    required String tipo,
+    required int confianza,
+    required String motivo,
+  }) {
     return ScannerResult(
-      nombreComun: 'No identificado',
+      nombreComun: nombre,
       nombreCientifico: '',
-      descripcion:
-          'No se pudo identificar el contenido de la imagen. Intenta con una foto mas clara.',
+      descripcion: '',
       habitat: '',
       datoCurioso: '',
-      confianza: 0,
-      tipo: 'desconocido',
+      clasificacion: '',
+      confianza: confianza,
+      tipo: tipo,
+      esDelTema: false,
+      motivo: motivo,
     );
   }
 }
 
+/// Error de escaneo con un mensaje pensado para mostrarse al estudiante.
+class ScannerException implements Exception {
+  final String mensaje;
+  const ScannerException(this.mensaje);
+
+  @override
+  String toString() => mensaje;
+}
+
 class ScannerService {
-  final String _geminiApiKey;
-  Interpreter? _interpreter;
-  List<String> _labels = [];
-  bool _isInitialized = false;
+  /// El prompt de vision se mantiene corto a proposito. Con una lista larga de
+  /// "que no es del temario" (muebles, vehiculos, juguetes...) el modelo se
+  /// descentraba y respondia "ilustracion abstracta" con 100% de confianza
+  /// ante una foto claramente reconocible. Las reglas negativas se resolvieron
+  /// acortando el enunciado, no enumerando exclusiones.
+  static const String _systemPromptDeteccion =
+      'Eres un naturalista experto en ciencias naturales. Respondes '
+      'exclusivamente con un objeto JSON valido.';
 
-  final String _groqApiKey = AppConfig.groqApiKey;
+  static const String _promptDeteccion =
+      'Identifica el elemento de la foto y responde con un objeto JSON con '
+      'estas claves exactas: {"es_del_tema":booleano,"nombre_comun":texto,'
+      '"nombre_cientifico":texto,"tipo":texto,"confianza":entero 0-100,'
+      '"motivo":texto}. Reglas: "tipo" debe ser animal, planta, insecto, hongo, '
+      'fruta, verdura, flor, mineral, roca u otro. "es_del_tema" es true para '
+      'seres vivos y elementos naturales, y false para objetos fabricados. '
+      '"nombre_cientifico" va en latin, vacio si no aplica. "motivo" explica en '
+      'una frase breve por que no es del temario cuando "es_del_tema" es '
+      'false, y queda vacio cuando es true. "confianza" es tu certeza real: una '
+      'foto borrosa, lejana o con el elemento tapado debe tener confianza '
+      'baja. No la inflas.';
 
-  ScannerService(this._geminiApiKey);
+  ScannerService();
 
-  Future<void> _initTFLite() async {
-    if (_isInitialized) return;
+  /// Ejecuta el escaneo completo usando solo la API de Groq.
+  ///
+  /// [onEsperando] recibe un aviso para mostrar mientras la peticion espera a
+  /// que se libere el limite de la API, que en clase se agota con facilidad.
+  Future<ScannerResult> identificarImagen(
+    File imageFile, {
+    void Function(String mensaje)? onEsperando,
+  }) async {
+    final problema = AppConfig.groqApiKeyProblem;
+    if (problema != null) {
+      throw ScannerException('El escaner no esta configurado. $problema');
+    }
 
+    final deteccion = await _detectarConVision(imageFile, onEsperando);
+
+    // Fuera de tema: se informa al estudiante y no se inventa informacion.
+    if (!deteccion['es_del_tema']) {
+      return ScannerResult.fueraDeTema(
+        nombre: deteccion['nombre_comun'],
+        tipo: deteccion['tipo'],
+        confianza: deteccion['confianza'],
+        motivo: deteccion['motivo'],
+      );
+    }
+
+    final confianza = deteccion['confianza'];
+
+    // Segunda llamada: el mismo servicio redacta la ficha educativa a partir de
+    // lo que la vision ya detecto.
+    Map<String, String> ficha = const {};
     try {
-      _interpreter = await Interpreter.fromAsset(
-        'assets/models/mobilenet_v2.tflite',
+      ficha = await _redactarFicha(
+        nombre: deteccion['nombre_comun'],
+        nombreCientifico: deteccion['nombre_cientifico'],
+        tipo: deteccion['tipo'],
+        onEsperando: onEsperando,
       );
-      final labelsData = await rootBundle.loadString(
-        'assets/models/labels.txt',
-      );
-      _labels =
-          labelsData.split('\n').where((l) => l.trim().isNotEmpty).toList();
-      _isInitialized = true;
-    } catch (e) {}
+    } on ScannerException {
+      rethrow;
+    } catch (_) {
+      // La ficha es un complemento: si falla, la deteccion sigue siendo valida.
+    }
+
+    return ScannerResult(
+      nombreComun: deteccion['nombre_comun'],
+      nombreCientifico: deteccion['nombre_cientifico'],
+      descripcion:
+          ficha['descripcion'] ??
+          '${deteccion['nombre_comun']} es un elemento de ciencias naturales '
+              'identificado en la imagen.',
+      habitat: ficha['habitat'] ?? '',
+      datoCurioso: ficha['dato_curioso'] ?? '',
+      clasificacion: ficha['clasificacion'] ?? '',
+      confianza: confianza,
+      tipo: deteccion['tipo'],
+      esDelTema: true,
+      confianzaBaja: confianza < ScannerResult.umbralConfianzaBaja,
+    );
   }
 
-  Future<ScannerResult> identificarImagen(File imageFile) async {
-    // PASO 1: Intentar con Gemini Vision (mas preciso)
-    try {
-      final geminiResult = await _identificarConGemini(imageFile);
-      if (geminiResult != null) {
-        return ScannerResult(
-          nombreComun: geminiResult['nombre'] ?? 'Objeto',
-          nombreCientifico: geminiResult['cientifico'] ?? '',
-          descripcion: geminiResult['descripcion'] ?? '',
-          habitat: geminiResult['habitat'] ?? '',
-          datoCurioso: geminiResult['dato'] ?? '',
-          confianza: geminiResult['confianza'] ?? 85,
-          tipo: geminiResult['tipo'] ?? 'objeto',
-        );
-      }
-    } catch (e) {}
-
-    // PASO 2: Fallback a TFLite
-    await _initTFLite();
-
-    String objetoIdentificado = '';
-    double confianza = 0.0;
-    String tipo = 'objeto';
-
-    if (_interpreter != null) {
-      try {
-        final result = await _classifyWithTFLite(imageFile);
-        if (result != null && result['confidence'] > 0.1) {
-          objetoIdentificado = result['label'] as String;
-          confianza = result['confidence'] as double;
-          tipo = _detectTipo(objetoIdentificado);
-        }
-      } catch (e) {}
-    }
-
-    // PASO 3: Generar descripcion con Groq
-    if (objetoIdentificado.isNotEmpty) {
-      final nombreEs = _traducirAlEspanol(objetoIdentificado);
-
-      try {
-        final descripcion = await _generarDescripcionConGroq(nombreEs, tipo);
-        if (descripcion != null) {
-          return ScannerResult(
-            nombreComun: descripcion['nombre'] ?? nombreEs,
-            nombreCientifico: descripcion['cientifico'] ?? '',
-            descripcion:
-                descripcion['descripcion'] ?? 'Objeto identificado: $nombreEs',
-            habitat: descripcion['habitat'] ?? '',
-            datoCurioso: descripcion['dato'] ?? '',
-            confianza: (confianza * 100).round().clamp(0, 100),
-            tipo: tipo,
-          );
-        }
-      } catch (e) {}
-
-      return ScannerResult(
-        nombreComun: nombreEs,
-        nombreCientifico: '',
-        descripcion: _getDescripcionBasica(nombreEs, tipo),
-        habitat: '',
-        datoCurioso: '',
-        confianza: (confianza * 100).round().clamp(0, 100),
-        tipo: tipo,
-      );
-    }
-
-    return ScannerResult.error();
-  }
-
-  /// Identificar usando Gemini Vision API
-  Future<Map<String, dynamic>?> _identificarConGemini(File imageFile) async {
-    if (_geminiApiKey.isEmpty || _geminiApiKey == 'TU_API_KEY_DE_GEMINI_AQUI') {
-      return null;
-    }
-
+  /// Paso 1: deteccion visual con el modelo de vision de Groq.
+  Future<Map<String, dynamic>> _detectarConVision(
+    File imageFile,
+    void Function(String mensaje)? onEsperando,
+  ) async {
     final bytes = await imageFile.readAsBytes();
     final base64Image = base64Encode(bytes);
 
-    final prompt =
-        '''Analiza esta imagen e identifica el objeto, animal, planta o ser vivo principal.
+    final content = await _groqJson(
+      systemPrompt: _systemPromptDeteccion,
+      userPrompt: _promptDeteccion,
+      imageBase64: base64Image,
+      maxTokens: 500,
+      temperature: 0.1,
+      onEsperando: onEsperando,
+    );
 
-Responde EXACTAMENTE en este formato (una linea por campo):
-NOMBRE: [nombre comun en espanol]
-CIENTIFICO: [nombre cientifico si aplica, o "No aplica"]
-TIPO: [animal/planta/insecto/hongo/objeto]
-DESCRIPCION: [2-3 oraciones educativas para estudiantes de primaria]
-HABITAT: [donde vive o se encuentra, o "No aplica" si es objeto]
-DATO: [un dato curioso e interesante]
-CONFIANZA: [numero del 1 al 100 indicando que tan seguro estas]
+    return _normalizarDeteccion(_decodificar(content));
+  }
 
-Solo responde con esas 7 lineas, nada mas.''';
+  /// Paso 2: el mismo servicio redacta la ficha educativa del elemento ya
+  /// detectado. Aqui solo hay texto, asi que puede usar el modelo de texto.
+  Future<Map<String, String>> _redactarFicha({
+    required String nombre,
+    required String nombreCientifico,
+    required String tipo,
+    void Function(String mensaje)? onEsperando,
+  }) async {
+    final contexto = nombreCientifico.isNotEmpty ? ' ($nombreCientifico)' : '';
 
+    final content = await _groqJson(
+      systemPrompt:
+          'Eres un naturalista que escribe fichas educativas breves para '
+          'estudiantes de secundaria. Respondes solo en JSON valido.',
+      userPrompt:
+          '''Genera la ficha educativa de: "$nombre"$contexto (tipo: $tipo)
+
+Devuelve un objeto JSON con exactamente estas claves:
+{
+  "descripcion": "2 o 3 oraciones educativas sobre que es y como se caracteriza",
+  "habitat": "Donde vive, donde crece o donde se encuentra. Si no aplica, cadena vacia.",
+  "dato_curioso": "Un dato curioso e interesante para estudiantes",
+  "clasificacion": "Cadena de clasificacion taxonomica, por ejemplo: Reino; Orden; Familia; Genero; Especie. Si no aplica, cadena vacia."
+}
+
+Si no estas seguro de un dato cientifico, no lo inventes: escribe una
+descripcion generica y correcta en lugar de un nombre especifico dudoso.''',
+      maxTokens: 2048,
+      temperature: 0.4,
+      onEsperando: onEsperando,
+    );
+
+    final ficha = _decodificar(content) as Map<String, dynamic>;
+    String leer(String clave) => (ficha[clave] as String?)?.trim() ?? '';
+    return {
+      'descripcion': leer('descripcion'),
+      'habitat': leer('habitat'),
+      'dato_curioso': leer('dato_curioso'),
+      'clasificacion': leer('clasificacion'),
+    };
+  }
+
+  /// Llamada JSON a Groq. Si [imageBase64] se envia, usa el modelo de vision.
+  Future<String> _groqJson({
+    required String systemPrompt,
+    required String userPrompt,
+    String? imageBase64,
+    required int maxTokens,
+    required double temperature,
+    void Function(String mensaje)? onEsperando,
+  }) async {
+    final conImagen = imageBase64 != null;
+    final modelo = conImagen ? AppConfig.groqVisionModel : AppConfig.groqModel;
+
+    final List<Map<String, dynamic>> mensajeUsuario;
+    if (conImagen) {
+      mensajeUsuario = [
+        {
+          'role': 'user',
+          'content': [
+            {'type': 'text', 'text': userPrompt},
+            {
+              'type': 'image_url',
+              'image_url': {'url': 'data:image/jpeg;base64,$imageBase64'},
+            },
+          ],
+        },
+      ];
+    } else {
+      mensajeUsuario = [
+        {'role': 'user', 'content': userPrompt},
+      ];
+    }
+
+    final http.Response response;
     try {
-      final response = await http
-          .post(
-            Uri.parse(
-              'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=$_geminiApiKey',
-            ),
-            headers: {'Content-Type': 'application/json'},
-            body: jsonEncode({
-              'contents': [
-                {
-                  'parts': [
-                    {'text': prompt},
-                    {
-                      'inline_data': {
-                        'mime_type': 'image/jpeg',
-                        'data': base64Image,
-                      },
-                    },
-                  ],
-                },
-              ],
-              'generationConfig': {'temperature': 0.2, 'maxOutputTokens': 500},
-            }),
-          )
-          .timeout(const Duration(seconds: 20));
+      response = await _groqPost(
+        body: jsonEncode({
+          'model': modelo,
+          'messages': [
+            {'role': 'system', 'content': systemPrompt},
+            ...mensajeUsuario,
+          ],
+          'response_format': {'type': 'json_object'},
+          'temperature': temperature,
+          'max_tokens': maxTokens,
+        }),
+        conImagen: conImagen,
+        onEsperando: onEsperando,
+      );
+    } on SocketException {
+      throw const ScannerException(
+        'Sin conexion a internet. Conectate e intenta de nuevo.',
+      );
+    } on http.ClientException {
+      throw const ScannerException(
+        'No se pudo completar la peticion. Intenta de nuevo.',
+      );
+    }
 
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        final text =
-            data['candidates']?[0]?['content']?['parts']?[0]?['text']
-                as String?;
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      final content = data['choices']?[0]?['message']?['content'] as String?;
+      if (content == null || content.trim().isEmpty) {
+        throw const ScannerException(
+          'La IA no genero respuesta. Intenta de nuevo.',
+        );
+      }
+      return content;
+    }
 
-        if (text != null) {
-          return _parseGeminiResponse(text);
+    switch (response.statusCode) {
+      case 400:
+        if (conImagen) {
+          throw const ScannerException(
+            'La IA no pudo procesar esa imagen. Prueba con una foto mas nitida '
+            'o de menor tamano.',
+          );
         }
-      } else {}
-    } catch (e) {}
-
-    return null;
+        throw const ScannerException(
+          'La IA no pudo generar la ficha. Intenta de nuevo.',
+        );
+      case 401:
+      case 403:
+        throw const ScannerException(
+          'La clave de la IA no es valida o no tiene permisos. Revisa '
+          'GROQ_API_KEY en el archivo .env.',
+        );
+      case 404:
+        throw ScannerException(
+          conImagen
+              ? 'El modelo de vision "${AppConfig.groqVisionModel}" no esta '
+                  'disponible en Groq. Revisa GROQ_VISION_MODEL en .env.'
+              : 'El modelo "${AppConfig.groqModel}" ya no esta disponible. '
+                  'Revisa GROQ_MODEL en el archivo .env.',
+        );
+      case 413:
+        throw const ScannerException(
+          'La imagen es demasiado grande. Intenta con una foto mas pequena.',
+        );
+      case 429:
+        throw const ScannerException(
+          'Muchos estudiantes estan escaneando al mismo tiempo y el servicio '
+          'llego a su limite. Espera medio minuto e intenta de nuevo.',
+        );
+      case 500:
+      case 503:
+        throw const ScannerException(
+          'El servicio de IA no esta disponible. Intenta mas tarde.',
+        );
+      default:
+        throw ScannerException(
+          conImagen
+              ? 'No se pudo analizar la imagen. Intenta de nuevo.'
+              : 'No se pudo generar la ficha. Intenta de nuevo.',
+        );
+    }
   }
 
-  Map<String, dynamic>? _parseGeminiResponse(String text) {
-    final result = <String, dynamic>{};
-    final lines = text.split('\n');
+  /// Envia la peticion a Groq y reintenta cuando el servicio esta saturado.
+  ///
+  /// El modelo de vision tiene un tope de tokens por minuto muy bajo (8000) y
+  /// cada imagen consume alrededor de 1300, asi que en clase varios estudiantes
+  /// escanean a la vez y se chocan contra el limite. El error 429 es transitorio:
+  /// basta con esperar a que se libere la ventana del minuto.
+  Future<http.Response> _groqPost({
+    required String body,
+    required bool conImagen,
+    void Function(String mensaje)? onEsperando,
+  }) async {
+    const intentos = 3;
+    const esperas = [Duration(seconds: 15), Duration(seconds: 30)];
 
-    for (var line in lines) {
-      line = line.trim();
-      if (line.startsWith('NOMBRE:')) {
-        result['nombre'] = line.substring(7).trim();
-      } else if (line.startsWith('CIENTIFICO:')) {
-        final val = line.substring(11).trim();
-        result['cientifico'] = val.toLowerCase() == 'no aplica' ? '' : val;
-      } else if (line.startsWith('TIPO:')) {
-        result['tipo'] = line.substring(5).trim().toLowerCase();
-      } else if (line.startsWith('DESCRIPCION:')) {
-        result['descripcion'] = line.substring(12).trim();
-      } else if (line.startsWith('HABITAT:')) {
-        final val = line.substring(8).trim();
-        result['habitat'] = val.toLowerCase() == 'no aplica' ? '' : val;
-      } else if (line.startsWith('DATO:')) {
-        result['dato'] = line.substring(5).trim();
-      } else if (line.startsWith('CONFIANZA:')) {
-        final val = line.substring(10).trim().replaceAll(RegExp(r'[^0-9]'), '');
-        result['confianza'] = int.tryParse(val) ?? 80;
-      }
-    }
-
-    if (result['nombre'] != null && result['nombre'].toString().isNotEmpty) {
-      return result;
-    }
-    return null;
-  }
-
-  Future<Map<String, dynamic>?> _classifyWithTFLite(File imageFile) async {
-    if (_interpreter == null) return null;
-
-    final imageBytes = await imageFile.readAsBytes();
-    final image = img.decodeImage(imageBytes);
-    if (image == null) return null;
-
-    final resized = img.copyResize(image, width: 224, height: 224);
-    final input = Float32List(1 * 224 * 224 * 3);
-    int idx = 0;
-
-    // Normalizacion correcta para MobileNet V2: (pixel/127.5) - 1.0 = rango [-1, 1]
-    for (int y = 0; y < 224; y++) {
-      for (int x = 0; x < 224; x++) {
-        final pixel = resized.getPixel(x, y);
-        input[idx++] = (pixel.r / 127.5) - 1.0;
-        input[idx++] = (pixel.g / 127.5) - 1.0;
-        input[idx++] = (pixel.b / 127.5) - 1.0;
-      }
-    }
-
-    final inputTensor = input.reshape([1, 224, 224, 3]);
-    final output = List.filled(
-      1 * _labels.length,
-      0.0,
-    ).reshape([1, _labels.length]);
-
-    _interpreter!.run(inputTensor, output);
-
-    final scores = output[0] as List<double>;
-
-    // Encontrar top 3 para mejor precision
-    List<MapEntry<int, double>> indexed = [];
-    for (int i = 0; i < scores.length; i++) {
-      indexed.add(MapEntry(i, scores[i]));
-    }
-    indexed.sort((a, b) => b.value.compareTo(a.value));
-
-    if (indexed.isNotEmpty && indexed[0].key < _labels.length) {
-      final topLabel = _labels[indexed[0].key].trim();
-      final topScore = indexed[0].value;
-
-      // Log top 3 para debug
-      for (int i = 0; i < 3 && i < indexed.length; i++) {
-        if (indexed[i].key < _labels.length) {}
-      }
-
-      return {'label': topLabel, 'confidence': topScore};
-    }
-
-    return null;
-  }
-
-  Future<Map<String, String>?> _generarDescripcionConGroq(
-    String objeto,
-    String tipo,
-  ) async {
-    try {
-      final prompt =
-          '''Genera informacion educativa breve sobre: "$objeto" (tipo: $tipo)
-
-Responde EXACTAMENTE en este formato (una linea por campo):
-NOMBRE: [nombre en espanol]
-CIENTIFICO: [nombre cientifico si es ser vivo, o "No aplica"]
-DESCRIPCION: [2 oraciones educativas para estudiantes]
-HABITAT: [donde se encuentra, o "No aplica" si es objeto]
-DATO: [un dato curioso]
-
-Solo responde con esas 5 lineas, nada mas.''';
-
+    for (var intento = 1; intento <= intentos; intento++) {
       final response = await http
           .post(
-            Uri.parse('https://api.groq.com/openai/v1/chat/completions'),
+            Uri.parse(AppConfig.groqApiUrl),
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': 'Bearer $_groqApiKey',
+              'Authorization': 'Bearer ${AppConfig.groqApiKey}',
             },
-            body: jsonEncode({
-              'model': 'llama-3.3-70b-versatile',
-              'messages': [
-                {'role': 'user', 'content': prompt},
-              ],
-              'max_tokens': 300,
-              'temperature': 0.3,
-            }),
+            body: body,
           )
-          .timeout(const Duration(seconds: 15));
+          .timeout(Duration(seconds: conImagen ? 60 : 30));
 
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        final text = data['choices'][0]['message']['content'] as String;
-        return _parseGroqResponse(text);
-      }
-    } catch (e) {}
-    return null;
-  }
+      final saturado =
+          response.statusCode == 429 ||
+          response.statusCode == 500 ||
+          response.statusCode == 503;
+      if (!saturado || intento == intentos) return response;
 
-  Map<String, String> _parseGroqResponse(String text) {
-    final result = <String, String>{};
-    final lines = text.split('\n');
-
-    for (var line in lines) {
-      line = line.trim();
-      if (line.startsWith('NOMBRE:')) {
-        result['nombre'] = line.substring(7).trim();
-      } else if (line.startsWith('CIENTIFICO:')) {
-        final val = line.substring(11).trim();
-        result['cientifico'] = val.toLowerCase() == 'no aplica' ? '' : val;
-      } else if (line.startsWith('DESCRIPCION:')) {
-        result['descripcion'] = line.substring(12).trim();
-      } else if (line.startsWith('HABITAT:')) {
-        final val = line.substring(8).trim();
-        result['habitat'] = val.toLowerCase() == 'no aplica' ? '' : val;
-      } else if (line.startsWith('DATO:')) {
-        result['dato'] = line.substring(5).trim();
-      }
+      final segundos = esperas[intento - 1].inSeconds;
+      onEsperando?.call(
+        'El servicio de IA esta saturado. Reintento $intento de $intentos en '
+        '$segundos s...',
+      );
+      await Future<void>.delayed(esperas[intento - 1]);
     }
 
-    return result;
+    // El bucle siempre retorna; esta linea es inalcanzable.
+    throw const ScannerException(
+      'El servicio de IA esta ocupado. Intenta de nuevo en un momento.',
+    );
   }
 
-  String _detectTipo(String label) {
-    final l = label.toLowerCase();
+  /// Elimina las cercas de codigo que a veces anade el modelo.
+  dynamic _decodificar(String content) {
+    var limpio = content.trim();
+    if (limpio.startsWith('```json')) {
+      limpio = limpio.substring(7);
+    } else if (limpio.startsWith('```')) {
+      limpio = limpio.substring(3);
+    }
+    if (limpio.endsWith('```')) {
+      limpio = limpio.substring(0, limpio.length - 3);
+    }
 
-    final animales = [
-      'dog',
-      'cat',
-      'bird',
-      'fish',
-      'horse',
-      'cow',
-      'elephant',
-      'lion',
-      'tiger',
-      'bear',
-      'monkey',
-      'rabbit',
-      'deer',
-      'wolf',
-      'fox',
-      'whale',
-      'dolphin',
-      'shark',
-      'frog',
-      'snake',
-      'turtle',
-      'panda',
-    ];
-    final plantas = [
-      'flower',
-      'tree',
-      'plant',
-      'rose',
-      'sunflower',
-      'tulip',
-      'cactus',
-      'grass',
-      'leaf',
-    ];
-    final insectos = [
-      'butterfly',
-      'bee',
-      'ant',
-      'spider',
-      'beetle',
-      'dragonfly',
-      'mosquito',
-      'fly',
-    ];
-    final hongos = ['mushroom', 'fungus'];
-
-    if (animales.any((a) => l.contains(a))) return 'animal';
-    if (plantas.any((p) => l.contains(p))) return 'planta';
-    if (insectos.any((i) => l.contains(i))) return 'insecto';
-    if (hongos.any((h) => l.contains(h))) return 'hongo';
-
-    return 'objeto';
+    try {
+      return jsonDecode(limpio.trim());
+    } on FormatException {
+      throw const ScannerException(
+        'La IA respondio en un formato inesperado. Intenta de nuevo.',
+      );
+    }
   }
 
-  String _traducirAlEspanol(String label) {
-    final traducciones = {
-      'dog': 'Perro',
-      'cat': 'Gato',
-      'bird': 'Ave',
-      'fish': 'Pez',
-      'horse': 'Caballo',
-      'cow': 'Vaca',
-      'elephant': 'Elefante',
-      'lion': 'Leon',
-      'tiger': 'Tigre',
-      'bear': 'Oso',
-      'panda': 'Oso Panda',
-      'giant panda': 'Oso Panda Gigante',
-      'monkey': 'Mono',
-      'rabbit': 'Conejo',
-      'deer': 'Ciervo',
-      'wolf': 'Lobo',
-      'fox': 'Zorro',
-      'whale': 'Ballena',
-      'dolphin': 'Delfin',
-      'shark': 'Tiburon',
-      'frog': 'Rana',
-      'snake': 'Serpiente',
-      'turtle': 'Tortuga',
-      'flower': 'Flor',
-      'tree': 'Arbol',
-      'plant': 'Planta',
-      'rose': 'Rosa',
-      'sunflower': 'Girasol',
-      'butterfly': 'Mariposa',
-      'bee': 'Abeja',
-      'ant': 'Hormiga',
-      'spider': 'Arana',
-      'mushroom': 'Hongo',
-      'apple': 'Manzana',
-      'banana': 'Platano',
-      'orange': 'Naranja',
-      'car': 'Carro',
-      'phone': 'Telefono',
-      'book': 'Libro',
-      'chair': 'Silla',
-      'table': 'Mesa',
-      'computer': 'Computadora',
-      'cup': 'Taza',
-      'bottle': 'Botella',
-      'keyboard': 'Teclado',
-      'mouse': 'Raton',
-      'pen': 'Boligrafo',
-      'television': 'Television',
-      'lamp': 'Lampara',
-      'clock': 'Reloj',
+  /// Sanea la respuesta para que el resto del codigo no tenga que defenderse de
+  /// tipos inesperados.
+  Map<String, dynamic> _normalizarDeteccion(dynamic raw) {
+    if (raw is! Map<String, dynamic>) {
+      throw const ScannerException(
+        'La IA respondio en un formato inesperado. Intenta de nuevo.',
+      );
+    }
+
+    const tiposValidos = {
+      'animal',
+      'planta',
+      'insecto',
+      'hongo',
+      'fruta',
+      'verdura',
+      'flor',
+      'mineral',
+      'roca',
+      'otro',
     };
 
-    final l = label.toLowerCase().trim();
-    for (var entry in traducciones.entries) {
-      if (l.contains(entry.key)) {
-        return entry.value;
-      }
+    final nombre = (raw['nombre_comun'] as String?)?.trim() ?? '';
+    if (nombre.isEmpty) {
+      throw const ScannerException(
+        'No se pudo identificar el contenido de la foto. Intenta con una '
+        'imagen mas clara.',
+      );
     }
 
-    // Capitalizar si no hay traduccion
-    return label
-        .split(' ')
-        .map(
-          (w) =>
-              w.isNotEmpty
-                  ? w[0].toUpperCase() + w.substring(1).toLowerCase()
-                  : w,
-        )
-        .join(' ');
-  }
+    var tipo = (raw['tipo'] as String?)?.trim().toLowerCase() ?? 'otro';
+    if (!tiposValidos.contains(tipo)) tipo = 'otro';
 
-  String _getDescripcionBasica(String nombre, String tipo) {
-    switch (tipo) {
-      case 'animal':
-        return '$nombre es un animal. Forma parte del reino animal y tiene caracteristicas propias de su especie.';
-      case 'planta':
-        return '$nombre es una planta. Las plantas son seres vivos que realizan la fotosintesis.';
-      case 'insecto':
-        return '$nombre es un insecto. Los insectos son invertebrados con seis patas.';
-      case 'hongo':
-        return '$nombre es un hongo. Los hongos son organismos que no realizan fotosintesis.';
-      default:
-        return 'Objeto identificado: $nombre.';
-    }
-  }
+    final confianzaCruda = raw['confianza'];
+    final confianza = switch (confianzaCruda) {
+      final int v => v,
+      final num v => v.round(),
+      final String v => int.tryParse(v.replaceAll(RegExp(r'[^0-9]'), '')) ?? 0,
+      _ => 0,
+    };
 
-  void dispose() {
-    _interpreter?.close();
+    return {
+      'es_del_tema': raw['es_del_tema'] == true,
+      'nombre_comun': nombre,
+      'nombre_cientifico': (raw['nombre_cientifico'] as String?)?.trim() ?? '',
+      'tipo': tipo,
+      'confianza': confianza.clamp(0, 100),
+      'motivo': (raw['motivo'] as String?)?.trim() ?? '',
+    };
   }
 }

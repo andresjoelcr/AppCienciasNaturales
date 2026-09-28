@@ -103,7 +103,9 @@ class _ChatScreenState extends State<ChatScreen>
 
     setState(() => _isLoadingHistory = true);
 
-    final messages = await _firestoreService.getSessionMessagesOnce(widget.sessionId!);
+    final messages = await _firestoreService.getSessionMessagesOnce(
+      widget.sessionId!,
+    );
 
     setState(() {
       for (var msg in messages) {
@@ -155,9 +157,10 @@ class _ChatScreenState extends State<ChatScreen>
       await _firestoreService.incrementChatQuestions();
     } catch (e) {
       debugPrint('[Chat] Excepcion: $e');
-      final errorMsg = e.toString().contains('TimeoutException')
-          ? 'La solicitud tardo demasiado. Verifica tu conexion e intentalo de nuevo.'
-          : e.toString().contains('[Chat]')
+      final errorMsg =
+          e.toString().contains('TimeoutException')
+              ? 'La solicitud tardo demasiado. Verifica tu conexion e intentalo de nuevo.'
+              : e.toString().contains('[Chat]')
               ? e.toString().replaceFirst('Exception: [Chat] ', '')
               : 'Error de conexion. Verifica tu internet.';
       setState(() {
@@ -189,26 +192,46 @@ class _ChatScreenState extends State<ChatScreen>
   }
 
   /// Llama a la API de Groq con hasta 3 reintentos ante error 429
-  Future<String> _callGroqWithRetry(String systemPrompt, String userText, {int attempt = 1}) async {
-    final response = await http.post(
-      Uri.parse(AppConfig.groqApiUrl),
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ${AppConfig.groqApiKey}',
-      },
-      body: jsonEncode({
-        'model': AppConfig.groqModel,
-        'messages': [
-          {'role': 'system', 'content': systemPrompt},
-          {'role': 'user', 'content': userText},
-        ],
-        'max_tokens': 512,
-      }),
-    ).timeout(const Duration(seconds: 30));
+  Future<String> _callGroqWithRetry(
+    String systemPrompt,
+    String userText, {
+    int attempt = 1,
+  }) async {
+    final keyProblem = AppConfig.groqApiKeyProblem;
+    if (keyProblem != null) {
+      debugPrint('[Chat] Sin credencial de Groq: $keyProblem');
+      throw Exception('[Chat] $keyProblem');
+    }
+
+    final response = await http
+        .post(
+          Uri.parse(AppConfig.groqApiUrl),
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ${AppConfig.groqApiKey}',
+          },
+          body: jsonEncode({
+            'model': AppConfig.groqModel,
+            'messages': [
+              {'role': 'system', 'content': systemPrompt},
+              {'role': 'user', 'content': userText},
+            ],
+            'max_tokens': 1024,
+          }),
+        )
+        .timeout(const Duration(seconds: 30));
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      return data['choices'][0]['message']['content'] as String;
+      final content = data['choices'][0]['message']['content'] as String?;
+      if (content == null || content.trim().isEmpty) {
+        // Los modelos de razonamiento pueden gastar todo max_tokens en el
+        // razonamiento y devolver content nulo.
+        throw Exception(
+          '[Chat] La IA no genero respuesta. Intentalo de nuevo.',
+        );
+      }
+      return content;
     }
 
     if (response.statusCode == 429 && attempt == 1) {
@@ -220,12 +243,23 @@ class _ChatScreenState extends State<ChatScreen>
     debugPrint('[Chat] Error HTTP ${response.statusCode}: ${response.body}');
     switch (response.statusCode) {
       case 401:
-        throw Exception('[Chat] Error de autorizacion. Contacta al administrador.');
+      case 403:
+        throw Exception(
+          '[Chat] La clave de la IA no es valida o no tiene permisos. Revisa GROQ_API_KEY en el archivo .env.',
+        );
+      case 404:
+        throw Exception(
+          '[Chat] El modelo "${AppConfig.groqModel}" ya no esta disponible. Actualiza GROQ_MODEL en el archivo .env.',
+        );
       case 429:
-        throw Exception('[Chat] Servicio ocupado. Espera unos segundos e intentalo de nuevo.');
+        throw Exception(
+          '[Chat] Servicio ocupado. Espera unos segundos e intentalo de nuevo.',
+        );
       case 500:
       case 503:
-        throw Exception('[Chat] El servicio de IA no esta disponible. Intenta mas tarde.');
+        throw Exception(
+          '[Chat] El servicio de IA no esta disponible. Intenta mas tarde.',
+        );
       default:
         throw Exception('[Chat] Lo siento, hubo un error. Intentalo de nuevo.');
     }
@@ -238,9 +272,7 @@ class _ChatScreenState extends State<ChatScreen>
       appBar: AppBar(
         elevation: 0,
         flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: AppColors.primaryGradient,
-          ),
+          decoration: const BoxDecoration(gradient: AppColors.primaryGradient),
         ),
         leading: IconButton(
           icon: Container(
@@ -338,30 +370,30 @@ class _ChatScreenState extends State<ChatScreen>
           ),
         ],
       ),
-      body: _isLoadingHistory
-          ? const Center(
-              child: CircularProgressIndicator(
-                color: AppColors.primaryGreen,
+      body:
+          _isLoadingHistory
+              ? const Center(
+                child: CircularProgressIndicator(color: AppColors.primaryGreen),
+              )
+              : Column(
+                children: [
+                  Expanded(
+                    child:
+                        _messages.isEmpty
+                            ? _buildEmptyState()
+                            : ListView.builder(
+                              controller: _scrollController,
+                              padding: const EdgeInsets.all(16),
+                              itemCount: _messages.length,
+                              itemBuilder: (context, index) {
+                                return _messages[index];
+                              },
+                            ),
+                  ),
+                  if (_isLoading) _buildTypingIndicator(),
+                  _buildMessageInput(),
+                ],
               ),
-            )
-          : Column(
-              children: [
-                Expanded(
-                  child: _messages.isEmpty
-                      ? _buildEmptyState()
-                      : ListView.builder(
-                          controller: _scrollController,
-                          padding: const EdgeInsets.all(16),
-                          itemCount: _messages.length,
-                          itemBuilder: (context, index) {
-                            return _messages[index];
-                          },
-                        ),
-                ),
-                if (_isLoading) _buildTypingIndicator(),
-                _buildMessageInput(),
-              ],
-            ),
     );
   }
 
@@ -435,9 +467,7 @@ class _ChatScreenState extends State<ChatScreen>
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(
-              color: AppColors.primaryGreen.withOpacity(0.3),
-            ),
+            border: Border.all(color: AppColors.primaryGreen.withOpacity(0.3)),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
@@ -533,12 +563,7 @@ class _ChatScreenState extends State<ChatScreen>
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border(
-          top: BorderSide(
-            color: AppColors.lightGreen,
-            width: 1,
-          ),
-        ),
+        border: Border(top: BorderSide(color: AppColors.lightGreen, width: 1)),
       ),
       child: SafeArea(
         child: Padding(
@@ -598,9 +623,10 @@ class _ChatScreenState extends State<ChatScreen>
                   color: _isListening ? Colors.red : AppColors.lightGreen,
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: _isListening
-                        ? Colors.red
-                        : AppColors.primaryGreen.withOpacity(0.3),
+                    color:
+                        _isListening
+                            ? Colors.red
+                            : AppColors.primaryGreen.withOpacity(0.3),
                   ),
                 ),
                 child: Material(
@@ -612,7 +638,10 @@ class _ChatScreenState extends State<ChatScreen>
                       padding: const EdgeInsets.all(12),
                       child: Icon(
                         _isListening ? Icons.mic_off : Icons.mic,
-                        color: _isListening ? Colors.white : AppColors.primaryGreen,
+                        color:
+                            _isListening
+                                ? Colors.white
+                                : AppColors.primaryGreen,
                         size: 22,
                       ),
                     ),
@@ -660,11 +689,7 @@ class ChatMessage extends StatelessWidget {
   final String text;
   final bool isUser;
 
-  const ChatMessage({
-    super.key,
-    required this.text,
-    required this.isUser,
-  });
+  const ChatMessage({super.key, required this.text, required this.isUser});
 
   @override
   Widget build(BuildContext context) {
@@ -702,9 +727,10 @@ class ChatMessage extends StatelessWidget {
                   bottomRight: Radius.circular(isUser ? 6 : 20),
                 ),
                 border: Border.all(
-                  color: isUser
-                      ? AppColors.primaryGreen
-                      : AppColors.primaryGreen.withOpacity(0.3),
+                  color:
+                      isUser
+                          ? AppColors.primaryGreen
+                          : AppColors.primaryGreen.withOpacity(0.3),
                 ),
               ),
               child: Text(

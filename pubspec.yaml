@@ -26,15 +26,16 @@ dependencies:
 
   # Scanner
   image_picker: ^1.0.7
-  google_generative_ai: ^0.4.6
   permission_handler: ^11.3.0
 
-  # Image processing & TFLite for scanner
+  # Image processing (marcadores AR)
   image: ^4.1.7
-  tflite_flutter: ^0.12.1
 
   # Camera for AR
   camera: ^0.11.0
+
+  # Unity (AR con Vuforia)
+  flutter_unity_widget_2: ^6000.1.0+1
 
   # Speech to Text
   speech_to_text: ^7.0.0
@@ -44,12 +45,23 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^5.0.0
 
+# flutter_unity_widget_2 6000.1.0+1 no compila contra Unity 6000.3: su
+# OverrideUnityActivity.kt extiende com.unity3d.player.UnityPlayerActivity,
+# clase que Unity 6.3 elimino al quitar el entry point clasico "Activity".
+# Se usa la copia local parcheada (ver el archivo .kt del parche).
+# Ver README-unity.md seccion "Parches aplicados".
+dependency_overrides:
+  flutter_unity_widget_2:
+    path: third_party/flutter_unity_widget_2
+
 flutter:
   uses-material-design: true
 
   assets:
     - assets/libro/
     - assets/celula/
-    - assets/models/
     - assets/marcadores/
     - assets/glosario/
+    # Copia del .env para que la app funcione sin --dart-define-from-file.
+    # La genera tool/sync_env.ps1; ver .gitignore.
+    - assets/groq.env

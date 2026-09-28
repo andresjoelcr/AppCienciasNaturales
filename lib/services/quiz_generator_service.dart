@@ -10,18 +10,13 @@ class QuizGenerationResult {
   final String? error;
   final bool success;
 
-  QuizGenerationResult.success(this.quiz)
-      : error = null,
-        success = true;
+  QuizGenerationResult.success(this.quiz) : error = null, success = true;
 
-  QuizGenerationResult.failure(this.error)
-      : quiz = null,
-        success = false;
+  QuizGenerationResult.failure(this.error) : quiz = null, success = false;
 }
 
 /// Servicio para generar quizzes dinamicos usando IA
 class QuizGeneratorService {
-
   /// Genera un quiz basado en el contenido de un subtema
   ///
   /// [subtemaId] - ID del subtema (ej: "1.1", "1.2")
@@ -35,6 +30,13 @@ class QuizGeneratorService {
     String dificultad = 'medio',
   }) async {
     try {
+      final keyProblem = AppConfig.groqApiKeyProblem;
+      if (keyProblem != null) {
+        return QuizGenerationResult.failure(
+          'La IA no esta configurada. $keyProblem',
+        );
+      }
+
       // Obtener el contenido del subtema
       final contenidoSubtema = GuiaContextService.getSubtemaInfo(subtemaId);
 
@@ -63,14 +65,8 @@ class QuizGeneratorService {
             body: jsonEncode({
               'model': AppConfig.groqModel,
               'messages': [
-                {
-                  'role': 'system',
-                  'content': _getSystemPrompt(),
-                },
-                {
-                  'role': 'user',
-                  'content': prompt,
-                }
+                {'role': 'system', 'content': _getSystemPrompt()},
+                {'role': 'user', 'content': prompt},
               ],
               'temperature': 0.7,
               'max_tokens': 2500,
@@ -83,7 +79,13 @@ class QuizGeneratorService {
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
-        final contenidoRespuesta = data['choices'][0]['message']['content'];
+        final contenidoRespuesta =
+            data['choices'][0]['message']['content'] as String?;
+        if (contenidoRespuesta == null || contenidoRespuesta.trim().isEmpty) {
+          return QuizGenerationResult.failure(
+            'La IA no genero preguntas. Intenta de nuevo.',
+          );
+        }
 
         // Parsear la respuesta JSON de la IA
         final quiz = _parsearRespuestaIA(contenidoRespuesta, subtemaTitulo);
@@ -95,6 +97,14 @@ class QuizGeneratorService {
             'No se pudo procesar la respuesta de la IA',
           );
         }
+      } else if (response.statusCode == 401 || response.statusCode == 403) {
+        return QuizGenerationResult.failure(
+          'Clave de la IA no valida. Revisa GROQ_API_KEY en el archivo .env.',
+        );
+      } else if (response.statusCode == 404) {
+        return QuizGenerationResult.failure(
+          'El modelo "${AppConfig.groqModel}" ya no esta disponible en Groq.',
+        );
       } else if (response.statusCode == 429) {
         return QuizGenerationResult.failure(
           'Demasiadas solicitudes. Intenta de nuevo en unos segundos.',
@@ -214,22 +224,23 @@ IMPORTANTE:
       final List<dynamic> preguntasJson = json['preguntas'];
 
       // Convertir a objetos Pregunta
-      final List<Pregunta> preguntas = preguntasJson.map((p) {
-        final opciones = List<String>.from(p['opciones']);
-        final respuestaCorrecta = p['respuestaCorrecta'] as int;
+      final List<Pregunta> preguntas =
+          preguntasJson.map((p) {
+            final opciones = List<String>.from(p['opciones']);
+            final respuestaCorrecta = p['respuestaCorrecta'] as int;
 
-        // Validar que la respuesta correcta este en rango
-        if (respuestaCorrecta < 0 || respuestaCorrecta >= opciones.length) {
-          throw FormatException('Indice de respuesta fuera de rango');
-        }
+            // Validar que la respuesta correcta este en rango
+            if (respuestaCorrecta < 0 || respuestaCorrecta >= opciones.length) {
+              throw FormatException('Indice de respuesta fuera de rango');
+            }
 
-        return Pregunta(
-          pregunta: p['pregunta'] as String,
-          opciones: opciones,
-          respuestaCorrecta: respuestaCorrecta,
-          explicacion: p['explicacion'] as String?,
-        );
-      }).toList();
+            return Pregunta(
+              pregunta: p['pregunta'] as String,
+              opciones: opciones,
+              respuestaCorrecta: respuestaCorrecta,
+              explicacion: p['explicacion'] as String?,
+            );
+          }).toList();
 
       // Validar que haya al menos una pregunta
       if (preguntas.isEmpty) {
@@ -243,10 +254,7 @@ IMPORTANTE:
         }
       }
 
-      return Quiz(
-        titulo: 'Quiz IA: $titulo',
-        preguntas: preguntas,
-      );
+      return Quiz(titulo: 'Quiz IA: $titulo', preguntas: preguntas);
     } catch (e) {
       return null;
     }

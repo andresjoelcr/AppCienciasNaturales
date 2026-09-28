@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import '../config/app_config.dart';
 import '../theme/app_theme.dart';
 import '../services/scanner_service.dart';
 import 'scanner_result_screen.dart';
@@ -20,7 +19,8 @@ class _ScannerScreenState extends State<ScannerScreen>
   bool _isLoading = false;
   File? _selectedImage;
 
-  final String _geminiApiKey = AppConfig.geminiApiKey;
+  /// Aviso mostrado mientras la API espera por limite de peticiones.
+  String? _esperando;
 
   @override
   void initState() {
@@ -78,40 +78,22 @@ class _ScannerScreenState extends State<ScannerScreen>
   }
 
   Future<void> _analizarImagen(File imageFile) async {
-    if (_geminiApiKey.isEmpty || _geminiApiKey == 'TU_API_KEY_DE_GEMINI_AQUI') {
-      setState(() => _isLoading = false);
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: const Row(
-              children: [
-                Icon(Icons.key_off, color: Colors.white),
-                SizedBox(width: 12),
-                Expanded(
-                  child: Text(
-                    'API Key de Gemini no configurada. Revisa el archivo .env',
-                  ),
-                ),
-              ],
-            ),
-            backgroundColor: Colors.red.shade600,
-            behavior: SnackBarBehavior.floating,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
-        );
-      }
-      return;
-    }
-
-    ScannerService? service;
     try {
-      service = ScannerService(_geminiApiKey);
-      final result = await service.identificarImagen(imageFile);
+      final service = ScannerService();
+      final result = await service.identificarImagen(
+        imageFile,
+        onEsperando: (mensaje) {
+          if (mounted && _isLoading) {
+            setState(() => _esperando = mensaje);
+          }
+        },
+      );
 
       if (mounted) {
-        setState(() => _isLoading = false);
+        setState(() {
+          _isLoading = false;
+          _esperando = null;
+        });
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -121,29 +103,33 @@ class _ScannerScreenState extends State<ScannerScreen>
           ),
         );
       }
+    } on ScannerException catch (e) {
+      if (mounted) _mostrarError(e.mensaje);
     } catch (e) {
       if (mounted) {
-        setState(() => _isLoading = false);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Row(
-              children: [
-                const Icon(Icons.error_outline, color: Colors.white),
-                const SizedBox(width: 12),
-                Expanded(child: Text('Error al analizar: $e')),
-              ],
-            ),
-            backgroundColor: Colors.red.shade600,
-            behavior: SnackBarBehavior.floating,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
-        );
+        _mostrarError('No se pudo analizar la imagen. Intenta de nuevo.');
       }
-    } finally {
-      service?.dispose();
+      debugPrint('[Scanner] Excepcion inesperada: $e');
     }
+  }
+
+  void _mostrarError(String mensaje) {
+    setState(() => _isLoading = false);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Row(
+          children: [
+            const Icon(Icons.error_outline, color: Colors.white),
+            const SizedBox(width: 12),
+            Expanded(child: Text(mensaje)),
+          ],
+        ),
+        backgroundColor: Colors.red.shade600,
+        behavior: SnackBarBehavior.floating,
+        duration: const Duration(seconds: 6),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      ),
+    );
   }
 
   @override
@@ -240,6 +226,42 @@ class _ScannerScreenState extends State<ScannerScreen>
             style: AppTextStyles.bodyMedium.copyWith(color: AppColors.greyText),
             textAlign: TextAlign.center,
           ),
+
+          // Aviso de espera cuando la API agota su limite de tokens por minuto.
+          if (_esperando != null) ...[
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              decoration: BoxDecoration(
+                color: Colors.orange.shade50,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: Colors.orange.shade200),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    width: 16,
+                    height: 16,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      color: Colors.orange.shade700,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      _esperando!,
+                      style: AppTextStyles.caption.copyWith(
+                        color: Colors.orange.shade900,
+                        height: 1.3,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ],
       ),
     );
@@ -302,7 +324,8 @@ class _ScannerScreenState extends State<ScannerScreen>
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'Toma una foto o selecciona una imagen\npara identificar animales, plantas\ny otros seres vivos',
+                      'Toma una foto o selecciona una imagen\npara identificar animales, plantas,\n'
+                      'hongos y otros seres vivos',
                       style: AppTextStyles.bodyMedium.copyWith(
                         color: AppColors.darkText,
                         height: 1.5,
@@ -408,6 +431,10 @@ class _ScannerScreenState extends State<ScannerScreen>
                     _buildTip('Enfoca directamente al animal o planta'),
                     _buildTip('Evita fotos borrosas o con mucho fondo'),
                     _buildTip('Funciona mejor con una sola especie por foto'),
+                    _buildTip(
+                      'Solo detecta seres vivos y elementos naturales: el escaner '
+                      'te avisara si la foto no pertenece a la guia',
+                    ),
                   ],
                 ),
               ),

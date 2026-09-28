@@ -1,5 +1,10 @@
 allprojects {
     repositories {
+        // Unity: repositorio plano para los .jar / .aar de unityLibrary
+        val unityLibs = rootProject.file("unityLibrary/libs")
+        if (unityLibs.exists()) {
+            flatDir { dirs(unityLibs.path) }
+        }
         google()
         mavenCentral()
     }

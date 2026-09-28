@@ -8,6 +8,12 @@ plugins {
 android {
     namespace = "com.example.mi_app"
     compileSdk = flutter.compileSdkVersion
+    // NDK 28.2.13676358: es el mas alto que piden los plugins de Flutter y el mas
+    // compatible hacia atras (regla de Flutter cuando varios plugins piden distinto NDK).
+    //
+    // OJO: este NDK es solo para el modulo 'app'. El modulo 'unityLibrary' sigue con el
+    // NDK de Unity (27.2.12479018) via ndkPath, porque la compilacion de IL2CPP la
+    // ejecuta Unity con su propia cadena de herramientas y no la de Gradle.
     ndkVersion = "28.2.13676358"
 
     compileOptions {
@@ -22,8 +28,10 @@ android {
     }
 
     defaultConfig {
+        // OJO: cambiarlo exige registrar un cliente nuevo en Firebase
+        // (project settings > apps > Android). Ver README-unity.md
         applicationId = "com.example.mi_app"
-        minSdk = 24  // ARCore requiere minSdk 24
+        minSdk = 29  // unityLibrary exige 29; ARCore/Vuforia necesitan 24+
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
@@ -44,6 +52,13 @@ flutter {
 // ← AGREGADO: Dependencias de Firebase
 dependencies {
     implementation("com.android.support:multidex:1.0.3")
+
+    // Unity: solo cuando ya se exporto el proyecto a android/unityLibrary
+    // (el plugin flutter_unity_widget_2 exige :unityLibrary de forma incondicional)
+    if (rootProject.file("unityLibrary").exists()) {
+        implementation(project(":flutter_unity_widget_2"))
+        implementation(project(":unityLibrary"))
+    }
 }
 
 // ← AGREGADO: Plugin de Google Services

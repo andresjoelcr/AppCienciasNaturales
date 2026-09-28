@@ -16,6 +16,10 @@ analyzer:
     - windows/**
     - macos/**
     - linux/**
+    # Copia local parcheada de flutter_unity_widget_2. Su carpeta example/ es
+    # una app de demo que no se compila aqui y da errores por paquetes que no
+    # son dependencia de este proyecto (pointer_interceptor). Es ruido.
+    - third_party/**
 include: package:flutter_lints/flutter.yaml
 
 linter:

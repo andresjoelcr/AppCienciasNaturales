@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "EduRA - emulador Android",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "toolArgs": ["--dart-define-from-file=.env"],
+      "deviceId": "android"
+    },
+    {
+      "name": "EduRA - dispositivo Android (actual)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "toolArgs": ["--dart-define-from-file=.env"]
+    },
+    {
+      "name": "EduRA - escritorio Windows",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "toolArgs": ["--dart-define-from-file=.env"],
+      "deviceId": "windows"
+    },
+    {
+      "name": "EduRA - web (solo pruebas rapidas)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "toolArgs": ["--dart-define-from-file=.env"],
+      "deviceId": "chrome"
+    }
+  ]
+}
