@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
+import '../theme/brand_colors.dart';
 
 /// Categorias de terminos del glosario
-enum CategoriaTermino {
-  organelo,
-  proceso,
-  estructura,
-  tipoCelula,
-  molecula,
-}
+enum CategoriaTermino { organelo, proceso, estructura, tipoCelula, molecula }
 
 extension CategoriaTerminoExtension on CategoriaTermino {
   String get nombre {
@@ -19,9 +14,9 @@ extension CategoriaTerminoExtension on CategoriaTermino {
       case CategoriaTermino.estructura:
         return 'Estructuras';
       case CategoriaTermino.tipoCelula:
-        return 'Tipos de Celula';
+        return 'Tipos de célula';
       case CategoriaTermino.molecula:
-        return 'Moleculas';
+        return 'Moléculas';
     }
   }
 
@@ -43,15 +38,15 @@ extension CategoriaTerminoExtension on CategoriaTermino {
   Color get color {
     switch (this) {
       case CategoriaTermino.organelo:
-        return Colors.purple;
+        return BrandColors.forest;
       case CategoriaTermino.proceso:
-        return Colors.orange;
+        return BrandColors.forest;
       case CategoriaTermino.estructura:
-        return Colors.blue;
+        return BrandColors.forest;
       case CategoriaTermino.tipoCelula:
-        return Colors.green;
+        return BrandColors.forest;
       case CategoriaTermino.molecula:
-        return Colors.red;
+        return BrandColors.forest;
     }
   }
 }

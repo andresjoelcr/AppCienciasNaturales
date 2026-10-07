@@ -135,7 +135,7 @@ class _ScannerScreenState extends State<ScannerScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.cloudWhite,
       appBar: AppBar(
         elevation: 0,
         toolbarHeight: 70,
@@ -150,7 +150,7 @@ class _ScannerScreenState extends State<ScannerScreen>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Scanner',
+              'Escáner',
               style: AppTextStyles.heading3.copyWith(
                 color: Colors.white,
                 fontSize: 20,

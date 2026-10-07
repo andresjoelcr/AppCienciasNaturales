@@ -76,7 +76,7 @@ class _QuizLoadingScreenState extends State<QuizLoadingScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.cloudWhite,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(32),
@@ -210,15 +210,12 @@ class QuizErrorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.cloudWhite,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_ios_new,
-            color: AppColors.darkText,
-          ),
+          icon: const Icon(Icons.arrow_back_ios_new, color: AppColors.darkText),
           onPressed: () => Navigator.pop(context),
         ),
       ),

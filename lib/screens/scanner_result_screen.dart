@@ -16,7 +16,7 @@ class ScannerResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.cloudWhite,
       body: CustomScrollView(
         slivers: [
           // AppBar con imagen
@@ -420,21 +420,21 @@ class ScannerResultScreen extends StatelessWidget {
       case 'insecto':
         return AppColors.earthBrown;
       case 'hongo':
-        return Colors.purple.shade400;
+        return AppColors.earthBrown;
       case 'fruta':
-        return Colors.red.shade400;
+        return AppColors.sunOrange;
       case 'verdura':
-        return Colors.green.shade600;
+        return AppColors.primaryGreen;
       case 'flor':
-        return Colors.pink.shade400;
+        return AppColors.sunOrange;
       case 'mineral':
-        return Colors.indigo.shade300;
+        return AppColors.earthBrown;
       case 'roca':
-        return Colors.blueGrey.shade400;
+        return AppColors.earthBrown;
       case 'celula':
         return AppColors.oceanBlue;
       case 'microorganismo':
-        return Colors.teal.shade400;
+        return AppColors.primaryGreen;
       case 'objeto':
         return AppColors.skyBlue;
       default:

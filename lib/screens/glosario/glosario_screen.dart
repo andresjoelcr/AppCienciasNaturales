@@ -32,12 +32,19 @@ class _GlosarioScreenState extends State<GlosarioScreen> {
   void _filtrarTerminos() {
     setState(() {
       if (_categoriaSeleccionada != null) {
-        _terminosFiltrados = GlosarioData.obtenerPorCategoria(_categoriaSeleccionada!)
-            .where((t) =>
-                _busqueda.isEmpty ||
-                t.termino.toLowerCase().contains(_busqueda.toLowerCase()) ||
-                t.definicion.toLowerCase().contains(_busqueda.toLowerCase()))
-            .toList();
+        _terminosFiltrados =
+            GlosarioData.obtenerPorCategoria(_categoriaSeleccionada!)
+                .where(
+                  (t) =>
+                      _busqueda.isEmpty ||
+                      t.termino.toLowerCase().contains(
+                        _busqueda.toLowerCase(),
+                      ) ||
+                      t.definicion.toLowerCase().contains(
+                        _busqueda.toLowerCase(),
+                      ),
+                )
+                .toList();
       } else {
         _terminosFiltrados = GlosarioData.buscar(_busqueda);
       }
@@ -59,14 +66,12 @@ class _GlosarioScreenState extends State<GlosarioScreen> {
     final terminosAgrupados = _agruparPorLetra(_terminosFiltrados);
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.cloudWhite,
       appBar: AppBar(
         elevation: 0,
         toolbarHeight: 70,
         flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: AppColors.primaryGradient,
-          ),
+          decoration: const BoxDecoration(gradient: AppColors.primaryGradient),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_rounded, color: Colors.white),
@@ -91,14 +96,14 @@ class _GlosarioScreenState extends State<GlosarioScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Diccionario',
+                  'Glosario',
                   style: AppTextStyles.heading3.copyWith(
                     color: Colors.white,
                     fontSize: 18,
                   ),
                 ),
                 Text(
-                  '${GlosarioData.terminos.length} terminos',
+                  '${GlosarioData.terminos.length} términos',
                   style: AppTextStyles.caption.copyWith(
                     color: Colors.white.withOpacity(0.9),
                   ),
@@ -140,7 +145,8 @@ class _GlosarioScreenState extends State<GlosarioScreen> {
                     controller: _searchController,
                     onChanged: _onBusquedaChanged,
                     decoration: InputDecoration(
-                      hintText: 'Buscar termino...',
+                      hintText: 'Buscar término...',
+                      filled: false,
                       hintStyle: AppTextStyles.bodyMedium.copyWith(
                         color: AppColors.greyText.withOpacity(0.6),
                       ),
@@ -148,18 +154,19 @@ class _GlosarioScreenState extends State<GlosarioScreen> {
                         Icons.search_rounded,
                         color: AppColors.primaryGreen,
                       ),
-                      suffixIcon: _busqueda.isNotEmpty
-                          ? IconButton(
-                              icon: const Icon(
-                                Icons.clear_rounded,
-                                color: AppColors.greyText,
-                              ),
-                              onPressed: () {
-                                _searchController.clear();
-                                _onBusquedaChanged('');
-                              },
-                            )
-                          : null,
+                      suffixIcon:
+                          _busqueda.isNotEmpty
+                              ? IconButton(
+                                icon: const Icon(
+                                  Icons.clear_rounded,
+                                  color: AppColors.greyText,
+                                ),
+                                onPressed: () {
+                                  _searchController.clear();
+                                  _onBusquedaChanged('');
+                                },
+                              )
+                              : null,
                       border: InputBorder.none,
                       contentPadding: const EdgeInsets.symmetric(
                         horizontal: 16,
@@ -192,17 +199,18 @@ class _GlosarioScreenState extends State<GlosarioScreen> {
 
           // Lista de terminos
           Expanded(
-            child: _terminosFiltrados.isEmpty
-                ? _buildEmptyState()
-                : ListView.builder(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    itemCount: terminosAgrupados.length,
-                    itemBuilder: (context, index) {
-                      final letra = terminosAgrupados.keys.elementAt(index);
-                      final terminos = terminosAgrupados[letra]!;
-                      return _buildSeccionLetra(letra, terminos);
-                    },
-                  ),
+            child:
+                _terminosFiltrados.isEmpty
+                    ? _buildEmptyState()
+                    : ListView.builder(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      itemCount: terminosAgrupados.length,
+                      itemBuilder: (context, index) {
+                        final letra = terminosAgrupados.keys.elementAt(index);
+                        final terminos = terminosAgrupados[letra]!;
+                        return _buildSeccionLetra(letra, terminos);
+                      },
+                    ),
           ),
         ],
       ),
@@ -244,7 +252,8 @@ class _GlosarioScreenState extends State<GlosarioScreen> {
                   label,
                   style: AppTextStyles.bodyMedium.copyWith(
                     color: isSelected ? Colors.white : AppColors.darkText,
-                    fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+                    fontWeight:
+                        isSelected ? FontWeight.w600 : FontWeight.normal,
                   ),
                 ),
               ],
@@ -294,9 +303,7 @@ class _GlosarioScreenState extends State<GlosarioScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
           decoration: BoxDecoration(
             border: Border(
-              bottom: BorderSide(
-                color: AppColors.greyText.withOpacity(0.1),
-              ),
+              bottom: BorderSide(color: AppColors.greyText.withOpacity(0.1)),
             ),
           ),
           child: Row(
@@ -309,24 +316,26 @@ class _GlosarioScreenState extends State<GlosarioScreen> {
                   color: termino.categoria.color.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: termino.imagenAsset != null
-                    ? ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: Image.asset(
-                          termino.imagenAsset!,
-                          fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) => Icon(
-                            termino.categoria.icono,
-                            color: termino.categoria.color,
-                            size: 22,
+                child:
+                    termino.imagenAsset != null
+                        ? ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: Image.asset(
+                            termino.imagenAsset!,
+                            fit: BoxFit.cover,
+                            errorBuilder:
+                                (context, error, stackTrace) => Icon(
+                                  termino.categoria.icono,
+                                  color: termino.categoria.color,
+                                  size: 22,
+                                ),
                           ),
+                        )
+                        : Icon(
+                          termino.categoria.icono,
+                          color: termino.categoria.color,
+                          size: 22,
                         ),
-                      )
-                    : Icon(
-                        termino.categoria.icono,
-                        color: termino.categoria.color,
-                        size: 22,
-                      ),
               ),
               const SizedBox(width: 14),
               // Texto
@@ -388,9 +397,7 @@ class _GlosarioScreenState extends State<GlosarioScreen> {
             const SizedBox(height: 20),
             Text(
               'No se encontraron terminos',
-              style: AppTextStyles.heading3.copyWith(
-                color: AppColors.darkText,
-              ),
+              style: AppTextStyles.heading3.copyWith(color: AppColors.darkText),
             ),
             const SizedBox(height: 8),
             Text(
@@ -407,7 +414,8 @@ class _GlosarioScreenState extends State<GlosarioScreen> {
   }
 
   Map<String, List<TerminoGlosario>> _agruparPorLetra(
-      List<TerminoGlosario> terminos) {
+    List<TerminoGlosario> terminos,
+  ) {
     final Map<String, List<TerminoGlosario>> agrupados = {};
 
     for (final termino in terminos) {

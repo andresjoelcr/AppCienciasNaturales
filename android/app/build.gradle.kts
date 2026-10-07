@@ -38,7 +38,26 @@ android {
         multiDexEnabled = true  // ← AGREGADO: necesario para Firebase
     }
 
+    // La clave local de EduRA corresponde al OAuth de desarrollo registrado en
+    // Firebase. Cada desarrollador puede compilar aun si no tiene este archivo.
+    val eduraDebugKeystore = file("edura-debug.keystore")
+    if (eduraDebugKeystore.exists()) {
+        signingConfigs {
+            create("eduraDebug") {
+                storeFile = eduraDebugKeystore
+                storePassword = "android"
+                keyAlias = "eduradebugkey"
+                keyPassword = "android"
+            }
+        }
+    }
+
     buildTypes {
+        debug {
+            if (eduraDebugKeystore.exists()) {
+                signingConfig = signingConfigs.getByName("eduraDebug")
+            }
+        }
         release {
             signingConfig = signingConfigs.getByName("debug")
         }

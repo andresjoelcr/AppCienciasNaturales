@@ -68,10 +68,11 @@ class _SubtemaScreenState extends State<SubtemaScreen>
   }
 
   void _onScroll() {
-    if (_scrollController.offset > 200 && !_showFloatingButton) {
-      setState(() => _showFloatingButton = true);
-    } else if (_scrollController.offset <= 200 && _showFloatingButton) {
-      setState(() => _showFloatingButton = false);
+    final showButton =
+        _scrollController.offset > 200 &&
+        _scrollController.position.extentAfter > 500;
+    if (showButton != _showFloatingButton) {
+      setState(() => _showFloatingButton = showButton);
     }
   }
 
@@ -88,14 +89,12 @@ class _SubtemaScreenState extends State<SubtemaScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.cloudWhite,
       appBar: AppBar(
         elevation: 0,
         toolbarHeight: 70,
         flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: AppColors.primaryGradient,
-          ),
+          decoration: const BoxDecoration(gradient: AppColors.primaryGradient),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_rounded, color: Colors.white),
@@ -139,9 +138,7 @@ class _SubtemaScreenState extends State<SubtemaScreen>
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const ChatScreen(),
-                  ),
+                  MaterialPageRoute(builder: (context) => const ChatScreen()),
                 );
               },
               tooltip: 'Preguntar al asistente',
@@ -161,10 +158,7 @@ class _SubtemaScreenState extends State<SubtemaScreen>
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [
-                    AppColors.lightGreen.withOpacity(0.5),
-                    Colors.white,
-                  ],
+                  colors: [AppColors.lightGreen.withOpacity(0.5), Colors.white],
                 ),
               ),
               child: FadeTransition(
@@ -240,17 +234,18 @@ class _SubtemaScreenState extends State<SubtemaScreen>
           ],
         ),
       ),
-      floatingActionButton: _showFloatingButton
-          ? FloatingActionButton.extended(
-              onPressed: _navegarAlQuiz,
-              backgroundColor: AppColors.primaryGreen,
-              icon: const Icon(Icons.quiz_rounded, color: Colors.white),
-              label: Text(
-                'Ir al Quiz',
-                style: AppTextStyles.button.copyWith(color: Colors.white),
-              ),
-            )
-          : null,
+      floatingActionButton:
+          _showFloatingButton
+              ? FloatingActionButton.extended(
+                onPressed: _navegarAlQuiz,
+                backgroundColor: AppColors.primaryGreen,
+                icon: const Icon(Icons.quiz_rounded, color: Colors.white),
+                label: Text(
+                  'Ir al Quiz',
+                  style: AppTextStyles.button.copyWith(color: Colors.white),
+                ),
+              )
+              : null,
     );
   }
 
@@ -262,14 +257,16 @@ class _SubtemaScreenState extends State<SubtemaScreen>
       position: Tween<Offset>(
         begin: const Offset(0, 0.3),
         end: Offset.zero,
-      ).animate(CurvedAnimation(
-        parent: _animationController,
-        curve: Interval(
-          delay.clamp(0.0, 0.9),
-          endDelay.clamp(0.1, 1.0),
-          curve: Curves.easeOut,
+      ).animate(
+        CurvedAnimation(
+          parent: _animationController,
+          curve: Interval(
+            delay.clamp(0.0, 0.9),
+            endDelay.clamp(0.1, 1.0),
+            curve: Curves.easeOut,
+          ),
         ),
-      )),
+      ),
       child: FadeTransition(
         opacity: CurvedAnimation(
           parent: _animationController,
@@ -303,9 +300,7 @@ class _SubtemaScreenState extends State<SubtemaScreen>
           decoration: BoxDecoration(
             color: AppColors.lightGreen,
             borderRadius: BorderRadius.circular(8),
-            border: Border.all(
-              color: AppColors.primaryGreen.withOpacity(0.3),
-            ),
+            border: Border.all(color: AppColors.primaryGreen.withOpacity(0.3)),
           ),
           child: Text(
             seccion.contenido,
@@ -340,33 +335,35 @@ class _SubtemaScreenState extends State<SubtemaScreen>
                   ),
                 ),
               ),
-            ...?seccion.items?.map((item) => Padding(
-                  padding: const EdgeInsets.only(left: 8, bottom: 8),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(top: 8),
-                        width: 6,
-                        height: 6,
-                        decoration: const BoxDecoration(
-                          color: AppColors.leafGreen,
-                          shape: BoxShape.circle,
+            ...?seccion.items?.map(
+              (item) => Padding(
+                padding: const EdgeInsets.only(left: 8, bottom: 8),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(top: 8),
+                      width: 6,
+                      height: 6,
+                      decoration: const BoxDecoration(
+                        color: AppColors.leafGreen,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(
+                        item,
+                        style: AppTextStyles.bodyMedium.copyWith(
+                          color: AppColors.darkText,
+                          height: 1.5,
                         ),
                       ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Text(
-                          item,
-                          style: AppTextStyles.bodyMedium.copyWith(
-                            color: AppColors.darkText,
-                            height: 1.5,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                )),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         );
 
@@ -376,9 +373,7 @@ class _SubtemaScreenState extends State<SubtemaScreen>
           decoration: BoxDecoration(
             color: AppColors.skyBlue.withOpacity(0.1),
             borderRadius: BorderRadius.circular(12),
-            border: Border.all(
-              color: AppColors.skyBlue.withOpacity(0.3),
-            ),
+            border: Border.all(color: AppColors.skyBlue.withOpacity(0.3)),
           ),
           child: Row(
             children: [
@@ -407,9 +402,7 @@ class _SubtemaScreenState extends State<SubtemaScreen>
           decoration: BoxDecoration(
             color: AppColors.sunOrange.withOpacity(0.1),
             borderRadius: BorderRadius.circular(12),
-            border: Border.all(
-              color: AppColors.sunOrange.withOpacity(0.3),
-            ),
+            border: Border.all(color: AppColors.sunOrange.withOpacity(0.3)),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -454,9 +447,10 @@ class _SubtemaScreenState extends State<SubtemaScreen>
         );
 
       case 'imagen':
-        final caption = (seccion.items != null && seccion.items!.isNotEmpty)
-            ? seccion.items!.first
-            : null;
+        final caption =
+            (seccion.items != null && seccion.items!.isNotEmpty)
+                ? seccion.items!.first
+                : null;
         return Column(
           children: [
             Container(
@@ -473,10 +467,7 @@ class _SubtemaScreenState extends State<SubtemaScreen>
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                  seccion.contenido,
-                  fit: BoxFit.cover,
-                ),
+                child: Image.asset(seccion.contenido, fit: BoxFit.cover),
               ),
             ),
             if (caption != null) ...[
@@ -610,9 +601,10 @@ class _SubtemaScreenState extends State<SubtemaScreen>
         );
 
       case 'video':
-        final videoTitle = (seccion.items != null && seccion.items!.isNotEmpty)
-            ? seccion.items!.first
-            : 'Video explicativo';
+        final videoTitle =
+            (seccion.items != null && seccion.items!.isNotEmpty)
+                ? seccion.items!.first
+                : 'Video explicativo';
         final controller = _videoControllers[index];
         if (controller == null) {
           return const SizedBox.shrink();
@@ -681,9 +673,7 @@ class _SubtemaScreenState extends State<SubtemaScreen>
       decoration: BoxDecoration(
         color: AppColors.lightBlue,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: AppColors.skyBlue.withOpacity(0.3),
-        ),
+        border: Border.all(color: AppColors.skyBlue.withOpacity(0.3)),
       ),
       child: Row(
         children: [
@@ -725,9 +715,7 @@ class _SubtemaScreenState extends State<SubtemaScreen>
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const ChatScreen(),
-                ),
+                MaterialPageRoute(builder: (context) => const ChatScreen()),
               );
             },
             style: ElevatedButton.styleFrom(
@@ -737,10 +725,7 @@ class _SubtemaScreenState extends State<SubtemaScreen>
                 borderRadius: BorderRadius.circular(12),
               ),
             ),
-            child: const Icon(
-              Icons.arrow_forward_rounded,
-              color: Colors.white,
-            ),
+            child: const Icon(Icons.arrow_forward_rounded, color: Colors.white),
           ),
         ],
       ),
@@ -778,10 +763,8 @@ class _SubtemaScreenState extends State<SubtemaScreen>
           ),
           const SizedBox(height: 16),
           Text(
-            'Pon a prueba tus conocimientos!',
-            style: AppTextStyles.heading3.copyWith(
-              color: Colors.white,
-            ),
+            '¡Pon a prueba tus conocimientos!',
+            style: AppTextStyles.heading3.copyWith(color: Colors.white),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 8),
@@ -793,10 +776,7 @@ class _SubtemaScreenState extends State<SubtemaScreen>
                 '${widget.subtema.quiz.preguntas.length} preguntas',
               ),
               const SizedBox(width: 12),
-              _buildQuizBadge(
-                Icons.auto_awesome_rounded,
-                'Quiz con IA',
-              ),
+              _buildQuizBadge(Icons.auto_awesome_rounded, 'Quiz con IA'),
             ],
           ),
           const SizedBox(height: 20),
@@ -857,9 +837,10 @@ class _SubtemaScreenState extends State<SubtemaScreen>
     // Mostrar dialog de seleccion de tipo de quiz
     final resultado = await showDialog(
       context: context,
-      builder: (context) => QuizTypeSelectorDialog(
-        preguntasQuizEstatico: widget.subtema.quiz.preguntas.length,
-      ),
+      builder:
+          (context) => QuizTypeSelectorDialog(
+            preguntasQuizEstatico: widget.subtema.quiz.preguntas.length,
+          ),
     );
 
     if (resultado == null) return;
@@ -877,12 +858,13 @@ class _SubtemaScreenState extends State<SubtemaScreen>
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => QuizScreen(
-          quiz: widget.subtema.quiz,
-          subtemaNumero: widget.subtema.numero,
-          subtemaId: widget.subtema.id,
-          subtemaTitulo: widget.subtema.titulo,
-        ),
+        builder:
+            (context) => QuizScreen(
+              quiz: widget.subtema.quiz,
+              subtemaNumero: widget.subtema.numero,
+              subtemaId: widget.subtema.id,
+              subtemaTitulo: widget.subtema.titulo,
+            ),
       ),
     );
   }
@@ -894,13 +876,14 @@ class _SubtemaScreenState extends State<SubtemaScreen>
     showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (dialogContext) => QuizLoadingScreen(
-        subtemaTitulo: widget.subtema.titulo,
-        onCancel: () {
-          cancelado = true;
-          Navigator.pop(dialogContext);
-        },
-      ),
+      builder:
+          (dialogContext) => QuizLoadingScreen(
+            subtemaTitulo: widget.subtema.titulo,
+            onCancel: () {
+              cancelado = true;
+              Navigator.pop(dialogContext);
+            },
+          ),
     );
 
     // Generar quiz
@@ -924,13 +907,14 @@ class _SubtemaScreenState extends State<SubtemaScreen>
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => QuizScreen(
-              quiz: resultado.quiz!,
-              subtemaNumero: widget.subtema.numero,
-              subtemaId: widget.subtema.id,
-              subtemaTitulo: widget.subtema.titulo,
-              esGeneradoPorIA: true,
-            ),
+            builder:
+                (context) => QuizScreen(
+                  quiz: resultado.quiz!,
+                  subtemaNumero: widget.subtema.numero,
+                  subtemaId: widget.subtema.id,
+                  subtemaTitulo: widget.subtema.titulo,
+                  esGeneradoPorIA: true,
+                ),
           ),
         );
       }
@@ -940,17 +924,18 @@ class _SubtemaScreenState extends State<SubtemaScreen>
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => QuizErrorScreen(
-              error: resultado.error ?? 'Error desconocido',
-              onRetry: () {
-                Navigator.pop(context);
-                _generarQuizConIA(config);
-              },
-              onUseStatic: () {
-                Navigator.pop(context);
-                _iniciarQuizEstatico();
-              },
-            ),
+            builder:
+                (context) => QuizErrorScreen(
+                  error: resultado.error ?? 'Error desconocido',
+                  onRetry: () {
+                    Navigator.pop(context);
+                    _generarQuizConIA(config);
+                  },
+                  onUseStatic: () {
+                    Navigator.pop(context);
+                    _iniciarQuizEstatico();
+                  },
+                ),
           ),
         );
       }

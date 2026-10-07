@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../theme/app_theme.dart';
 import '../services/firestore_service.dart';
 import '../models/user_profile_model.dart';
@@ -23,6 +24,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   List<UserProgress> _progress = [];
   List<Achievement> _achievements = [];
   bool _isLoading = true;
+  bool _syncFailed = false;
 
   @override
   void initState() {
@@ -43,11 +45,24 @@ class _ProfileScreenState extends State<ProfileScreen>
     final profile = await _firestoreService.getOrCreateUserProfile();
     final progress = await _firestoreService.getAllProgress();
     final unlockedAchievements = await _firestoreService.getUserAchievements();
+    final account = FirebaseAuth.instance.currentUser;
+
+    if (!mounted) return;
 
     setState(() {
-      _profile = profile;
+      _profile =
+          profile ??
+          (account == null
+              ? null
+              : UserProfile.initial(
+                odlUserId: account.uid,
+                email: account.email ?? '',
+                displayName: account.displayName ?? 'Estudiante',
+                photoURL: account.photoURL,
+              ));
       _progress = progress;
       _achievements = AchievementDefinitions.withUnlocked(unlockedAchievements);
+      _syncFailed = profile == null;
       _isLoading = false;
     });
 
@@ -70,36 +85,39 @@ class _ProfileScreenState extends State<ProfileScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _isLoading
-          ? const Center(
-              child: CircularProgressIndicator(
+      body:
+          _isLoading
+              ? const Center(
+                child: CircularProgressIndicator(color: AppColors.primaryGreen),
+              )
+              : RefreshIndicator(
+                onRefresh: _loadData,
                 color: AppColors.primaryGreen,
-              ),
-            )
-          : RefreshIndicator(
-              onRefresh: _loadData,
-              color: AppColors.primaryGreen,
-              child: FadeTransition(
-                opacity: _fadeAnimation,
-                child: CustomScrollView(
-                  slivers: [
-                    _buildAppBar(),
-                    SliverToBoxAdapter(
-                      child: Column(
-                        children: [
-                          _buildProfileHeader(),
-                          _buildProgressCard(),
-                          _buildStatsSection(),
-                          const SizedBox(height: 8),
-                          _buildAchievementsSection(),
-                          const SizedBox(height: 30),
-                        ],
+                child: FadeTransition(
+                  opacity: _fadeAnimation,
+                  child: CustomScrollView(
+                    slivers: [
+                      _buildAppBar(),
+                      SliverToBoxAdapter(
+                        child: Column(
+                          children: [
+                            _buildProfileHeader(),
+                            if (_syncFailed)
+                              _buildSyncUnavailableCard()
+                            else ...[
+                              _buildProgressCard(),
+                              _buildStatsSection(),
+                              const SizedBox(height: 8),
+                              _buildAchievementsSection(),
+                            ],
+                            const SizedBox(height: 30),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
     );
   }
 
@@ -115,9 +133,7 @@ class _ProfileScreenState extends State<ProfileScreen>
           style: AppTextStyles.heading3.copyWith(color: Colors.white),
         ),
         background: Container(
-          decoration: const BoxDecoration(
-            gradient: AppColors.primaryGradient,
-          ),
+          decoration: const BoxDecoration(gradient: AppColors.primaryGradient),
         ),
       ),
       leading: IconButton(
@@ -129,6 +145,41 @@ class _ProfileScreenState extends State<ProfileScreen>
 
   Widget _buildProfileHeader() {
     if (_profile == null) return const SizedBox.shrink();
+
+    if (_syncFailed) {
+      return Container(
+        margin: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
+        decoration: AppDecorations.cardDecoration,
+        child: Row(
+          children: [
+            const CircleAvatar(
+              radius: 30,
+              backgroundColor: AppColors.primaryGreen,
+              child: Icon(Icons.person_rounded, color: Colors.white, size: 32),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    _profile!.displayName,
+                    style: AppTextStyles.heading3,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  Text(
+                    _profile!.email,
+                    style: AppTextStyles.caption,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
 
     return Container(
       margin: const EdgeInsets.all(20),
@@ -153,23 +204,25 @@ class _ProfileScreenState extends State<ProfileScreen>
                     ),
                   ],
                 ),
-                child: _profile!.photoURL != null
-                    ? ClipOval(
-                        child: Image.network(
-                          _profile!.photoURL!,
-                          fit: BoxFit.cover,
-                          errorBuilder: (_, __, ___) => const Icon(
-                            Icons.person_rounded,
-                            size: 35,
-                            color: Colors.white,
+                child:
+                    _profile!.photoURL != null
+                        ? ClipOval(
+                          child: Image.network(
+                            _profile!.photoURL!,
+                            fit: BoxFit.cover,
+                            errorBuilder:
+                                (_, __, ___) => const Icon(
+                                  Icons.person_rounded,
+                                  size: 35,
+                                  color: Colors.white,
+                                ),
                           ),
+                        )
+                        : const Icon(
+                          Icons.person_rounded,
+                          size: 35,
+                          color: Colors.white,
                         ),
-                      )
-                    : const Icon(
-                        Icons.person_rounded,
-                        size: 35,
-                        color: Colors.white,
-                      ),
               ),
               const SizedBox(width: 16),
               Expanded(
@@ -209,7 +262,10 @@ class _ProfileScreenState extends State<ProfileScreen>
                     Row(
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 6,
+                          ),
                           decoration: BoxDecoration(
                             color: AppColors.sunYellow,
                             borderRadius: BorderRadius.circular(8),
@@ -217,7 +273,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                           child: Text(
                             'Nv.${_profile!.level}',
                             style: AppTextStyles.caption.copyWith(
-                              color: Colors.white,
+                              color: AppColors.darkText,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -232,7 +288,10 @@ class _ProfileScreenState extends State<ProfileScreen>
                       ],
                     ),
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 5,
+                      ),
                       decoration: BoxDecoration(
                         color: AppColors.primaryGreen,
                         borderRadius: BorderRadius.circular(16),
@@ -240,7 +299,11 @@ class _ProfileScreenState extends State<ProfileScreen>
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Icon(Icons.stars_rounded, color: Colors.white, size: 16),
+                          const Icon(
+                            Icons.stars_rounded,
+                            color: Colors.white,
+                            size: 16,
+                          ),
                           const SizedBox(width: 4),
                           Text(
                             '${_profile!.totalPoints}',
@@ -278,13 +341,50 @@ class _ProfileScreenState extends State<ProfileScreen>
                         value: _profile!.progresoNivel,
                         minHeight: 10,
                         backgroundColor: Colors.white,
-                        valueColor: const AlwaysStoppedAnimation<Color>(AppColors.leafGreen),
+                        valueColor: const AlwaysStoppedAnimation<Color>(
+                          AppColors.leafGreen,
+                        ),
                       ),
                     ),
                   ],
                 ),
               ],
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSyncUnavailableCard() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.all(20),
+      decoration: AppDecorations.cardDecoration,
+      child: Column(
+        children: [
+          const Icon(
+            Icons.cloud_off_rounded,
+            color: AppColors.primaryGreen,
+            size: 40,
+          ),
+          const SizedBox(height: 12),
+          Text(
+            'No pudimos cargar tus datos',
+            style: AppTextStyles.heading3,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            'Tu progreso y tus logros aparecerán cuando se restablezca la sincronización.',
+            style: AppTextStyles.bodyMedium,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 16),
+          OutlinedButton.icon(
+            onPressed: _loadData,
+            icon: const Icon(Icons.refresh_rounded),
+            label: const Text('Reintentar'),
           ),
         ],
       ),
@@ -324,7 +424,9 @@ class _ProfileScreenState extends State<ProfileScreen>
                       value: porcentaje / 100,
                       strokeWidth: 8,
                       backgroundColor: Colors.white.withOpacity(0.3),
-                      valueColor: const AlwaysStoppedAnimation<Color>(Colors.white),
+                      valueColor: const AlwaysStoppedAnimation<Color>(
+                        Colors.white,
+                      ),
                     ),
                   ),
                   Center(
@@ -493,7 +595,10 @@ class _ProfileScreenState extends State<ProfileScreen>
             children: [
               Text('Logros', style: AppTextStyles.heading3),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 4,
+                ),
                 decoration: BoxDecoration(
                   color: AppColors.sunYellow.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(16),
@@ -536,14 +641,19 @@ class _ProfileScreenState extends State<ProfileScreen>
       decoration: BoxDecoration(
         color: isLocked ? Colors.grey[100] : Colors.white,
         borderRadius: BorderRadius.circular(14),
-        border: achievement.desbloqueado
-            ? Border.all(color: achievement.color.withOpacity(0.5), width: 2)
-            : null,
+        border:
+            achievement.desbloqueado
+                ? Border.all(
+                  color: achievement.color.withOpacity(0.5),
+                  width: 2,
+                )
+                : null,
         boxShadow: [
           BoxShadow(
-            color: isLocked
-                ? Colors.grey.withOpacity(0.1)
-                : achievement.color.withOpacity(0.12),
+            color:
+                isLocked
+                    ? Colors.grey.withOpacity(0.1)
+                    : achievement.color.withOpacity(0.12),
             blurRadius: 6,
             offset: const Offset(0, 3),
           ),
@@ -556,9 +666,10 @@ class _ProfileScreenState extends State<ProfileScreen>
             width: 44,
             height: 44,
             decoration: BoxDecoration(
-              color: isLocked
-                  ? Colors.grey[300]
-                  : achievement.color.withOpacity(0.2),
+              color:
+                  isLocked
+                      ? Colors.grey[300]
+                      : achievement.color.withOpacity(0.2),
               shape: BoxShape.circle,
             ),
             child: Icon(
@@ -594,9 +705,10 @@ class _ProfileScreenState extends State<ProfileScreen>
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
             decoration: BoxDecoration(
-              color: isLocked
-                  ? Colors.grey[200]
-                  : achievement.color.withOpacity(0.15),
+              color:
+                  isLocked
+                      ? Colors.grey[200]
+                      : achievement.color.withOpacity(0.15),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Text(

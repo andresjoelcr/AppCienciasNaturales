@@ -1,6 +1,6 @@
 # Integración Unity + Flutter (EduRA)
 
-**Estado: el APK compila con Unity embebido.** `build\app\outputs\flutter-apk\app-debug.apk` (440 MB debug).
+**Estado: el APK compiló con Unity embebido en la máquina de exportación.** `build\app\outputs\flutter-apk\app-debug.apk` (440 MB debug). Las bibliotecas nativas y el resultado de IL2CPP están ignorados por Git: cada equipo que compile Unity debe restaurar el export conforme a esta guía.
 
 Verificado dentro del APK:
 `libil2cpp.so` (78 MB), `libunity.so` (20 MB), `lib_burst_generated.so`,
@@ -128,6 +128,8 @@ Los archivos de Gradle detectan si `android/unityLibrary` existe y se enganchan 
 | Kotlin | **2.2.20** | mínimo Flutter 2.2.20 |
 | NDK | **27.2.12479018** (r27c) | el mismo que usa Unity 6000.3.7f1 |
 | Java | **17** | ver sección 5.1 |
+| minSdk | **29** | `unityLibrary` exige 29 |
+| compileSdk | **36** | `unityLibrary` exige 36 |
 
 ### 5.1 Java 24 rompe Gradle
 
@@ -142,16 +144,11 @@ Se resuelve en dos niveles, sin tocar variables de sistema:
 
 | Dónde | Qué hace |
 |---|---|
-| `android/gradle.properties` → `org.gradle.java.home` | fija el JDK 17 que trae Unity para el daemon de Gradle |
-| `flutter config --jdk-dir=...` | hace que Flutter use ese JDK en vez del JBR de Android Studio |
+| `JAVA_HOME` o `flutter config --jdk-dir=...` | selecciona un JDK 17 instalado en cada equipo |
 
-JDK elegido: `C:\Program Files\Unity\Hub\Editor\6000.3.7f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK`
-(Temurin 17.0.9, el mismo que espera `unityLibrary` con `javaCompatabilityVersion=VERSION_17`).
+En la máquina de exportación se usó el JDK de Unity 6000.3.7f1. La ruta de ese equipo ya no se fija en `android/gradle.properties`; comprueba con `flutter doctor -v` que Flutter encuentre Java 17.
 
-> OJO: `org.gradle.java.home` es una ruta absoluta de esta máquina. En otra, cambiarla o borrarla.
-> Verificar con `flutter doctor -v` que diga `Java version ... 17`.
-| minSdk | **29** | `unityLibrary` exige 29 |
-| compileSdk | **36** | `unityLibrary` exige 36 |
+> Las rutas `unity.*Path` en `android/gradle.properties` provienen del export original y deben apuntar al SDK, NDK y proyecto Unity instalados en el equipo que vuelva a compilar el módulo. Son rutas de esa máquina, no versiones de la app.
 
 Estaba en Gradle 9.1.0 + AGP 9.0.1: AGP 9 rompe el plugin de Unity.
 Verificar: `flutter build apk --debug`.

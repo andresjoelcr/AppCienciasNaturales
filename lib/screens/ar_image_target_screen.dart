@@ -46,7 +46,7 @@ const _cellDatabase = <String, _CellData>{
       'Mitocondria',
       'Ribosomas',
     ],
-    color: Color(0xFF4CAF50),
+    color: AppColors.primaryGreen,
     funFact:
         'El cuerpo humano contiene aproximadamente 37 billones de células.',
   ),
@@ -66,7 +66,7 @@ const _cellDatabase = <String, _CellData>{
       'Centriolos',
       'Retículo endoplasmático',
     ],
-    color: Color(0xFFE91E63),
+    color: AppColors.sunOrange,
     funFact:
         'Las células animales tienen una forma irregular y pueden cambiarla.',
   ),
@@ -86,7 +86,7 @@ const _cellDatabase = <String, _CellData>{
       'Núcleo',
       'Mitocondrias',
     ],
-    color: Color(0xFF2196F3),
+    color: AppColors.primaryGreen,
     funFact:
         'Los cloroplastos tienen su propio ADN, evidencia de su origen bacteriano.',
   ),
@@ -106,7 +106,7 @@ const _cellDatabase = <String, _CellData>{
       'Lisosoma: digestión celular',
       'Retículo endoplasmático',
     ],
-    color: Color(0xFF9C27B0),
+    color: AppColors.sunOrange,
     funFact:
         'Las mitocondrias tienen su propio ADN y se dividen de forma independiente.',
   ),
@@ -375,61 +375,65 @@ class _ARImageTargetScreenState extends State<ARImageTargetScreen>
     return Center(
       child: AnimatedBuilder(
         animation: _scanAnim,
-        builder: (_, __) => Transform.scale(
-          scale: _scanAnim.value,
-          child: Container(
-            width: 240,
-            height: 240,
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: AppColors.primaryGreen.withOpacity(0.85),
-                width: 3,
-              ),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Stack(
-              children: [
-                ..._buildCorners(),
-                Center(
-                  child: AnimatedBuilder(
-                    animation: _pulseAnim,
-                    builder: (_, __) => Opacity(
-                      opacity: _pulseAnim.value,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const Icon(
-                            Icons.biotech,
-                            color: AppColors.primaryGreen,
-                            size: 36,
-                          ),
-                          const SizedBox(height: 8),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 12, vertical: 4),
-                            decoration: BoxDecoration(
-                              color: Colors.black54,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: const Text(
-                              'ESCANEANDO',
-                              style: TextStyle(
-                                color: AppColors.primaryGreen,
-                                fontSize: 11,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 2,
+        builder:
+            (_, __) => Transform.scale(
+              scale: _scanAnim.value,
+              child: Container(
+                width: 240,
+                height: 240,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: AppColors.primaryGreen.withOpacity(0.85),
+                    width: 3,
+                  ),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Stack(
+                  children: [
+                    ..._buildCorners(),
+                    Center(
+                      child: AnimatedBuilder(
+                        animation: _pulseAnim,
+                        builder:
+                            (_, __) => Opacity(
+                              opacity: _pulseAnim.value,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Icon(
+                                    Icons.biotech,
+                                    color: AppColors.primaryGreen,
+                                    size: 36,
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 12,
+                                      vertical: 4,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black54,
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: const Text(
+                                      'ESCANEANDO',
+                                      style: TextStyle(
+                                        color: AppColors.primaryGreen,
+                                        fontSize: 11,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 2,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ),
-                        ],
                       ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
-        ),
       ),
     );
   }
@@ -439,24 +443,40 @@ class _ARImageTargetScreenState extends State<ARImageTargetScreen>
     const t = 3.0;
     final c = AppColors.primaryGreen;
     return [
-      Positioned(top: 0, left: 0,
-          child: _Corner(size: s, thick: t, color: c, top: true, left: true)),
-      Positioned(top: 0, right: 0,
-          child: _Corner(size: s, thick: t, color: c, top: true, left: false)),
-      Positioned(bottom: 0, left: 0,
-          child: _Corner(size: s, thick: t, color: c, top: false, left: true)),
-      Positioned(bottom: 0, right: 0,
-          child: _Corner(size: s, thick: t, color: c, top: false, left: false)),
+      Positioned(
+        top: 0,
+        left: 0,
+        child: _Corner(size: s, thick: t, color: c, top: true, left: true),
+      ),
+      Positioned(
+        top: 0,
+        right: 0,
+        child: _Corner(size: s, thick: t, color: c, top: true, left: false),
+      ),
+      Positioned(
+        bottom: 0,
+        left: 0,
+        child: _Corner(size: s, thick: t, color: c, top: false, left: true),
+      ),
+      Positioned(
+        bottom: 0,
+        right: 0,
+        child: _Corner(size: s, thick: t, color: c, top: false, left: false),
+      ),
     ];
   }
 
   Widget _buildHeader() {
     return Positioned(
-      top: 0, left: 0, right: 0,
+      top: 0,
+      left: 0,
+      right: 0,
       child: Container(
         padding: EdgeInsets.only(
           top: MediaQuery.of(context).padding.top + 8,
-          left: 12, right: 16, bottom: 10,
+          left: 12,
+          right: 16,
+          bottom: 10,
         ),
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -479,14 +499,16 @@ class _ARImageTargetScreenState extends State<ARImageTargetScreen>
                 const Text(
                   'AR Células',
                   style: TextStyle(
-                    color: Colors.white, fontSize: 18,
+                    color: Colors.white,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
                   'Image Target',
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.6), fontSize: 11,
+                    color: Colors.white.withOpacity(0.6),
+                    fontSize: 11,
                   ),
                 ),
               ],
@@ -498,7 +520,8 @@ class _ARImageTargetScreenState extends State<ARImageTargetScreen>
                 color: _showOverlay ? AppColors.primaryGreen : Colors.black54,
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                    color: AppColors.primaryGreen.withOpacity(0.6)),
+                  color: AppColors.primaryGreen.withOpacity(0.6),
+                ),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -507,14 +530,17 @@ class _ARImageTargetScreenState extends State<ARImageTargetScreen>
                     _showOverlay
                         ? Icons.check_circle
                         : Icons.radio_button_unchecked,
-                    color: Colors.white, size: 14,
+                    color: Colors.white,
+                    size: 14,
                   ),
                   const SizedBox(width: 5),
                   Text(
                     _showOverlay ? 'DETECTADO' : 'BUSCANDO',
                     style: const TextStyle(
-                      color: Colors.white, fontSize: 11,
-                      fontWeight: FontWeight.bold, letterSpacing: 1,
+                      color: Colors.white,
+                      fontSize: 11,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1,
                     ),
                   ),
                 ],
@@ -531,12 +557,13 @@ class _ARImageTargetScreenState extends State<ARImageTargetScreen>
         _confirmCount > 0 ? _confirmCount / _requiredConfirms : 0.0;
 
     return Positioned(
-      bottom: 40, left: 24, right: 24,
+      bottom: 40,
+      left: 24,
+      right: 24,
       child: Column(
         children: [
           Container(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             decoration: BoxDecoration(
               color: Colors.black.withOpacity(0.7),
               borderRadius: BorderRadius.circular(12),
@@ -581,14 +608,15 @@ class _ARImageTargetScreenState extends State<ARImageTargetScreen>
   /// Panel de información superpuesto sobre la cámara (el efecto AR)
   Widget _buildCellOverlay(_CellData cell) {
     return Positioned(
-      bottom: 0, left: 0, right: 0,
+      bottom: 0,
+      left: 0,
+      right: 0,
       child: SlideTransition(
         position: _slideAnim,
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius:
-                const BorderRadius.vertical(top: Radius.circular(28)),
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
             boxShadow: [
               BoxShadow(
                 color: cell.color.withOpacity(0.3),
@@ -603,7 +631,8 @@ class _ARImageTargetScreenState extends State<ARImageTargetScreen>
               // Handle
               Container(
                 margin: const EdgeInsets.only(top: 12),
-                width: 40, height: 4,
+                width: 40,
+                height: 4,
                 decoration: BoxDecoration(
                   color: Colors.grey.shade300,
                   borderRadius: BorderRadius.circular(2),
@@ -619,11 +648,13 @@ class _ARImageTargetScreenState extends State<ARImageTargetScreen>
                     Row(
                       children: [
                         Container(
-                          width: 80, height: 80,
+                          width: 80,
+                          height: 80,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(14),
                             border: Border.all(
-                              color: cell.color.withOpacity(0.4), width: 2,
+                              color: cell.color.withOpacity(0.4),
+                              width: 2,
                             ),
                           ),
                           child: ClipRRect(
@@ -631,11 +662,15 @@ class _ARImageTargetScreenState extends State<ARImageTargetScreen>
                             child: Image.asset(
                               cell.imagePath,
                               fit: BoxFit.cover,
-                              errorBuilder: (_, __, ___) => Container(
-                                color: cell.color.withOpacity(0.1),
-                                child: Icon(Icons.biotech,
-                                    color: cell.color, size: 36),
-                              ),
+                              errorBuilder:
+                                  (_, __, ___) => Container(
+                                    color: cell.color.withOpacity(0.1),
+                                    child: Icon(
+                                      Icons.biotech,
+                                      color: cell.color,
+                                      size: 36,
+                                    ),
+                                  ),
                             ),
                           ),
                         ),
@@ -646,7 +681,9 @@ class _ARImageTargetScreenState extends State<ARImageTargetScreen>
                             children: [
                               Container(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 8, vertical: 3),
+                                  horizontal: 8,
+                                  vertical: 3,
+                                ),
                                 decoration: BoxDecoration(
                                   color: cell.color.withOpacity(0.12),
                                   borderRadius: BorderRadius.circular(20),
@@ -654,7 +691,8 @@ class _ARImageTargetScreenState extends State<ARImageTargetScreen>
                                 child: Text(
                                   cell.type,
                                   style: TextStyle(
-                                    color: cell.color, fontSize: 11,
+                                    color: cell.color,
+                                    fontSize: 11,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -682,7 +720,9 @@ class _ARImageTargetScreenState extends State<ARImageTargetScreen>
                     Text(
                       cell.description,
                       style: TextStyle(
-                        fontSize: 13, color: Colors.grey.shade700, height: 1.5,
+                        fontSize: 13,
+                        color: Colors.grey.shade700,
+                        height: 1.5,
                       ),
                     ),
 
@@ -696,7 +736,8 @@ class _ARImageTargetScreenState extends State<ARImageTargetScreen>
                         Text(
                           'Orgánulos principales',
                           style: TextStyle(
-                            fontSize: 13, fontWeight: FontWeight.bold,
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
                             color: cell.color,
                           ),
                         ),
@@ -704,11 +745,15 @@ class _ARImageTargetScreenState extends State<ARImageTargetScreen>
                     ),
                     const SizedBox(height: 10),
                     Wrap(
-                      spacing: 8, runSpacing: 8,
-                      children: cell.organelles
-                          .map((o) => _OrganelleChip(
-                                label: o, color: cell.color))
-                          .toList(),
+                      spacing: 8,
+                      runSpacing: 8,
+                      children:
+                          cell.organelles
+                              .map(
+                                (o) =>
+                                    _OrganelleChip(label: o, color: cell.color),
+                              )
+                              .toList(),
                     ),
 
                     const SizedBox(height: 16),
@@ -719,8 +764,7 @@ class _ARImageTargetScreenState extends State<ARImageTargetScreen>
                       decoration: BoxDecoration(
                         color: cell.color.withOpacity(0.07),
                         borderRadius: BorderRadius.circular(12),
-                        border:
-                            Border.all(color: cell.color.withOpacity(0.2)),
+                        border: Border.all(color: cell.color.withOpacity(0.2)),
                       ),
                       child: Row(
                         children: [
@@ -752,8 +796,7 @@ class _ARImageTargetScreenState extends State<ARImageTargetScreen>
                         style: ElevatedButton.styleFrom(
                           backgroundColor: cell.color,
                           foregroundColor: Colors.white,
-                          padding:
-                              const EdgeInsets.symmetric(vertical: 14),
+                          padding: const EdgeInsets.symmetric(vertical: 14),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(14),
                           ),
@@ -793,7 +836,8 @@ class _OrganelleChip extends StatelessWidget {
         label,
         style: TextStyle(
           color: color.withOpacity(0.85),
-          fontSize: 11, fontWeight: FontWeight.w500,
+          fontSize: 11,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );
@@ -811,17 +855,25 @@ class _Corner extends StatelessWidget {
   final bool left;
 
   const _Corner({
-    required this.size, required this.thick,
-    required this.color, required this.top, required this.left,
+    required this.size,
+    required this.thick,
+    required this.color,
+    required this.top,
+    required this.left,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: size, height: size,
+      width: size,
+      height: size,
       child: CustomPaint(
         painter: _CornerPainter(
-            color: color, thick: thick, top: top, left: left),
+          color: color,
+          thick: thick,
+          top: top,
+          left: left,
+        ),
       ),
     );
   }
@@ -833,17 +885,21 @@ class _CornerPainter extends CustomPainter {
   final bool top;
   final bool left;
 
-  _CornerPainter(
-      {required this.color, required this.thick,
-       required this.top, required this.left});
+  _CornerPainter({
+    required this.color,
+    required this.thick,
+    required this.top,
+    required this.left,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
-    final p = Paint()
-      ..color = color
-      ..strokeWidth = thick
-      ..strokeCap = StrokeCap.square
-      ..style = PaintingStyle.stroke;
+    final p =
+        Paint()
+          ..color = color
+          ..strokeWidth = thick
+          ..strokeCap = StrokeCap.square
+          ..style = PaintingStyle.stroke;
 
     final w = size.width;
     final h = size.height;
