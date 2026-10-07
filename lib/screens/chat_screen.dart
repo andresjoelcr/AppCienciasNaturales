@@ -268,7 +268,7 @@ class _ChatScreenState extends State<ChatScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.cloudWhite,
       appBar: AppBar(
         elevation: 0,
         flexibleSpace: Container(
@@ -305,7 +305,7 @@ class _ChatScreenState extends State<ChatScreen>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Asistente Natural',
+                    'Asistente',
                     style: AppTextStyles.heading3.copyWith(
                       color: Colors.white,
                       fontSize: 18,
@@ -324,7 +324,7 @@ class _ChatScreenState extends State<ChatScreen>
                       ),
                       const SizedBox(width: 6),
                       Text(
-                        'En linea',
+                        'En línea',
                         style: AppTextStyles.caption.copyWith(
                           color: Colors.white.withOpacity(0.9),
                         ),
@@ -424,14 +424,14 @@ class _ChatScreenState extends State<ChatScreen>
               ),
               const SizedBox(height: 28),
               Text(
-                'Hola! Soy tu asistente',
+                '¡Hola! Soy tu asistente',
                 style: AppTextStyles.heading2.copyWith(
                   color: AppColors.darkText,
                 ),
               ),
               const SizedBox(height: 8),
               Text(
-                'Preguntame sobre ciencias naturales',
+                'Pregúntame sobre ciencias naturales',
                 style: AppTextStyles.bodyLarge.copyWith(
                   color: AppColors.greyText,
                 ),
@@ -443,10 +443,10 @@ class _ChatScreenState extends State<ChatScreen>
                 runSpacing: 10,
                 alignment: WrapAlignment.center,
                 children: [
-                  _buildSuggestionChip('Que temas tienes en la guia?'),
-                  _buildSuggestionChip('Que es la celula?'),
-                  _buildSuggestionChip('Partes de la celula'),
-                  _buildSuggestionChip('Celula animal y vegetal'),
+                  _buildSuggestionChip('¿Qué temas tienes en la guía?'),
+                  _buildSuggestionChip('¿Qué es la célula?'),
+                  _buildSuggestionChip('Partes de la célula'),
+                  _buildSuggestionChip('Célula animal y vegetal'),
                 ],
               ),
             ],

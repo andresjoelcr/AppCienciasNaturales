@@ -11,7 +11,7 @@ void main() {
     );
 
     final app = tester.widget<MaterialApp>(find.byType(MaterialApp));
-    expect(app.title, 'Ciencias Naturales');
+    expect(app.title, 'EduRA · Ciencias Naturales');
     expect(find.text('EduRA lista'), findsOneWidget);
   });
 }

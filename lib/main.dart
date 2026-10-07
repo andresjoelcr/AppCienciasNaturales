@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Ciencias Naturales',
+      title: 'EduRA · Ciencias Naturales',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       home: home ?? const AuthWrapper(),

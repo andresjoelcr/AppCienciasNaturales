@@ -34,14 +34,12 @@ class _GuiaHomeScreenState extends State<GuiaHomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.cloudWhite,
       appBar: AppBar(
         elevation: 0,
         toolbarHeight: 80,
         flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: AppColors.primaryGradient,
-          ),
+          decoration: const BoxDecoration(gradient: AppColors.primaryGradient),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_rounded, color: Colors.white),
@@ -67,14 +65,14 @@ class _GuiaHomeScreenState extends State<GuiaHomeScreen>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Guia Interactiva',
+                    'Guía interactiva',
                     style: AppTextStyles.heading3.copyWith(
                       color: Colors.white,
                       fontSize: 18,
                     ),
                   ),
                   Text(
-                    'La Celula - Unidad Basica de la Vida',
+                    'La célula · Unidad básica de la vida',
                     style: AppTextStyles.caption.copyWith(
                       color: Colors.white.withOpacity(0.9),
                       fontSize: 11,
@@ -98,10 +96,12 @@ class _GuiaHomeScreenState extends State<GuiaHomeScreen>
                 position: Tween<Offset>(
                   begin: const Offset(0, -0.5),
                   end: Offset.zero,
-                ).animate(CurvedAnimation(
-                  parent: _animationController,
-                  curve: const Interval(0.0, 0.4, curve: Curves.easeOut),
-                )),
+                ).animate(
+                  CurvedAnimation(
+                    parent: _animationController,
+                    curve: const Interval(0.0, 0.4, curve: Curves.easeOut),
+                  ),
+                ),
                 child: FadeTransition(
                   opacity: _animationController,
                   child: Container(
@@ -155,14 +155,14 @@ class _GuiaHomeScreenState extends State<GuiaHomeScreen>
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                'La Celula',
+                                'La célula',
                                 style: AppTextStyles.heading3.copyWith(
                                   color: AppColors.oceanBlue,
                                 ),
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                '4 subtemas con quiz interactivo',
+                                '${subtemascelula.length} subtemas con quiz interactivo',
                                 style: AppTextStyles.caption.copyWith(
                                   color: AppColors.greyText,
                                 ),
@@ -179,20 +179,14 @@ class _GuiaHomeScreenState extends State<GuiaHomeScreen>
               const SizedBox(height: 24),
 
               // Titulo de contenidos
-              Text(
-                'Contenidos',
-                style: AppTextStyles.heading2,
-              ),
+              Text('Contenidos', style: AppTextStyles.heading2),
 
               const SizedBox(height: 16),
 
               // Lista de subtemas
               ...List.generate(subtemascelula.length, (index) {
                 final subtema = subtemascelula[index];
-                return _buildSubtemaCard(
-                  index: index,
-                  subtema: subtema,
-                );
+                return _buildSubtemaCard(index: index, subtema: subtema);
               }),
             ],
           ),
@@ -201,10 +195,7 @@ class _GuiaHomeScreenState extends State<GuiaHomeScreen>
     );
   }
 
-  Widget _buildSubtemaCard({
-    required int index,
-    required Subtema subtema,
-  }) {
+  Widget _buildSubtemaCard({required int index, required Subtema subtema}) {
     final colors = [
       AppColors.primaryGreen,
       AppColors.skyBlue,
@@ -226,14 +217,16 @@ class _GuiaHomeScreenState extends State<GuiaHomeScreen>
       position: Tween<Offset>(
         begin: const Offset(0.5, 0),
         end: Offset.zero,
-      ).animate(CurvedAnimation(
-        parent: _animationController,
-        curve: Interval(
-          0.2 + (index * 0.1),
-          0.6 + (index * 0.1),
-          curve: Curves.easeOut,
+      ).animate(
+        CurvedAnimation(
+          parent: _animationController,
+          curve: Interval(
+            0.2 + (index * 0.1),
+            0.6 + (index * 0.1),
+            curve: Curves.easeOut,
+          ),
         ),
-      )),
+      ),
       child: FadeTransition(
         opacity: _animationController,
         child: Container(
@@ -255,9 +248,7 @@ class _GuiaHomeScreenState extends State<GuiaHomeScreen>
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(
-                    color: color.withOpacity(0.2),
-                  ),
+                  border: Border.all(color: color.withOpacity(0.2)),
                   boxShadow: [
                     BoxShadow(
                       color: color.withOpacity(0.1),
@@ -279,11 +270,7 @@ class _GuiaHomeScreenState extends State<GuiaHomeScreen>
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(
-                            icon,
-                            color: color,
-                            size: 24,
-                          ),
+                          Icon(icon, color: color, size: 24),
                           const SizedBox(height: 2),
                           Text(
                             subtema.numero,

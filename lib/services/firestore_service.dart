@@ -269,22 +269,27 @@ class FirestoreService {
   // Obtener todo el progreso del usuario
   Future<List<UserProgress>> getAllProgress() async {
     try {
-      final userId = _auth.currentUser?.uid;
-      if (userId == null) return [];
-
-      final snapshot = await _firestore
-          .collection('users')
-          .doc(userId)
-          .collection('progress')
-          .get();
-
-      return snapshot.docs
-          .map((doc) => UserProgress.fromFirestore(doc.data()))
-          .toList();
+      return await getAllProgressOrThrow();
     } catch (e) {
       debugPrint('[FirestoreService] getAllProgress error: $e');
       return [];
     }
+  }
+
+  /// Permite a la portada distinguir cero lecciones de un error de lectura.
+  Future<List<UserProgress>> getAllProgressOrThrow() async {
+    final userId = _auth.currentUser?.uid;
+    if (userId == null) throw StateError('No hay una sesión activa');
+
+    final snapshot = await _firestore
+        .collection('users')
+        .doc(userId)
+        .collection('progress')
+        .get();
+
+    return snapshot.docs
+        .map((doc) => UserProgress.fromFirestore(doc.data()))
+        .toList();
   }
 
   // Marcar contenido como visto

@@ -6,12 +6,14 @@ Aplicacion educativa de Ciencias Naturales desarrollada con Flutter. Incluye aut
 
 Android es el destino completamente configurado en este repositorio. El proyecto incluye `android/app/google-services.json` y permisos de Internet, camara y microfono.
 
-El proyecto Firebase asociado es `edura-ciencias-2026`. Las reglas versionadas en `firestore.rules` restringen perfiles, progreso, logros y chats al usuario autenticado propietario.
+El proyecto Firebase asociado es `cienciasnaturales-f5577`. Las reglas versionadas en `firestore.rules` restringen perfiles, progreso, logros y chats al usuario autenticado propietario. La publicación de estas reglas se realiza por separado.
 
-- Flutter 3.29.2 / Dart 3.7.2 (o una version compatible con Dart `^3.7.2`).
-- Android SDK 35, JDK 17 y un dispositivo o emulador Android.
+- Flutter 3.47.5 (version validada por la integración de Unity) y Dart 3.11 o posterior. `pubspec.lock` fija dependencias que requieren Dart 3.11; usa la misma versión de Flutter en ambos equipos antes de ejecutar `flutter pub get`.
+- Gradle 8.14.3, AGP 8.11.1, Kotlin 2.2.20, Android SDK 36, JDK 17 y un dispositivo Android 29 o posterior. Consulta `README-unity.md` para el export de Unity 6000.3.7f1.
 - Un proyecto Firebase con Google Sign-In y Firestore habilitados.
-- Claves de Groq y Gemini para las funciones de IA.
+- Clave de Groq para las funciones de IA.
+
+La versión pública de Android se controla en `pubspec.yaml` (`version: 1.0.0+1`); Gradle toma de Flutter `versionName` y `versionCode`. `unity.versionName` y `unity.versionCode` describen el módulo embebido y no sustituyen la versión de la app. Antes de publicar una nueva entrega, acuerden el siguiente número y cambien solo `pubspec.yaml`.
 
 Web, Windows, iOS, macOS y Linux conservan los scaffolds de Flutter, pero no estan listos como destinos de produccion: faltan opciones Firebase por plataforma y el escaner usa APIs de archivo propias de movil.
 
@@ -22,6 +24,8 @@ Web, Windows, iOS, macOS y Linux conservan los scaffolds de Flutter, pero no est
    ```powershell
    flutter pub get
    ```
+
+   Si `flutter --version` aún muestra Flutter 3.29 / Dart 3.7, cambia primero al SDK 3.47.5. No regeneres `pubspec.lock` con un SDK anterior al validado.
 
 2. Copia `.env.example` a `.env` y completa sus valores. `.env` es local y no debe versionarse.
 
@@ -106,4 +110,4 @@ Todo el servicio de IA pasa por Groq, con una sola clave. `GROQ_MODEL` es el
 modelo de texto y `GROQ_VISION_MODEL` el unico con vision de la plataforma.
 Verifica los modelos disponibles para tu clave en `GET https://api.groq.com/openai/v1/models`.
 
-Si Google Sign-In falla en Android, registra en Firebase las huellas SHA-1/SHA-256 de la clave de firma usada y vuelve a descargar `google-services.json`.
+Si Google Sign-In falla en Android, registra en Firebase las huellas SHA-1/SHA-256 de la clave de firma usada y vuelve a descargar `google-services.json`. En esta máquina existe `android/app/edura-debug.keystore` (ignorado por Git) y el build debug la usa si está presente. En otra máquina se usa la firma debug normal; registra su SHA en Firebase o configura una clave local equivalente para que funcione el login. Las imágenes del login viven en `assets/login/`.

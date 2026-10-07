@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import '../theme/brand_colors.dart';
 
 class Achievement {
   final String id;
@@ -29,9 +30,10 @@ class Achievement {
       'nombre': nombre,
       'descripcion': descripcion,
       'puntos': puntos,
-      'desbloqueadoEn': desbloqueadoEn != null
-          ? Timestamp.fromDate(desbloqueadoEn!)
-          : Timestamp.now(),
+      'desbloqueadoEn':
+          desbloqueadoEn != null
+              ? Timestamp.fromDate(desbloqueadoEn!)
+              : Timestamp.now(),
     };
   }
 
@@ -43,7 +45,7 @@ class Achievement {
       nombre: definition?.nombre ?? data['nombre'] ?? '',
       descripcion: definition?.descripcion ?? data['descripcion'] ?? '',
       icono: definition?.icono ?? Icons.star,
-      color: definition?.color ?? Colors.amber,
+      color: definition?.color ?? BrandColors.amber,
       puntos: data['puntos'] ?? 0,
       desbloqueado: true,
       desbloqueadoEn: (data['desbloqueadoEn'] as Timestamp?)?.toDate(),
@@ -73,7 +75,7 @@ class AchievementDefinitions {
       nombre: 'Primer Paso',
       descripcion: 'Completa tu primer quiz',
       icono: Icons.play_circle_filled,
-      color: Color(0xFF4CAF50),
+      color: BrandColors.forest,
       puntos: 50,
       desbloqueado: false,
     ),
@@ -82,7 +84,7 @@ class AchievementDefinitions {
       nombre: 'Perfeccion',
       descripcion: 'Obtiene 100% en un quiz',
       icono: Icons.star,
-      color: Color(0xFFFFD700),
+      color: BrandColors.amber,
       puntos: 100,
       desbloqueado: false,
     ),
@@ -91,7 +93,7 @@ class AchievementDefinitions {
       nombre: 'Explorador',
       descripcion: 'Completa todos los subtemas de una unidad',
       icono: Icons.explore,
-      color: Color(0xFF2196F3),
+      color: BrandColors.forest,
       puntos: 200,
       desbloqueado: false,
     ),
@@ -100,7 +102,7 @@ class AchievementDefinitions {
       nombre: 'Constante',
       descripcion: 'Estudia 3 dias seguidos',
       icono: Icons.local_fire_department,
-      color: Color(0xFFFF5722),
+      color: BrandColors.amber,
       puntos: 75,
       desbloqueado: false,
     ),
@@ -109,7 +111,7 @@ class AchievementDefinitions {
       nombre: 'Curioso',
       descripcion: 'Haz 10 preguntas al chatbot',
       icono: Icons.chat_bubble,
-      color: Color(0xFF9C27B0),
+      color: BrandColors.forest,
       puntos: 50,
       desbloqueado: false,
     ),

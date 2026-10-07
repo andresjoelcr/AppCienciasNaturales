@@ -25,7 +25,7 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
     } else if (difference.inDays == 1) {
       return 'Ayer';
     } else if (difference.inDays < 7) {
-      return 'Hace ${difference.inDays} dias';
+      return 'Hace ${difference.inDays} días';
     } else {
       return '${date.day}/${date.month}/${date.year}';
     }
@@ -37,62 +37,63 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
 
     showDialog(
       context: context,
-      builder: (dialogContext) => AlertDialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        title: Row(
-          children: [
-            Icon(Icons.delete_outline, color: Colors.red[400]),
-            const SizedBox(width: 8),
-            const Text('Eliminar conversacion'),
-          ],
-        ),
-        content: const Text('Esta accion no se puede deshacer. ¿Deseas continuar?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(dialogContext),
-            child: Text(
-              'Cancelar',
-              style: TextStyle(color: AppColors.greyText),
+      builder:
+          (dialogContext) => AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
             ),
-          ),
-          ElevatedButton(
-            onPressed: () async {
-              Navigator.pop(dialogContext);
-              await _firestoreService.deleteChatSession(sessionId);
-              scaffoldMessenger.showSnackBar(
-                SnackBar(
-                  content: const Text('Conversacion eliminada'),
-                  backgroundColor: AppColors.primaryGreen,
-                  behavior: SnackBarBehavior.floating,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+            title: Row(
+              children: [
+                Icon(Icons.delete_outline, color: Colors.red[400]),
+                const SizedBox(width: 8),
+                const Text('Eliminar conversación'),
+              ],
+            ),
+            content: const Text(
+              'Esta acción no se puede deshacer. ¿Deseas continuar?',
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(dialogContext),
+                child: Text(
+                  'Cancelar',
+                  style: TextStyle(color: AppColors.greyText),
                 ),
-              );
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red[400],
-            ),
-            child: const Text('Eliminar'),
+              ),
+              ElevatedButton(
+                onPressed: () async {
+                  Navigator.pop(dialogContext);
+                  await _firestoreService.deleteChatSession(sessionId);
+                  scaffoldMessenger.showSnackBar(
+                    SnackBar(
+                      content: const Text('Conversación eliminada'),
+                      backgroundColor: AppColors.primaryGreen,
+                      behavior: SnackBarBehavior.floating,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red[400],
+                ),
+                child: const Text('Eliminar'),
+              ),
+            ],
           ),
-        ],
-      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.cloudWhite,
       appBar: AppBar(
         elevation: 0,
         toolbarHeight: 70,
         flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: AppColors.primaryGradient,
-          ),
+          decoration: const BoxDecoration(gradient: AppColors.primaryGradient),
         ),
         leading: IconButton(
           icon: Container(
@@ -121,7 +122,7 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
             ),
             const SizedBox(width: 14),
             Text(
-              'Historial de Chats',
+              'Historial de chats',
               style: AppTextStyles.heading3.copyWith(
                 color: Colors.white,
                 fontSize: 20,
@@ -135,20 +136,39 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
-              child: CircularProgressIndicator(
-                color: AppColors.primaryGreen,
-              ),
+              child: CircularProgressIndicator(color: AppColors.primaryGreen),
             );
           }
 
           if (snapshot.hasError) {
-            return Center(
+            return Padding(
+              padding: const EdgeInsets.all(24),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(Icons.error_outline, size: 56, color: Colors.red),
-                  const SizedBox(height: 16),
-                  Text('Error: ${snapshot.error}'),
+                  const Icon(
+                    Icons.forum_outlined,
+                    size: 56,
+                    color: AppColors.primaryGreen,
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    'No pudimos cargar el historial',
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.heading3,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Intenta de nuevo. Si el problema continúa, revisa el acceso a tu cuenta.',
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.bodyMedium,
+                  ),
+                  const SizedBox(height: 20),
+                  OutlinedButton.icon(
+                    onPressed: () => setState(() {}),
+                    icon: const Icon(Icons.refresh_rounded),
+                    label: const Text('Reintentar'),
+                  ),
                 ],
               ),
             );
@@ -180,7 +200,7 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Tus conversaciones apareceran aqui',
+                    'Tus conversaciones aparecerán aquí',
                     style: AppTextStyles.bodyMedium,
                   ),
                 ],
@@ -207,7 +227,7 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
             itemBuilder: (context, index) {
               final session = sessions[index];
               final data = session.data() as Map<String, dynamic>;
-              final lastMessage = data['lastMessage'] ?? 'Nueva conversacion';
+              final lastMessage = data['lastMessage'] ?? 'Nueva conversación';
               final messageCount = data['messageCount'] ?? 0;
               final updatedAt = data['updatedAt'] as Timestamp?;
 
@@ -234,9 +254,8 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ChatScreen(
-                            sessionId: session.id,
-                          ),
+                          builder:
+                              (context) => ChatScreen(sessionId: session.id),
                         ),
                       );
                     },
@@ -264,7 +283,7 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
                               children: [
                                 Text(
                                   lastMessage.isEmpty
-                                      ? 'Nueva conversacion'
+                                      ? 'Nueva conversación'
                                       : lastMessage,
                                   style: AppTextStyles.bodyMedium.copyWith(
                                     color: AppColors.darkText,
@@ -324,14 +343,13 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
           _firestoreService.clearCurrentSession();
           Navigator.push(
             context,
-            MaterialPageRoute(
-              builder: (context) => const ChatScreen(),
-            ),
+            MaterialPageRoute(builder: (context) => const ChatScreen()),
           );
         },
         backgroundColor: AppColors.primaryGreen,
+        foregroundColor: Colors.white,
         icon: const Icon(Icons.add),
-        label: const Text('Nuevo Chat'),
+        label: const Text('Nuevo chat'),
       ),
     );
   }

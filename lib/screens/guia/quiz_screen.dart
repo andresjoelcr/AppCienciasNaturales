@@ -125,14 +125,12 @@ class _QuizScreenState extends State<QuizScreen>
     final progreso = (_preguntaActual + 1) / widget.quiz.preguntas.length;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.cloudWhite,
       appBar: AppBar(
         elevation: 0,
         toolbarHeight: 60,
         flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: AppColors.primaryGradient,
-          ),
+          decoration: const BoxDecoration(gradient: AppColors.primaryGradient),
         ),
         leading: IconButton(
           icon: const Icon(Icons.close_rounded, color: Colors.white),
@@ -222,10 +220,12 @@ class _QuizScreenState extends State<QuizScreen>
                   position: Tween<Offset>(
                     begin: const Offset(0.1, 0),
                     end: Offset.zero,
-                  ).animate(CurvedAnimation(
-                    parent: _animationController,
-                    curve: Curves.easeOut,
-                  )),
+                  ).animate(
+                    CurvedAnimation(
+                      parent: _animationController,
+                      curve: Curves.easeOut,
+                    ),
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -266,8 +266,7 @@ class _QuizScreenState extends State<QuizScreen>
                         return _buildOpcion(
                           index: index,
                           texto: pregunta.opciones[index],
-                          esCorrecta:
-                              index == pregunta.respuestaCorrecta,
+                          esCorrecta: index == pregunta.respuestaCorrecta,
                         );
                       }),
 
@@ -356,9 +355,7 @@ class _QuizScreenState extends State<QuizScreen>
                       _preguntaActual < widget.quiz.preguntas.length - 1
                           ? 'Siguiente Pregunta'
                           : 'Ver Resultados',
-                      style: AppTextStyles.button.copyWith(
-                        color: Colors.white,
-                      ),
+                      style: AppTextStyles.button.copyWith(color: Colors.white),
                     ),
                   ),
                 ),
@@ -417,23 +414,27 @@ class _QuizScreenState extends State<QuizScreen>
                   width: 32,
                   height: 32,
                   decoration: BoxDecoration(
-                    color: _respondida && (esCorrecta || _respuestaSeleccionada == index)
-                        ? (esCorrecta ? AppColors.leafGreen : Colors.red)
-                        : AppColors.greyText.withOpacity(0.1),
+                    color:
+                        _respondida &&
+                                (esCorrecta || _respuestaSeleccionada == index)
+                            ? (esCorrecta ? AppColors.leafGreen : Colors.red)
+                            : AppColors.greyText.withOpacity(0.1),
                     shape: BoxShape.circle,
                   ),
                   child: Center(
-                    child: iconData != null
-                        ? Icon(iconData, color: Colors.white, size: 20)
-                        : Text(
-                            String.fromCharCode(65 + index),
-                            style: AppTextStyles.bodyMedium.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: _respuestaSeleccionada == index
-                                  ? AppColors.oceanBlue
-                                  : AppColors.greyText,
+                    child:
+                        iconData != null
+                            ? Icon(iconData, color: Colors.white, size: 20)
+                            : Text(
+                              String.fromCharCode(65 + index),
+                              style: AppTextStyles.bodyMedium.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color:
+                                    _respuestaSeleccionada == index
+                                        ? AppColors.oceanBlue
+                                        : AppColors.greyText,
+                              ),
                             ),
-                          ),
                   ),
                 ),
                 const SizedBox(width: 12),
@@ -442,9 +443,10 @@ class _QuizScreenState extends State<QuizScreen>
                     texto,
                     style: AppTextStyles.bodyLarge.copyWith(
                       color: textColor,
-                      fontWeight: _respondida && esCorrecta
-                          ? FontWeight.w600
-                          : FontWeight.normal,
+                      fontWeight:
+                          _respondida && esCorrecta
+                              ? FontWeight.w600
+                              : FontWeight.normal,
                     ),
                   ),
                 ),
@@ -462,7 +464,7 @@ class _QuizScreenState extends State<QuizScreen>
     final esAprobado = porcentaje >= 60;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.cloudWhite,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -475,9 +477,10 @@ class _QuizScreenState extends State<QuizScreen>
                   width: 120,
                   height: 120,
                   decoration: BoxDecoration(
-                    color: esAprobado
-                        ? AppColors.leafGreen.withOpacity(0.15)
-                        : AppColors.sunOrange.withOpacity(0.15),
+                    color:
+                        esAprobado
+                            ? AppColors.leafGreen.withOpacity(0.15)
+                            : AppColors.sunOrange.withOpacity(0.15),
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
@@ -485,7 +488,8 @@ class _QuizScreenState extends State<QuizScreen>
                         ? Icons.emoji_events_rounded
                         : Icons.refresh_rounded,
                     size: 60,
-                    color: esAprobado ? AppColors.leafGreen : AppColors.sunOrange,
+                    color:
+                        esAprobado ? AppColors.leafGreen : AppColors.sunOrange,
                   ),
                 ),
 
@@ -494,7 +498,10 @@ class _QuizScreenState extends State<QuizScreen>
                 Text(
                   esAprobado ? 'Excelente!' : 'Sigue practicando!',
                   style: AppTextStyles.heading1.copyWith(
-                    color: esAprobado ? AppColors.primaryGreen : AppColors.sunOrange,
+                    color:
+                        esAprobado
+                            ? AppColors.primaryGreen
+                            : AppColors.sunOrange,
                   ),
                 ),
 
@@ -558,9 +565,10 @@ class _QuizScreenState extends State<QuizScreen>
                         '${porcentaje.toInt()}%',
                         style: AppTextStyles.heading1.copyWith(
                           fontSize: 48,
-                          color: esAprobado
-                              ? AppColors.primaryGreen
-                              : AppColors.sunOrange,
+                          color:
+                              esAprobado
+                                  ? AppColors.primaryGreen
+                                  : AppColors.sunOrange,
                         ),
                       ),
                       const SizedBox(height: 8),
@@ -641,67 +649,69 @@ class _QuizScreenState extends State<QuizScreen>
                           ],
                         ),
                         const SizedBox(height: 16),
-                        ..._logrosDesbloqueados.map((logro) => Container(
-                              margin: const EdgeInsets.only(bottom: 8),
-                              padding: const EdgeInsets.all(12),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    padding: const EdgeInsets.all(8),
-                                    decoration: BoxDecoration(
-                                      color: logro.color.withOpacity(0.2),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Icon(
-                                      logro.icono,
-                                      color: logro.color,
-                                      size: 24,
-                                    ),
+                        ..._logrosDesbloqueados.map(
+                          (logro) => Container(
+                            margin: const EdgeInsets.only(bottom: 8),
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(8),
+                                  decoration: BoxDecoration(
+                                    color: logro.color.withOpacity(0.2),
+                                    shape: BoxShape.circle,
                                   ),
-                                  const SizedBox(width: 12),
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          logro.nombre,
-                                          style:
-                                              AppTextStyles.bodyMedium.copyWith(
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        Text(
-                                          logro.descripcion,
-                                          style: AppTextStyles.caption,
-                                        ),
-                                      ],
-                                    ),
+                                  child: Icon(
+                                    logro.icono,
+                                    color: logro.color,
+                                    size: 24,
                                   ),
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 8,
-                                      vertical: 4,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: logro.color.withOpacity(0.2),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Text(
-                                      '+${logro.puntos}',
-                                      style: AppTextStyles.caption.copyWith(
-                                        color: logro.color,
-                                        fontWeight: FontWeight.bold,
+                                ),
+                                const SizedBox(width: 12),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        logro.nombre,
+                                        style: AppTextStyles.bodyMedium
+                                            .copyWith(
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                       ),
+                                      Text(
+                                        logro.descripcion,
+                                        style: AppTextStyles.caption,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 8,
+                                    vertical: 4,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: logro.color.withOpacity(0.2),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Text(
+                                    '+${logro.puntos}',
+                                    style: AppTextStyles.caption.copyWith(
+                                      color: logro.color,
+                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                ],
-                              ),
-                            )),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -786,46 +796,44 @@ class _QuizScreenState extends State<QuizScreen>
   void _mostrarDialogoSalir() {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        title: Row(
-          children: [
-            Icon(
-              Icons.warning_amber_rounded,
-              color: AppColors.sunOrange,
+      builder:
+          (context) => AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
             ),
-            const SizedBox(width: 8),
-            const Text('Salir del Quiz'),
-          ],
-        ),
-        content: const Text(
-          'Si sales ahora, perderas tu progreso en este quiz. Estas seguro?',
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(
-              'Cancelar',
-              style: TextStyle(color: AppColors.greyText),
+            title: Row(
+              children: [
+                Icon(Icons.warning_amber_rounded, color: AppColors.sunOrange),
+                const SizedBox(width: 8),
+                const Text('Salir del Quiz'),
+              ],
             ),
+            content: const Text(
+              'Si sales ahora, perderas tu progreso en este quiz. Estas seguro?',
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text(
+                  'Cancelar',
+                  style: TextStyle(color: AppColors.greyText),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.sunOrange,
+                ),
+                child: const Text(
+                  'Salir',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ],
           ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pop(context);
-              Navigator.pop(context);
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.sunOrange,
-            ),
-            child: const Text(
-              'Salir',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

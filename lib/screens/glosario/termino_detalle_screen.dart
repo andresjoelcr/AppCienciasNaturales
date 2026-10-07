@@ -5,15 +5,12 @@ import '../../models/glosario_model.dart';
 class TerminoDetalleScreen extends StatelessWidget {
   final TerminoGlosario termino;
 
-  const TerminoDetalleScreen({
-    super.key,
-    required this.termino,
-  });
+  const TerminoDetalleScreen({super.key, required this.termino});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.cloudWhite,
       body: CustomScrollView(
         slivers: [
           // AppBar con gradiente
@@ -237,9 +234,7 @@ class TerminoDetalleScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: color.withOpacity(0.08),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: color.withOpacity(0.2),
-        ),
+        border: Border.all(color: color.withOpacity(0.2)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -252,11 +247,7 @@ class TerminoDetalleScreen extends StatelessWidget {
                   color: color.withOpacity(0.15),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Icon(
-                  icono,
-                  color: color,
-                  size: 20,
-                ),
+                child: Icon(icono, color: color, size: 20),
               ),
               const SizedBox(width: 12),
               Text(

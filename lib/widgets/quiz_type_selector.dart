@@ -2,20 +2,14 @@ import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 
 /// Enumeracion para tipos de quiz
-enum QuizType {
-  estatico,
-  iaGenerado,
-}
+enum QuizType { estatico, iaGenerado }
 
 /// Configuracion para quiz generado por IA
 class IAQuizConfig {
   final int numeroPreguntas;
   final String dificultad;
 
-  const IAQuizConfig({
-    this.numeroPreguntas = 5,
-    this.dificultad = 'medio',
-  });
+  const IAQuizConfig({this.numeroPreguntas = 5, this.dificultad = 'medio'});
 }
 
 /// Dialog para seleccionar el tipo de quiz
@@ -39,9 +33,7 @@ class _QuizTypeSelectorDialogState extends State<QuizTypeSelectorDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(24),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(24),
@@ -65,10 +57,7 @@ class _QuizTypeSelectorDialogState extends State<QuizTypeSelectorDialog> {
                     ),
                   ),
                   const SizedBox(width: 12),
-                  Text(
-                    'Tipo de Quiz',
-                    style: AppTextStyles.heading3,
-                  ),
+                  Text('Tipo de Quiz', style: AppTextStyles.heading3),
                 ],
               ),
 
@@ -196,7 +185,9 @@ class _QuizTypeSelectorDialogState extends State<QuizTypeSelectorDialog> {
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color:
-                      isSelected ? color.withOpacity(0.2) : AppColors.lightGreen,
+                      isSelected
+                          ? color.withOpacity(0.2)
+                          : AppColors.lightGreen,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Icon(
@@ -245,9 +236,7 @@ class _QuizTypeSelectorDialogState extends State<QuizTypeSelectorDialog> {
       decoration: BoxDecoration(
         color: AppColors.sunOrange.withOpacity(0.05),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: AppColors.sunOrange.withOpacity(0.2),
-        ),
+        border: Border.all(color: AppColors.sunOrange.withOpacity(0.2)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -262,45 +251,50 @@ class _QuizTypeSelectorDialogState extends State<QuizTypeSelectorDialog> {
           ),
           const SizedBox(height: 8),
           Row(
-            children: [3, 5, 7, 10].map((num) {
-              final isSelected = _numeroPreguntas == num;
-              return Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 4),
-                  child: Material(
-                    color: Colors.transparent,
-                    child: InkWell(
-                      onTap: () => setState(() => _numeroPreguntas = num),
-                      borderRadius: BorderRadius.circular(8),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        decoration: BoxDecoration(
-                          color:
-                              isSelected ? AppColors.sunOrange : Colors.white,
+            children:
+                [3, 5, 7, 10].map((num) {
+                  final isSelected = _numeroPreguntas == num;
+                  return Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      child: Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () => setState(() => _numeroPreguntas = num),
                           borderRadius: BorderRadius.circular(8),
-                          border: Border.all(
-                            color: isSelected
-                                ? AppColors.sunOrange
-                                : AppColors.greyText.withOpacity(0.2),
-                          ),
-                        ),
-                        child: Center(
-                          child: Text(
-                            '$num',
-                            style: AppTextStyles.bodyMedium.copyWith(
-                              fontWeight: FontWeight.w600,
-                              color: isSelected
-                                  ? Colors.white
-                                  : AppColors.darkText,
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            decoration: BoxDecoration(
+                              color:
+                                  isSelected
+                                      ? AppColors.sunOrange
+                                      : Colors.white,
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                color:
+                                    isSelected
+                                        ? AppColors.sunOrange
+                                        : AppColors.greyText.withOpacity(0.2),
+                              ),
+                            ),
+                            child: Center(
+                              child: Text(
+                                '$num',
+                                style: AppTextStyles.bodyMedium.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                  color:
+                                      isSelected
+                                          ? Colors.white
+                                          : AppColors.darkText,
+                                ),
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ),
-              );
-            }).toList(),
+                  );
+                }).toList(),
           ),
 
           const SizedBox(height: 16),
@@ -320,7 +314,7 @@ class _QuizTypeSelectorDialogState extends State<QuizTypeSelectorDialog> {
               const SizedBox(width: 8),
               _buildDificultadChip('medio', 'Medio', AppColors.sunOrange),
               const SizedBox(width: 8),
-              _buildDificultadChip('dificil', 'Dificil', Colors.redAccent),
+              _buildDificultadChip('dificil', 'Difícil', AppColors.darkText),
             ],
           ),
         ],
