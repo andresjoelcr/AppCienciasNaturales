@@ -1,0 +1,72 @@
+name: mi_app
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.11.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  http: ^1.2.2
+  
+  # Firebase
+  firebase_core: ^3.8.1
+  firebase_auth: ^5.3.3
+  cloud_firestore: ^5.5.0
+  google_sign_in: ^6.2.2
+
+  # UI
+  google_fonts: ^6.1.0
+  url_launcher: ^6.2.5
+  youtube_player_flutter: ^9.1.1
+
+  # Scanner
+  image_picker: ^1.0.7
+  permission_handler: ^11.3.0
+
+  # Image processing (marcadores AR)
+  image: ^4.1.7
+
+  # Camera for AR
+  camera: ^0.11.0
+
+  # Unity (AR con Vuforia)
+  flutter_unity_widget_2: ^6000.1.0+1
+
+  # Modelos 3D (glb/gltf) con rotacion y zoom
+  flutter_3d_controller: ^2.3.0
+
+  # Speech to Text
+  speech_to_text: ^7.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+# flutter_unity_widget_2 6000.1.0+1 no compila contra Unity 6000.3: su
+# OverrideUnityActivity.kt extiende com.unity3d.player.UnityPlayerActivity,
+# clase que Unity 6.3 elimino al quitar el entry point clasico "Activity".
+# Se usa la copia local parcheada (ver el archivo .kt del parche).
+# Ver README-unity.md seccion "Parches aplicados".
+dependency_overrides:
+  flutter_unity_widget_2:
+    path: third_party/flutter_unity_widget_2
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/login/
+    - assets/libro/
+    - assets/celula/
+    - assets/marcadores/
+    - assets/glosario/
+    - assets/modelos3d/
+    # Copia del .env para que la app funcione sin --dart-define-from-file.
+    # La genera tool/sync_env.ps1; ver .gitignore.
+    - assets/groq.env

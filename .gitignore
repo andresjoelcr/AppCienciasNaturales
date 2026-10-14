@@ -1,0 +1,99 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# VS Code
+# El .vscode puede contener configuraciones útiles del proyecto.
+# Si quieres ignorarlo completamente, descomenta:
+# .vscode/
+
+# Flutter / Dart / Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# Configuración local y credenciales
+.env
+.env.local
+
+# Copia temporal de credenciales
+# La genera tool/sync_env.ps1
+assets/groq.env
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android generated files
+/android/.gradle/
+/android/build/
+/android/app/debug/
+/android/app/profile/
+/android/app/release/
+
+# Unity / Unity Library generated files (Evita archivos pesados de más de 1 GB)
+Library/
+Temp/
+Obj/
+Logs/
+UserSettings/
+MemoryCaptures/
+*.csproj
+*.unityproj
+/android/unityLibrary/build/
+/android/unityLibrary/Library/
+/android/unityLibrary/Temp/
+/android/unityLibrary/Obj/
+/android/unityLibrary/src/main/Il2CppOutputProject/
+/android/unityLibrary/src/main/assets/bin/
+/android/unityLibrary/src/main/jniLibs/
+/android/unityLibrary/src/main/jniStaticLibs/
+/android/unityLibrary/symbols/
+/android/unityLibrary/src/main/cpp/
+
+# Gradle generated folders anywhere in the project
+**/.gradle/
+
+# Gradle / Java generated files
+*.hprof
+
+# Configuración local de Claude
+.claude/settings.local.json
+
+# Archivos compilados y temporales adicionales (Android / Unity / Third Party)
+/android/launcher/
+third_party/**/build/
+*.dex
+
+# Dependencias y ejemplos de terceros pesados
+third_party/
+
+# Archivos pesados temporales o multimedia gigantes
+assets/tmp_pptx/
+*.pptx
+*.mp4
