@@ -1,0 +1,533 @@
+<mxfile host="app.diagrams.net" modified="2026-01-28T12:00:00.000Z" agent="Draw.io" version="24.0.0">
+  <diagram name="Diagrama de Casos de Uso - Ciencias Naturales" id="casos-uso-v1">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ========== TITULO PRINCIPAL ========== -->
+        <mxCell id="titulo" value="DIAGRAMA DE CASOS DE USO" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;fontStyle=1;fontColor=#1a5f2a;" vertex="1" parent="1">
+          <mxGeometry x="500" y="20" width="600" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="subtitulo" value="Aplicacion Movil Educativa de Ciencias Naturales" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=2;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="500" y="60" width="600" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ========== LIMITE DEL SISTEMA ========== -->
+        <mxCell id="sistema-boundary" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#1a5f2a;strokeWidth=3;dashed=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="100" width="1040" height="1050" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sistema-titulo" value="SISTEMA: APLICACION MOVIL CIENCIAS NATURALES" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=14;fontStyle=1;fontColor=#1a5f2a;spacingLeft=10;spacingRight=10;" vertex="1" parent="1">
+          <mxGeometry x="480" y="110" width="440" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ========== ACTOR: ESTUDIANTE ========== -->
+        <mxCell id="actor-estudiante" value="Estudiante" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="500" width="80" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="actor-estudiante-label" value="(Usuario Principal)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=2;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="60" y="625" width="120" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ========== ACTOR: FIREBASE ========== -->
+        <mxCell id="actor-firebase" value="" style="shape=mxgraph.basic.rect;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="180" width="100" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="actor-firebase-icon" value="🔥" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;" vertex="1" parent="1">
+          <mxGeometry x="1445" y="185" width="50" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="actor-firebase-label" value="Firebase&#xa;(Auth + DB)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="225" width="100" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- ========== ACTOR: GEMINI AI ========== -->
+        <mxCell id="actor-gemini" value="" style="shape=mxgraph.basic.rect;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="420" width="100" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="actor-gemini-icon" value="✨" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;" vertex="1" parent="1">
+          <mxGeometry x="1445" y="425" width="50" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="actor-gemini-label" value="Gemini&#xa;Vision API" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="465" width="100" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- ========== ACTOR: GROQ ========== -->
+        <mxCell id="actor-groq" value="" style="shape=mxgraph.basic.rect;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="660" width="100" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="actor-groq-icon" value="🤖" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;" vertex="1" parent="1">
+          <mxGeometry x="1445" y="665" width="50" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="actor-groq-label" value="Groq API&#xa;(LLaMA)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="705" width="100" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- ========== ACTOR: YOUTUBE ========== -->
+        <mxCell id="actor-youtube" value="" style="shape=mxgraph.basic.rect;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="900" width="100" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="actor-youtube-icon" value="▶️" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;" vertex="1" parent="1">
+          <mxGeometry x="1445" y="905" width="50" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="actor-youtube-label" value="YouTube&#xa;Player" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="945" width="100" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- ========== ACTOR: ML KIT ========== -->
+        <mxCell id="actor-mlkit" value="" style="shape=mxgraph.basic.rect;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="540" width="100" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="actor-mlkit-icon" value="📱" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;" vertex="1" parent="1">
+          <mxGeometry x="1445" y="545" width="50" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="actor-mlkit-label" value="ML Kit&#xa;(On-Device)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="585" width="100" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- ========== CASOS DE USO: AUTENTICACION ========== -->
+        <mxCell id="seccion-auth" value="AUTENTICACION" style="text;html=1;strokeColor=none;fillColor=#fff2cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;fontColor=#d6b656;spacingLeft=5;spacingRight=5;" vertex="1" parent="1">
+          <mxGeometry x="340" y="150" width="120" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-login" value="Iniciar Sesion&#xa;con Google" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=11;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="185" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-logout" value="Cerrar Sesion" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=11;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="275" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-ver-perfil" value="Ver Perfil&#xa;de Usuario" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=11;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="355" width="140" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- ========== CASOS DE USO: SCANNER ========== -->
+        <mxCell id="seccion-scanner" value="ESCANER DE IMAGENES" style="text;html=1;strokeColor=none;fillColor=#dae8fc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;fontColor=#6c8ebf;spacingLeft=5;spacingRight=5;" vertex="1" parent="1">
+          <mxGeometry x="560" y="150" width="160" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-escanear" value="Escanear&#xa;Imagen" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=12;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="185" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-tomar-foto" value="Tomar Foto&#xa;con Camara" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;strokeWidth=1;fontSize=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="285" width="120" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-seleccionar-galeria" value="Seleccionar de&#xa;Galeria" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;strokeWidth=1;fontSize=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="285" width="120" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-identificar-ia" value="Identificar con&#xa;Inteligencia Artificial" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=11;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="365" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-ver-resultado" value="Ver Resultado&#xa;de Identificacion" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=11;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="460" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-clasificar-mlkit" value="Clasificar con&#xa;ML Kit (local)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;strokeWidth=1;fontSize=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="380" width="120" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-analizar-gemini" value="Analizar con&#xa;Gemini Vision" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;strokeWidth=1;fontSize=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="455" width="120" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- ========== CASOS DE USO: CHATBOT ========== -->
+        <mxCell id="seccion-chat" value="CHATBOT EDUCATIVO" style="text;html=1;strokeColor=none;fillColor=#e1d5e7;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;fontColor=#9673a6;spacingLeft=5;spacingRight=5;" vertex="1" parent="1">
+          <mxGeometry x="560" y="555" width="160" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-abrir-chat" value="Abrir&#xa;Asistente IA" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=12;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="590" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-enviar-pregunta" value="Enviar&#xa;Pregunta" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f3e8ff;strokeColor=#9673a6;strokeWidth=1;fontSize=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="685" width="120" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-recibir-respuesta" value="Recibir Respuesta&#xa;Educativa" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f3e8ff;strokeColor=#9673a6;strokeWidth=1;fontSize=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="685" width="120" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-generar-respuesta" value="Generar Respuesta&#xa;con LLaMA" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="620" width="130" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- ========== CASOS DE USO: GUIA DIDACTICA ========== -->
+        <mxCell id="seccion-guia" value="GUIA DIDACTICA" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;fontColor=#d79b00;spacingLeft=5;spacingRight=5;" vertex="1" parent="1">
+          <mxGeometry x="560" y="770" width="160" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-navegar-guia" value="Navegar&#xa;Guia Didactica" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontSize=12;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="805" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-ver-temas" value="Ver Lista&#xa;de Temas" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff5e6;strokeColor=#d79b00;strokeWidth=1;fontSize=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="895" width="120" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-ver-subtema" value="Ver Contenido&#xa;de Subtema" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff5e6;strokeColor=#d79b00;strokeWidth=1;fontSize=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="895" width="120" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-ver-video" value="Reproducir&#xa;Video Educativo" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontSize=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="895" width="130" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- ========== CASOS DE USO: PROGRESO ========== -->
+        <mxCell id="seccion-progreso" value="PROGRESO" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;fontColor=#82b366;spacingLeft=5;spacingRight=5;" vertex="1" parent="1">
+          <mxGeometry x="560" y="980" width="160" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-ver-progreso" value="Ver Progreso&#xa;de Aprendizaje" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=11;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="1020" width="140" height="65" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu-guardar-progreso" value="Guardar&#xa;Progreso" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e6ffcc;strokeColor=#82b366;strokeWidth=1;fontSize=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="1020" width="120" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- ========== RELACIONES INCLUDE ========== -->
+        <!-- Escanear include Tomar Foto -->
+        <mxCell id="rel-escanear-foto" value="" style="endArrow=open;html=1;rounded=0;strokeWidth=1;strokeColor=#6c8ebf;dashed=1;exitX=0.3;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cu-escanear" target="cu-tomar-foto">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="260" as="sourcePoint" />
+            <mxPoint x="560" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-escanear-foto-label" value="&lt;&lt;extend&gt;&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;fontColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="510" y="255" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Escanear include Seleccionar Galeria -->
+        <mxCell id="rel-escanear-galeria" value="" style="endArrow=open;html=1;rounded=0;strokeWidth=1;strokeColor=#6c8ebf;dashed=1;exitX=0.7;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cu-escanear" target="cu-seleccionar-galeria">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="260" as="sourcePoint" />
+            <mxPoint x="720" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-escanear-galeria-label" value="&lt;&lt;extend&gt;&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;fontColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="700" y="255" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Escanear include Identificar IA -->
+        <mxCell id="rel-escanear-ia" value="" style="endArrow=open;html=1;rounded=0;strokeWidth=1;strokeColor=#6c8ebf;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cu-tomar-foto" target="cu-identificar-ia">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="340" as="sourcePoint" />
+            <mxPoint x="640" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-tomar-ia-label" value="&lt;&lt;include&gt;&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;fontColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="480" y="345" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Identificar include ML Kit -->
+        <mxCell id="rel-ia-mlkit" value="" style="endArrow=open;html=1;rounded=0;strokeWidth=1;strokeColor=#6c8ebf;dashed=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="cu-identificar-ia" target="cu-clasificar-mlkit">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="710" y="390" as="sourcePoint" />
+            <mxPoint x="750" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-ia-mlkit-label" value="&lt;&lt;include&gt;&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;fontColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="710" y="368" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Identificar include Gemini -->
+        <mxCell id="rel-ia-gemini" value="" style="endArrow=open;html=1;rounded=0;strokeWidth=1;strokeColor=#6c8ebf;dashed=1;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="cu-identificar-ia" target="cu-analizar-gemini">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="710" y="420" as="sourcePoint" />
+            <mxPoint x="750" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-ia-gemini-label" value="&lt;&lt;include&gt;&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;fontColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="710" y="440" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Identificar -> Ver Resultado -->
+        <mxCell id="rel-ia-resultado" value="" style="endArrow=open;html=1;rounded=0;strokeWidth=1;strokeColor=#6c8ebf;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cu-identificar-ia" target="cu-ver-resultado">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="440" as="sourcePoint" />
+            <mxPoint x="640" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-ia-resultado-label" value="&lt;&lt;include&gt;&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;fontColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="645" y="440" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Chatbot relations -->
+        <mxCell id="rel-chat-enviar" value="" style="endArrow=open;html=1;rounded=0;strokeWidth=1;strokeColor=#9673a6;dashed=1;exitX=0.3;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cu-abrir-chat" target="cu-enviar-pregunta">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="660" as="sourcePoint" />
+            <mxPoint x="560" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-chat-enviar-label" value="&lt;&lt;include&gt;&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;fontColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="505" y="660" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel-chat-recibir" value="" style="endArrow=open;html=1;rounded=0;strokeWidth=1;strokeColor=#9673a6;dashed=1;exitX=0.7;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cu-abrir-chat" target="cu-recibir-respuesta">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="660" as="sourcePoint" />
+            <mxPoint x="720" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-chat-recibir-label" value="&lt;&lt;include&gt;&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;fontColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="700" y="660" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel-enviar-generar" value="" style="endArrow=open;html=1;rounded=0;strokeWidth=1;strokeColor=#9673a6;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;" edge="1" parent="1" source="cu-enviar-pregunta" target="cu-generar-respuesta">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="620" y="710" as="sourcePoint" />
+            <mxPoint x="750" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-enviar-generar-label" value="&lt;&lt;include&gt;&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;fontColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="640" y="680" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Guia relations -->
+        <mxCell id="rel-guia-temas" value="" style="endArrow=open;html=1;rounded=0;strokeWidth=1;strokeColor=#d79b00;dashed=1;exitX=0.2;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cu-navegar-guia" target="cu-ver-temas">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="875" as="sourcePoint" />
+            <mxPoint x="490" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-guia-temas-label" value="&lt;&lt;include&gt;&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;fontColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="450" y="865" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel-guia-subtema" value="" style="endArrow=open;html=1;rounded=0;strokeWidth=1;strokeColor=#d79b00;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cu-navegar-guia" target="cu-ver-subtema">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="875" as="sourcePoint" />
+            <mxPoint x="640" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-guia-subtema-label" value="&lt;&lt;include&gt;&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;fontColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="645" y="870" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel-subtema-video" value="" style="endArrow=open;html=1;rounded=0;strokeWidth=1;strokeColor=#d79b00;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="cu-ver-subtema" target="cu-ver-video">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="920" as="sourcePoint" />
+            <mxPoint x="730" y="920" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-subtema-video-label" value="&lt;&lt;extend&gt;&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;fontColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="700" y="900" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Progreso relations -->
+        <mxCell id="rel-progreso-guardar" value="" style="endArrow=open;html=1;rounded=0;strokeWidth=1;strokeColor=#82b366;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="cu-ver-progreso" target="cu-guardar-progreso">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="580" y="1050" as="sourcePoint" />
+            <mxPoint x="620" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-progreso-guardar-label" value="&lt;&lt;include&gt;&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;fontColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="575" y="1010" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ========== ASOCIACIONES ESTUDIANTE ========== -->
+        <mxCell id="asoc-est-login" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#d6b656;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="actor-estudiante" target="cu-login">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="530" as="sourcePoint" />
+            <mxPoint x="320" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="asoc-est-logout" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#d6b656;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="actor-estudiante" target="cu-logout">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="540" as="sourcePoint" />
+            <mxPoint x="320" y="305" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="asoc-est-perfil" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#d6b656;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="actor-estudiante" target="cu-ver-perfil">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="540" as="sourcePoint" />
+            <mxPoint x="320" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="asoc-est-escanear" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#6c8ebf;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="actor-estudiante" target="cu-escanear">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="540" as="sourcePoint" />
+            <mxPoint x="570" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="asoc-est-chat" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#9673a6;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="actor-estudiante" target="cu-abrir-chat">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="560" as="sourcePoint" />
+            <mxPoint x="570" y="625" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="asoc-est-guia" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#d79b00;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="actor-estudiante" target="cu-navegar-guia">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="590" as="sourcePoint" />
+            <mxPoint x="570" y="840" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="asoc-est-progreso" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#82b366;exitX=1;exitY=0.8;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="actor-estudiante" target="cu-ver-progreso">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="600" as="sourcePoint" />
+            <mxPoint x="440" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ========== ASOCIACIONES SISTEMAS EXTERNOS ========== -->
+        <!-- Firebase -->
+        <mxCell id="asoc-firebase-login" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#d79b00;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="actor-firebase" target="cu-login">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1420" y="220" as="sourcePoint" />
+            <mxPoint x="460" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="asoc-firebase-guardar" value="" style="endArrow=none;html=1;rounded=1;strokeWidth=2;strokeColor=#d79b00;exitX=0;exitY=0.8;exitDx=0;exitDy=0;entryX=1;entryY=0.3;entryDx=0;entryDy=0;curved=1;" edge="1" parent="1" source="actor-firebase" target="cu-guardar-progreso">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1420" y="250" as="sourcePoint" />
+            <mxPoint x="740" y="1035" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Gemini -->
+        <mxCell id="asoc-gemini" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#6c8ebf;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="actor-gemini" target="cu-analizar-gemini">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1420" y="460" as="sourcePoint" />
+            <mxPoint x="870" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ML Kit -->
+        <mxCell id="asoc-mlkit" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#6c8ebf;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="actor-mlkit" target="cu-clasificar-mlkit">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1420" y="580" as="sourcePoint" />
+            <mxPoint x="870" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Groq -->
+        <mxCell id="asoc-groq" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#9673a6;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="actor-groq" target="cu-generar-respuesta">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1420" y="700" as="sourcePoint" />
+            <mxPoint x="880" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- YouTube -->
+        <mxCell id="asoc-youtube" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#b85450;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="actor-youtube" target="cu-ver-video">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1420" y="940" as="sourcePoint" />
+            <mxPoint x="860" y="920" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ========== LEYENDA ========== -->
+        <mxCell id="leyenda-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="150" width="380" height="180" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leyenda-titulo" value="LEYENDA UML" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="155" width="120" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg-actor-uml" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#d6b656;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="940" y="180" width="25" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-actor-label" value="Actor" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="975" y="190" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg-sistema-ext" value="" style="shape=mxgraph.basic.rect;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="230" width="30" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-sistema-ext-label" value="Sistema Externo" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="975" y="235" width="100" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg-cu" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="265" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-cu-label" value="Caso de Uso" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="975" y="268" width="80" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg-asoc" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="940" y="305" as="sourcePoint" />
+            <mxPoint x="970" y="305" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg-asoc-label" value="Asociacion" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="975" y="298" width="70" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Segunda columna leyenda -->
+        <mxCell id="leg-include" value="" style="endArrow=open;html=1;rounded=0;strokeWidth=1;strokeColor=#333333;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1100" y="195" as="sourcePoint" />
+            <mxPoint x="1140" y="195" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg-include-label" value="&lt;&lt;include&gt;&gt; / &lt;&lt;extend&gt;&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="188" width="130" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg-boundary" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#1a5f2a;strokeWidth=2;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="220" width="40" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-boundary-label" value="Limite del Sistema" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="225" width="110" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Colores por modulo -->
+        <mxCell id="leg-color-auth" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="255" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-color-auth-label" value="Autenticacion/Progreso" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="1125" y="253" width="120" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg-color-scanner" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="275" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-color-scanner-label" value="Escaner IA" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="1125" y="273" width="80" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg-color-chat" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="295" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-color-chat-label" value="Chatbot" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="1125" y="293" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg-color-guia" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="315" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-color-guia-label" value="Guia Didactica" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="1125" y="313" width="90" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

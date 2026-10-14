@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-05-05T00:00:00.000Z" agent="Claude Code" version="21.0.0" type="device">
+  <diagram id="ai-architecture" name="AI Architecture">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ===== TITLE ===== -->
+        <mxCell id="title" value="AI Architecture — Ciencias Naturales App"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=22;fontStyle=1;fontColor=#1A237E;"
+          vertex="1" parent="1">
+          <mxGeometry x="250" y="20" width="900" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- ===== LAYER 1: FLUTTER MOBILE APPLICATION ===== -->
+        <mxCell id="app" value="Flutter Mobile Application"
+          style="swimlane;startSize=38;fillColor=#E8F5E9;strokeColor=#2E7D32;fontStyle=1;fontSize=13;fontColor=#1B5E20;rounded=1;arcSize=3;"
+          vertex="1" parent="1">
+          <mxGeometry x="55" y="80" width="1110" height="295" as="geometry" />
+        </mxCell>
+
+        <!-- Chatbot Module -->
+        <mxCell id="chatbot" value="&lt;b&gt;Chatbot Module&lt;/b&gt;&lt;br/&gt;Natural Language Q&amp;A&lt;br/&gt;Voice Input (STT)"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontColor=#0D47A1;arcSize=15;fontSize=11;"
+          vertex="1" parent="app">
+          <mxGeometry x="25" y="55" width="210" height="85" as="geometry" />
+        </mxCell>
+
+        <!-- Quiz Generator -->
+        <mxCell id="quiz" value="&lt;b&gt;Quiz Generator&lt;/b&gt;&lt;br/&gt;AI Dynamic Assessment&lt;br/&gt;+ Context Injection"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C5CAE9;strokeColor=#283593;fontColor=#1A237E;arcSize=15;fontSize=11;"
+          vertex="1" parent="app">
+          <mxGeometry x="278" y="55" width="210" height="85" as="geometry" />
+        </mxCell>
+
+        <!-- Image Scanner -->
+        <mxCell id="scanner" value="&lt;b&gt;Image Scanner&lt;/b&gt;&lt;br/&gt;Species Identification&lt;br/&gt;Camera / Gallery"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontColor=#E65100;arcSize=15;fontSize=11;"
+          vertex="1" parent="app">
+          <mxGeometry x="533" y="55" width="210" height="85" as="geometry" />
+        </mxCell>
+
+        <!-- AR Module -->
+        <mxCell id="ar" value="&lt;b&gt;Augmented Reality&lt;/b&gt;&lt;br/&gt;Marker Detection&lt;br/&gt;Image Target"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#6A1B9A;fontColor=#4A148C;arcSize=15;fontSize=11;"
+          vertex="1" parent="app">
+          <mxGeometry x="860" y="55" width="210" height="85" as="geometry" />
+        </mxCell>
+
+        <!-- Educational Context (supporting) -->
+        <mxCell id="ctx" value="Educational Content Context  (GuiaContextService / CelulaData)"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2F1;strokeColor=#00897B;fontColor=#004D40;dashed=1;arcSize=12;fontSize=10;"
+          vertex="1" parent="app">
+          <mxGeometry x="25" y="170" width="340" height="42" as="geometry" />
+        </mxCell>
+
+        <!-- On-Device STT (supporting) -->
+        <mxCell id="stt" value="On-Device Speech-to-Text  (Spanish Recognition)"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2F1;strokeColor=#00897B;fontColor=#004D40;dashed=1;arcSize=12;fontSize=10;"
+          vertex="1" parent="app">
+          <mxGeometry x="395" y="170" width="290" height="42" as="geometry" />
+        </mxCell>
+
+        <!-- Firestore bar -->
+        <mxCell id="firestore" value="Firebase Firestore   —   Chat Sessions   ·   User Progress   ·   Achievements   ·   XP / Levels"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#C62828;fontColor=#B71C1C;dashed=1;arcSize=12;fontSize=10;"
+          vertex="1" parent="app">
+          <mxGeometry x="25" y="237" width="1060" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ===== LAYER 2: AI MODELS ===== -->
+        <mxCell id="ailay" value="AI Models Layer"
+          style="swimlane;startSize=35;fillColor=#F5F5F5;strokeColor=#616161;fontStyle=1;fontSize=13;fontColor=#212121;rounded=1;arcSize=3;"
+          vertex="1" parent="1">
+          <mxGeometry x="55" y="480" width="1110" height="240" as="geometry" />
+        </mxCell>
+
+        <!-- Groq API -->
+        <mxCell id="groq" value="&lt;b&gt;Groq API&lt;/b&gt;&lt;br/&gt;Cloud  ·  LLaMA 3.3 — 70B Versatile&lt;br/&gt;&lt;br/&gt;  Chatbot responses&lt;br/&gt;  Quiz question generation&lt;br/&gt;  Context-aware NLP"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontColor=#0D47A1;arcSize=10;fontSize=11;align=left;spacingLeft=14;spacingTop=6;"
+          vertex="1" parent="ailay">
+          <mxGeometry x="25" y="48" width="330" height="168" as="geometry" />
+        </mxCell>
+
+        <!-- Gemini API -->
+        <mxCell id="gemini" value="&lt;b&gt;Google Gemini Vision API&lt;/b&gt;&lt;br/&gt;Cloud  ·  Multimodal Foundation Model&lt;br/&gt;&lt;br/&gt;  Image analysis&lt;br/&gt;  Species / organism identification&lt;br/&gt;  JSON-structured output"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F57F17;fontColor=#E65100;arcSize=10;fontSize=11;align=left;spacingLeft=14;spacingTop=6;"
+          vertex="1" parent="ailay">
+          <mxGeometry x="395" y="48" width="355" height="168" as="geometry" />
+        </mxCell>
+
+        <!-- TFLite MobileNet V2 -->
+        <mxCell id="tflite" value="&lt;b&gt;TFLite MobileNet V2&lt;/b&gt;&lt;br/&gt;On-Device  ·  No Internet Required&lt;br/&gt;&lt;br/&gt;  Marker classification&lt;br/&gt;  AR trigger detection&lt;br/&gt;  Real-time inference"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCEDC8;strokeColor=#558B2F;fontColor=#1B5E20;arcSize=10;fontSize=11;align=left;spacingLeft=14;spacingTop=6;"
+          vertex="1" parent="ailay">
+          <mxGeometry x="795" y="48" width="290" height="168" as="geometry" />
+        </mxCell>
+
+        <!-- ===== EDGES (cross-container, parent=root) ===== -->
+
+        <!-- Chatbot -> Groq -->
+        <mxCell id="e1" value="NLP Request"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1565C0;strokeWidth=2.5;fontColor=#1565C0;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;"
+          edge="1" source="chatbot" target="groq" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Quiz -> Groq -->
+        <mxCell id="e2" value="Prompt + Context"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#283593;strokeWidth=2.5;fontColor=#283593;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.6;entryY=0;entryDx=0;entryDy=0;"
+          edge="1" source="quiz" target="groq" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Scanner -> Gemini -->
+        <mxCell id="e3" value="Image + Prompt"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#F57F17;strokeWidth=2.5;fontColor=#E65100;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;"
+          edge="1" source="scanner" target="gemini" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- AR -> TFLite -->
+        <mxCell id="e4" value="Camera Frame"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6A1B9A;strokeWidth=2.5;fontColor=#4A148C;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;"
+          edge="1" source="ar" target="tflite" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,189 @@
+================================================================================
+SECTION 5. PROPOSAL, LIMITATIONS AND FUTURE WORKS
+Article: AI-Powered Mobile Educational Application for Natural Sciences
+Miranda et al. (2026) — ARTMIS4TEL
+================================================================================
+
+NOTE FOR INTEGRATION: This text corresponds to Section 5 of the article and
+is supported by Figure X (figura_proposal_limitations_future), a three-column
+diagram that visually structures the proposal, its identified limitations, and
+the directions for future research.
+
+--------------------------------------------------------------------------------
+
+5. Proposal, Limitations and Future Works
+
+The evidence synthesized in this review, combined with the implementation
+and empirical evaluation of the developed system, supports a concrete
+technological and pedagogical integration framework for AI-powered mobile
+education. Figure X presents a structured overview of the proposal, its
+inherent limitations, and the directions proposed for future research.
+
+--------------------------------------------------------------------------------
+
+5.1. Proposal
+
+Based on the findings from the systematic review and guided by the
+identified research gap, this study proposes an AI-powered mobile educational
+application developed with Flutter, designed to support the teaching and
+learning of Natural Sciences at the secondary level (8th grade). The system
+integrates three specialized AI-driven modules within a unified mobile
+interface, each addressing a distinct dimension of the learning process:
+
+(1) An Educational Chatbot powered by the LLaMA 3.3 70B model via the Groq
+API, which provides conversational tutoring in Spanish. The chatbot employs
+a curricular context injection strategy — embedding the full instructional
+content of the didactic guide into the system prompt — to ensure scientifically
+accurate, domain-restricted responses aligned with the official curriculum.
+This approach enables personalized, on-demand explanatory support without
+requiring costly model fine-tuning.
+
+(2) A Dynamic Quiz Generator, also driven by LLaMA 3.3 70B via Groq API,
+which produces adaptive assessments across three difficulty levels (basic,
+intermediate, advanced). Quiz generation is anchored to specific subtopic
+content, ensuring curricular alignment and supporting formative feedback
+loops that reinforce active learning.
+
+(3) An Intelligent Image Scanner that combines Google Gemini 1.5 Flash for
+primary multimodal identification of biological specimens with a TensorFlow
+Lite MobileNet V2 model as an on-device fallback. This dual-layer architecture
+implements graceful degradation, maintaining functional output even under
+limited connectivity conditions.
+
+These modules are sustained by a technological foundation comprising Natural
+Language Processing, Large Language Models, machine learning, computer vision,
+Firebase Authentication and Firestore for persistent user data, and a
+gamification system based on experience points (XP) and achievement badges.
+At the pedagogical level, the system instantiates four evidence-based
+instructional strategies identified in the literature review: personalized
+learning, interactive tutoring, formative feedback, and challenge-based
+learning.
+
+The overarching goal of the proposal is to improve academic performance,
+intrinsic motivation, and the overall learning experience in Natural Sciences
+education, contributing a replicable, low-infrastructure-cost model for
+AI-enhanced mobile learning in under-resourced educational contexts
+(Miranda et al., 2026).
+
+--------------------------------------------------------------------------------
+
+5.2. Limitations
+
+Despite the promising results obtained, the implementation and evaluation of
+the proposed system are subject to several limitations that must be
+transparently acknowledged, as they affect the generalizability of findings
+and the scalability of the system (see Figure X, central column).
+
+Response accuracy. Large language models, including LLaMA 3.3 70B, may
+generate responses that are incorrect, hallucinated, or outside the intended
+curricular scope. Although the context injection and domain restriction
+strategies achieved a scientific accuracy rate of 97% and a domain
+restriction effectiveness of 98.9%, a residual error rate persists that may
+have a negative instructional impact if undetected by the learner.
+
+Internet connectivity dependency. The core AI functionalities — the chatbot,
+the dynamic quiz generator, and the Gemini-based image scanner — require an
+active internet connection. This represents a significant structural constraint
+in educational contexts with limited or unstable digital infrastructure,
+particularly in rural or peripheral regions of developing countries.
+
+Instructional design variability. The educational effectiveness of the system
+is not solely determined by its technical performance. It depends critically
+on the teacher's capacity and willingness to integrate the tool coherently
+within a broader pedagogical design. Without structured teacher training and
+institutional support, the system's potential may remain unrealized.
+
+Ethical and privacy concerns. The use of generative AI systems in educational
+settings raises unresolved challenges regarding data governance, algorithmic
+transparency, and user trust — particularly when the users are minors. The
+interaction data stored in cloud services is subject to third-party policies
+that may not align with local data protection regulations.
+
+Lack of standardized evaluation framework. The field currently lacks a unified
+methodological protocol for measuring the educational impact of AI-powered
+chatbot and tutoring systems. This absence limits the comparability of results
+across studies and hinders cumulative scientific progress.
+
+Limited validation sample. The pilot study was conducted with 45 students
+from a single educational institution in Ecuador over a four-week period.
+This restricts the external validity of the findings and precludes causal
+inference regarding the observed knowledge gains, given the absence of a
+randomized control group.
+
+--------------------------------------------------------------------------------
+
+5.3. Future Works
+
+The limitations identified above, together with the broader research gaps
+surfaced by the systematic review, motivate a set of concrete directions for
+future investigation (see Figure X, right column).
+
+Standardized evaluation framework. A priority for the research community is
+the development of unified evaluation metrics and protocols for AI-powered
+educational chatbot systems. Such a framework should integrate usability
+measures (e.g., System Usability Scale), effect size indicators (e.g.,
+Cohen's d), and non-parametric statistical tests (e.g., Mann-Whitney U) to
+enable valid and reliable cross-study comparisons. The formalization of
+assessment dimensions — covering technical performance, pedagogical validity,
+and user experience — would substantially advance the scientific rigor of the
+field.
+
+Multi-institution validation. Replicating the study across multiple schools,
+educational levels, and socioeconomic contexts is essential to validate the
+generalizability of the findings. Future research should incorporate
+randomized controlled designs that isolate the specific contribution of
+individual AI components to learning outcomes, distinguishing their effects
+from general instructional factors.
+
+Advanced and reliable AI models. To address limitations in response accuracy
+and domain specificity, future implementations should explore Retrieval-
+Augmented Generation (RAG) architectures and fine-tuning strategies applied
+to nationally validated curriculum content. These techniques would anchor
+model outputs more firmly in verified educational sources, reducing
+hallucination rates and improving alignment with learning objectives.
+
+Full offline functionality. Integrating on-device large language models
+through edge AI deployment — leveraging compressed model architectures such
+as quantized LLMs — would substantially reduce connectivity dependency and
+improve equity of access in contexts with limited internet infrastructure.
+This direction is particularly relevant for educational systems in developing
+regions and for ensuring continuity of learning during connectivity
+disruptions.
+
+Adaptive learning pathways. Future versions of the system should implement
+intelligent content recommendation engines capable of dynamically adjusting
+the sequence, difficulty, and modality of learning activities based on each
+student's interaction profile, performance history, and knowledge state.
+This would enable more individualized learning trajectories and more precise
+formative support aligned with each learner's needs.
+
+Expansion to other curricular subjects. The multi-model AI architecture
+developed in this study is not inherently specific to Natural Sciences. Its
+extension to other school subjects — including Mathematics, History, and
+Language — with adapted curricular content and domain-specific evaluation
+criteria would establish a scalable and transferable framework for AI-
+enhanced mobile education across the school curriculum.
+
+Taken together, these future directions constitute a research agenda oriented
+toward the development of chatbot-based educational systems that are
+scalable, adaptive, robust, and pedagogically aligned — capable of meeting
+the diverse and evolving needs of learners in a variety of educational
+contexts.
+
+--------------------------------------------------------------------------------
+
+FIGURE CAPTION (for integration in the article):
+
+Fig. X. Proposal, limitations and future work of the AI multi-model mobile
+educational application for Natural Sciences. The diagram presents, from left
+to right: (1) the proposed technological and pedagogical integration
+framework, including the three AI-driven modules, their foundational
+technologies, and instructional strategies; (2) the six limitations identified
+in the implementation and evaluation of the system; and (3) six research
+directions proposed to address those limitations and advance the field.
+Miranda et al. (2026).
+
+================================================================================
+Word count (approximate): ~950 words (body text only, excluding headings,
+figure caption, and this metadata block)
+================================================================================

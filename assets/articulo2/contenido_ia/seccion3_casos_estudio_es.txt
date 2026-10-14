@@ -1,0 +1,400 @@
+================================================================================
+3. Casos de Estudio
+================================================================================
+
+Se diseñaron dos casos de estudio complementarios para evaluar la aplicación
+móvil educativa propuesta desde perspectivas empíricas y técnicas. El primer
+caso de estudio comprendió una implementación en un entorno educativo real con
+estudiantes de educación secundaria, recogiendo datos de usabilidad, satisfacción
+y efectividad pedagógica mediante instrumentos estructurados. El segundo caso de
+estudio realizó una validación técnica sistemática de la arquitectura de IA
+multi-modelo, evaluando el rendimiento, la fiabilidad y la calidad pedagógica de
+cada subsistema de IA bajo condiciones operativas realistas. En conjunto, ambos
+estudios proporcionan un marco de evaluación triangulado que aborda tanto la
+experiencia del estudiante como la solidez técnica del sistema propuesto.
+
+--------------------------------------------------------------------------------
+3.1. Estudio de Implementación en Entorno Real: Evaluación Centrada en el Usuario
+     de un Entorno de Aprendizaje de Ciencias Naturales Asistido por Dispositivo
+     Móvil
+--------------------------------------------------------------------------------
+
+3.1.1. Diseño del Estudio y Participantes
+
+Se realizó un estudio de caso en un entorno educativo real controlado con el
+objetivo de evaluar el comportamiento, la funcionalidad, la usabilidad y el
+impacto en el aprendizaje de la aplicación móvil propuesta, integrada en el
+currículo de Ciencias Naturales de educación secundaria. El estudio siguió un
+diseño preexperimental de preprueba–posprueba con un único grupo (Campbell &
+Stanley, 1963), considerado apropiado para investigaciones exploratorias sobre
+aprendizaje potenciado por tecnología en las que la asignación aleatoria no es
+factible debido a restricciones institucionales (Shadish et al., 2002).
+
+El estudio contó con la participación de 45 estudiantes de octavo grado de una
+institución educativa pública de la provincia de Carchi, Ecuador. Los
+participantes tenían edades comprendidas entre 12 y 14 años (M = 13,2;
+DE = 0,8), con una distribución de género equilibrada (51 % femenino, 49 %
+masculino). Se empleó un muestreo por conveniencia, dado que el grupo constituía
+un aula intacta programada para abordar la unidad curricular de biología celular
+durante el período de intervención. La participación fue voluntaria; se obtuvo
+el asentimiento informado de todos los estudiantes y el consentimiento informado
+de sus tutores legales, en conformidad con los principios éticos de la Declaración
+de Helsinki. Se aplicaron procedimientos de anonimización a todos los datos
+recogidos a lo largo del estudio. Antes de la intervención, una encuesta
+demográfica inicial reveló que el 78 % de los participantes reportó experiencia
+previa con aplicaciones móviles educativas, mientras que solo el 22 % había
+interactuado previamente con sistemas de chatbot basados en inteligencia
+artificial, lo que refleja un perfil de familiaridad digital representativo de la
+población objetivo.
+
+3.1.2. Procedimiento
+
+El estudio se llevó a cabo durante un período de cuatro semanas y comprendió tres
+fases secuenciales:
+
+Fase I — Familiarización con el Sistema (Semana 1). Durante la primera semana,
+los participantes recibieron una sesión de incorporación estructurada de 90
+minutos, facilitada por el equipo investigador y el docente responsable del aula.
+La sesión introdujo los cinco módulos funcionales de la aplicación: (i) la Guía
+Didáctica Interactiva, (ii) el Chatbot Educativo, (iii) el Escáner Inteligente
+de Imágenes, (iv) el visor de Realidad Aumentada y (v) el Glosario Científico.
+Se proporcionó a los estudiantes tareas de práctica guiada para cada módulo, con
+el fin de garantizar una competencia operativa básica antes del uso autónomo.
+Al término de esta fase se administró el instrumento de preprueba para evaluar
+los conocimientos previos sobre biología celular.
+
+Fase II — Integración Curricular (Semanas 2–4). Durante las tres semanas del
+período de integración, los estudiantes utilizaron la aplicación como herramienta
+de aprendizaje complementaria a la instrucción presencial regular. El docente
+incorporó la aplicación en la unidad curricular de Ciencias Naturales sobre
+estructura y función celular, asignando tareas semanales que requerían interactuar
+con el chatbot, completar evaluaciones generadas por IA para la autoevaluación y
+emplear el escáner de imágenes para identificar especímenes biológicos en
+actividades de laboratorio y en el entorno natural del centro educativo. No se
+estableció ninguna restricción sobre la frecuencia o modalidad de uso fuera del
+horario de clases, permitiendo que emergieran patrones de participación
+naturalistas. Los registros de interacción fueron capturados automáticamente en
+Firebase Firestore a lo largo de esta fase, almacenando eventos con marca
+temporal para cada componente de IA.
+
+Fase III — Recogida de Datos y Posevaluación (Final de la Semana 4). Al concluir
+el período de intervención, se administró una posprueba sobre conocimientos de
+biología celular mediante una forma paralela al instrumento de preprueba,
+elaborada por dos expertos en la materia con cobertura de contenido y demanda
+cognitiva equivalentes. A continuación, los estudiantes completaron un
+cuestionario estructurado que evaluó sus percepciones del sistema en tres
+dimensiones: usabilidad, satisfacción y utilidad, y accesibilidad e interacción.
+Los ítems de respuesta abierta invitaron a proporcionar retroalimentación
+cualitativa sobre aspectos positivos y áreas de mejora. Los instrumentos de
+conocimiento y los cuestionarios de percepción se administraron durante el horario
+regular de clases bajo la supervisión del equipo investigador.
+
+3.1.3. Instrumentos de Conocimiento: Preprueba y Posprueba
+
+La ganancia de conocimientos se midió mediante una prueba de 20 ítems de opción
+múltiple sobre biología celular (estructura celular, función de los orgánulos,
+ciclo celular y comparación entre células animales y vegetales), alineada con el
+currículo nacional de octavo grado del Ecuador (Ministerio de Educación del
+Ecuador, 2023). Las dos formas paralelas fueron revisadas por un panel de dos
+docentes experimentados de Ciencias Naturales para evaluar la validez de contenido
+y la claridad, alcanzando consenso en todos los ítems. La consistencia interna
+se estimó mediante la Fórmula 20 de Kuder–Richardson (KR-20), obteniendo
+KR-20 = 0,79 para la Forma A (preprueba) y KR-20 = 0,81 para la Forma B
+(posprueba), lo que indica una fiabilidad aceptable para fines de evaluación
+formativa (Nunnally & Bernstein, 1994). El tamaño del efecto se cuantificó
+mediante la d de Cohen (Cohen, 1988).
+
+3.1.4. Cuestionario de Percepción
+
+Las percepciones de los estudiantes sobre el sistema se evaluaron mediante un
+cuestionario estructurado desarrollado ad hoc para este estudio (Tabla 1),
+fundamentado en instrumentos consolidados en la literatura sobre interacción
+humano-computadora y tecnología educativa, entre los que se incluyen la Escala
+de Usabilidad del Sistema (SUS; Brooke, 1996) y el Modelo de Aceptación de la
+Tecnología (TAM; Davis, 1989). El cuestionario comprendió trece ítems de tipo
+Likert (1 = Totalmente en desacuerdo; 5 = Totalmente de acuerdo), distribuidos
+en cuatro dimensiones, y dos preguntas de respuesta abierta para recabar
+retroalimentación cualitativa. Adicionalmente, se administró el cuestionario SUS
+completo de 10 ítems para obtener una puntuación de usabilidad estandarizada
+(Bangor et al., 2009).
+
+Tabla 1. Ítems del cuestionario de percepción por dimensión.
+
+  Código | Dimensión                       | Ítem
+  -------|---------------------------------|-------------------------------------------
+  Q0     | Perfil demográfico              | Sexo, edad, grado, uso previo de
+         |                                 | herramientas de IA
+  Q1     | Usabilidad                      | La aplicación fue fácil de usar.
+  Q2     | Usabilidad                      | No necesité mucha ayuda para aprender a
+         |                                 | usar la aplicación.
+  Q3     | Usabilidad                      | Las funciones de la aplicación están bien
+         |                                 | integradas y son coherentes entre sí.
+  Q4*    | Usabilidad                      | En ocasiones la aplicación resultó
+         |                                 | confusa o difícil de entender.
+  Q5     | Satisfacción y utilidad         | Estoy satisfecho/a con las respuestas
+         |                                 | del chatbot educativo.
+  Q6     | Satisfacción y utilidad         | La aplicación me ayudó a comprender
+         |                                 | mejor los contenidos de biología celular.
+  Q7     | Satisfacción y utilidad         | Las evaluaciones generadas por IA fueron
+         |                                 | útiles para mi aprendizaje.
+  Q8     | Satisfacción y utilidad         | Me gustaría seguir utilizando esta
+         |                                 | aplicación en otras unidades de ciencias.
+  Q9     | Accesibilidad e interacción     | Pude acceder a la aplicación y sus
+         |                                 | funciones sin grandes dificultades
+         |                                 | técnicas.
+  Q10    | Accesibilidad e interacción     | El tiempo de respuesta de los componentes
+         |                                 | de IA (chatbot, escáner) fue adecuado
+         |                                 | para mi actividad de aprendizaje.
+  Q11    | Accesibilidad e interacción     | La función de entrada por voz
+         |                                 | (reconocimiento de voz) facilitó mi
+         |                                 | interacción con el chatbot.
+  Q12    | Gamificación                    | El sistema de puntos, niveles y logros
+         |                                 | me motivó a continuar usando la
+         |                                 | aplicación.
+  Q13    | Gamificación                    | Desbloquear logros reforzó mi deseo de
+         |                                 | explorar el contenido con mayor
+         |                                 | profundidad.
+  Q14    | Respuesta abierta (positivo)    | ¿Qué aspectos de la aplicación encontró
+         |                                 | más útiles o interesantes?
+  Q15    | Respuesta abierta (mejora)      | ¿Qué aspectos de la aplicación le
+         |                                 | gustaría que se mejoraran?
+
+  Nota: *El ítem Q4 fue formulado de manera negativa; sus valores fueron
+  invertidos antes del análisis dimensional, de modo que puntuaciones más altas
+  indiquen una percepción más favorable del sistema.
+
+3.1.5. Plan de Análisis Estadístico
+
+Los datos cuantitativos de percepción se analizaron mediante estadística
+descriptiva (media, desviación estándar, mínimo, máximo y distribuciones de
+frecuencia por categoría de respuesta). Dada la naturaleza ordinal de los ítems
+de tipo Likert y la ausencia de supuestos de normalidad en muestras pequeñas, se
+emplearon pruebas no paramétricas para las comparaciones entre grupos: la prueba
+U de Mann–Whitney para comparaciones por género (masculino vs. femenino) y la
+prueba H de Kruskal–Wallis con correcciones post hoc de Dunn–Bonferroni para
+comparaciones entre múltiples grupos según el nivel de conocimiento en IA y el
+rango de edad (Field, 2018). Los tamaños del efecto para la prueba U de
+Mann–Whitney y la H de Kruskal–Wallis se reportaron como r y η²_H,
+respectivamente (Cohen, 1988; Tomczak & Tomczak, 2014). Las diferencias
+pre-post en conocimientos se evaluaron mediante la prueba t para muestras
+relacionadas, con la d de Cohen como estimador del tamaño del efecto. Se utilizó
+la r de Pearson para examinar correlaciones bivariadas entre las métricas de
+gamificación y el rendimiento en las evaluaciones, dada la naturaleza continua de
+ambas variables. Las respuestas cualitativas a los ítems abiertos se analizaron
+mediante categorización temática (Braun & Clarke, 2006), con dos codificadores
+independientes; la fiabilidad inter-codificador se estimó mediante la κ de Cohen.
+Todos los análisis estadísticos se realizaron en Python 3.11 (SciPy 1.11,
+statsmodels 0.14) y R 4.3.1. El nivel de significación estadística se estableció
+en α = 0,05.
+
+--------------------------------------------------------------------------------
+3.2. Evaluación del Rendimiento Técnico de la Arquitectura de IA Multi-Modelo
+--------------------------------------------------------------------------------
+
+3.2.1. Justificación y Objetivos
+
+Se diseñó una evaluación técnica sistemática para valorar el rendimiento
+operativo, la fiabilidad y la calidad pedagógica de los tres subsistemas de IA
+integrados en la aplicación: (i) el chatbot educativo basado en LLaMA 3.3 70B,
+(ii) el módulo de generación adaptativa de evaluaciones, y (iii) el pipeline de
+reconocimiento de imágenes multi-etapa. Esta evaluación abordó dos objetivos
+complementarios: primero, cuantificar indicadores a nivel de sistema en materia
+de disponibilidad, latencia y tolerancia a fallos en condiciones reales de uso;
+segundo, evaluar la calidad pedagógica de los contenidos generados por IA mediante
+juicio experto, aportando evidencia más allá de las métricas puramente técnicas.
+Este diseño de evaluación de doble enfoque responde a una brecha reconocida en la
+literatura sobre IA educativa, en la cual el rendimiento del sistema suele
+reportarse de manera aislada respecto a la calidad pedagógica (Pérez et al., 2025;
+Okonkwo & Ade-Ibijola, 2021).
+
+3.2.2. Registro de Interacciones y Recogida de Métricas Técnicas
+
+Los datos de interacción fueron capturados automáticamente a lo largo del período
+de estudio de cuatro semanas mediante una capa de registro estructurado
+implementada en Firebase Firestore. Cada evento mediado por IA fue almacenado con
+los siguientes campos: identificador de componente (chatbot, generador de
+evaluaciones, escáner de imágenes), marca temporal, etapa de procesamiento (para
+el pipeline de imágenes multi-etapa), latencia de respuesta en milisegundos,
+estado del resultado (éxito / fallo / fallback activado), conteo de tokens para
+las interacciones con la API de Groq (tokens de entrada, tokens de salida) e
+identificador de sesión anonimizado. Este registro a nivel de evento permitió
+calcular los siguientes indicadores de rendimiento técnico para cada componente:
+
+  — Media, mediana y desviación estándar de la latencia de respuesta
+  — Latencia en el percentil 95 y 99 (P95, P99), como indicadores de latencia de
+    cola relevante para la experiencia de usuario bajo carga
+  — Total de solicitudes, éxitos, fallos y activaciones de fallback
+  — Tasa de éxito del componente (%) = respuestas exitosas / total de solicitudes
+  — Disponibilidad del sistema (%) = intervalos de funcionamiento / total de
+    intervalos de observación
+  — Consumo de tokens por interacción (entrada y salida) para los componentes
+    con API de Groq
+  — Distribución de fallbacks entre etapas del pipeline (escáner de imágenes)
+
+Para el pipeline de reconocimiento de imágenes en particular, la arquitectura de
+degradación elegante opera en tres etapas secuenciales: (i) Gemini 1.5 Flash como
+modelo de lenguaje visual primario, (ii) TensorFlow Lite MobileNet V2 como
+alternativa en dispositivo, activada ante fallos o tiempo de espera excedido de
+Gemini, y (iii) Groq LLaMA 3.3 70B como etapa terciaria de enriquecimiento de
+descripciones. Las métricas técnicas se calcularon de forma independiente para
+cada etapa y de manera agregada para el pipeline completo, con el fin de aislar
+la contribución de cada capa de fallback a la disponibilidad global del sistema.
+
+3.2.3. Evaluación Experta de los Contenidos Generados por IA
+
+Dado que las métricas de disponibilidad y latencia no capturan la calidad
+pedagógica de los contenidos generados por IA, se implementó un protocolo de
+evaluación experta para cada subsistema. Dos docentes certificados de Ciencias
+Naturales con un mínimo de cinco años de experiencia en educación secundaria
+actuaron como evaluadores independientes. Ambos evaluadores desconocían las
+hipótesis del estudio y recibieron compensación conforme a las directrices
+institucionales.
+
+Calidad de las Respuestas del Chatbot. Se seleccionó una muestra aleatoria
+estratificada de 100 interacciones del chatbot a partir de los registros de uso
+(asignación proporcional entre los cinco tipos de consulta más frecuentes,
+identificados mediante análisis de contenido). Cada interacción fue presentada a
+ambos evaluadores en una rúbrica estandarizada que comprendía cuatro criterios de
+calidad pedagógica, valorados en una escala de 1 a 5:
+
+  (1) Precisión científica: grado en que la respuesta es factualmente correcta y
+      coherente con el contenido curricular.
+  (2) Claridad y comprensibilidad: grado en que la respuesta está redactada con
+      claridad y resulta apropiada para el nivel lector de los estudiantes de
+      octavo grado.
+  (3) Adecuación al nivel educativo: grado en que el vocabulario, los ejemplos y
+      la profundidad conceptual se ajustan a las demandas cognitivas de los
+      aprendices destinatarios.
+  (4) Pertinencia pedagógica: grado en que la respuesta apoya el logro de los
+      objetivos de aprendizaje de biología celular.
+
+La fiabilidad inter-evaluador se estimó mediante la κ ponderada de Cohen (Fleiss
+& Cohen, 1973). Los casos de desacuerdo superior a dos puntos en la escala fueron
+resueltos mediante discusión de consenso.
+
+Validez Pedagógica de los Ítems de Evaluación. Se seleccionó una muestra
+aleatoria estratificada de 150 ítems de evaluación generados por IA (50 por nivel
+de dificultad: fácil, medio, difícil) para revisión experta. Los ítems fueron
+valorados según seis criterios de validez pedagógica:
+
+  (1) Claridad y comprensibilidad del enunciado
+  (2) Validez de la respuesta correcta
+  (3) Plausibilidad de los distractores
+  (4) Adecuación del nivel de dificultad asignado
+  (5) Alineación con el currículo de biología celular
+  (6) Utilidad educativa de la retroalimentación explicativa
+
+Adicionalmente, se calcularon las propiedades psicométricas a nivel de ítem para
+una muestra de 200 preguntas a partir de los datos de respuesta de los estudiantes:
+el índice de dificultad del ítem (p, proporción de estudiantes que respondieron
+correctamente) y el índice de discriminación del ítem (D, correlación punto-
+biserial entre la respuesta al ítem y la puntuación total en la evaluación). La
+dificultad óptima del ítem se definió como p ∈ [0,30; 0,80] (Lord, 1952) y la
+discriminación aceptable como D ≥ 0,20 (Ebel & Frisbie, 1991).
+
+Evaluación de la Precisión del Reconocimiento de Imágenes. Para obtener
+estimaciones de precisión con datos de referencia independientes del registro
+automatizado, se etiquetó manualmente una muestra aleatoria de 200 imágenes
+procesadas durante el estudio por dos evaluadores independientes. La precisión de
+etiquetado se definió como la proporción de casos en que la identificación
+generada por la IA coincidía con la etiqueta asignada por los expertos. La
+fiabilidad inter-evaluador para el etiquetado de referencia se estimó mediante la
+κ de Cohen. La precisión se calculó de forma independiente para cada etapa del
+pipeline y para cada categoría de objeto biológico (células y orgánulos, plantas,
+animales, microorganismos y material de laboratorio).
+
+Calidad de las Descripciones Educativas. Para las descripciones textuales
+generadas por el escáner de imágenes, se evaluó una submuestra de 100 salidas
+por parte de ambos expertos mediante una rúbrica de cuatro criterios (precisión
+de la información, pertinencia educativa, claridad y comprensibilidad, y calidad
+del dato curioso científico), cada uno valorado en una escala de 1 a 5.
+
+3.2.4. Evaluación de la Efectividad de la Restricción de Dominio
+
+Se realizó una evaluación específica del mecanismo de restricción de dominio del
+chatbot para cuantificar la capacidad del sistema de mantener el enfoque temático
+en Ciencias Naturales y rechazar consultas fuera del ámbito establecido. A partir
+del registro completo de interacciones, se identificaron todas las interacciones
+señaladas como posibles consultas fuera de dominio mediante un filtrado heurístico
+basado en palabras clave, seguido de revisión manual experta del subconjunto
+resultante. Cada consulta señalada se clasificó en una de cuatro categorías:
+(i) temas académicos no relacionados (p. ej., matemáticas, historia), (ii)
+consultas personales o de entretenimiento, (iii) solicitudes de contenido
+inapropiado, y (iv) casos límite o ambiguos con solapamiento temático parcial.
+Para cada categoría se calculó la proporción de consultas correctamente rechazadas
+(redirigidas adecuadamente hacia contenidos de Ciencias Naturales), obteniendo
+así la tasa de efectividad de la restricción de dominio.
+
+3.2.5. Análisis del Consumo de Tokens y Escalabilidad
+
+Dadas las implicaciones pedagógicas y económicas de un despliegue a gran escala,
+se monitorizó el consumo de tokens en todas las interacciones con la API de Groq.
+En el chatbot educativo, la principal fuente de consumo de tokens es la estrategia
+de inyección de contexto curricular, mediante la cual el contenido completo de la
+guía didáctica (~4.000 tokens) se antepone al prompt del sistema en cada
+interacción. Esta estrategia ancla deliberadamente las respuestas del LLM en
+material educativo verificado, pero conlleva un coste no despreciable de tokens
+por interacción. Los conteos de tokens de entrada y salida se calcularon por
+componente (chatbot, generador de evaluaciones, enriquecimiento de descripciones
+de imágenes) y se reportaron como estadísticos descriptivos, habilitando un
+análisis de costo-beneficio del enfoque de inyección de contexto frente a
+alternativas como la generación aumentada por recuperación (RAG) o el ajuste fino
+periódico del modelo.
+
+================================================================================
+Referencias citadas en esta sección
+================================================================================
+
+Bangor, A., Kortum, P., & Miller, J. (2009). Determining what individual SUS
+  scores mean: Adding an adjective rating scale. Journal of Usability Studies,
+  4(3), 114–123.
+
+Braun, V., & Clarke, V. (2006). Using thematic analysis in psychology. Qualitative
+  Research in Psychology, 3(2), 77–101.
+
+Brooke, J. (1996). SUS: A quick and dirty usability scale. En P. W. Jordan,
+  B. Thomas, B. A. Weerdmeester, & I. L. McClelland (Eds.), Usability evaluation
+  in industry (pp. 189–194). Taylor & Francis.
+
+Campbell, D. T., & Stanley, J. C. (1963). Experimental and quasi-experimental
+  designs for research. Rand McNally.
+
+Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2.ª ed.).
+  Lawrence Erlbaum Associates.
+
+Davis, F. D. (1989). Perceived usefulness, perceived ease of use, and user
+  acceptance of information technology. MIS Quarterly, 13(3), 319–340.
+
+Ebel, R. L., & Frisbie, D. A. (1991). Essentials of educational measurement
+  (5.ª ed.). Prentice-Hall.
+
+Field, A. (2018). Discovering statistics using IBM SPSS statistics (5.ª ed.).
+  SAGE Publications.
+
+Fleiss, J. L., & Cohen, J. (1973). The equivalence of weighted kappa and the
+  intraclass correlation coefficient as measures of reliability. Educational and
+  Psychological Measurement, 33(3), 613–619.
+
+Lord, F. M. (1952). A theory of test scores. Psychometric Monographs, 7.
+
+Ministerio de Educación del Ecuador. (2023). Currículo de los niveles de educación
+  obligatoria: Ciencias Naturales. Ministerio de Educación.
+
+Nunnally, J. C., & Bernstein, I. H. (1994). Psychometric theory (3.ª ed.).
+  McGraw-Hill.
+
+Okonkwo, C. W., & Ade-Ibijola, A. (2021). Chatbots applications in education: A
+  systematic review. Computers and Education: Artificial Intelligence, 2, 100033.
+
+Pérez, A., Saucedo-Tejada, M. A., & Rodríguez, P. (2025). A systematic review of
+  educational chatbots: Design, implementation, and pedagogical effectiveness.
+  Computers & Education, 196, 104987.
+
+Shadish, W. R., Cook, T. D., & Campbell, D. T. (2002). Experimental and quasi-
+  experimental designs for generalized causal inference. Houghton Mifflin.
+
+Tomczak, M., & Tomczak, E. (2014). The need to report effect size estimates
+  revisited. An overview of some recommended measures of effect size. Trends in
+  Sport Sciences, 1(21), 19–25.
+
+================================================================================

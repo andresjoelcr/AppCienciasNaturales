@@ -1,0 +1,1557 @@
+﻿Article
+
+Guía Didáctica Interactiva y Chatbot Integrado en una Aplicación Móvil: Un Estudio de Caso en la Enseñanza de Ciencias Naturales.
+
+Jorge Miranda1,2*, Rodrigo Cadena2, Juan P. López-Goyez 3, Anthony Quiranza1.
+
+Academic Editor: Firstname Lastname
+
+Received: date
+
+Revised: date
+
+Accepted: date
+
+Published: date
+
+Citation: To be added by editorial staff during production.
+
+Copyright: © 2025 by the authors. Submitted for possible open access publication under the terms and conditions of the Creative Commons Attribution (CC BY) license (https://creativecommons.org/licenses/by/4.0/).
+
+1Universidad Politécnica Estatal del Carchi, Faculty of Agricultural Industries and Environmental Sciences, Calle Antisana, 040101, Tulcán, Ecuador;  (J.M.)
+
+2Universidad Americana de Europa, Doctorado en Informática, Calle Antisana, 040101, , México;  
+
+3BISITE Research Group, Edificio I+D+i, University of Salamanca, Calle Espejo 2, Salamanca, 37007, Castile and León, Spain; 
+
+*Correspondence:  
+
+Abstract
+
+Intelligent Tutoring Systems are increasingly used in higher education to support personalized learning and academic monitoring in large-scale digital environments. However, existing systems are predominantly based on static architecture and rigid rule-based mechanisms, which limit scalability and hinder effective adaptation to heterogeneous learners, evolving learning behaviors, and real-world educational contexts. This paper presents a self-adaptive multi-agent architecture based on Reinforcement Learning for autonomous decision-making in intelligent systems deployed in real environments. The proposal integrates an RL Meta-Agent that dynamically optimizes the selection of specialized agents through an intelligent switching mechanism, considering the user's state, behavior, and interaction patterns. The architecture was implemented in Moodle using flows orchestrated in n8n, LLMs, databases, APIs developed in Django, and real academic data. For the empirical evaluation, a real and a simulated case study were designed. A questionnaire was administered to university students, considering dimensions of usability, satisfaction and usefulness, and accessibility and interaction, to understand the perception of the system and improvements. The quantitative data were analyzed using descriptive statistics and nonparametric tests (Mann–Whitney U and Kruskal–Wallis), while the qualitative data were examined using thematic categorization. A simulated case study was conducted to analyze the behavior of the system. The results show that the RL Meta-Agent significantly improves system efficiency, response relevance, and adaptive agent selection, demonstrating that self-adaptive RL-based MAS architectures are a viable solution for intelligent systems applied in real-world contexts, providing empirical evidence of their performance and adaptability in complex scenarios such as higher education.
+
+Keywords: Generative Artificial Intelligence; Intelligent Tutoring Systems; Learning Management Systems; Multi-Agent Systems; Reinforcement Learning.
+
+Introduction
+
+1.1. Transformación digital y m-learning en la enseñanza de las Ciencias Naturales
+
+  La transformación digital en el sector educativo ha experimentado una aceleración sin precedentes durante la última década, impulsada por el desarrollo de tecnologías disruptivas y catalizada de manera determinante por las exigencias derivadas de la pandemia de COVID-19 (Benavides et   al., 2024). Este proceso de digitalización ha redefinido los paradigmas tradicionales de enseñanza-aprendizaje, transitando desde modelos centrados en la transmisión presencial de conocimientos hacia ecosistemas educativos híbridos que integran herramientas digitales, plataformas de   gestión del aprendizaje y tecnologías emergentes como la inteligencia artificial, la realidad  aumentada y los sistemas de tutoría inteligente  (Salas-Pilco et al., 2023). En este contexto, el aprendizaje móvil (m-learning) ha emergido como una modalidad educativa con potencial   transformador, particularmente relevante para la enseñanza de las Ciencias Naturales.
+
+  El año 2023 registró el mayor número de publicaciones científicas sobre adopción de tecnología educativa, reflejando el creciente interés  académico en explorar los cambios que estas innovaciones aportan al campo educativo (PMC, 2025). Sin embargo, estudios sobre madurez digital   universitaria indican que únicamente una de cada cuatro instituciones posee estrategias digitales coherentes, mientras que el 56% implementa   iniciativas aisladas sin integración en planes estratégicos (Frontiers in Education, 2025). Esta brecha entre el potencial tecnológico disponible y su implementación efectiva subraya la necesidad de investigaciones que documenten experiencias exitosas de integración tecnológica en contextos  educativos específicos.
+
+  El aprendizaje móvil se define como una modalidad educativa que aprovecha la ubicuidad, portabilidad y conectividad de los dispositivos móviles   para facilitar experiencias de aprendizaje flexibles y contextualizadas (Crompton & Burke, 2023). Los estudiantes pueden aprender en cualquier   momento y lugar debido a que los dispositivos son ligeros y permanecen constantemente conectados. La portabilidad, conectividad y sensibilidad al contexto constituyen características distintivas que permiten a los aprendices recolectar datos en campo, revisar recursos durante desplazamientos   y compartir ideas en tiempo real (Frontiers in Communication, 2025). Estas posibilidades de acciones tecnológicas resultan particularmente alineadas con los principios de la educación científica, que privilegia la indagación práctica y la comunicación de evidencias.
+
+  La evidencia empírica respalda la efectividad del m-learning en la educación científica. Un metaanálisis de 44 estudios empíricos, evaluó el efecto  del aprendizaje móvil en estudiantes de educación básica, considerando el efecto moderador del campo científico, nivel educativo, enfoque  pedagógico, entorno de aprendizaje y tratamiento de control (Sung et al., 2023). Los hallazgos sugieren que el aprendizaje móvil produce mejores resultados cuando el enfoque de aprendizaje situado sustenta la intervención educativa. Complementariamente, revisiones sistemáticas y metaanálisis recientes reportan tamaños de efecto moderados a jóvenes,  para el pensamiento crítico (g = 0.56) y fuertes para la creatividad (g = 0.82), mientras que las habilidades comunicativas evidencian efectos menores pero consistentes (g = 0.42) (Ansori et al., 2024).
+
+  Un análisis comprehensivo de 104 estudios empíricos reveló que el m-learning tiene un efecto grande (d = 0.86) sobre los resultados de los  estudiantes, indicando que los dispositivos móviles son más efectivos en incrementar el aprendizaje estudiantil que los métodos tradicionales   (Sustainability, 2023). Los smartphones constituyen el 78% de los dispositivos utilizados en intervenciones de m-learning científico, y los enfoques de aprendizaje basado en indagación y resolución de problemas aparecen con mayor frecuencia en las implementaciones exitosas. No  obstante, las revisiones advierten que la mayoría de los ensayos tienen duraciones inferiores a seis semanas y dependen de rúbricas de  autorreporte, lo cual limita la generalización de los hallazgos.
+
+  En el ámbito específico de la enseñanza de la Biología y Ciencias Naturales, investigaciones recientes han explorado el potencial de las  aplicaciones móviles para reforzar el aprendizaje de contenidos complejos. Sharma et al. (2023) condujeron un experimento sobre el uso de  smartphones para reforzar lecciones de Biología en estudiantes de séptimo grado (edad media = 12.22 años), comparando cuatro enfoques diferentes:  sin herramientas digitales, con videos de YouTube, con una aplicación tutorial que proporcionaba materiales de estudio y cuestionarios, y con una  aplicación interactiva que mostraba modelos tridimensionales de sistemas de órganos. Los resultados evidenciaron diferencias significativas en el  rendimiento académico favoreciendo las modalidades interactivas.
+
+ La convergencia entre inteligencia artificial y realidad aumentada (AR) en la educación científica ha experimentado un crecimiento exponencial.
+
+Las tecnologías de Inteligencia Artificial Generativa (IAG) se utilizan  crecientemente en la educación científica y ofrecen la oportunidad de aplicar enfoques innovadores en los procesos educativos. Estas tecnologías  se consideran con potencial significativo para incrementar la accesibilidad de oportunidades de aprendizaje y escalar experiencias de aprendizaje  personalizadas individualmente.
+
+  El desarrollo de aplicaciones móviles educativas multiplataforma ha sido facilitado por frameworks como Flutter, que permite crear aplicaciones  nativas para iOS, Android y web desde una única base de código (Flutter, 2024). Este enfoque de "escribir una vez, ejecutar en todas partes" reduce significativamente los costos y tiempos de desarrollo, democratizando el acceso a tecnologías educativas de alta calidad. La biblioteca de   widgets de Flutter proporciona control completo sobre la apariencia y comportamiento de las aplicaciones, permitiendo crear interfaces de usuario visualmente atractivas y pedagógicamente funcionales. El mercado de aplicaciones móviles proyecta un crecimiento cercano al 15% anual hasta 2030,  lo cual subraya la relevancia de desarrollar competencias en desarrollo móvil orientado a contextos educativos.
+
+  Las tecnologías inmersivas apoyan el aprendizaje autorregulado al proporcionar experiencias de aprendizaje personalizadas y adaptativas.
+
+  Características como la retroalimentación inmediata y las simulaciones interactivas empoderan a los estudiantes para tomar control de su proceso  de aprendizaje, promoviendo la autonomía y la motivación (Frontiers in Education, 2024). El modelo SAMR (Sustitución, Aumento, Modificación,  Redefinición) categoriza el uso de tecnología en cuatro niveles, desde la sustitución básica de métodos tradicionales hasta la redefinición   transformadora de las tareas de aprendizaje, proporcionando un marco evaluativo para determinar cómo las tecnologías emergentes pueden no solo  mejorar sino transformar las prácticas educativas en ciencias naturales.
+
+  Sin embargo, persisten desafíos significativos en la implementación efectiva de tecnologías digitales en la educación científica. La pandemia de   COVID-19 aceleró el uso de tecnologías digitales en educación, pero muchas escuelas demostraron falta de experiencia y baja capacidad digital, lo   cual resultó en la ampliación de brechas, inequidades y pérdidas de aprendizaje (PMC, 2022). El liderazgo institucional, la planificación  estratégica y la integración sistemática de tecnologías digitales constituyen prerrequisitos para la transformación digital exitosa de los  sistemas educativos. Adicionalmente, la resistencia al cambio por parte de docentes y la limitación de recursos en contextos educativos  desfavorecidos representan barreras persistentes.
+
+  El presente estudio se inscribe en este contexto de transformación digital educativa, proponiendo una aplicación móvil multiplataforma  desarrollada con el framework Flutter para la enseñanza de Ciencias Naturales, específicamente orientada al aprendizaje de conceptos relacionados  con la estructura y función celular. La aplicación integra una guía didáctica interactiva con contenido multimedia estructurado, incluyendo textos    explicativos, imágenes comparativas de células animales y vegetales y  videos educativos embebidos, un chatbot educativo basado  en el modelo de lenguaje Llama 3.3 70B que proporciona tutoría personalizada en lenguaje natural, funcionalidades de visión computacional mediante   Google Gemini y TensorFlow Lite para la identificación de organismos y estructuras biológicas, y elementos de gamificación que incluyen sistemas
+
+  de puntos, niveles progresivos, logros desbloqueables y seguimiento de rachas de estudio. Esta arquitectura tecnológica busca materializar los  principios del m-learning contextualizado, aprovechando las capacidades de los dispositivos móviles para ofrecer experiencias de aprendizaje científico personalizadas, accesibles y motivadoras.
+
+1.2. Guías didácticas interactivas como estrategia pedagógica en la enseñanza
+
+  Las guías didácticas han constituido históricamente un recurso pedagógico fundamental para orientar los procesos de enseñanza-aprendizaje, proporcionando estructuras secuenciales que facilitan la adquisición de conocimientos y el desarrollo de competencias académicas. No obstante, la   convergencia entre las tecnologías digitales emergentes y los paradigmas educativos contemporáneos ha propiciado una transformación sustancial en   la concepción, diseño e implementación de estos recursos, dando lugar a las denominadas guías didácticas interactivas (Zou et al., 2025). Estas   herramientas trascienden la naturaleza estática de los materiales tradicionales al incorporar elementos dinámicos, adaptativos y multimodales que responden a las características individuales del aprendiz.
+
+  La proliferación de dispositivos móviles inteligentes ha catalizado el desarrollo del aprendizaje móvil (m-learning), modalidad educativa que  aprovecha la portabilidad, conectividad y sensibilidad contextual de estos dispositivos para facilitar experiencias de aprendizaje ubicuo (Chen et   al., 2024). En el ámbito de la educación científica, el m-learning ha demostrado ser particularmente efectivo, dado que permite a los estudiantes    recolectar datos en entornos naturales, acceder a recursos multimedia durante actividades de campo y compartir evidencias en tiempo real,  características que se alinean con los principios de la indagación científica (Frontiers in Communication, 2025). Revisiones sistemáticas y metaanálisis recientes han evidenciado efectos moderados a grandes de las intervenciones móviles sobre el pensamiento crítico, la creatividad y las habilidades comunicativas de los estudiantes.
+
+  La integración de Modelos de Lenguaje de Gran Escala (LLM) en las guías didácticas interactivas representa un avance significativo en la  personalización del aprendizaje. Los sistemas de tutoría inteligente basados en LLM se caracterizan por su adaptabilidad dinámica, ofreciendo  orientación contextualizada en tiempo real que se ajusta al nivel de conocimiento previo, el perfil cognitivo y las necesidades específicas de  cada estudiante (Létourneau et al., 2025). Estos sistemas generan materiales educativos, explicaciones diferenciadas y retroalimentación formativa    personalizada, superando las limitaciones de los enfoques pedagógicos uniformes. Sin embargo, investigaciones recientes advierten que, aunque el soporte basado en LLM reduce la carga cognitiva del aprendizaje, puede inadvertidamente conducir a una disminución del esfuerzo y de las ganancias de aprendizaje si no se diseña adecuadamente (ScienceDirect, 2025).
+
+  Desde una perspectiva arquitectónica, los agentes educativos impulsados por inteligencia artificial han emergido como componentes fundamentales de   los sistemas de tutoría contemporáneos. Córdova-Esparza (2025) identificó cinco patrones recurrentes en la literatura: (i) el anclaje mediante  recuperación de información reduce significativamente las alucinaciones del modelo; (ii) las salvaguardas de ingeniería de prompts preservan la   integridad académica; (iii) el debate multi-agente mejora la precisión en tareas mal estructuradas; (iv) los andamiajes afectivos incrementan la  persistencia del estudiante; y (v) la co-orquestación con docentes mitiga los riesgos de inequidad. La evidencia sugiere que los flujos de trabajo híbridos humano-IA, en lugar de tutores completamente autónomos, producen aprendizajes más significativos.
+
+  El aprendizaje multimodal constituye otro pilar fundamental de las guías didácticas interactivas contemporáneas. La integración de múltiples modalidades de comunicación visual, auditiva, gestual, espacial y lingüística— genera entornos de aprendizaje dinámicos que atienden a diversos estilos cognitivos (Nature, 2024). En el contexto de las aplicaciones móviles educativas, la multimodalidad se materializa mediante la combinación de contenido textual estructurado, recursos audiovisuales embebidos, imágenes comparativas, ejercicios interactivos y evaluaciones formativas con retroalimentación inmediata. El análisis de aprendizaje multimodal (MMLA) permite extraer indicadores cognitivos, conductuales y afectivos de múltiples fuentes de datos para comprender y optimizar procesos de aprendizaje complejos (MDPI, 2025).
+
+  La gamificación ha emergido como una estrategia pedagógica complementaria que potencia la efectividad de las guías didácticas interactivas, particularmente en la educación científica. Los elementos de diseño de juegos —sistemas de puntos, tablas de clasificación, logros desbloqueables, narrativas inmersivas y mecánicas de progresión han demostrado promover el aprendizaje, la motivación y el pensamiento científico de los estudiantes (Springer, 2025). Investigaciones con estudiantes de educación secundaria han reportado mejoras significativas en el rendimiento  académico tras la implementación de aplicaciones móviles gamificadas, con incrementos sustanciales entre las evaluaciones pre-test y post-test (Informing Science Institute, 2024). No obstante, la literatura también advierte sobre resultados mixtos, señalando que sistemas pobremente   diseñados pueden generar desmotivación por dependencia excesiva de recompensas extrínsecas o estrés inducido por competencia.
+
+  Desde el marco teórico del constructivismo, las guías didácticas interactivas facilitan que los aprendices construyan activamente su conocimiento mediante la exploración, la experimentación y la reflexión. Las tecnologías de IA, como los sistemas de tutoría inteligente y los entornos de aprendizaje adaptativo, ofrecen experiencias personalizadas que se alinean con el enfoque constructivista al permitir que los estudiantes  interactúen con el contenido de manera adaptativa y a su propio ritmo, fomentando una comprensión más profunda (American Journal of Information Technology, 2024). Sharples (2023) propone que la IA generativa sea entendida no solo como una herramienta, sino como un actor social en entornos educativos, capaz de participar en el aprendizaje colaborativo mediante roles como "oponente socrático" o "coach de colaboración".
+
+  La accesibilidad representa una dimensión crítica en el diseño de guías didácticas interactivas inclusivas. La integración de tecnologías de reconocimiento de voz (speech-to-text) amplía el acceso a estudiantes con diversas capacidades, incluyendo aquellos con limitaciones motoras o   dificultades de aprendizaje específicas. Estudios con estudiantes de educación secundaria han demostrado que la entrada mediante voz resulta menos    desafiante y frecuentemente genera producciones escritas más extensas (LD OnLine, 2023). Las aplicaciones móviles que incorporan múltiples modalidades de entrada —texto, voz y elementos visuales— materializan los principios del Diseño Universal para el Aprendizaje (DUA), garantizando múltiples medios de representación, expresión y compromiso.
+
+  En el contexto específico de la enseñanza de las Ciencias Naturales, las guías didácticas interactivas potenciadas por IA presentan oportunidades singulares para facilitar la comprensión de conceptos abstractos y procesos biológicos complejos. La combinación de contenido multimedia estructurado que incluye representaciones visuales de estructuras celulares, videos explicativos de procesos fisiológicos y comparativas   anatómicas con asistentes conversacionales inteligentes capaces de resolver dudas específicas en lenguaje natural, configura un ecosistema de  aprendizaje que atiende tanto la dimensión conceptual como la procedimental del conocimiento científico. Investigaciones en educación científica  han evidenciado que las intervenciones basadas en aplicaciones móviles que integran gamificación e indagación guiada promueven el desarrollo de   habilidades de autorregulación del aprendizaje en estudiantes de educación básica (Springer, 2025). 
+
+  El presente estudio examina la implementación de una guía didáctica interactiva integrada en una aplicación móvil multiplataforma desarrollada con   el framework Flutter, destinada a la enseñanza de contenidos de Ciencias Naturales relacionados con la estructura y función celular. La  aplicación incorpora un chatbot educativo basado en el modelo Llama 3.3 70B mediante la API de Groq, configurado con un prompt de sistema que  inyecta el contenido completo de la guía didáctica como contexto, restringiendo las respuestas al dominio temático específico. Adicionalmente, el  sistema integra funcionalidades de visión computacional mediante Google Gemini y modelos TensorFlow Lite para la identificación de estructuras biológicas, así como elementos de gamificación que incluyen puntos de experiencia, niveles progresivos, logros desbloqueables y seguimiento de rachas de estudio. Esta arquitectura busca articular los principios pedagógicos del constructivismo con las capacidades adaptativas  de la inteligencia artificial generativa, configurando un sistema de tutoría que personaliza la experiencia educativa mientras mantiene la   coherencia curricular y la supervisión docente.
+
+1.3. Chatbots educativos integrados en aplicaciones móviles
+
+  Los chatbots educativos han emergido como una de las tecnologías más prometedoras para la transformación de los procesos de enseñanza-aprendizaje  en entornos digitales. Definidos como agentes virtuales que emplean procesamiento de lenguaje natural (PLN) para interactuar con usuarios y  procesar sus entradas, estos sistemas han evolucionado desde implementaciones basadas en reglas predefinidas hasta arquitecturas sofisticadas fundamentadas en Modelos de Lenguaje de Gran Escala (LLM) capaces de generar respuestas coherentes, contextualmente relevantes y gramaticalmente  correctas (Okonkwo & Ade-Ibijola, 2021). La integración de chatbots en aplicaciones móviles educativas representa una convergencia tecnológica que  aprovecha la ubicuidad de los dispositivos móviles para ofrecer experiencias de tutoría personalizada accesibles en cualquier momento y lugar. 
+
+  Revisiones sistemáticas recientes han documentado el impacto significativo de los chatbots en los resultados de aprendizaje. Pérez et al. (2025)  analizaron 71 publicaciones científicas e identificaron que la mayoría de los chatbots educativos están orientados a la enseñanza y han sido  desarrollados progresivamente mediante plataformas de construcción de chatbots. Sin embargo, los autores advierten que muchos de estos sistemas se integran en entornos educativos sin una fundamentación teórica sólida, lo cual limita su efectividad pedagógica. Complementariamente, Okonkwo y Ade-Ibijola (2021) evidenciaron que los chatbots demuestran mejoras significativas en el logro académico, el razonamiento explícito y la retención del conocimiento, ofreciendo beneficios como asistencia inmediata, acceso rápido a información y experiencias educativas enriquecidas.
+
+  El lanzamiento de ChatGPT el 30 de noviembre de 2022 marcó un hito significativo en la adopción de chatbots impulsados por inteligencia  artificial, alcanzando más de 100 millones de usuarios en apenas dos meses y estableciendo un récord mundial en velocidad de adopción tecnológica (Farrokhnia et al., 2024). Este evento catalizó un interés académico sin precedentes en la aplicación de LLM en contextos educativos. Yigci et al.    (2025) destacan que los chatbots basados en LLM ofrecen potencial para el aprendizaje asincrónico y la retroalimentación personalizada, aunque también advierten sobre problemáticas como respuestas incorrectas generadas con aparente confianza y los sesgos inherentes a  los modelos.
+
+  Entre las diversas aplicaciones de los LLM en educación, los sistemas de tutoría inteligente (ITS) representan una de las áreas más prometedoras   para transformar los enfoques pedagógicos tradicionales. Estos sistemas se caracterizan por su adaptabilidad dinámica, ofreciendo orientación de aprendizaje en tiempo real y sensible al contexto (Panagiotidis, 2024). Los LLM constituyen tutores ideales porque pueden participar en diálogos  abiertos e inteligentes, detectar confusión en el estudiante y explicar tópicos de múltiples maneras, todo en lenguaje natural. Además, un único LLM puede tutorizar a millones de estudiantes simultáneamente, haciendo que la educación personalizada sea infinitamente escalable (Medium, 2024).
+
+  LLM de código abierto como Llama ha democratizado el acceso a tecnologías de tutoría inteligente. La capacidad creciente de  ejecutar LLM sofisticados de manera local, como se observa con proyectos como Ollama y Llama.cpp, presenta numerosas ventajas, incluyendo   interacciones más seguras con agentes de IA, preservación de la privacidad de datos del usuario y avance en el desarrollo de sistemas de tutoría inteligente (ScienceDirect, 2025). Investigaciones han demostrado que Llama 3 desafía a los modelos propietarios de vanguardia en preguntas de exámenes específicas, evidenciando la viabilidad de implementaciones educativas basadas en modelos abiertos.
+
+  La ingeniería de prompts constituye un componente crítico en el diseño de chatbots educativos efectivos. Definida como el proceso de diseñar y  refinar las instrucciones proporcionadas a un LLM para obtener respuestas de mayor calidad y más focalizadas (Schmidt et al., 2023), esta  disciplina permite adaptar las respuestas del modelo al contexto educativo específico. Cain (2024) enfatiza que el conocimiento profundo del   contenido y las habilidades de pensamiento crítico son componentes esenciales para la escritura efectiva de prompts, sugiriendo que los educadores deben proporcionar el conocimiento de contenido necesario para guiar exitosamente al LLM y evaluar eficazmente sus respuestas. La metodología GPEI (Goals-Prompt-Evaluation-Iteration) propuesta por Velásquez-Henao et al. (2023) orienta a los usuarios a considerar primero sus objetivos  generales antes de escribir un prompt, seguido de evaluación e iteración.
+
+  La restricción de dominio temático representa una estrategia fundamental para garantizar la pertinencia pedagógica de las respuestas generadas. He et al. (2024) encontraron que los formatos de prompt estructurados, como JSON y YAML, pueden mejorar significativamente la precisión de las  respuestas del LLM, permitiendo que modelos más pequeños alcancen precisión comparable a modelos de mayor escala. En el contexto educativo, la inyección del contenido curricular completo como contexto del sistema permite que el chatbot genere respuestas alineadas con los objetivos de aprendizaje específicos, rechazando consultas fuera del dominio temático establecido y manteniendo la coherencia con el diseño instruccional.
+
+ La gestión de la memoria conversacional constituye otro aspecto determinante en la efectividad de los chatbots educativos. Actualmente, la mayoría   de los chatbots carecen de la capacidad de crear modelos persistentes y evolutivos de aprendices individuales que se extiendan más allá de una única sesión, limitación que afecta el seguimiento del progreso a lo largo del tiempo (Springer, 2025). No obstante, investigaciones recientes en   IA conversacional con memoria mejorada abordan las limitaciones de los chatbots convencionales que frecuentemente proporcionan respuestas genéricas. La implementación de memorias a corto plazo conversaciones inmediatas del usuario y memorias a largo plazo procesadas sobre el historial completo de interacciones a través de múltiples sesiones, permite mantener la continuidad conversacional y prevenir que el modelo se desvíe de la tarea y el contexto actuales (Medium, 2025).
+
+  El impacto diferencial de los tipos de retroalimentación generada por chatbots educativos ha sido objeto de investigación empírica reciente. Wang et al. (2025) investigaron cómo la retroalimentación metacognitiva, afectiva y neutral de un chatbot educativo afectaba los resultados de aprendizaje y la actividad cerebral. Los estudiantes que recibieron retroalimentación metacognitiva mostraron puntuaciones de transferencia más   altas, mayor sensibilidad metacognitiva y activación cerebral incrementada en el área frontopolar. Los estudiantes que recibieron retroalimentación afectiva evidenciaron mejores puntuaciones de retención que aquellos que recibieron retroalimentación neutral, hallazgos que subrayan la importancia del diseño cuidadoso de las estrategias de respuesta del chatbot.
+
+  La integración de tecnologías de reconocimiento de voz (speech-to-text) en chatbots educativos móviles amplía las modalidades de interacción y mejora la accesibilidad del sistema. Los chatbots impulsados por IA han ganado prominencia en la educación al ofrecer experiencias de aprendizaje personalizadas y adaptativas, con mejoras notables en las habilidades productivas y receptivas de los aprendices, especialmente en expresión oral y escrita, debido a características como la retroalimentación en tiempo real y la reducción de la ansiedad (ScienceDirect, 2025). La entrada por voz resulta particularmente beneficiosa para estudiantes con dificultades de aprendizaje específicas, generando frecuentemente producciones más extensas y de mayor calidad.
+
+ La motivación estudiantil representa una dimensión crítica influenciada por los chatbots educativos. Hew et al. (2025) realizaron una revisión de  alcance que examina cómo la emergencia de la IA generativa y los LLM, como GPT, Llama y Mistral, han redefinido el potencial de los chatbots y  atraído a más educadores a integrarlos en las escuelas. Estos chatbots avanzados, entrenados en conjuntos de datos extensos, producen respuestas   coherentes, contextualmente relevantes y gramaticalmente correctas, incrementando la motivación para aprender y el desarrollo de habilidades. Para los educadores, los beneficios incluyen la reducción de costos y la disminución de la carga de trabajo.
+
+  Sin embargo, la literatura también documenta desafíos significativos. La evidencia sugiere que los flujos de trabajo híbridos humano-IA, en los cuales los docentes moderan la salida del LLM, superan a los tutores completamente autónomos y producen las ganancias de aprendizaje más significativas (Córdova-Esparza, 2025). Una preocupación clave es que los LLM pueden proporcionar respuestas incorrectas con aparente confianza, lo cual    puede perjudicar el aprendizaje si no se detecta. Adicionalmente, aunque el soporte basado en LLM reduce la carga de trabajo del aprendizaje, puede inadvertidamente conducir a una disminución del esfuerzo y de las ganancias de aprendizaje si los estudiantes desarrollan dependencia excesiva del sistema.
+
+  El presente estudio implementa un chatbot educativo integrado en una aplicación móvil multiplataforma desarrollada con Flutter, empleando el  modelo Llama 3.3 70B a través de la API de Groq como motor de procesamiento de lenguaje natural. La arquitectura del chatbot incorpora un prompt  de sistema meticulosamente diseñado que inyecta el contenido completo de la guía didáctica sobre la célula como contexto, incluyendo la estructura  de subtemas, explicaciones conceptuales, datos  y preguntas de evaluación. Esta estrategia de ingeniería de prompts establece una  restricción de dominio temático que circunscribe las respuestas exclusivamente al ámbito de las Ciencias Naturales, rechazando consultas fuera del  alcance curricular definido. El sistema integra reconocimiento de voz en español mediante la librería Speech-to-Text, ofreciendo una modalidad de  entrada alternativa que mejora la accesibilidad y reduce las barreras de interacción. El historial conversacional se persiste en Firebase  Firestore, permitiendo el seguimiento de sesiones de chat y el análisis de patrones de interacción. Adicionalmente, el sistema implementa un  mecanismo de logros que recompensa la participación activa del estudiante, otorgando el logro tras formular preguntas al chatbot, integrando así elementos de gamificación que refuerzan la motivación intrínseca hacia la exploración del contenido educativo.
+
+1.4. Brecha de investigación y contribución del estudio
+
+Although ITSs have been extensively studied, their integration with self-adaptive architectures based on Reinforcement Learning and generative AI remains limited, especially in real-world and scalable environments. Despite advances in LLM, many proposals rely on static flows and rigid rules, which restrict dynamic adaptation to heterogeneous users and contexts.
+
+This work proposes ELA Tutor, a self-adaptive MAS architecture designed for deployment in LMS, specifically Moodle, through the integration of LLM, automated flows orchestrated with n8n, and autonomous decision-making mechanisms. The architecture is composed of specialized agents with differentiated functional responsibilities (pedagogical, technical, empathetic, and ethical), coordinated centrally to ensure system consistency, operational continuity, and coherence in decision-making throughout the interaction process.
+
+At the core of the proposal is the Meta-Agent Orchestrator, responsible for coordinating the overall behavior of the system and dynamically selecting the most appropriate response strategy in each interaction. This component integrates an RL cycle, allowing the system to learn and adjust its decision policy based on accumulated experience. To do this, a simplified Q-learning model is used, in which the state of the environment is defined by combining the user's level of knowledge and their emotional state inferred during the interaction, while the actions correspond to the different tutoring strategies managed by the specialized agents.
+
+The architecture incorporates a persistent experiential memory, managed by the Meta-Agent Orchestrator and stored in a relational database, which is consulted before generating each response. When the historical experience associated with a strategy presents a sufficient level of confidence, the policy learned through RL guides decision-making; otherwise, the system resorts to deterministic mechanisms or inferential reasoning based on LLM. This hybrid decision logic, natively integrated into the architecture, allows for a balance between stability, adaptability, and generalization capacity of the system.
+
+The novelty of this work lies in the design of ELA Tutor as a self-adaptive multi-agent architecture that natively integrates reinforcement learning and generative artificial intelligence within a real Learning Management System environment. Unlike existing Intelligent Tutoring Systems that rely on static orchestration flows or rigid rule-based tutoring strategies, the proposed architecture introduces a Meta-Agent Orchestrator capable of dynamically selecting tutoring strategies based on accumulated experience. This is achieved through a reinforcement learning cycle that combines inferred learner knowledge level and affective indicators to inform decision-making, while preserving a clear separation between decision-making processes and generative response production. Furthermore, the incorporation of persistent experiential memory and hybrid decision logic enables the system to balance adaptability, stability, and scalability, demonstrating its applicability in real-world LMS deployments rather than controlled or purely simulated settings.
+
+2. Materials and Methods
+
+This study follows an applied research approach, focused on the construction and evaluation of an adaptive intelligent tutoring architecture implemented in the Moodle learning management system within a university production environment. The methodology combines architectural design, reinforcement learning (RL)-based decision modeling, and empirical validation through the implementation of real and simulated case studies.
+
+The proposed system is evaluated using a mixed-methods strategy, integrating (i) quantitative system-level indicators derived from RL convergence and interaction logs, and (ii) quantitative and perceptual data collected from students through structured questionnaires. This methodological design allows for the validation of both the technical aspects of the architecture and its educational applicability in real-world contexts.
+
+2.1. System design and architecture
+
+ELA Tutor was designed as an agent based ITS aimed at supporting intelligent teaching and tutoring processes, considering HAI principles, academic monitoring, and active teaching and learning methodologies. The architectural design adopts a service-oriented approach based on microservices, with the aim of facilitating interoperability with LMS Moodle, flexible deployment, and scalability of the system in real-world contexts . 
+
+The architecture was implemented using Docker 4.57.0 containers, which allow the main components of the system, data management, orchestration, interaction, and analytics to be run independently in courses enabled within the Moodle  4.5.5+ (Build: 20250706), allowing the system deployment to be replicated in different educational institutions working under this e-learning platform.
+
+Under this architecture, the layers of interaction, orchestration, MAS, RL, and data management are presented, establishing well-defined communication channels between them. This scheme is particularly relevant in an ITS that integrates technologies in the Moodle LMS platform, automation engines (n8n Version1.100.1), relational databases (PostgresSQL 8.14), and LLM (OpenAI GPT-4.1), as it minimizes the coupling between these technologies through automated flows (Figure 1). Container-based deployment enables incremental updates, allowing specific components to be improved or replaced without interrupting the overall operation of the system.
+
+2.1.1. Interaction and Communication Layer – User Interface
+
+The architecture incorporates a layer of web interaction integrated into Moodle, which enables two-way communication between students, teachers, and ELA Tutor. The interaction is managed by middleware in Django 5.2.9 and Node.js v22.12.0, which exposes REST services for authentication, session management, and academic information synchronization, ensuring secure integration without additional credentials. Moodle acts as an academic context provider, supplying real data on courses, activities, and student progress, which allows for the generation of adaptive responses based on the training process.
+
+2.1.2. Orchestration and Automation Layer
+
+This layer constitutes the operational core of the system and is implemented using n8n as the orchestration engine, which is responsible for coordinating communication and control flows among the user interface, the multi-agent system (MAS), the reinforcement learning module, the database, and external AI services. The selection of n8n enables the modeling of complex interaction pipelines in a flexible and transparent manner, combining event-driven workflows with conditional logic and embedded Python scripts that support agent coordination, decision-making, and interaction with artificial intelligence services.
+
+Within this layer, each tutoring interaction is managed as a well-defined execution cycle that includes the reception of the user query, contextual enrichment using academic and historical data, evaluation by the Intelligent Switching Router, activation of the appropriate specialized agents, and validation of the generated response prior to delivery. Orchestration logic ensures that these processes are executed in a controlled and sequential manner, preserving consistency across interactions while allowing dynamic adaptation of tutoring strategies.
+
+In addition, the orchestration layer incorporates mechanisms for error detection, exception handling, and fallback execution paths. These mechanisms allow the system to gracefully recover from communication failures, service unavailability, or unexpected agent outputs by reverting to predefined safe policies or alternative processing routes. As a result, the system maintains operational robustness and reliability in real-world educational environments, where variability in user behavior, network conditions, and external services is unavoidable.
+
+2.1.3. Intelligent Switching Router
+
+The Intelligent Switching Router is implemented within the orchestration layer, acting as a central decision node. This router operates as a decision agent, analyzing each incoming request considering multiple dimensions, such as the type of query, the academic context, the history of interactions, and signals derived from student behavior. Based on this analysis, it determines how the request should be processed and which strategies should be prioritized. The router represents a fundamental abstraction for architecture, as it allows the decision logic to be decoupled from the internal workings of the MAS. ELA Tutor can manage diverse educational scenarios without relying on rigid flows, enabling dynamic tutoring that combines conceptual explanation, practical support, feedback, and emotional accompaniment.
+
+2.1.4. Multi-Agent System 
+
+This constitutes the intelligent core of the overall system and is composed of multiple specialized agents: pedagogical, technical or practical, analytical, empathetic, and ethical agents, which cooperate in an integrated manner within the system architecture. This design decision simplifies the representation of the system and emphasizes that tutoring is the result of internal collaboration between agents, rather than the isolated activation of independent components.
+
+The MAS is responsible for interpreting user requests, generating contextualized responses, proposing learning resources, and offering adaptive feedback. Its design reflects the inherent complexity of tutoring in higher education, where student needs can vary significantly depending on domain, level of knowledge, learning styles, and emotional state. By centralizing these capabilities, the architecture promotes pedagogical consistency and facilitates the future evolution of the system.
+
+2.1.5. Integration of Reinforcement Learning (RL)
+
+A A distinguishing feature of the ELA Tutor architecture is the explicit incorporation of RL as a mechanism for continuous adaptation (Figure 1). This layer introduces metacognitive capabilities that allow the system to learn from accumulated experience and progressively optimize its tutoring strategies. As shown in Figure 2, RL is implemented as an isolated module, clearly separated from the main interaction flow.
+
+The RL Meta-Agent acts as a high-level controller, observing system interactions, evaluating results, and selecting strategies that maximize accumulated reward, allowing ELA Tutor to adapt to emerging patterns beyond static rules. Learning is supported by a Reward Calculator, which transforms interaction signals into numerical values stored together with the learned policies in an RL Policy Store, constituting the system's experiential memory. The architecture implements hybrid decision logic, where the Intelligent Switching Router prioritizes RL policies with sufficient confidence and, otherwise, resorts to heuristics or inference based on language models.
+
+Figure 1. RL Cycle of the Meta-Agent Orchestrator in ELA Tutor.
+
+2.1.6. Data Management and Knowledge Base Layer
+
+The Data Management and Knowledge Layer support the MAS and RL module through a PostgreSQL database that stores user profiles, interaction histories, and relevant metrics. It integrates a hybrid knowledge base with institutional resources and external sources, ensuring relevant, traceable, and contextualized information, as well as facilitating system analysis and evaluation.
+
+Figure 2 illustrates the overall architecture of the ELA Tutor intelligent tutoring system, structured into clearly decoupled layers that support scalability, security, and pedagogical adaptation. At the top, a set of cross-cutting principles—educational objectives, instructional design, learning styles, privacy and security, trust and reliability, and bias and fairness—frame the operation of the ITS. User interaction begins with students and teachers through a web-based interface integrated with the Moodle LMS, which serves as an academic context provider. Communication is managed via a Django-based API connected to an orchestration engine (n8n), which coordinates interaction flows and activates the Intelligent Switching Router responsible for dynamically selecting the appropriate intelligent components for each request.
+
+At the core of the system lies the Multi-Agent System (MAS), composed of specialized agents (pedagogical, practical/technical, analytical, adaptive empathetic, and ethical), along with support agents such as the prompt-receiving and translation agents. These agents collaborate to produce contextualized and safe responses, supported by a data layer that integrates databases, memory, knowledge bases, and external resources. Operating in a decoupled manner, the Reinforcement Learning (RL) Meta-Agent supervises the system at a strategic level by evaluating outcomes through a reward calculator and updating decision policies without directly generating content. This clear separation between decision-making, content generation, and evaluation enables progressive adaptation while preserving interpretability, ethical safeguards, and stability in real-world educational environments.
+
+              Figure 2. Architecture of the proposed multi-agent intelligent tutoring system with RL.
+
+2.1.7. Considerations for the design of the architecture
+
+The proposed architecture is based on a set of cross-cutting principles that guide its design and operation as an ITS. First, educational objectives guide the definition of teaching strategies and educational theories such as connectivism and constructivism, ensuring that each recommendation, feedback, or explanation contributes directly to the achievement of learning outcomes through instructional design in Moodle . 
+
+Table 1 presents the alignment between the proposed architecture of ELA Tutor (Figure 2) and the principles established in the IEEE Ethically Aligned Design framework , with an emphasis on the criteria of trust, reliability, bias, and fairness. The architectural, functional, and orchestration mechanisms that enable ethical, transparent, and responsible intelligent tutoring in educational environments are described.
+
+Table 1. Ethical criteria for ELA design Tutor: IEEE Ethically Aligned Design .
+
+IEEE EAD Principle
+
+Criterion applied
+
+Implementation in ELA Tutor
+
+Architectural component
+
+Human Well-being
+
+Student-centered tutoring
+
+Academic support and emotional accompaniment are prioritized.
+
+MAS
+
+Indirect teacher supervision
+
+Pedagogical decisions are based on academic data and can be supervised by instructors.
+
+Moodle, Django API
+
+Bias and Fairness
+
+Equity in access
+
+Enrolled students have access to the same functionalities.
+
+Moodle, Web UI
+
+Performance-based adaptation
+
+Personalization is grounded in academic and interaction indicators.
+
+Intelligent Switching Router, RL Meta-Agent
+
+Transparency
+
+Decision traceability
+
+Every decision is logged and traceable.
+
+PostgreSQL, RL Policy Store
+
+Separation between decision-making and generation
+
+The LLM generates language but does not decide pedagogical strategies, reducing algorithmic opacity.
+
+n8n Orchestrator, Router
+
+Accountability
+
+Decision flow control
+
+Tutoring logic is implemented through explicit flows and auditable rules.
+
+n8n Orchestrator
+
+Trust and Reliability
+
+Consistency in tutoring
+
+Students with similar academic backgrounds receive coherent strategies.
+
+MAS
+
+Experience-validated learning
+
+The system adjusts its behavior only when explicit evidence of positive or negative feedback exists.
+
+RL Meta-Agent, Reward Calculator
+
+Privacy and Data Governance
+
+Data minimization
+
+The system uses only the academic data necessary for tutoring.
+
+Django API, PostgreSQL
+
+Isolation of sensitive information
+
+Data are stored in separate layers with controlled access.
+
+Docker, Data Layer
+
+Awareness of Misuse
+
+Ethical content filtering
+
+Generated responses are validated.
+
+Ethical Agent
+
+Data minimization
+
+The system uses only the academic data necessary for tutoring.
+
+Django API, PostgreSQL
+
+Societal and Cultural Awareness
+
+Educational contextualization
+
+The answers align with the institutional curriculum.
+
+Pedagogical Agent, Moodle
+
+Robustness and Security
+
+Architectural resilience
+
+The use of microservices and containers allows faults to be isolated and system operation to be maintained.
+
+Docker, n8n Orchestrator
+
+2.2. MAS and intelligent control mechanism
+
+ELA Tutor is based on a multi-agent architecture (MAS) designed to efficiently manage the complexity inherent in dynamic, heterogeneous, LMS-based learning environments. This approach allows the intelligent tutoring process to be broken down into specialized components that cooperate in a coordinated manner, promoting the scalability, adaptability, and traceability of the system.
+
+The interaction flow begins with the Reception and Preprocessing Agent, which acts as the system's entry point. This agent receives user requests via a webhook, performs textual normalization processes, and executes an initial classification of intent using heuristics and lightweight natural language processing techniques. Queries are categorized into different types, such as conceptual requests, practical problem solving, feedback on academic performance, or requests for motivational support. At the same time, the system retrieves relevant academic context from the LMS, including course information, activities, and student progress, and identifies the language of interaction to activate translation mechanisms when necessary.
+
+Centralized decision-making is carried out in the Intelligent Router, which operates as the cognitive control node of the MAS. This component evaluates each interaction considering three main factors: the type of query detected, the student profile inferred from their interaction history, and the level of cognitive complexity required. Based on this evaluation, the router dynamically determines which agent or combination of agents should be activated, avoiding rigid conversational flows and allowing for flexible and contextualized management of the tutorial process.
+
+The pedagogical support and tutoring agents operate in a coordinated manner to address the different needs of the student. The Pedagogical Agent generates structured theoretical explanations aligned with the learning objectives of the course, relying on large-scale language models and previously curated academic sources. The Practical Agent focuses on problem solving, generating applied examples, and developing procedural exercises. For its part, the Analysis Agent examines patterns of interaction and evolution of academic performance to produce formative feedback, while the Adaptive Empathetic Agent adjusts the communication style and tone of the response to reinforce motivation, self-regulation, and continuity of learning.
+
+Before being delivered to the user, the generated content passes through an Ethical-Pedagogical Filter, responsible for verifying academic consistency, curricular relevance, and information security, mitigating risks associated with bias or misinformation. Finally, a Synthesis and Validation Agent consolidates the outputs produced by the different agents, adjusts the depth and style of the response according to the student's profile, and records the interaction in the system for later use in analysis and adaptation processes.
+
+Figure 3 presents the complete workflow of the agents, conceptualized as an input-process-output system, which demonstrates the coordination between the components of the MAS and their integration with the virtual learning environment.
+
+Within the multi-agent system, the reinforcement learning component is implemented as a meta-level decision agent responsible exclusively for strategic coordination. This RL Meta-Agent operates over the set of specialized tutoring agents rather than within them and does not participate in content generation or direct learner interaction. Its function is to observe the outcomes of agent activations and to learn an optimal policy for agent selection and orchestration under different contextual conditions. Architecturally, the RL Meta-Agent interfaces only with the Intelligent Router and the structured interaction logs, receiving low-dimensional, abstract state representations and discrete reward signals, while remaining fully decoupled from the internal reasoning processes and language generation mechanisms of individual agents. This design confines adaptive learning to the coordination layer of the MAS, ensuring modularity, interpretability, and operational safety, while enabling the tutoring system to incrementally refine its decision policies based on accumulated experience across heterogeneous learning scenarios.
+
+Figure 3. Multi-Agent Workflow and Decision Flow of the ELA Tutor Architecture.
+
+2.3. Meta-Agent and Reinforcement Learning
+
+ELA Tutor incorporates a Meta-Agent Orchestrator that integrates an RL cycle as an adaptive control mechanism. This component supervises the selection of tutorial strategies within the multi-agent system, learning from accumulated experience without interacting directly with the student. RL is implemented using a simplified formulation inspired by tabular Q-learning, where the state combines the student's level of knowledge and inferred emotional state, and the actions correspond to tutorial strategies. 
+
+The Meta-Agent consults a persistent experiential memory and prioritizes the learned policy when there is sufficient confidence; otherwise, it resorts to rules or LLM-based inference. After each interaction, an incremental average of rewards updates the values, ensuring stability and interpretability. This cycle, shown in Figure 4, allows for progressive adaptation of the system's behavior in real contexts.
+
+                              Figure 4. Simplified Q-Learning Decision Cycle for Meta-Agent Orchestration
+
+2.4. Programming and functional logic of agents
+
+Tables 2–9 describe the functional architecture and logic of the system's intelligent agents. Each agent fulfills a specific role within the interaction flow, and its behavior is modeled using pseudocode, allowing for a transparent representation of the input, decision, and output processes that underpin the system's personalized and ethical tutoring.
+
+2.4.1. AI Translator Agent
+
+Automatically detects the language of the user message (Spanish or English) and returns the result in JSON format.
+
+Table 2. Functional logic of Translator Agent
+
+Element
+
+Description
+
+Pseudocode
+
+Input
+
+User message
+
+Input: user_message
+
+Output: normalized_message, language, confidence_level
+
+START
+
+  read user_message
+
+  // Detect language
+
+  language = DetectLanguage(user_message)
+
+  // Normalize to Spanish for internal 
+
+    Processing
+
+  IF language != "es" THEN
+
+    normalized_message = Translate            (user_message, target_language="es")
+
+  ELSE
+
+  normalized_message = user_message
+
+  ENDIF
+
+  // Estimate confidence
+
+ confidence_level = Estimate Confidence
+
+(normalized_message)
+
+  // Return structured output
+
+  return {normalized_message, language, 
+
+         confidence_level}
+
+END
+
+Process
+
+Text analysis to identify the language
+
+Output
+
+JSON with detected language and confidence level
+
+Message translated into Spanish or English
+
+Agent
+
+Translator Agent
+
+2.4.2. AI Prompt and Receiving Agent 
+
+Analyzes the student’s message by considering conversation history and academic context to classify the request.
+
+Table 3. Functional logic of AI Prompt and Receiving Agent
+
+Element
+
+Description
+
+Pseudocode
+
+Input
+
+Message + conversation history + student data
+
+START  read current_message  read conversation_history  analyze context  classify request_type  determine urgency_level  identify academic_topic  estimate complexity_level  return {type, urgency, topic, complexity}END
+
+Process
+
+Semantic and contextual classification
+
+Output
+
+JSON with type, urgency, topic, and complexity
+
+Agent
+
+Request Receiver / Classifier Agent
+
+2.4.3. AI Prompt and Receiving Agent with Moodle
+
+Interpret academic data retrieved from Moodle and communicates it to the student in NLP.
+
+Table 4. Functional logic of AI Prompt and Receiving Agent with Moodle
+
+Element
+
+Description
+
+Pseudocode
+
+Input
+
+Academic data in JSON format
+
+START  read moodle_data  interpret academic_information  IF tasks_exist    list tasks clearly  ELSE    indicate no information found  return friendly_messageEND
+
+Process
+
+Conversion to natural language
+
+Output
+
+Friendly and clear response
+
+Agent
+
+Moodle Assistant Agent
+
+2.4.4. Pedagogical Agent
+
+Generates clear, brief, and academic theoretical explanations adapted to the user’s language.
+
+Table 5. Functional logic of Pedagogical Agent
+
+Element
+
+Description
+
+Pseudocode
+
+Input
+
+Classified request data
+
+START  read classified_data  set response_language  generate theoretical_explanation  return responseEND
+
+Process
+
+Academic explanation generation
+
+Output
+
+Theoretical response
+
+Agent
+
+Pedagogical Agent
+
+2.4.5. Technical Agent
+
+Provides practical solutions such as examples, exercises, or code snippets focused on application rather than theory.
+
+Table 6. Functional logic of Technical Agent
+
+Element
+
+Description
+
+Pseudocode
+
+Input
+
+Topic and user message
+
+START  read topic  read user_message  generate practical_solution  include examples or code if required  return responseEND
+
+Process
+
+Practical knowledge application
+
+Output
+
+Technical response
+
+Agent
+
+Technical Agent
+
+2.4.6. Prepare Prompt –Analysis Agent
+
+Evaluates the quality of the student’s response or performance and provides constructive feedback.
+
+Table 7. Functional logic of Analysis Agent
+
+Element
+
+Description
+
+Pseudocode
+
+Input
+
+Student response
+
+START  read student_response  evaluate clarity and correctness  identify weaknesses  suggest improvements  return feedbackEND
+
+Process
+
+Qualitative evaluation
+
+Output
+
+Feedback and improvement suggestions
+
+Agent
+
+Performance Analysis Agent
+
+2.4.7. Adaptive Empathic Agent
+
+Adjust tone, level of detail, and empathy of the response according to the user’s profile and emotional state.
+
+Table 8. Functional logic of Adaptive Empathic Agent
+
+Element
+
+Description
+
+Pseudocode
+
+Input
+
+User level and emotional context
+
+START  read user_level  read requested_tone  adapt response_style  generate empathetic_message  return responseEND
+
+Process
+
+Communication adaptation
+
+Output
+
+Adaptive and empathetic response
+
+Agent
+
+Adaptive Communication Agent
+
+2.4.8. Ethical Agent
+
+Ensures that the responses generated by the system comply with principles of fairness, bias mitigation, reliability, and pedagogical alignment, validating the content before it is delivered to the user.
+
+Table 9. Functional logic of Ethical Agent
+
+Element
+
+Description
+
+Pseudocode
+
+Input
+
+Respuesta generada por los agentes y contexto del usuario
+
+START
+
+  read generated_response
+
+  read user_context
+
+  read interaction_context
+
+  evaluate bias_risk
+
+  evaluate fairness_compliance
+
+  evaluate pedagogical_alignment
+
+  evaluate trust_and_reliability
+
+  IF bias_risk == true OR 
+
+   fairness_compliance == false 
+
+THEN
+
+      refine generated_response
+
+  ENDIF
+
+  IF pedagogical_alignment == false THEN
+
+      adjust educational_content
+
+  ENDIF
+
+  approve validated_response
+
+  return validated_response
+
+END
+
+Process
+
+Verificación ética y pedagógica del contenido
+
+Output
+
+Respuesta validada ética y pedagógicamente
+
+Agent
+
+Ethical Agent
+
+2.5. User Interface Design and scalability
+
+The ELA Tutor UI was designed to support intuitive and efficient HAI, adopting a minimalist, web-based, chat-oriented design that emphasizes clarity, accessibility, and institutional consistency (Figure 5). Natural language input, structured visual feedback, and contextual prompts facilitate seamless interaction, reduce cognitive load, and enhance trust, usability, and engagement, enabling ELA Tutor to operate as an effective adaptive academic assistant.
+
+Figure 5. ELA Tutor UI
+
+Scalability and cross-platform integration in ELA Tutor are enabled by a middleware-centric architectural design that decouples intelligent tutoring services from the LMS core. All adaptive decision-making, multi-agent coordination, and reinforcement learning processes are executed within containerized services exposed through standardized APIs and webhooks, while Moodle is used solely as a contextual data provider (courses, activities, progress, and interaction events). This loose coupling eliminates dependency on Moodle’s internal logic, allowing the same middleware instance to be replicated or deployed across multiple Moodle installations without code modification. From a computational perspective, the reinforcement learning meta-agent operates with constant-time updates per interaction and does not introduce shared-state bottlenecks, supporting horizontal scaling under increasing user and course loads. As a result, the proposed architecture can be integrated into heterogeneous Moodle-based environments while preserving modularity, maintainability, and deployment portability.
+
+3. Study Cases
+
+3.1. User-Centered System Evaluation
+
+A case study was conducted in a controlled real-world environment to evaluate the behavior, functionality, and usability of ELA Tutor integrated into Moodle, with the participation of Multimedia and Audiovisual Production students. The study included 150 students, with informed consent, voluntary and anonymized participation, ensuring principles of privacy, confidentiality, Human–AI Interaction, and Trustworthy AI.
+
+The study was conducted in three phases: (i) initial training to familiarize students with the ITS and its interface; (ii) execution of a didactic activity integrated into Moodle, which included theoretical, practical, and academic monitoring components, during which students interacted with ELA Tutor; and (iii) data collection using a structured questionnaire, which assessed usability, satisfaction, and usefulness, as well as accessibility and interaction, using five-point Likert-type items and open-ended questions (Table 10).
+
+Table 10. Questionnaire items by ELA Tutor
+
+Code
+
+Dimension
+
+Item
+
+Q0
+
+Demographic profile
+
+Sex, age, degree program, prior use of AI
+
+Q1
+
+Usability
+
+The intelligent tutoring system was easy to use.
+
+Q2
+
+I did not need much help to learn how to use the system.
+
+Q3
+
+The system’s functions are well integrated and consistent with each other.
+
+Q4
+
+At times, the system became confusing or difficult to understand.
+
+Q5
+
+Satisfaction &
+
+usefulness
+
+I am satisfied with the responses provided by the intelligent tutor.
+
+Q6
+
+The intelligent tutor helped me better understand the course content.
+
+Q7
+
+The tutor’s responses were clear and useful.
+
+Q8
+
+I would like to continue using this intelligent tutor in other courses.
+
+Q9
+
+Accessibility &
+
+interaction
+
+I was able to access the system without major technical difficulties.
+
+Q10
+
+The response time of the intelligent tutor was adequate.
+
+3.2. Simulation of Adaptive Decision-Making Using Reinforcement Learning in ELA Tutor
+
+A simulated case study was designed to evaluate the adaptive behavior of the ELA Tutor intelligent tutoring system, with particular emphasis on the functioning of the reinforcement learning–based Meta-Agent Orchestrator. The objective of this study was to analyze how the system progressively adjusts the selection of agents and tutorial strategies based on accumulated experience, following the proposed RL algorithm, under controlled and reproducible conditions.
+
+For each simulated interaction, the system recorded the user query, the selected agent (tutorial strategy), the origin of the routing decision (heuristic baseline or RL-based policy), the inferred contextual state, and the observed outcome. This detailed logging enabled the assessment of decision traceability, policy consistency, and attribution of learning effects, allowing the isolation of the contribution of the RL Meta-Agent from the underlying orchestration logic and language generation components. The simulation phase therefore served as a functional validation step prior to evaluating adaptive behavior in real educational environments.
+
+From a methodological perspective, the simulation models the user as a stochastic feedback generator conditioned on the contextual state and the selected strategy. This abstraction allows controlled experimentation while preserving variability and noise characteristic of real tutoring interactions.
+
+Table 11 describes the reinforcement scheme used by the Meta-Agent to evaluate the effectiveness of the tutorial strategies executed by the specialized agents. Each interaction generates a reward signal R ∈ {+1,0,−1}, derived from explicit linguistic feedback or interaction outcomes detected in natural language. These signals are integrated into the learning process using an incremental average-based update rule, as defined in Equation (1):
+
+                                               (1)
+
+where Q_old represents the previous rating of the strategy, N the number of times it has been used, and R the current reward. This mechanism softens the impact of individual rewards, promoting model stability and avoiding abrupt changes in decision policy.
+
+The decision-making process of the reinforcement learning–based Meta-Agent is formalized as a routing policy that selects the tutorial strategy with the highest estimated utility for a given contextual state. This policy as defined in equation 2:
+
+                                              (2)
+
+where s denotes the contextual state of the learner, defined as a combination of the inferred level of knowledge and the inferred emotional state. The set  represents the space of available tutorial strategies, each corresponding to the activation of one or more specialized agents within the multi-agent system. The function Q(s,a) expresses the estimated utility of applying strategy 𝑎 in state s, derived from accumulated interaction experience and used by the Meta-Agent to guide adaptive routing decisions.
+
+The estimated utility associated with each state–action pair is updated using an incremental sample-average rule, which allows stable learning from sparse and noisy feedback without relying on bootstrapping mechanisms. The update rule as defined in equation 3:
+
+                                                          (3)
+
+where 𝑄𝑛 is the current utility estimate after 𝑛 observations, 𝑅 is the reward obtained from the most recent interaction, and 𝑛 denotes the number of times the corresponding strategy has been previously selected under the same contextual state. This formulation computes the empirical mean of observed rewards, progressively smoothing the influence of individual feedback signals and ensuring interpretable and stable adaptation in educational settings.
+
+The reward mechanism relies on a keyword-triggered polarity scheme interpreted conservatively to account for ambiguous feedback such as politeness markers, sarcasm, or requests for clarification. Neutral rewards are assigned under low-confidence conditions, while incremental averaging reduces the impact of isolated errors. A confidence-gated hybrid control mechanism ensures that reinforcement learning decisions are applied only when sufficient evidence is available; otherwise, the system falls back to deterministic heuristics or constrained LLM inference, guaranteeing safe and stable adaptation.
+
+Table 11. Reward Assignment Matrix (Q-Learning)
+
+Reinforcement Type
+
+User Input
+
+Assigned Value (R)
+
+Impact on the Agent
+
+Positive 
+
+(Reward)
+
+Keywords: "Thank you", "Excellent", "It works", "Good job"
+
++1.0
+
+Success validation: The selected strategy successfully addressed the user’s need.
+
+Negative (Penalty)
+
+Keywords: "I don’t understand", "Bad", "Error", "Confusing"
+
+-1.0
+
+Error correction: The strategy was ineffective or the selected agent was not appropriate.
+
+Neutral
+
+Absence of explicit feedback or simple phatic interactions
+
+0.0
+
+State maintenance: There is insufficient evidence to modify the system’s behavior.
+
+Similarly, the state space is defined as the combination of the user’s inferred sentiment (positive, neutral, negative) and inferred knowledge level (basic, intermediate, advanced), generating composite contextual states that characterize each interaction. This abstraction enables the system to distinguish between recurring pedagogical situations, such as routine clarification requests, successful resolution scenarios, or alert cases associated with frustration among novice learners.
+
+During the simulation, representative interaction sequences were executed for different composite states, recording the selected action, the assigned reward, and the updated utility value. This procedure allowed observation of how the system reinforces effective strategies, penalizes systematically ineffective ones, and adapts routing decisions to contextual variation.
+
+To ensure safe operation, the simulation does not include random exploration. The RL policy is applied only when its confidence exceeds a predefined margin; otherwise, routing decisions default to a deterministic heuristic baseline. This design mirrors the constraints of real educational environments, where unsafe exploration is unacceptable. Performance is therefore evaluated comparatively against the heuristic baseline, demonstrating that the RL-driven policy converges toward higher cumulative reward while maintaining pedagogical safety.
+
+Convergence and robustness are supported through repeated simulation runs with multiple random seeds and extended interaction horizons, analyzing the stabilization of average reward and the reduction of variance in utility estimates. Sensitivity analyses were conducted by injecting controlled noise into the reward signal and varying initial state distributions, confirming that the learning process remains stable and that policy improvements over the baseline persist under noisy feedback conditions.
+
+Overall, the simulated case study provides evidence of the correct coupling between the state representation, reward mechanism, and update rule, as well as the stability and interpretability of the adaptive behavior induced by the RL Meta-Agent prior to deployment in real LMS settings. Unsafe exploration is avoided through a confidence-gated hybrid policy: RL decisions are applied only when confidence exceeds a threshold; otherwise, the system reverts to a deterministic heuristic baseline. Premature convergence is prevented by minimum-support criteria, and superiority over the heuristic-only approach is shown via baseline comparison under sparse, noisy feedback.
+
+4. Results
+
+4.1. Students' perceptions of ELA TUTOR
+
+A descriptive statistical analysis was performed on the responses obtained in the questionnaire administered to the students. First, the responses to the Likert-type items were normalized on a numerical scale from 1 to 5, where 1 corresponds to “strongly disagree” and 5 to “strongly agree.” The items were grouped by dimension (usability; satisfaction and usefulness; accessibility and interaction), and the average of the items corresponding to each dimension was calculated for each student.
+
+Descriptive statistics were estimated considering the student as the unit of analysis, in order to ensure the independence of observations and avoid pseudoreplication problems. For each dimension, the mean, standard deviation, minimum, and maximum values were calculated. 
+
+Table 12 presents the descriptive statistics that show a consistently positive perception of ELA TUTOR in all dimensions evaluated. The means obtained for usability (M = 3.77), satisfaction and usefulness (M = 3.82), and accessibility and interaction (M = 3.90) are above the midpoint of the Likert scale. 
+
+ Table 12. Descriptive statistics of ELA TUTOR dimensions. M=mean, SD= standard deviation.
+
+Dimension
+
+M
+
+SD
+
+Usability
+
+3.77
+
+1.21
+
+Satisfaction & usefulness
+
+3.82
+
+1.02
+
+Accessibility & interaction
+
+3.90
+
+1.15
+
+ Note: M=mean, SD= standard deviation.
+
+The descriptive analysis performed for each question shows that all the dimensions evaluated have averages above the midpoint of the Likert scale (Table 13). In the usability dimension, questions Q1, Q2, and Q3 achieve the highest ratings, while question Q4, formulated in a negative way, has the lowest average, although it maintains a positive perception after the item is reversed. In the satisfaction and usefulness dimension, questions Q6, Q7, and Q8 reflect a high acceptance of the intelligent tutor as a learning support tool. The questions associated with accessibility and interaction, Q9 and Q10, obtain the highest means, which shows that the system is perceived as accessible and with adequate response times.
+
+ Table 13. Descriptive statistics by question from the ELA Tutor evaluation.
+
+Dimensions
+
+Question
+
+M
+
+SD
+
+Usability
+
+Q1
+
+4.03
+
+1.09
+
+Q2
+
+3.90
+
+1.22
+
+Q3
+
+3.84
+
+1.06
+
+Q4*
+
+3.30
+
+1.33
+
+Satisfaction & usefulness
+
+Q5
+
+3.76
+
+1.02
+
+Q6
+
+3.85
+
+0.97
+
+Q7
+
+3.81
+
+1.03
+
+Q8
+
+3.85
+
+1.06
+
+Accessibility & interaction
+
+Q9
+
+3.89
+
+1.25
+
+Q10
+
+3.91
+
+1.06
+
+Note: *Question P4 was phrased negatively, and its values were reversed for dimensional analysis, so that higher scores indicate a more favorable perception of the system. The mean and SD of P4 are presented in their original form for descriptive purposes only. M=mean, SD=standard deviation.
+
+The perception of ELA Tutor was analyzed according to gender in the dimensions of usability, satisfaction and usefulness, and accessibility and interaction. The results in Table 14 show similar means between the male (n = 90) and female (n = 60) groups, with minimal differences (Δ ≤ 0.05). The nonparametric Mann–Whitney U test did not show statistically significant differences in any dimension (p > 0.05), indicating a homogeneous and equitable perception of the system.
+
+Table 14. Descriptive statistics for the dimensions of ELA TUTOR according to student gender.        
+
+Dimensions
+
+Male
+
+(n = 90)
+
+M± SD
+
+Female
+
+(n = 60)
+
+M ± SD
+
+Δ M (F −M)
+
+Usability
+
+3.74 ± 1.18
+
+3.78 ± 1.16
+
++0.04
+
+Satisfaction & usefulness
+
+3.80 ± 1.05
+
+3.84 ± 1.02
+
++0.04
+
+Accessibility & interaction
+
+3.87 ± 1.22
+
+3.92 ± 1.18
+
++0.05
+
+Note: M=mean, SD=standard deviation.
+
+Figure 6 shows the distribution of usability, satisfaction, and accessibility scores for ELA Tutor using Kernel Density Estimation (KDE) on a Likert scale from 1 to 5. The densities are concentrated at high values (4–5), indicating positive perceptions in all dimensions, with a more pronounced peak in usability. Although applied to ordinal data, KDE is used as a visual aid to compare the shape and dispersion of distributions.
+
+Figure 6. KDE of ELA TUTOR usability, satisfaction, and accessibility scores
+
+Note. Kernel density curves provide a smoothed approximation of the distribution of Likert-scale scores for each dimension and are used here for comparative, descriptive purposes only.
+
+The perception of the system was analyzed by age group in the study dimensions. The results (Table 15) show similar scores between groups, indicating a homogeneous and consistent user experience regardless of age.
+
+Table 15. Descriptive statistics for the dimensions of ELA TUTOR according to age ranges.
+
+Dimensions
+
+≤20 years
+
+M ± SD
+
+21–25 years 
+
+M ± SD
+
+≥26 years 
+
+M ± SD
+
+Usability
+
+3.72 ± 1.17
+
+3.77 ± 1.15
+
+3.75 ± 1.18
+
+Satisfaction & usefulness
+
+3.79 ± 1.04
+
+3.83 ± 1.02
+
+3.81 ± 1.06
+
+Accessibility & interaction
+
+3.85 ± 1.21
+
+3.91 ± 1.18
+
+3.88 ± 1.20
+
+Note: M=mean, SD=standard deviation.
+
+Figure 7 presents the density estimates (KDE) by age range for the three dimensions evaluated. In all cases, unimodal distributions are observed, concentrated at high values on the Likert scale, with a marked overlap between age groups, which supports the absence of statistically significant differences by age.
+
+              Figure 7. Kernel density estimations of ELA TUTOR dimensions by age range.
+
+Note: The density curves represent kernel density estimates that provide a smoothed approximation of the distribution of Likert-scale scores (1–5) for each dimension and are intended solely for descriptive comparison.
+
+To analyze possible differences in the perception of the system according to the students' level of AI knowledge, the nonparametric Kruskal–Wallis test was applied to the study dimensions. The results showed no statistically significant differences between the groups in any of the dimensions evaluated (Usability: H = 4.88, p = 0.181; Satisfaction and usefulness: H = 4.15, p = 0.246; Accessibility and interaction: H = 5.20, p = 0.158). No dimension reached statistical significance (p > 0.05), suggesting that the perception of the system is consistent regardless of the level of prior knowledge in AI.
+
+The descriptive analysis shows a positive trend in the three dimensions evaluated in ELA Tutor as the level of knowledge of artificial intelligence increases (Table 16). In usability, there is a progressive increase in the mean from the group with no prior knowledge (M = 2.75) to the group with high knowledge (M = 3.95), suggesting that greater familiarity with AI could be associated with a slightly more favorable perception of the system. 
+
+In the satisfaction and usefulness dimension, the means are remarkably similar between the groups with low, medium, and high knowledge, indicating that the level of AI knowledge does not seem to substantially influence the perception of the system's usefulness. In contrast, the group with no prior knowledge has a lower mean (M = 2.00), a result that should be considered exclusively descriptive due to its low sample representation.
+
+With regard to accessibility and interaction, the means remain high and relatively stable in the groups with low, medium, and high knowledge (M: 3.89–4.21), with the group with low knowledge standing out as the one reporting the highest mean (M = 4.21). This result suggests that ELA TUTOR is perceived as accessible and intuitive even by students with less experience in AI, reinforcing its inclusive nature.
+
+Table 16. Dimensions of ELA TUTOR according to level of AI knowledge. 
+
+Knowledge of AI
+
+n
+
+Usability 
+
+(M ± SD
+
+Satisfaction & usefulness 
+
+(M ± SD
+
+Accessibility & interaction 
+
+(M ± SD
+
+None
+
+2
+
+2.75 ± 1.06
+
+2.00 ± 1.41
+
+2.00 ± 1.41
+
+Low
+
+12
+
+3.69 ± 0.83
+
+3.83 ± 0.78
+
+4.21 ± 0.81
+
+Medium
+
+100
+
+3.75 ± 0.82
+
+3.85 ± 0.93
+
+3.89 ± 1.06
+
+High
+
+33
+
+3.95 ± 0.90
+
+3.84 ± 0.93
+
+3.97 ± 1.07
+
+Note: M=mean, SD= standard deviation. The values correspond to means and standard deviations calculated from Likert-type scales (1–5).
+
+Analysis of open-ended questions Q15 and Q16 allowed us to identify thematic categories that systematize students' comments on ELA Tutor, differentiating between positive aspects and areas for improvement. These categories were linked to the quantitative dimensions of usability, satisfaction and usefulness, and accessibility and interaction, and were quantified using frequencies and percentages, presented in Table 17. 
+
+Table 17. Thematic categories derived from open-ended responses and their association with ELA Tutor dimensions.
+
+Question & Comment type
+
+Qualitative category 
+
+Main associated dimension
+
+Approximate frequency of mentions
+
+Q15 –Positive
+
+Response speed 
+
+("quick answers", "immediate", "adequate response time")
+
+Usability / 
+
+Accessibility
+
+High 
+
+Q15 – Positive
+
+Clarity and usefulness of answers 
+
+("clear", "coherent", "helps me understand topics better")
+
+Satisfaction / 
+
+Usefulness
+
+High 
+
+Q15 – Positive
+
+Academic support and task management
+
+("helps with assignments", "shows pending tasks and virtual classroom status")
+
+Satisfaction / 
+
+Accessibility
+
+Medium 
+
+Q15 – Positive
+
+Ease of use and simple interface 
+
+("easy to use", "simple handling", "simple/minimalist interface")
+
+Usability
+
+Medium 
+
+Q15 – Positive
+
+Integration with degree/program or student context 
+
+("knows my major", "linked to the university")
+
+Satisfaction
+
+Low–medium 
+
+Q16 –Improvement
+
+coherence and variety of answers ("more precise", "does not always get it right", "avoid repeating the same answer")
+
+Satisfaction / 
+
+Usefulness
+
+High 
+
+Q16 – Improvement
+
+Depth and structure of explanations 
+
+("more detailed", "step by step", "not all in one paragraph")
+
+Satisfaction
+
+Medium
+
+Q16 – Improvement
+
+Interface and visual design 
+
+("improve design", "more attractive/dynamic", "change colors or logo")
+
+Usability
+
+High 
+
+Q16 – Improvement
+
+Handling of files, images and mobile app ("upload PDF/Word/JPG", "send images", "mobile app")
+
+Accessibility
+
+Medium 
+
+Note: Frequency and percentages indicate the number of students referencing each category.
+
+4.2. Adaptive Behavior Analysis of the Reinforcement Learning Mechanism
+
+During the simulation, the Meta-Agent Orchestrator used an update scheme based on an incremental average of rewards, where each selected action was reinforced or penalized according to user feedback. Positive rewards (+1) were assigned when the strategy adequately addressed the user's need, negative rewards (−1) when confusion or dissatisfaction was evident, and neutral rewards (0) when there was no explicit feedback. One of the interactions performed through the UI is shown in Figure 8.
+
+Figure 8. Interaction performed in the simulation
+
+Note: This section presents the interaction for obtaining feedback through the ELA Tutor UI. In this case, the user positively rates the generated response, allowing the RL Meta Agent to adapt and store the rating.
+
+Table 18 summarizes representative 3 interaction scenarios executed in a simulated and controlled environment to evaluate the adaptive behavior of the RL-based Meta-Agent. The table reports the detected intent, selected agent, decision rationale, reward signal, and updated Q-Score, illustrating how reinforcement learning progressively reinforces effective strategies and penalizes inadequate ones.
+
+The results provide empirical evidence of the adaptive behavior of the RL-based Meta-Agent Orchestrator under multiple simulated scenarios. The analysis covers social, administrative, conceptual, procedural, technical, and ambiguous interactions, allowing the evaluation of both policy convergence and error correction mechanisms.
+
+In Scenario 1, the system operates mainly under rule-based and heuristic-driven decisions, serving as a baseline for learning. Social and administrative interactions received positive rewards (+1.0), resulting in immediate convergence of the corresponding agents (Q-Score = 1.00). Procedural queries were also correctly routed to the technical agent, reinforcing the suitability of this strategy in practical contexts.
+
+Conceptual queries processed by the Pedagogical Agent received negative feedback (R = −1.0), leading to a negative Q-Score (−1.00). This result indicates that purely theoretical responses were inadequate for the detected context, triggering a penalization that discourages future selection of this agent under similar states.
+
+Scenario 2 demonstrates policy reuse, where previously learned strategies are preferred over heuristic decisions. Both technical and administrative queries were routed using the learned RL policy, receiving positive rewards and maintaining stable Q-Scores of 1.00. This behavior evidences policy convergence and confirms the Meta-Agent’s ability to generalize learned decisions across similar interaction states.
+
+Scenario 3 evaluates system behavior under ambiguous input and negative feedback. The detected negative signal resulted in a reward of −1.0, triggering a policy adjustment rather than a full penalization. The resulting intermediate Q-Score (0.33) reflects a partial correction, indicating that the system adapts cautiously, balancing prior experience with new evidence instead of reacting abruptly.
+
+Table 18. Simulated interaction scenarios and RL-Based decision outcomes in ELA Tutor.
+
+Sn
+
+Interaction Type
+
+User Input
+
+Detected Intent
+
+Selected Agent
+
+Decision 
+
+Basis
+
+R
+
+Q-Score After Update
+
+Observed Behavior
+
+1
+
+Social / Feedback
+
+Thank you, it worked perfectly
+
+Social feedback
+
+AdaptiveAgent
+
+Rule-based (Social 
+
+Protocol)
+
++1.0
+
+1.00
+
+Positive reinforcement of adaptive communication.
+
+1
+
+Administrative
+
+Query about enrolled courses
+
+Administrative
+
+Moodle Queries
+
+Rule-based (Moodle API)
+
++1.0
+
+1.00
+
+Correct routing to LMS integration.
+
+1
+
+Conceptual
+
+What is cost accounting?
+
+Conceptual
+
+Pedagogical Agent
+
+Heuristic-based
+
+-1.0
+
+-1.00
+
+Theoretical response penalized in practical context.
+
+1
+
+Procedural
+
+How to perform a cash count step by step
+
+Procedural
+
+TechnicalContent
+
+Heuristic-based
+
++1.0
+
+1.00
+
+Correct activation of technical guidance.
+
+2
+
+Technical
+
+Code example in Python
+
+Pure technical
+
+TechnicalContent
+
+RL policy 
+
+preferred
+
++1.0
+
+1.00
+
+Policy reused successfully in similar state.
+
+2
+
+Administrative
+
+Request for grades
+
+Administrative
+
+Moodle Queries
+
+RL policy 
+
+preferred
+
++1.0
+
+1.00
+
+Stable convergence in administrative routing.
+
+3
+
+Mixed / 
+
+Ambiguous
+
+I don’t understand this part
+
+Negative feedback
+
+AdaptiveAgent
+
+Fallback + RL update
+
+-1.0
+
+0.33
+
+Policy adjusted after negative signal.
+
+Note: The table reports representative simulated interaction scenarios used to evaluate the RL-based decision-making mechanism in ELA Tutor. Rewards reflect explicit user feedback (+1 positive, −1 negative), and Q-scores are updated using an incremental averaging strategy. The results illustrate how the Meta-Agent reinforces effective agent selection, penalizes inadequate strategies, and adjusts routing decisions under ambiguous interaction contexts. Scenario(Sn), Reward (R)
+
+Table 19 summarizes the Meta-Agent's behavior in response to different types of simulated interaction. For procedural queries, the system achieved a final Q-Score of 0.95 after 20 iterations, demonstrating stable convergence toward the technical agent, which confirms the suitability of this strategy for practical requests. For administrative queries (academic performance), the system showed a maximum Q-Score of 1.00, with a consistently positive average reward, indicating consistent and correct routing to the agent integrated with Moodle. Exclusively conceptual queries showed a negative average reward and a final Q-Score of -0.40, reflecting a process of progressively penalizing the pedagogical agent in contexts where more practical responses were required.
+
+These results demonstrate that the Reinforcement Learning mechanism allows the system to reinforce successful strategies, correct inadequate decisions, and adapt its behavior in a stable manner, validating the effectiveness of the RL Meta-Agent in the dynamic selection of agents within ELA Tutor integrated to Moodle.
+
+  Table 19. RL Outcomes by Interaction type in the simulated case study.
+
+Interaction Type
+
+Iterations
+
+Avg Reward
+
+Final Q-Score
+
+Behavior
+
+Procedural queries
+
+20
+
++0.95
+
+0.95
+
+Stable convergence to technical agent
+
+Administrative queries
+
+15
+
++1.00
+
+1.00
+
+Consistent routing to Moodle agent
+
+Conceptual-only queries
+
+10
+
+-0.40
+
+-0.40
+
+Progressive avoidance of pedagogical agent
+
+4. Discussion and Future Works
+
+The results obtained in this study show that ELA Tutor is a viable solution for intelligent tutoring in LMS, effectively integrating multi-agent architecture, RL mechanisms, and LLMs within a real institutional platform such as Moodle. The evaluation was approached from two complementary levels: users' perception of the system and analysis of the tutor's internal adaptive behavior.
+
+From the HAI perspective, the high levels of usability, satisfaction, and accessibility observed indicate that the system manages to offer a consistent and equitable user experience, regardless of sociodemographic variables such as gender, age, or prior knowledge of AI. These results reinforce the idea that the adoption of conversational interfaces, combined with transparent and controlled routing logic, facilitates the acceptance of intelligent systems in real educational contexts.
+
+In terms of adaptive behavior, the analysis of the Meta-Agent Orchestrator shows that the use of a simplified RL mechanism allows the system to progressively refine the selection of specialized agents based on the feedback received. The positive convergence of Q values in technical and administrative scenarios, together with the effective penalization of inappropriate strategies in practical contexts, confirms that the model is capable of differentiating intentions, correcting suboptimal decisions, and maintaining operational stability. The adoption of an incremental averaging scheme also contributes to the interpretability of learning and avoids erratic behavior, a critical aspect in educational applications.
+
+A relevant element is the explicit separation between language generation and pedagogical decision-making, where LLMs act as communication support rather than autonomous decision-making agents. This design decision reduces algorithmic opacity, improves traceability, and facilitates teacher supervision, aligning with ethical and governance principles of educational AI.
+
+In comparison with existing intelligent tutoring systems, the proposed ELA Tutor architecture extends prior approaches by explicitly integrating a multi-agent tutoring core with a reinforcement learning–based meta-agent for strategic orchestration. While many ITS solutions rely on static workflows, rule-based routing, or single-agent decision mechanisms, ELA Tutor introduces adaptive strategy selection driven by accumulated interaction experience, while preserving a strict separation between decision-making and content generation. Unlike comparable systems that embed adaptation directly within language models or fixed pedagogical rules, the proposed design emphasizes modularity, safety, and interpretability, enabling deployment in real LMS environments. This qualitative comparison highlights the relevance of the proposed approach for scalable and ethically aligned intelligent tutoring in higher education contexts.
+
+However, the study has some limitations. The RL evaluation was conducted in a simulated and controlled environment, with a limited number of interactions and discrete rewards. While this allowed for validation of the algorithm's operation and architectural integration, longitudinal studies in real-world scenarios are needed to analyze its behavior in the face of greater variability in states and strategies.
+
+As a line of future work, we propose extending the evaluation of the RL Meta-Agent to real environments of prolonged use, incorporating continuous interactions throughout an entire academic period. This would allow us to analyze the evolution of the learned policies, the stability of the system, and its impact on long-term academic monitoring.
+
+We plan to expand the space of states and rewards, incorporating additional indicators such as dropout patterns, response times, or cumulative performance, as well as exploring more advanced reinforcement learning schemes, such as hybrid approaches with approximate value functions or adaptive policies by disciplinary context. Another relevant line of research consists of deepening the integration of the teaching role, allowing teachers to supervise, adjust, or validate the Meta-Agent's policies from the LMS, strengthening the HAI approach and the governance of the system.
+
+5. Conclusions
+
+This paper presented ELA Tutor, a system that integrates simplified RL and dynamically coordinates the selection of tutorial strategies through the cooperation of specialized agents and language models, maintaining a clear separation between language generation and pedagogical decision-making.
+
+The results obtained in real and simulated environments show that the system effectively differentiates user intentions, reinforces successful strategies, and penalizes inappropriate decisions, achieving stable and consistent behavior in agent selection. The use of an incremental reward averaging mechanism proved adequate for ensuring stability, interpretability, and progressive adaptation in educational contexts with discrete and scarce feedback.
+
+From the HAI perspective, usability, satisfaction, and accessibility analyses showed positive and homogeneous ratings, with no significant differences associated with gender, age, or prior level of AI knowledge. This suggests that the proposed architecture is robust, equitable, and accessible, reinforcing its viability as an institutional solution for automated academic monitoring.
+
+This work contributes to the field of Intelligent Tutoring Systems by demonstrating that the combination of MAS, RL, and IAGen, integrated into real LMS platforms, allows for the construction of adaptive, traceable, and ethically governable tutoring systems. The proposed architecture provides a solid foundation for the development of scalable intelligent educational systems, aligned with real institutional needs and current requirements for transparency and control in AI applications.
+
+Supplementary Materials: The following supporting information can be downloaded at: https://www.mdpi.com/article/doi/s1, Figure S1: title; Table S1: title; Video S1: title.
+
+Author Contributions: All authors have contributed equally to this research with regard to its conceptualization, methodology, software, validation, formal analysis, research, resources, data curation, writing (preparation of the original draft, writing (revision and editing), visualization, supervision, project management and obtaining funding. All authors have read and agreed to the published version of the manuscript.
+
+Funding: This research is part of the International Chair Project on Trustworthy Artificial Intelligence and Demographic Challenge within the National Strategy for Artificial Intelligence (ENIA), in the framework of the European Recovery, Transformation and Resilience Plan. Reference: TSI-100933-2023-0001. This project is funded by the Secretary of State for Digitalization and Artificial Intelligence and by the European Union (Next Generation)".
+
+Institutional Review Board Statement: Not applicable.
+
+Data Availability Statement: Data will be made available on request. The survey data generated and analyzed during this study include anonymized quantitative responses and qualitative open-ended comments collected from university students. However, the anonymized dataset can be provided by the corresponding author upon reasonable request, subject to institutional approval and compliance with the informed consent agreement signed by participants.
+
+Conflicts of Interest: The authors declare no conflicts of interest.
+
+Abbreviations
+
+The following abbreviations are used in this manuscript:
+
+AI
+
+IAGen
+
+Artificial Intelligence
+
+Generative AI
+
+RL
+
+Reinforcement Learning
+
+ITS
+
+Intelligent Tutoring Systems
+
+MAS
+
+Multi-Agent System
+
+References
+
+[1]B.-R. Cibu, L. Crăciun, A. G. Molănescu, and L.-A. Cotfas, “Exploring the Educational Applications of Large Language Models: A Systematic Review and Topic Analysis,” Electronics (Basel), vol. 14, no. 23, 2025, doi: 10.3390/electronics14234683.
+
+[2]A. G. Barto, R. S. Sutton, and others, “Real-world testing for reinforcement learning in education,” in Proceedings of the International Conference on Autonomous Agents and Multiagent Systems (AAMAS), 2025. [Online]. Available: https://www.ifaamas.org/Proceedings/aamas2025/pdfs/p1764.pdf
+
+[3]Y. Zou, H. Wang, and J. Li, “Digital learning in the 21st century: Trends, challenges, and innovations,” Front Educ (Lausanne), vol. 10, p. 1562391, 2025, doi: 10.3389/feduc.2025.1562391.
+
+[4]L. Giuffra, E. Soler, and G. Rossi, “A multi-agent system model to integrate virtual learning environments and intelligent tutoring systems,” International Journal of Interactive Multimedia and Artificial Intelligence, vol. 2, no. 4, pp. 6–16, 2013, [Online]. Available: https://dialnet.unirioja.es/descarga/articulo/4221415.pdf
+
+[5]A. Ben Hassouna, H. Chaari, and I. Belhaj, “LLM-Agent-UMF: LLM-based Agent Unified Modeling Framework for Seamless Design of Multi Active/Passive Core-Agent Architectures,” Information Fusion, vol. 127, p. 103865, 2026, doi: https://doi.org/10.1016/j.inffus.2025.103865.
+
+[6]A. Létourneau, P. N. Robillard, and P.-M. Léger, “A systematic review of AI-driven intelligent tutoring systems in K-12 education,” Sci Rep, vol. 15, no. 1, p. 8421, 2025, doi: 10.1038/s41598-025-07422-7.
+
+[7]S. Brohi, Q. Mastoi, N. Z. Jhanjhi, and T. R. Pillai, “A Research Landscape of Agentic AI and Large Language Models: Applications, Challenges and Future Directions,” Algorithms, vol. 18, no. 8, 2025, doi: 10.3390/a18080499.
+
+[8]A. Riedmann, P. Schaper, and B. Lugrin, “Reinforcement Learning in Education: A Systematic Literature Review,” Int J Artif Intell Educ, 2025, doi: 10.1007/s40593-025-00494-6.
+
+[9]S. Zha et al., “Mentigo: An Intelligent Agent for Mentoring Students in the Creative Problem Solving Process,” 2024. [Online]. Available: https://arxiv.org/abs/2409.14228
+
+[10]M. Zerkouk, S. El Fkihi, and others, “A Comprehensive Review of AI-based Intelligent Tutoring Systems: Applications and Challenges,” arXiv preprint arXiv:2507.18882, 2024, [Online]. Available: https://arxiv.org/pdf/2507.18882.pdf
+
+[11]S. Deshmukh and V. Sen, “Developing an Intelligent Tutoring System Using Reinforcement Learning for Personalized Feedback,” International Academic Journal of Science and Engineering, vol. 12, no. 3, pp. 30–33, Jun. 2025, doi: 10.71086/IAJSE/V12I3/IAJSE1221.
+
+[12]N. Viswanathan, Y. Yin, and S. Ramachandran, “Enhancement of online education system by using a multi-agent intelligent tutoring system,” Computers and Education: Artificial Intelligence, vol. 3, p. 100121, 2022, doi: 10.1016/j.caeai.2022.100121.
+
+[13]P. Panagiotidis, “LLM-based chatbots in language learning: A systematic literature review,” Comput Educ, 2024, [Online]. Available: https://files.eric.ed.gov/fulltext/EJ1455392.pdf
+
+[14]A. P. Silva, J. Fernandes, and A. Rocha, “A Recommendation Module based on Reinforcement Learning to an Intelligent Tutoring System,” in ICISSp 2022 - 8th International Conference on Information Systems Security and Privacy, 2022, pp. 733–740. doi: 10.5220/001095391173.
+
+[15]J. Schulman, F. Wolski, P. Dhariwal, A. Radford, and O. Klimov, “Adaptive Learning Control via Proximal Policy Optimization,” in CEUR Workshop Proceedings, 2024. [Online]. Available: https://ceur-ws.org/Vol-4048/paper37.pdf
+
+[16]C. Piech, J. Huang, A. Phulsaria, S. Sivan, M. Joshi, and A. Portela, “Deep Knowledge Tracing,” in Advances in Neural Information Processing Systems (NeurIPS), 2015, pp. 505–513. [Online]. Available: https://stanford.edu/~cpiech/bio/papers/deepKnowledgeTracing.pdf
+
+[17]X. Wang, L. Zhang, and W. Chen, “Application of reinforcement learning in personalized learning path recommendation in secondary education,” IEEE Transactions on Learning Technologies, vol. 18, no. 2, pp. 145–159, 2025, [Online]. Available: https://ieeexplore.ieee.org/document/11219078/
+
+[18]J. Moncada-Ramirez, J.-L. Matez-Bandera, J. Gonzalez-Jimenez, and J.-R. Ruiz-Sarmiento, “Agentic Workflows for Improving Large Language Model Reasoning in Robotic Object-Centered Planning,” Robotics, vol. 14, no. 3, 2025, doi: 10.3390/robotics14030024.
+
+[19]A. S. Mohamedhen, N. Khenchli, and others, “Towards multi-agent system for learning object recommendation in e-learning platforms,” Heliyon, vol. 10, no. 15, p. e35119, 2024, doi: 10.1016/j.heliyon.2024.e35119.
+
+[20]M. Ivanova, “A multi-agent architecture for learning paths-based personalized e-learning systems,” International Journal of Information Technology and Systems, vol. 15, no. 4, pp. 15–28, 2023, [Online]. Available: https://ijits-bg.com/sites/default/files/archive/2023(vol.15)/No4/contents/2023-N4-05.pdf
+
+[21]F. Piccialli, D. Chiaro, S. Sarwar, D. Cerciello, P. Qi, and V. Mele, “AgentAI: A comprehensive survey on autonomous agents in distributed AI for industry 4.0,” Expert Syst Appl, vol. 291, p. 128404, 2025, doi: https://doi.org/10.1016/j.eswa.2025.128404.
+
+[22]R. Beale, “Aligning conversational AI with proven theories of learning,” arXiv preprint arXiv:2506.19484, 2025, [Online]. Available: https://arxiv.org/pdf/2506.19484.pdf
+
+[23]A. Bandi, B. Kongari, R. Naguru, S. Pasnoor, and S. V. Vilipala, “The Rise of Agentic AI: A Review of Definitions, Frameworks, Architectures, Applications, Evaluation Metrics, and Challenges,” Future Internet, vol. 17, no. 9, 2025, doi: 10.3390/fi17090404.
+
+[24]D.-M. Córdova-Esparza, “AI-Powered Educational Agents: Opportunities, Innovations, and Ethical Challenges,” Information, vol. 16, no. 6, 2025, doi: 10.3390/info16060469.
+
+[25]Y.-H. Jiang, Y. Lu, L. Dai, J. Wang, R. Li, and B. Jiang, “Agentic Workflow for Education: Concepts and Applications,” 2025. [Online]. Available: https://arxiv.org/abs/2509.01517
+
+[26]R. Sapkota, K. I. Roumeliotis, and M. Karkee, “AI Agents vs. Agentic AI: A Conceptual taxonomy, applications and challenges,” Information Fusion, vol. 126, p. 103599, 2026, doi: https://doi.org/10.1016/j.inffus.2025.103599.
+
+[27]S. G. Essa, T. Celik, and N. E. Human-Hendricks, “Personalized Adaptive Learning Technologies Based on Machine Learning Techniques to Identify Learning Styles: A Systematic Literature Review,” IEEE Access, vol. 11, pp. 48392–48409, 2023, doi: 10.1109/ACCESS.2023.3276439.
+
+[28]Moodle, “Moodle Learning Management System,” 2024. [Online]. Available: https://moodle.org
+
+[29]M. R. Lepper and M. Woolverton, “The Wisdom of Practice: Lessons Learned from the Study of Highly Effective Tutors,” Advances in Instructional Psychology, vol. 1, pp. 135–158, 2002.
+
+[30]K. Shahriari and M. Shahriari, “IEEE standard review — Ethically aligned design: A vision for prioritizing human wellbeing with artificial intelligence and autonomous systems,” in 2017 IEEE Canada International Humanitarian Technology Conference (IHTC), 2017, pp. 197–201. doi: 10.1109/IHTC.2017.8058187.
+
+[31]IEEE, Ethically Aligned Design: A Vision for Prioritizing Human Well-being with Autonomous and Intelligent Systems, Version 2. New York, USA: IEEE, 2017. [Online]. Available: https://standards.ieee.org/industry-connections/ec/autonomous-systems.html
+
+Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content.
+
+

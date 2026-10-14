@@ -1,0 +1,223 @@
+<mxfile host="app.diagrams.net" modified="2024-01-15T12:00:00.000Z" agent="Mozilla/5.0" etag="metricas_rendimiento" version="22.1.0" type="device">
+  <diagram name="Métricas Rendimiento IA" id="metricas-rendimiento-ia">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Título Principal -->
+        <mxCell id="title" value="Figura 6: Métricas de Rendimiento de los Componentes de IA" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="350" y="20" width="500" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Panel 1: Latencia -->
+        <mxCell id="panel1_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1976D2;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="420" height="280" as="geometry" />
+        </mxCell>
+
+        <mxCell id="panel1_title" value="LATENCIA DE RESPUESTA (ms)" style="text;html=1;strokeColor=none;fillColor=#1976D2;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="100" y="90" width="300" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Barras de latencia -->
+        <mxCell id="bar_chatbot" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="120" y="140" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="label_chatbot" value="Chatbot (847ms)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="295" y="140" width="120" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bar_quiz" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF9800;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="120" y="180" width="280" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="label_quiz" value="Quiz Gen (2,134ms)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="295" y="180" width="120" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bar_gemini" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9C27B0;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="120" y="220" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="label_gemini" value="Gemini (1,245ms)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="325" y="220" width="120" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bar_tflite" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2196F3;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="120" y="260" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="label_tflite" value="TFLite (87ms)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="145" y="260" width="100" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bar_groq_desc" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E91E63;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="120" y="300" width="108" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="label_groq_desc" value="Groq Desc (534ms)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="233" y="300" width="120" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="scale_label" value="0        500       1000      1500      2000     2500" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="100" y="335" width="320" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- Panel 2: Tasa de Éxito -->
+        <mxCell id="panel2_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#4CAF50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="480" y="80" width="420" height="280" as="geometry" />
+        </mxCell>
+
+        <mxCell id="panel2_title" value="TASA DE ÉXITO POR COMPONENTE (%)" style="text;html=1;strokeColor=none;fillColor=#4CAF50;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="540" y="90" width="300" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Círculos de tasa de éxito -->
+        <mxCell id="circle_chatbot" value="98.4%" style="ellipse;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;strokeWidth=3;fontSize=14;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="510" y="130" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="circle_chatbot_label" value="Chatbot" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="215" width="80" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="circle_quiz" value="94.7%" style="ellipse;whiteSpace=wrap;html=1;fillColor=#8BC34A;strokeColor=#558B2F;strokeWidth=3;fontSize=14;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="610" y="130" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="circle_quiz_label" value="Quiz Gen" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="215" width="80" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="circle_scanner" value="97.0%" style="ellipse;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;strokeWidth=3;fontSize=14;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="710" y="130" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="circle_scanner_label" value="Scanner" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="710" y="215" width="80" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="circle_global" value="99.2%" style="ellipse;whiteSpace=wrap;html=1;fillColor=#2E7D32;strokeColor=#1B5E20;strokeWidth=3;fontSize=14;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="810" y="130" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="circle_global_label" value="Disponibilidad&#xa;Global" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="805" y="215" width="90" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Leyenda Panel 2 -->
+        <mxCell id="legend_success" value="Verde oscuro: Excelente (≥97%)&#xa;Verde claro: Muy bueno (94-96%)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="510" y="250" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Panel 3: Degradación Elegante (Flujo Sankey simplificado) -->
+        <mxCell id="panel3_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#FF9800;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="380" width="860" height="250" as="geometry" />
+        </mxCell>
+
+        <mxCell id="panel3_title" value="FLUJO DE DEGRADACIÓN ELEGANTE - PIPELINE DE IMÁGENES (n = 837)" style="text;html=1;strokeColor=none;fillColor=#FF9800;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="200" y="390" width="540" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Entrada -->
+        <mxCell id="input_images" value="837&#xa;Imágenes&#xa;(100%)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90CAF9;strokeColor=#1976D2;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="470" width="80" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Etapa 1: Gemini -->
+        <mxCell id="stage1" value="Etapa 1&#xa;GEMINI&#xa;Vision" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#4CAF50;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="440" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="stage1_success" value="712 exitosas&#xa;(85.1%)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;fontSize=10;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="200" y="510" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Etapa 2: TFLite -->
+        <mxCell id="stage2" value="Etapa 2&#xa;TFLite&#xa;MobileNet" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976D2;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="440" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="stage2_input" value="125 fallback&#xa;(14.9%)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#FF9800;fontSize=10;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="455" width="55" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="stage2_success" value="118 exitosas&#xa;(94.4%)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#0D47A1;fontSize=10;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="380" y="510" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Etapa 3: Groq -->
+        <mxCell id="stage3" value="Etapa 3&#xa;Groq LLM&#xa;Descripción" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8bbd9;strokeColor=#E91E63;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="440" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="stage3_success" value="102 enriquecidas&#xa;(86.4%)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E91E63;strokeColor=#AD1457;fontSize=10;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="560" y="510" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Resultado Final -->
+        <mxCell id="result_success" value="830&#xa;Respuestas&#xa;Exitosas&#xa;(99.2%)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E7D32;strokeColor=#1B5E20;fontSize=12;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="740" y="455" width="90" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="result_fail" value="7 Fallos&#xa;(0.8%)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#f44336;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="545" width="90" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Flechas de flujo -->
+        <mxCell id="arrow_in" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#1976D2;" edge="1" parent="1" source="input_images" target="stage1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arrow_1_2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#FF9800;dashed=1;" edge="1" parent="1" source="stage1" target="stage2_input">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arrow_2_3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#E91E63;" edge="1" parent="1" source="stage2" target="stage3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arrow_to_result" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#2E7D32;" edge="1" parent="1" source="stage3" target="result_success">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arrow_1_result" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#4CAF50;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="stage1_success" target="result_success">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="340" y="530" />
+              <mxPoint x="340" y="560" />
+              <mxPoint x="700" y="560" />
+              <mxPoint x="700" y="495" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Métricas Clave -->
+        <mxCell id="metrics_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#9e9e9e;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="650" width="860" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="metrics_title" value="MÉTRICAS CLAVE DE RENDIMIENTO" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="350" y="660" width="240" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="metric1" value="Latencia Chatbot&#xa;&lt;1s" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#4CAF50;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="690" width="100" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="metric2" value="TFLite On-Device&#xa;87ms" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976D2;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="690" width="100" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="metric3" value="Disponibilidad&#xa;99.2%" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#4CAF50;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="690" width="100" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="metric4" value="Degradación&#xa;Efectiva 97%" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#FFC107;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="690" width="100" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="metric5" value="n = 2,847&#xa;interacciones" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#9C27B0;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="690" width="100" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="metric6" value="45 estudiantes&#xa;4 semanas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b2dfdb;strokeColor=#00897B;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="690" width="100" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="metric7" value="Precisión IA&#xa;89.5%" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#4CAF50;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="690" width="100" height="45" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

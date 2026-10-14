@@ -1,0 +1,145 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram id="tablero-kanban" name="Tablero Kanban">
+    <mxGraphModel dx="1111" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="580" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="titulo" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#1a237e;" value="TABLERO KANBAN - APP CIENCIAS NATURALES" vertex="1">
+          <mxGeometry height="30" width="480" x="210" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="col1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eceff1;strokeColor=#546e7a;strokeWidth=2;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#37474f;" value="BACKLOG" vertex="1">
+          <mxGeometry height="380" width="160" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="col2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;strokeWidth=2;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#1565c0;" value="TO DO" vertex="1">
+          <mxGeometry height="380" width="160" x="215" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="col3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ef6c00;strokeWidth=2;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#ef6c00;" value="IN PROGRESS (WIP: 3)" vertex="1">
+          <mxGeometry height="380" width="160" x="390" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="col4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#7b1fa2;strokeWidth=2;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#7b1fa2;" value="REVIEW" vertex="1">
+          <mxGeometry height="380" width="160" x="565" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="col5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;strokeWidth=2;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#2e7d32;" value="DONE" vertex="1">
+          <mxGeometry height="380" width="160" x="740" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="task1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bdbdbd;strokeWidth=1;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;" value="Integrar API de&#xa;reconocimiento RA&#xa;&#xa;TFLite + Camera" vertex="1">
+          <mxGeometry height="65" width="140" x="50" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tag1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=7;fontStyle=1;" value="FEATURE" vertex="1">
+          <mxGeometry height="15" width="45" x="135" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="task2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bdbdbd;strokeWidth=1;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;" value="Agregar más&#xa;contenido educativo&#xa;&#xa;Temas + Quizzes" vertex="1">
+          <mxGeometry height="65" width="140" x="50" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="tag2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=7;fontStyle=1;" value="CONTENIDO" vertex="1">
+          <mxGeometry height="15" width="55" x="125" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="task3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bdbdbd;strokeWidth=1;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;" value="Optimizar rendimiento&#xa;del Scanner IA&#xa;&#xa;Gemini API" vertex="1">
+          <mxGeometry height="65" width="140" x="50" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="tag3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#fb8c00;fontSize=7;fontStyle=1;" value="MEJORA" vertex="1">
+          <mxGeometry height="15" width="45" x="135" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="task4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bdbdbd;strokeWidth=1;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;" value="Diseñar pantalla&#xa;de resultados Quiz&#xa;&#xa;UI/UX" vertex="1">
+          <mxGeometry height="65" width="140" x="225" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tag4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=7;fontStyle=1;" value="FEATURE" vertex="1">
+          <mxGeometry height="15" width="45" x="310" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="task5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bdbdbd;strokeWidth=1;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;" value="Implementar Speech&#xa;to Text en Chatbot&#xa;&#xa;Entrada de voz" vertex="1">
+          <mxGeometry height="65" width="140" x="225" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="tag5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=7;fontStyle=1;" value="FEATURE" vertex="1">
+          <mxGeometry height="15" width="45" x="310" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="task6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1565c0;strokeWidth=2;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;" value="Desarrollar módulo&#xa;Chatbot IA&#xa;&#xa;Groq API" vertex="1">
+          <mxGeometry height="65" width="140" x="400" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tag6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=7;fontStyle=1;" value="FEATURE" vertex="1">
+          <mxGeometry height="15" width="45" x="485" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="task7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1565c0;strokeWidth=2;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;" value="Integrar YouTube&#xa;Player para RA&#xa;&#xa;Videos educativos" vertex="1">
+          <mxGeometry height="65" width="140" x="400" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="tag7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=7;fontStyle=1;" value="FEATURE" vertex="1">
+          <mxGeometry height="15" width="45" x="485" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="task8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1565c0;strokeWidth=2;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;" value="Corregir bug en&#xa;navegación Home&#xa;&#xa;Flutter Navigator" vertex="1">
+          <mxGeometry height="65" width="140" x="400" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="tag8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#e53935;fontSize=7;fontStyle=1;" value="BUG FIX" vertex="1">
+          <mxGeometry height="15" width="45" x="485" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="task9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bdbdbd;strokeWidth=1;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;" value="Revisar módulo&#xa;de autenticación&#xa;&#xa;Firebase Auth" vertex="1">
+          <mxGeometry height="65" width="140" x="575" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tag9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#8e24aa;fontSize=7;fontStyle=1;" value="TESTING" vertex="1">
+          <mxGeometry height="15" width="45" x="660" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="task10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bdbdbd;strokeWidth=1;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;" value="Validar Scanner IA&#xa;con imágenes reales&#xa;&#xa;Pruebas Gemini" vertex="1">
+          <mxGeometry height="65" width="140" x="575" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="tag10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#8e24aa;fontSize=7;fontStyle=1;" value="TESTING" vertex="1">
+          <mxGeometry height="15" width="45" x="660" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="task11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2e7d32;strokeWidth=2;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;" value="Configurar Firebase&#xa;Auth + Firestore&#xa;&#xa;Backend completado" vertex="1">
+          <mxGeometry height="65" width="140" x="750" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tag11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=7;fontStyle=1;" value="FEATURE" vertex="1">
+          <mxGeometry height="15" width="45" x="835" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="task12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2e7d32;strokeWidth=2;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;" value="Diseñar UI principal&#xa;Home Screen&#xa;&#xa;Flutter Widgets" vertex="1">
+          <mxGeometry height="65" width="140" x="750" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="tag12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=7;fontStyle=1;" value="FEATURE" vertex="1">
+          <mxGeometry height="15" width="45" x="835" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="task13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2e7d32;strokeWidth=2;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;" value="Crear módulo de&#xa;Temas Educativos&#xa;&#xa;CRUD Firestore" vertex="1">
+          <mxGeometry height="65" width="140" x="750" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="tag13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=7;fontStyle=1;" value="FEATURE" vertex="1">
+          <mxGeometry height="15" width="45" x="835" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="task14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2e7d32;strokeWidth=2;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;" value="Implementar Login&#xa;y Registro&#xa;&#xa;Pantallas Auth" vertex="1">
+          <mxGeometry height="65" width="140" x="750" y="305" as="geometry" />
+        </mxCell>
+        <mxCell id="tag14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=7;fontStyle=1;" value="FEATURE" vertex="1">
+          <mxGeometry height="15" width="45" x="835" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="leyenda" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#9e9e9e;strokeWidth=1;dashed=1;verticalAlign=top;fontSize=10;fontStyle=1;fontColor=#616161;" value="ETIQUETAS" vertex="1">
+          <mxGeometry height="55" width="500" x="40" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#43a047;fontSize=8;fontStyle=1;" value="FEATURE" vertex="1">
+          <mxGeometry height="20" width="55" x="55" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#fb8c00;fontSize=8;fontStyle=1;" value="MEJORA" vertex="1">
+          <mxGeometry height="20" width="50" x="120" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#e53935;fontSize=8;fontStyle=1;" value="BUG FIX" vertex="1">
+          <mxGeometry height="20" width="50" x="180" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#8e24aa;fontSize=8;fontStyle=1;" value="TESTING" vertex="1">
+          <mxGeometry height="20" width="50" x="240" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=8;fontStyle=1;" value="CONTENIDO" vertex="1">
+          <mxGeometry height="20" width="65" x="300" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="wip-note" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#616161;" value="WIP = Work In Progress (Limite de tareas simultaneas)" vertex="1">
+          <mxGeometry height="20" width="250" x="380" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="metodologia" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;strokeWidth=1;fontSize=10;fontStyle=1;fontColor=#2e7d32;" value="Metodologia: KANBAN - Flujo continuo con mejoras iterativas" vertex="1">
+          <mxGeometry height="30" width="340" x="560" y="455" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-flow" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#9e9e9e;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="40" as="sourcePoint" />
+            <mxPoint x="740" y="40" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontStyle=2;fontColor=#757575;" value="Flujo de trabajo" vertex="1">
+          <mxGeometry height="15" width="80" x="430" y="28" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

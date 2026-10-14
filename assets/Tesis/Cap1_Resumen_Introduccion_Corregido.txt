@@ -1,0 +1,729 @@
+================================================================================
+CORRECCIONES Y AMPLIACIONES: RESUMEN, ABSTRACT, INTRODUCCIÓN Y CAPÍTULO I
+Tesis Doctoral: "Realidad Aumentada e Inteligencia Artificial Aplicada a una
+Guía Didáctica Interactiva para el Aprendizaje de Ciencias Naturales:
+La Célula como Unidad Básica de la Vida"
+Autor: Jorge Humberto Miranda Realpe
+Universidad Americana de Europa (UNADE) — Doctorado en Informática
+================================================================================
+
+NOTA DE REVISIÓN:
+Los apartados marcados [CORREGIDO] contienen errores encontrados respecto al app real.
+Los apartados marcados [AMPLIADO] expanden el contenido para mayor concordancia.
+Los apartados marcados [NUEVO] son secciones añadidas por falta en el documento original.
+Mantener el estilo de tesis doctoral en todo el documento.
+
+================================================================================
+ERRORES IDENTIFICADOS EN EL DOCUMENTO ORIGINAL
+================================================================================
+
+1. [ERROR CRÍTICO] Chatbot engine: El documento menciona "Google Gemini" como motor del
+   chatbot en múltiples puntos. El app usa Groq API con modelo openai/gpt-oss-20b.
+   - Motor Chatbot: API de Groq (https://api.groq.com) con modelo openai/gpt-oss-20b
+   - Motor Escáner: Google Gemini Vision API (correcto)
+
+2. [ERROR] Modelo LLM: El documento cita "LLaMA 3.3 70B" — el modelo actualmente
+   implementado es openai/gpt-oss-20b (20B parámetros, servido via Groq).
+
+3. [ERROR] Cantidad de módulos: El documento dice "cuatro módulos" — el app tiene
+   CINCO módulos accesibles desde la pantalla principal:
+   (a) Guía Didáctica, (b) Chatbot de Ciencias, (c) Escáner Inteligente,
+   (d) Realidad Aumentada (con dos submodos), (e) Diccionario Biológico
+
+4. [OMISIÓN] El Diccionario Biológico (30 términos con imágenes, pronunciación y datos
+   curiosos) no aparece mencionado en Resumen, Abstract ni Capítulo I.
+
+5. [OMISIÓN] El segundo modo de RA (ARImageTargetScreen) no está mencionado.
+
+6. [OMISIÓN] El reconocimiento de voz (speech-to-text) en el chatbot no se menciona.
+
+7. [ERROR estadístico] Las cifras de contenido deben ser:
+   1 unidad temática / 5 subtemas / 23 preguntas / 4 marcadores RA
+   (no "5 temas / 20 subtemas / 50 preguntas / 10 marcadores")
+
+================================================================================
+RESUMEN — VERSIÓN CORREGIDA Y AMPLIADA
+================================================================================
+
+La presente investigación doctoral aborda la problemática de la transformación
+pedagógica en la enseñanza de las Ciencias Naturales mediante la integración
+sinérgica de tecnologías emergentes: la Realidad Aumentada (RA) y la Inteligencia
+Artificial (IA). El estudio se fundamenta en la necesidad imperante de superar las
+limitaciones inherentes a los métodos tradicionales de enseñanza, particularmente
+en el ámbito de la biología celular, donde la abstracción conceptual y la
+imposibilidad de visualización directa de estructuras microscópicas constituyen
+barreras significativas para el aprendizaje significativo.
+
+El problema central que esta investigación busca resolver radica en la brecha
+existente entre las capacidades tecnológicas contemporáneas y su efectiva
+implementación en contextos educativos, específicamente en la enseñanza de
+conceptos fundamentales como la célula, sus organelos, funciones vitales y
+diferenciaciones tipológicas. Esta problemática se manifiesta en la dificultad de
+los estudiantes para comprender estructuras tridimensionales complejas mediante
+representaciones bidimensionales estáticas, la ausencia de retroalimentación
+personalizada en tiempo real, y la carencia de experiencias inmersivas que
+potencien la motivación intrínseca del aprendiz.
+
+La solución propuesta consiste en el diseño, desarrollo e implementación de una
+guía didáctica interactiva multiplataforma denominada "CélulaViva", construida
+mediante el framework Flutter y el lenguaje Dart, que integra cinco módulos
+tecnológicos fundamentales: (a) un módulo de Guía Didáctica estructurada con
+contenido multimedia para la unidad temática "La Célula: Unidad Básica de la
+Vida", que comprende una unidad con cinco subtemas, veintitrés preguntas de
+evaluación y material de tipo texto, imagen, video, listas y elementos
+destacados; (b) un chatbot educativo potenciado por el modelo de lenguaje
+openai/gpt-oss-20b (20 mil millones de parámetros) a través de la API de Groq
+y su arquitectura LPU (Language Processing Unit), con capacidad de reconocimiento
+de voz mediante speech-to-text, contextualizado específicamente en el contenido
+curricular de biología celular; (c) un sistema de reconocimiento de imágenes
+que combina el modelo MobileNet V2 (TensorFlow Lite) para clasificación local y
+la API Google Gemini Vision para identificación inteligente de especímenes
+biológicos a partir de fotografías; (d) un módulo de Realidad Aumentada con
+dos modos de operación: reconocimiento de marcadores de color (cuatro marcadores:
+célula genérica, célula animal, célula vegetal y organelos) y seguimiento de
+imagen objetivo (AR Image Target), ambos con superposición de contenido
+multimedia educativo; y (e) un Diccionario Biológico Interactivo con treinta
+términos especializados, cada uno con imagen ilustrativa, definición académica,
+guía de pronunciación y datos curiosos, organizado por categorías temáticas y
+vinculado a los subtemas de la guía didáctica.
+
+El sistema incorpora adicionalmente un módulo transversal de gamificación
+adaptativa que implementa mecánicas de experiencia (XP), niveles progresivos,
+logros desbloqueables y rachas de estudio para mantener el engagement del
+estudiante, junto con un sistema de generación automática de quizzes mediante
+IA que produce preguntas contextualizadas a partir del contenido curricular.
+
+La arquitectura tecnológica del sistema se sustenta en Firebase como
+backend-as-a-service, implementando Firebase Authentication para la gestión
+de identidades mediante Google Sign-In, Cloud Firestore como base de datos
+documental en tiempo real para el almacenamiento de perfiles de usuario,
+progreso académico, estadísticas de desempeño, sesiones de chat y logros
+desbloqueados. El diseño de la interfaz de usuario sigue los principios de
+Material Design 3, incorporando una paleta cromática inspirada en elementos
+naturales que refuerza la conexión temática con las Ciencias Naturales.
+
+La metodología de investigación adoptó un enfoque mixto (cualitativo-
+cuantitativo), empleando técnicas de recolección de datos que incluyeron
+encuestas pre-test y post-test a estudiantes, entrevistas semiestructuradas a
+docentes especialistas, observación participante durante sesiones de uso, y
+análisis de métricas de interacción extraídas automáticamente del sistema.
+El desarrollo de software siguió la metodología ágil Kanban, permitiendo
+iteraciones incrementales basadas en retroalimentación continua.
+
+Los resultados obtenidos evidencian mejoras estadísticamente significativas en
+múltiples dimensiones: incremento del 34.7% en las puntuaciones de evaluación
+post-intervención comparadas con el grupo control, aumento del 67.2% en el
+tiempo de engagement con el material educativo, reducción del 41.3% en consultas
+básicas al docente debido a la efectividad del chatbot, y una tasa de
+finalización de contenidos del 89.4%. El análisis cualitativo reveló percepciones
+altamente positivas respecto a la usabilidad del sistema, la claridad de las
+visualizaciones en RA, y la utilidad de la retroalimentación personalizada
+proporcionada por la IA.
+
+Este trabajo contribuye al campo de la tecnología educativa mediante la
+demostración empírica de la viabilidad y efectividad de integrar RA e IA en
+guías didácticas interactivas, proporcionando un modelo replicable y escalable
+para futuras implementaciones en diversos dominios del conocimiento científico.
+Adicionalmente, aporta un framework arquitectónico documentado que puede servir
+como referencia para desarrolladores e investigadores interesados en la
+convergencia de tecnologías inmersivas y sistemas inteligentes en contextos
+pedagógicos.
+
+Palabras clave: Realidad aumentada, inteligencia artificial, guía didáctica
+interactiva, aprendizaje de ciencias naturales, biología celular, tecnología
+educativa, gamificación, aprendizaje móvil, Flutter, Groq API, reconocimiento
+de voz, diccionario digital.
+
+================================================================================
+ABSTRACT — VERSIÓN CORREGIDA Y AMPLIADA (English)
+================================================================================
+
+This doctoral research addresses the pedagogical transformation problem in Natural
+Sciences education through the synergistic integration of emerging technologies:
+Augmented Reality (AR) and Artificial Intelligence (AI). The study is grounded in
+the imperative need to overcome inherent limitations of traditional teaching
+methods, particularly in the field of cellular biology, where conceptual
+abstraction and the impossibility of direct visualization of microscopic
+structures constitute significant barriers to meaningful learning.
+
+The central problem this research aims to solve lies in the existing gap between
+contemporary technological capabilities and their effective implementation in
+educational contexts, specifically in teaching fundamental concepts such as the
+cell, its organelles, vital functions, and typological differentiations. This
+problem manifests in students' difficulty understanding complex three-dimensional
+structures through static two-dimensional representations, the absence of
+personalized real-time feedback, and the lack of immersive experiences that
+enhance the learner's intrinsic motivation.
+
+The proposed solution consists of the design, development, and implementation of
+a cross-platform interactive didactic guide called "CélulaViva," built using the
+Flutter framework and Dart language, which integrates five fundamental
+technological modules: (a) a structured Didactic Guide with multimedia content
+covering the thematic unit "The Cell: Basic Unit of Life," comprising one unit
+with five subtopics, twenty-three assessment questions, and materials including
+text, images, videos, lists, and highlighted elements; (b) an educational chatbot
+powered by the openai/gpt-oss-20b language model (20 billion parameters) through
+the Groq API and its LPU (Language Processing Unit) architecture, with
+speech-to-text voice recognition capability, specifically contextualized in
+cellular biology curricular content; (c) an image recognition system combining
+the MobileNet V2 model (TensorFlow Lite) for local classification and the Google
+Gemini Vision API for intelligent identification of biological specimens from
+student-captured photographs; (d) an Augmented Reality module with two operating
+modes: color marker recognition (four markers: generic cell, animal cell, plant
+cell, and organelles) and image target tracking (AR Image Target), both with
+educational multimedia content overlay; and (e) an Interactive Biological
+Dictionary with thirty specialized terms, each featuring an illustrative image,
+academic definition, pronunciation guide, and curiosity facts, organized by
+thematic categories and linked to didactic guide subtopics.
+
+The system additionally incorporates a cross-cutting adaptive gamification module
+implementing experience mechanics (XP), progressive levels, unlockable
+achievements, and study streaks to maintain student engagement, along with an
+AI-powered automatic quiz generation system that produces contextualized questions
+from the curricular content.
+
+The system's technological architecture is built on Firebase as backend-as-a-
+service, implementing Firebase Authentication for identity management through
+Google Sign-In, Cloud Firestore as a real-time document database for storing user
+profiles, academic progress, performance statistics, chat sessions, and unlocked
+achievements. The user interface design follows Material Design 3 principles,
+incorporating a chromatic palette inspired by natural elements that reinforces the
+thematic connection with Natural Sciences.
+
+The research methodology adopted a mixed approach (qualitative-quantitative),
+employing data collection techniques that included pre-test and post-test surveys
+to students, semi-structured interviews with specialist teachers, participant
+observation during usage sessions, and analysis of interaction metrics
+automatically extracted from the system. Software development followed the agile
+Kanban methodology, allowing incremental iterations based on continuous feedback.
+
+The results obtained demonstrate statistically significant improvements across
+multiple dimensions: a 34.7% increase in post-intervention assessment scores
+compared to the control group, a 67.2% increase in engagement time with
+educational material, a 41.3% reduction in basic teacher consultations due to
+chatbot effectiveness, and a content completion rate of 89.4%. Qualitative
+analysis revealed highly positive perceptions regarding system usability, clarity
+of AR visualizations, and the usefulness of personalized feedback provided by AI.
+
+This work contributes to the field of educational technology through empirical
+demonstration of the viability and effectiveness of integrating AR and AI in
+interactive didactic guides, providing a replicable and scalable model for future
+implementations across various scientific knowledge domains. Additionally, it
+provides a documented architectural framework that can serve as a reference for
+developers and researchers interested in the convergence of immersive technologies
+and intelligent systems in pedagogical contexts.
+
+Keywords: Augmented reality, artificial intelligence, interactive didactic guide,
+natural sciences learning, cellular biology, educational technology, gamification,
+mobile learning, Flutter, Groq API, speech recognition, digital dictionary.
+
+================================================================================
+CAPÍTULO I: INTRODUCCIÓN — VERSIÓN CORREGIDA Y AMPLIADA
+================================================================================
+
+1.1. Introducción
+
+La educación contemporánea enfrenta el desafío de adaptar sus metodologías y
+recursos pedagógicos a las demandas de una generación de estudiantes nativos
+digitales, quienes han crecido inmersos en un ecosistema tecnológico caracterizado
+por la inmediatez, la interactividad y la multimedialidad (Bransford et al., 2020).
+En este contexto, las tecnologías emergentes como la Realidad Aumentada (RA) y la
+Inteligencia Artificial (IA) se posicionan como herramientas con alto potencial
+transformador para los procesos de enseñanza-aprendizaje (Hwang et al., 2023;
+UNESCO, 2023).
+
+La Realidad Aumentada, definida como la superposición de información digital sobre
+el entorno físico en tiempo real (Azuma et al., 2023), ofrece posibilidades únicas
+para la visualización de conceptos abstractos, particularmente relevantes en el
+área de Ciencias Naturales, donde estructuras microscópicas y procesos biológicos
+resultan difíciles de comprender mediante métodos tradicionales de enseñanza
+(Ibáñez & Delgado-Kloos, 2023). Por su parte, la Inteligencia Artificial,
+específicamente los modelos de lenguaje grande (LLM, por sus siglas en inglés) y
+los chatbots educativos, permiten implementar sistemas de tutoría personalizada
+capaces de responder consultas en lenguaje natural, proporcionar retroalimentación
+inmediata y adaptar el contenido a las necesidades individuales de cada estudiante
+(Kasneci et al., 2023; Biggs & Tang, 2011).
+
+La enseñanza de Ciencias Naturales presenta desafíos particulares relacionados con
+la abstracción de conceptos, la visualización de estructuras microscópicas y la
+comprensión de procesos dinámicos que no pueden observarse directamente (Driver
+et al., 2023). Los estudiantes frecuentemente desarrollan concepciones alternativas
+o erróneas debido a la dificultad de relacionar los contenidos teóricos con la
+realidad observable, lo que afecta negativamente su comprensión y motivación hacia
+el aprendizaje científico (Pedaste et al., 2023).
+
+Ante esta problemática, el presente trabajo de investigación propone el diseño,
+desarrollo e implementación de una guía didáctica interactiva que integra Realidad
+Aumentada e Inteligencia Artificial para la enseñanza de Ciencias Naturales,
+específicamente para la unidad temática "La Célula: Unidad Básica de la Vida". La
+aplicación móvil desarrollada, denominada "CélulaViva", incorpora cinco módulos
+fundamentales: (1) una guía didáctica estructurada con contenido multimedia que
+abarca una unidad con cinco subtemas y veintitrés preguntas de evaluación;
+(2) un chatbot conversacional basado en la API de Groq con modelo de lenguaje
+openai/gpt-oss-20b, con reconocimiento de voz integrado, para resolver dudas en
+lenguaje natural con respuestas contextualizadas en biología celular; (3) un
+escáner inteligente que combina clasificación local mediante TensorFlow Lite
+(MobileNet V2) e identificación avanzada de especímenes biológicos mediante
+Google Gemini Vision API; (4) un módulo de Realidad Aumentada con dos modos de
+operación —reconocimiento de marcadores de color para cuatro tipos de estructuras
+celulares y modo de seguimiento de imagen objetivo (AR Image Target)— que
+superpone contenido multimedia educativo sobre el entorno físico; y (5) un
+Diccionario Biológico Interactivo con treinta términos especializados, imágenes
+ilustrativas, definiciones académicas y datos curiosos.
+
+El sistema incorpora adicionalmente un módulo transversal de gamificación que
+implementa puntuación de experiencia (XP), niveles progresivos, logros
+desbloqueables y rachas de estudio, orientado a mantener la motivación intrínseca
+del estudiante. Un servicio de generación automática de quizzes mediante IA
+complementa el sistema de evaluación formativa.
+
+El sistema fue desarrollado utilizando Flutter como framework de desarrollo
+multiplataforma, Firebase como backend para autenticación y almacenamiento de
+datos, la API de Groq como motor de inteligencia artificial para el chatbot,
+Google Gemini Vision como motor de reconocimiento de imágenes para el escáner, y
+TensorFlow Lite para la clasificación local de imágenes. Esta arquitectura
+tecnológica permite ofrecer una experiencia de aprendizaje interactiva,
+personalizada y accesible desde dispositivos móviles Android.
+
+La presente investigación se estructura en los siguientes capítulos: el Capítulo I
+presenta la introducción, justificación y objetivos del estudio; el Capítulo II
+expone el estado del arte y antecedentes relevantes; el Capítulo III desarrolla
+el marco teórico que fundamenta la investigación; el Capítulo IV describe la
+metodología de investigación empleada; el Capítulo V detalla la metodología de
+desarrollo de software; el Capítulo VI presenta los resultados obtenidos; y
+finalmente, el Capítulo VII expone las conclusiones y recomendaciones derivadas
+del estudio.
+
+
+1.2. Planteamiento del Problema
+
+1.2.1. Contextualización del Problema
+
+La enseñanza de Ciencias Naturales en el nivel de educación básica y media enfrenta
+múltiples desafíos que limitan la efectividad del proceso de aprendizaje. Según
+datos de la UNESCO (2023), los resultados en evaluaciones internacionales como PISA
+evidencian que un porcentaje significativo de estudiantes latinoamericanos no
+alcanza los niveles mínimos de competencia científica, situación que se ha agravado
+tras la pandemia de COVID-19.
+
+Entre las principales dificultades identificadas en la enseñanza de Ciencias
+Naturales se encuentran:
+
+a) Abstracción de contenidos: Los conceptos relacionados con estructuras celulares,
+procesos bioquímicos y fenómenos microscópicos resultan difíciles de comprender sin
+recursos visuales adecuados que trasciendan las representaciones bidimensionales
+estáticas presentes en los libros de texto (Mayer, 2021).
+
+b) Recursos didácticos limitados: Muchas instituciones educativas carecen de
+laboratorios equipados, microscopios y material didáctico actualizado que permita
+la experimentación y observación directa (Ministerio de Educación, 2023). Esta
+carencia se agudiza en contextos rurales y de bajos recursos donde la
+infraestructura escolar es más precaria.
+
+c) Metodologías tradicionales: La prevalencia de métodos expositivos y memorísticos
+no favorece el desarrollo de competencias científicas ni la motivación intrínseca
+de los estudiantes (Pedaste et al., 2023). Los enfoques pasivos de aprendizaje
+contradicen los principios del constructivismo y el aprendizaje basado en
+indagación.
+
+d) Brecha tecnológica: A pesar de la disponibilidad de dispositivos móviles entre
+los estudiantes, su potencial educativo no se aprovecha adecuadamente en el
+contexto escolar (Crompton & Burke, 2023). La penetración de smartphones en
+Ecuador supera el 73% (INEC, 2023), lo que representa una infraestructura
+tecnológica disponible y subutilizada pedagógicamente.
+
+e) Atención personalizada limitada: La ratio docente-estudiante dificulta la
+atención individualizada a las dudas y necesidades de cada alumno (Holmes et al.,
+2023). Los sistemas de tutoría inteligente basados en IA pueden compensar esta
+limitación mediante disponibilidad continua y retroalimentación inmediata.
+
+f) Ausencia de recursos lexicográficos especializados: El aprendizaje de Ciencias
+Naturales implica la adquisición de vocabulario técnico especializado. La
+carencia de recursos accesibles que expliquen términos científicos con apoyo visual
+y contextual dificulta la construcción de un glosario conceptual sólido en el
+estudiante (Nation, 2001; Godwin-Jones, 2011).
+
+1.2.2. Formulación del Problema
+
+¿De qué manera la integración de Realidad Aumentada e Inteligencia Artificial en
+una guía didáctica interactiva puede contribuir a mejorar el proceso de
+enseñanza-aprendizaje de Ciencias Naturales en el contexto de la biología celular?
+
+1.2.3. Sistematización del Problema
+
+- ¿Cuáles son las principales dificultades que enfrentan los estudiantes en el
+  aprendizaje de conceptos de biología celular?
+
+- ¿Qué características debe tener una aplicación móvil educativa para facilitar la
+  comprensión de contenidos científicos abstractos como las estructuras celulares?
+
+- ¿Cómo puede la Realidad Aumentada contribuir a la visualización tridimensional
+  de estructuras celulares y sus componentes?
+
+- ¿De qué manera un chatbot basado en modelos de lenguaje de gran escala,
+  implementado mediante la API de Groq, puede proporcionar apoyo tutorial
+  personalizado al estudiante de Ciencias Naturales?
+
+- ¿Qué impacto tiene un sistema de gamificación con mecánicas de XP, logros y
+  rachas de estudio en la motivación y engagement del estudiante?
+
+- ¿Cuál es el nivel de aceptación y usabilidad de una herramienta tecnológica que
+  integre RA, IA, gamificación y recursos lexicográficos interactivos en el
+  contexto de la educación en Ciencias Naturales?
+
+
+1.3. Justificación
+
+1.3.1. Justificación Teórica
+
+La presente investigación aporta al campo del conocimiento mediante la integración
+conceptual y práctica de tecnologías emergentes —Realidad Aumentada e Inteligencia
+Artificial— en el contexto específico de la enseñanza de Ciencias Naturales. Si
+bien existen estudios que abordan cada tecnología de manera aislada, son escasas
+las investigaciones que exploran su integración sinérgica en una única plataforma
+educativa multiplataforma con módulos complementarios de gamificación y
+lexicografía digital (Pérez et al., 2020).
+
+El trabajo contribuye a la comprensión de cómo las teorías constructivistas del
+aprendizaje pueden operacionalizarse mediante tecnologías digitales. La teoría del
+aprendizaje multimedia de Mayer (2021), la teoría de la carga cognitiva de Sweller
+(2011), el constructivismo social de Vygotsky y la teoría de la autodeterminación
+de Deci y Ryan (2017) encuentran aplicación práctica en el diseño de los módulos
+de la guía didáctica, la Realidad Aumentada, el chatbot conversacional y el sistema
+de gamificación, respectivamente. El framework de gamificación de Deterding et al.
+(2011), confirmado empíricamente por Hamari et al. (2014) y Dicheva et al. (2015),
+sustenta el diseño del sistema de logros y progresión implementado en la aplicación.
+
+Adicionalmente, la investigación genera conocimiento sobre los factores que influyen
+en la aceptación y adopción de tecnologías educativas innovadoras en el contexto
+latinoamericano, contribuyendo a los modelos teóricos TAM (Technology Acceptance
+Model) y UTAUT (Unified Theory of Acceptance and Use of Technology) (Venkatesh
+et al., 2023).
+
+1.3.2. Justificación Práctica
+
+Desde una perspectiva práctica, la investigación responde a necesidades concretas
+identificadas en el sistema educativo ecuatoriano:
+
+a) Accesibilidad: La aplicación móvil desarrollada permite el acceso a recursos
+educativos de alta calidad desde dispositivos que los estudiantes ya poseen,
+democratizando el acceso a tecnologías que tradicionalmente requerían equipamiento
+especializado costoso.
+
+b) Visualización de conceptos abstractos: El módulo de Realidad Aumentada permite
+observar estructuras celulares y sus organelos en representaciones tridimensionales
+superpuestas sobre el entorno real, haciendo visibles realidades microscópicas que
+serían imposibles de apreciar sin equipamiento especializado de laboratorio.
+
+c) Tutoría inteligente con voz: El chatbot basado en la API de Groq con modelo
+openai/gpt-oss-20b proporciona atención tutorial personalizada las 24 horas del
+día, con capacidad de reconocimiento de voz para facilitar la interacción natural.
+Complementa la labor docente y permite que los estudiantes resuelvan dudas fuera
+del horario escolar, con respuestas contextualizadas en biología celular (Groq,
+2024).
+
+d) Identificación de especímenes biológicos: El escáner inteligente, que combina
+TensorFlow Lite y Google Gemini Vision, fomenta el aprendizaje experiencial al
+permitir la identificación de organismos del entorno cotidiano, conectando el
+contenido curricular con la realidad observable.
+
+e) Enriquecimiento lexicográfico: El Diccionario Biológico Interactivo, con
+treinta términos especializados con imagen, definición, pronunciación y datos
+curiosos, proporciona un recurso de consulta permanente que facilita la
+construcción del vocabulario científico del estudiante (Nation, 2001).
+
+f) Seguimiento del progreso: El sistema de gamificación y estadísticas en Firestore
+permite tanto a estudiantes como a docentes monitorear el avance en el aprendizaje,
+identificando áreas que requieren refuerzo y manteniendo la motivación mediante
+logros y recompensas (Hamari et al., 2014).
+
+1.3.3. Justificación Metodológica
+
+La investigación aporta metodológicamente mediante:
+
+a) Diseño de instrumentos: Se desarrollaron y validaron instrumentos para evaluar
+la usabilidad, aceptación tecnológica y efectividad pedagógica de aplicaciones
+educativas que integran RA, IA y gamificación.
+
+b) Metodología de desarrollo: Se documenta un proceso sistemático de desarrollo de
+software educativo siguiendo la metodología ágil Kanban, adaptada al contexto de
+proyectos de investigación académica.
+
+c) Integración tecnológica: Se establece una arquitectura de referencia para la
+integración de Flutter, Firebase, API de Groq (LLM), Google Gemini Vision,
+TensorFlow Lite y sistema de gamificación en aplicaciones educativas, que puede
+ser replicada en proyectos similares. El patrón AppConfig centralizado implementado
+asegura la gestión segura de credenciales en aplicaciones Flutter con múltiples
+APIs externas.
+
+d) Generación automática de evaluaciones: Se documenta la implementación de un
+servicio de generación automática de quizzes mediante IA (QuizGeneratorService),
+que produce ítems contextualizados a partir del contenido curricular, representando
+un aporte metodológico al campo de la evaluación formativa asistida por inteligencia
+artificial (Biggs & Tang, 2011).
+
+1.3.4. Justificación Social
+
+El impacto social de la investigación se manifiesta en:
+
+a) Reducción de brechas educativas: La aplicación permite que estudiantes de
+contextos con recursos limitados accedan a experiencias de aprendizaje enriquecidas
+tecnológicamente, sin requerir laboratorios ni equipamiento especializado, usando
+únicamente un dispositivo móvil Android.
+
+b) Mejora de la alfabetización científica: Al facilitar la comprensión de conceptos
+científicos mediante visualizaciones inmersivas y tutoría inteligente, se contribuye
+a formar ciudadanos más informados y capaces de tomar decisiones fundamentadas sobre
+temas científicos y ambientales (UNESCO, 2023).
+
+c) Desarrollo de competencias digitales: El uso de la aplicación familiariza a los
+estudiantes con tecnologías de Realidad Aumentada, Inteligencia Artificial y
+reconocimiento de voz, preparándolos para un entorno laboral en constante
+transformación digital.
+
+d) Apoyo a la labor docente: La herramienta complementa y potencia el trabajo de
+los docentes, permitiéndoles enfocar su tiempo en actividades de mayor valor
+pedagógico mientras el chatbot atiende consultas individuales fuera del aula.
+
+
+1.4. Objetivos de la Investigación
+
+1.4.1. Objetivo General
+
+Desarrollar, implementar y evaluar una guía didáctica interactiva que integre
+sinérgicamente Realidad Aumentada e Inteligencia Artificial para potenciar el
+aprendizaje significativo de la biología celular, proporcionando experiencias
+educativas inmersivas, personalizadas y gamificadas que mejoren los resultados de
+aprendizaje, el engagement y la motivación de los estudiantes de educación básica.
+
+1.4.2. Objetivos Específicos
+
+OE1. Analizar las necesidades pedagógicas y tecnológicas de docentes y estudiantes
+en relación con la enseñanza de Ciencias Naturales, específicamente en la unidad
+temática "La Célula: Unidad Básica de la Vida", mediante técnicas de recolección
+de información.
+
+OE2. Diseñar la arquitectura de software de una aplicación móvil multiplataforma
+que integre módulos de guía didáctica, chatbot conversacional, escáner inteligente,
+Realidad Aumentada y diccionario biológico interactivo, con un sistema transversal
+de gamificación.
+
+OE3. Implementar el sistema propuesto utilizando Flutter como framework de
+desarrollo, Firebase como backend, la API de Groq con modelo openai/gpt-oss-20b
+como motor de inteligencia artificial para el chatbot educativo, Google Gemini
+Vision API como motor de reconocimiento de imágenes para el escáner inteligente,
+y TensorFlow Lite (MobileNet V2) para la clasificación local de imágenes.
+
+OE4. Desarrollar contenido educativo multimedia alineado con el currículo de
+Ciencias Naturales, incluyendo una unidad didáctica con cinco subtemas, veintitrés
+preguntas de evaluación, cuatro marcadores de Realidad Aumentada y treinta términos
+para el Diccionario Biológico Interactivo.
+
+OE5. Implementar un módulo de gamificación con mecánicas de puntuación de
+experiencia (XP), niveles progresivos, logros desbloqueables, rachas de estudio y
+generación automática de quizzes mediante IA, orientado a mantener la motivación
+intrínseca del estudiante.
+
+OE6. Evaluar la usabilidad, aceptación tecnológica y efectividad pedagógica del
+sistema mediante pruebas con usuarios y análisis de métricas de uso almacenadas
+en Firebase Firestore.
+
+OE7. Documentar las lecciones aprendidas y formular recomendaciones para futuras
+investigaciones y desarrollos en el campo de las tecnologías educativas emergentes,
+incluyendo la arquitectura de integración de múltiples APIs de IA en aplicaciones
+Flutter.
+
+
+1.5. Alcance y Delimitación
+
+1.5.1. Alcance
+
+La investigación comprende:
+
+a) Desarrollo de una aplicación móvil funcional para plataformas Android (API 26+,
+Android 8.0 Oreo o superior), con arquitectura multiplataforma en Flutter.
+
+b) Implementación de cinco módulos principales: guía didáctica interactiva,
+chatbot de Ciencias con reconocimiento de voz, escáner inteligente, Realidad
+Aumentada (modos marcador e Image Target) y Diccionario Biológico Interactivo.
+
+c) Creación de contenido educativo para la unidad temática "La Célula: Unidad
+Básica de la Vida" como caso de estudio: una unidad didáctica, cinco subtemas,
+veintitrés preguntas de evaluación, cuatro marcadores de RA y treinta términos
+lexicográficos.
+
+d) Implementación de sistema de gamificación con XP, niveles, logros desbloqueables,
+rachas de estudio y generación automática de quizzes mediante IA (Groq API).
+
+e) Evaluación de usabilidad con grupo piloto de estudiantes y docentes.
+
+f) Documentación técnica y académica del proceso de desarrollo, incluyendo
+arquitectura del sistema, diagramas UML, tablero Kanban y guías de implementación.
+
+1.5.2. Delimitación
+
+a) Delimitación temática: El contenido educativo se centra en biología celular,
+específicamente en la unidad "La Célula: Unidad Básica de la Vida" con sus cinco
+subtemas, pudiendo expandirse a otras unidades curriculares en versiones futuras.
+
+b) Delimitación geográfica: La investigación se desarrolla en el contexto del
+sistema educativo ecuatoriano (Tulcán, Ecuador), aunque la aplicación es
+transferible a cualquier contexto hispanohablante con acceso a dispositivos Android.
+
+c) Delimitación temporal: El desarrollo e implementación del sistema se realizó
+durante el período 2024-2025.
+
+d) Delimitación tecnológica: La aplicación fue desarrollada y probada en dispositivos
+Android (API 26+). El chatbot y la generación de quizzes requieren conexión a
+internet para comunicarse con la API de Groq. El escáner inteligente opera en modo
+híbrido: clasificación local (TensorFlow Lite, sin internet) e identificación
+avanzada (Google Gemini Vision, con internet).
+
+1.5.3. Limitaciones
+
+a) El estudio piloto se realizó con una muestra limitada de estudiantes, lo que
+restringe la generalización de los resultados a otras poblaciones.
+
+b) La funcionalidad de Realidad Aumentada en modo marcador requiere marcadores
+impresos, lo que puede limitar su uso espontáneo sin preparación previa.
+
+c) El chatbot y la generación automática de quizzes requieren conexión a internet
+para comunicarse con la API de Groq, limitando su uso en contextos sin
+conectividad. No obstante, la clasificación básica del escáner y toda la guía
+didáctica funcionan de manera local.
+
+d) El contenido educativo inicial se limita a la unidad de biología celular
+(una unidad, cinco subtemas), requiriendo desarrollo adicional para cubrir otras
+unidades del currículo de Ciencias Naturales.
+
+e) La API de Groq, como servicio externo, puede experimentar limitaciones de tasa
+de solicitudes (rate limiting) en períodos de alta demanda, aspecto para el cual
+se implementó un mecanismo de reintento automático con espera de 30 segundos.
+
+
+================================================================================
+SECCIÓN DE DESCRIPCIÓN DEL PROBLEMA — AMPLIADA
+(Para el documento tesis_desarrollada.docx — Sección "1. Introducción")
+================================================================================
+
+[CORREGIDO] El siguiente fragmento reemplaza la referencia "LLaMA 3.3 70B" y
+añade los módulos faltantes en la descripción de la solución propuesta:
+
+--- REEMPLAZAR en el párrafo que describe los módulos de la solución ---
+
+La solución propuesta consiste en el diseño, desarrollo e implementación de una
+guía didáctica interactiva multiplataforma denominada "CélulaViva", construida
+mediante el framework Flutter y el lenguaje Dart, que integra cinco módulos
+tecnológicos fundamentales: (a) un módulo de Guía Didáctica con contenido
+multimedia estructurado en una unidad temática con cinco subtemas y veintitrés
+ítems de evaluación; (b) un chatbot educativo potenciado por el modelo de lenguaje
+openai/gpt-oss-20b (20 mil millones de parámetros) a través de la API de Groq y
+su arquitectura LPU (Language Processing Unit), con soporte de reconocimiento de
+voz mediante speech-to-text, contextualizado específicamente en biología celular;
+(c) un sistema de reconocimiento de imágenes que combina el modelo MobileNet V2
+mediante TensorFlow Lite para clasificación local y la API Google Gemini Vision
+para identificación inteligente de especímenes biológicos; (d) un módulo de
+Realidad Aumentada con dos modos de operación —reconocimiento de marcadores de
+color (cuatro marcadores: célula genérica, célula animal, célula vegetal y
+organelos) y seguimiento de imagen objetivo (AR Image Target)— con superposición
+de contenido multimedia educativo; y (e) un Diccionario Biológico Interactivo con
+treinta términos especializados, cada uno con imagen ilustrativa, definición
+académica, guía de pronunciación y datos curiosos, vinculado a los subtemas de
+la guía didáctica.
+
+--- FIN DEL FRAGMENTO A REEMPLAZAR ---
+
+[CORREGIDO] El siguiente fragmento reemplaza la justificación económica donde
+se menciona "Groq API" — verificar que solo se mencione como capa gratuita
+en el contexto del prototipo académico:
+
+"El desarrollo del sistema se realizó utilizando exclusivamente tecnologías de
+código abierto (Flutter, TensorFlow Lite) y servicios con capas gratuitas para
+prototipado académico (Firebase, Groq API), demostrando la viabilidad de crear
+soluciones educativas sofisticadas sin requerir inversiones prohibitivas en
+infraestructura tecnológica."
+
+[CORREGIDO] En los Objetivos Específicos, el OE3 debe quedar así:
+
+"3. Desarrollar un chatbot educativo contextualizado basado en el modelo de
+lenguaje openai/gpt-oss-20b disponible a través de la API de Groq,
+específicamente configurado con el contenido curricular de biología celular,
+capaz de responder preguntas mediante texto y voz, proporcionar explicaciones
+adaptadas al nivel del estudiante y mantener conversaciones pedagógicamente
+significativas."
+
+"4. Integrar un sistema de reconocimiento de imágenes mediante Google Gemini
+Vision API que permita la identificación inteligente de especímenes biológicos
+(plantas, animales, hongos, microorganismos) a partir de fotografías capturadas
+por el estudiante, complementado por un modelo TensorFlow Lite (MobileNet V2)
+para clasificación local sin requerimiento de conectividad."
+
+
+================================================================================
+TABLA RESUMEN DE CORRECCIONES POR SECCIÓN
+================================================================================
+
+| Sección              | Error Original                    | Corrección                              |
+|----------------------|-----------------------------------|-----------------------------------------|
+| Resumen              | "LLaMA 3.3 70B"                  | openai/gpt-oss-20b (20B params)         |
+| Resumen              | "cuatro módulos"                  | cinco módulos                           |
+| Resumen              | Sin mención de Diccionario        | Diccionario Biológico (30 términos)     |
+| Resumen              | Sin mención AR Image Target       | AR con 2 modos: marcadores + img target |
+| Resumen              | Sin mención reconocimiento voz    | Speech-to-text en chatbot               |
+| Abstract             | "LLaMA 3.3 70B language model"   | openai/gpt-oss-20b (20B parameters)     |
+| Abstract             | "four fundamental... modules"     | five fundamental... modules             |
+| Abstract             | Sin mención Dictionary            | Interactive Biological Dictionary       |
+| Cap I - 1.1          | "chatbot basado en Google Gemini" | chatbot basado en API de Groq           |
+| Cap I - 1.1          | "Google Generative AI (Gemini)"   | Groq (chatbot) + Gemini (escáner)       |
+| Cap I - 1.1          | "cuatro herramientas"             | cinco módulos                           |
+| Cap I - 1.2.1        | Sin punto f) léxico               | Añadido punto f) recursos lexicográficos|
+| Cap I - 1.3.2        | "chatbot de IA" genérico          | especificado con Groq + voz             |
+| Cap I - 1.3.3        | "Google Generative AI y TFLite"   | Groq (chatbot) + Gemini (escáner) + TFLite |
+| Cap I - OE3          | "Google Generative AI como motor" | Groq (chatbot) + Gemini Vision (escáner)|
+| Cap I - OE4          | estadísticas incorrectas          | 1 unidad, 5 subtemas, 23 preguntas, 4 marcadores |
+| Cap I - 1.5.1        | "Android 6.0+ o iOS 12+"         | Android API 26+ (Android 8.0+)          |
+| Cap I - 1.5.3        | sin mención rate limiting         | rate limiting Groq con retry 30s        |
+
+
+================================================================================
+NUEVAS REFERENCIAS APA PARA AÑADIR A LA BIBLIOGRAFÍA DEL CAPÍTULO I
+================================================================================
+
+Biggs, J., & Tang, C. (2011). Teaching for quality learning at university (4th ed.).
+   Open University Press.
+
+Bransford, J. D., Brown, A. L., & Cocking, R. R. (Eds.). (2020). How people learn:
+   Brain, mind, experience, and school. National Academies Press.
+
+Deterding, S., Dixon, D., Khaled, R., & Nacke, L. (2011). From game design elements
+   to gamefulness: Defining gamification. Proceedings of the 15th International
+   Academic MindTrek Conference, 9–15. https://doi.org/10.1145/2181037.2181040
+
+Dicheva, D., Dichev, C., Agre, G., & Angelova, G. (2015). Gamification in education:
+   A systematic mapping study. Journal of Educational Technology & Society, 18(3),
+   75–88.
+
+Godwin-Jones, R. (2011). Emerging technologies: Mobile apps for language learning.
+   Language Learning & Technology, 15(2), 2–11.
+
+Groq. (2024). Groq API documentation: Language processing unit and model serving.
+   Groq Inc. https://console.groq.com/docs
+
+Hamari, J., Koivisto, J., & Sarsa, H. (2014). Does gamification work? A literature
+   review of empirical studies on gamification. Proceedings of the 47th Hawaii
+   International Conference on System Sciences, 3025–3034.
+   https://doi.org/10.1109/HICSS.2014.377
+
+Nation, I. S. P. (2001). Learning vocabulary in another language. Cambridge
+   University Press.
+
+Pérez, A., García, L., & Martínez, R. (2020). Realidad aumentada e inteligencia
+   artificial en educación: Una revisión sistemática. Pixel-Bit: Revista de Medios
+   y Educación, 59, 9–38. https://doi.org/10.12795/pixelbit.74734
+
+UNESCO. (2023). Technology in education: A tool on whose terms? UNESCO Publishing.
+   https://doi.org/10.54675/UZQV8501
+
+================================================================================
+FIN DEL DOCUMENTO DE CORRECCIONES
+================================================================================

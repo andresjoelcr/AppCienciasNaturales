@@ -1,0 +1,148 @@
+<mxfile host="app.diagrams.net" modified="2024-02-10T22:00:00.000Z" agent="Claude" version="22.1.0" type="device">
+  <diagram id="resumen-proyecto" name="Resumen del Proyecto">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Titulo Principal -->
+        <mxCell id="titulo" value="MI APP - CIENCIAS NATURALES" style="rounded=1;whiteSpace=wrap;html=1;fontSize=24;fontStyle=1;fillColor=#2E7D32;fontColor=#ffffff;strokeColor=#1B5E20;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="20" width="500" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Subtitulo -->
+        <mxCell id="subtitulo" value="Aplicacion Educativa Flutter - Resumen de Funcionalidades" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="350" y="85" width="500" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Fila 1: Login -->
+        <mxCell id="login_icon" value="&#128274;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;" vertex="1" parent="1">
+          <mxGeometry x="100" y="140" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="login_box" value="Login con Google" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontStyle=1;fillColor=#E3F2FD;strokeColor=#1976D2;fontColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="160" y="140" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="login_status" value="&#10004; Funcionando" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#C8E6C9;strokeColor=#4CAF50;fontColor=#2E7D32;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="140" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="login_desc" value="Autenticacion con Firebase Auth y Google Sign-In" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="540" y="140" width="350" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Fila 2: Chatbot -->
+        <mxCell id="chat_icon" value="&#128172;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;" vertex="1" parent="1">
+          <mxGeometry x="100" y="210" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="chat_box" value="Chatbot con Voz" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontStyle=1;fillColor=#F3E5F5;strokeColor=#7B1FA2;fontColor=#7B1FA2;" vertex="1" parent="1">
+          <mxGeometry x="160" y="210" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="chat_status" value="&#10004; Funcionando" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#C8E6C9;strokeColor=#4CAF50;fontColor=#2E7D32;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="210" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="chat_desc" value="IA con Groq API + Speech-to-Text + Historial en Firestore" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="540" y="210" width="350" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Fila 3: Guia -->
+        <mxCell id="guia_icon" value="&#128218;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;" vertex="1" parent="1">
+          <mxGeometry x="100" y="280" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="guia_box" value="Guia Didactica (5 subtemas)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontStyle=1;fillColor=#E8F5E9;strokeColor=#388E3C;fontColor=#388E3C;" vertex="1" parent="1">
+          <mxGeometry x="160" y="280" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="guia_status" value="&#10004; Funcionando" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#C8E6C9;strokeColor=#4CAF50;fontColor=#2E7D32;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="280" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="guia_desc" value="Contenido interactivo + Quizzes + Videos de YouTube" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="540" y="280" width="350" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Fila 4: Scanner -->
+        <mxCell id="scan_icon" value="&#128247;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;" vertex="1" parent="1">
+          <mxGeometry x="100" y="350" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="scan_box" value="Escaner Inteligente" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontStyle=1;fillColor=#FFF3E0;strokeColor=#F57C00;fontColor=#F57C00;" vertex="1" parent="1">
+          <mxGeometry x="160" y="350" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="scan_status" value="&#10004; Funcionando" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#C8E6C9;strokeColor=#4CAF50;fontColor=#2E7D32;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="350" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="scan_desc" value="Gemini Vision API + TFLite MobileNet como fallback" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="540" y="350" width="350" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Fila 5: AR -->
+        <mxCell id="ar_icon" value="&#127916;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;" vertex="1" parent="1">
+          <mxGeometry x="100" y="420" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ar_box" value="Realidad Aumentada" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontStyle=1;fillColor=#EDE7F6;strokeColor=#512DA8;fontColor=#512DA8;" vertex="1" parent="1">
+          <mxGeometry x="160" y="420" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ar_status" value="&#10004; Funcionando" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#C8E6C9;strokeColor=#4CAF50;fontColor=#2E7D32;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="420" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ar_desc" value="Deteccion de marcadores por color + Videos YouTube" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="540" y="420" width="350" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Fila 6: Historial -->
+        <mxCell id="hist_icon" value="&#128220;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;" vertex="1" parent="1">
+          <mxGeometry x="100" y="490" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="hist_box" value="Historial de Conversaciones" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontStyle=1;fillColor=#E0F7FA;strokeColor=#0097A7;fontColor=#0097A7;" vertex="1" parent="1">
+          <mxGeometry x="160" y="490" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="hist_status" value="&#10004; Funcionando" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#C8E6C9;strokeColor=#4CAF50;fontColor=#2E7D32;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="490" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="hist_desc" value="Cloud Firestore + Sesiones por usuario" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="540" y="490" width="350" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Fila 7: Perfil -->
+        <mxCell id="prof_icon" value="&#128100;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;" vertex="1" parent="1">
+          <mxGeometry x="100" y="560" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="prof_box" value="Perfil de Usuario" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontStyle=1;fillColor=#FCE4EC;strokeColor=#C2185B;fontColor=#C2185B;" vertex="1" parent="1">
+          <mxGeometry x="160" y="560" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="prof_status" value="&#10004; Funcionando" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#C8E6C9;strokeColor=#4CAF50;fontColor=#2E7D32;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="560" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="prof_desc" value="Progreso, logros y estadisticas del usuario" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="540" y="560" width="350" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Tecnologias -->
+        <mxCell id="tech_title" value="TECNOLOGIAS UTILIZADAS" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1;fillColor=#455A64;fontColor=#ffffff;strokeColor=#37474F;" vertex="1" parent="1">
+          <mxGeometry x="100" y="650" width="200" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="tech1" value="Flutter" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fillColor=#42A5F5;fontColor=#ffffff;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="650" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tech2" value="Firebase" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fillColor=#FFA726;fontColor=#ffffff;strokeColor=#F57C00;" vertex="1" parent="1">
+          <mxGeometry x="410" y="650" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tech3" value="Gemini AI" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fillColor=#7E57C2;fontColor=#ffffff;strokeColor=#512DA8;" vertex="1" parent="1">
+          <mxGeometry x="500" y="650" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tech4" value="Groq API" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fillColor=#26A69A;fontColor=#ffffff;strokeColor=#00897B;" vertex="1" parent="1">
+          <mxGeometry x="590" y="650" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tech5" value="TFLite" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fillColor=#EF5350;fontColor=#ffffff;strokeColor=#E53935;" vertex="1" parent="1">
+          <mxGeometry x="680" y="650" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tech6" value="Dart" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fillColor=#29B6F6;fontColor=#ffffff;strokeColor=#0288D1;" vertex="1" parent="1">
+          <mxGeometry x="770" y="650" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Pie de pagina -->
+        <mxCell id="footer" value="Desarrollado con Claude Code - Febrero 2024" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#999999;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="350" y="720" width="500" height="30" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,250 @@
+<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="Draw.io" version="22.1.0" type="device">
+  <diagram id="integracion-tecnologica" name="Diagrama de Integración Tecnológica">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Título -->
+        <mxCell id="titulo" value="DIAGRAMA DE INTEGRACIÓN TECNOLÓGICA" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="220" y="10" width="400" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitulo" value="Guía Didáctica Interactiva - La Célula" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="280" y="32" width="280" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- Usuario -->
+        <mxCell id="usuario" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="395" y="55" width="40" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="usuario-label" value="Estudiante" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="375" y="120" width="80" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- Capa Aplicación Flutter -->
+        <mxCell id="flutter-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="80" y="150" width="680" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="flutter-label" value="APLICACIÓN MÓVIL" style="text;html=1;strokeColor=none;fillColor=#6c8ebf;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=11;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="80" y="150" width="130" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Flutter Logo -->
+        <mxCell id="flutter-tech" value="Flutter + Dart" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0175C2;strokeColor=#01579B;fontColor=#ffffff;fontStyle=1;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="620" y="155" width="90" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Módulos de la App -->
+        <mxCell id="mod-guia" value="📚&#xa;Guía&#xa;Didáctica" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="185" width="90" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="mod-chat" value="💬&#xa;Chatbot&#xa;IA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="210" y="185" width="90" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="mod-scanner" value="📷&#xa;Escáner&#xa;Inteligente" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="320" y="185" width="90" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="mod-quiz" value="📝&#xa;Quiz&#xa;Interactivo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="430" y="185" width="90" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="mod-gamification" value="🏆&#xa;Gamificación&#xa;XP + Logros" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="540" y="185" width="90" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="mod-profile" value="👤&#xa;Perfil&#xa;Usuario" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="650" y="185" width="90" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Capa de Servicios -->
+        <mxCell id="services-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="80" y="310" width="680" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="services-label" value="CAPA DE SERVICIOS" style="text;html=1;strokeColor=none;fillColor=#82b366;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=11;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="80" y="310" width="140" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="srv-auth" value="AuthService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="100" y="340" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="srv-chat" value="ChatService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="220" y="340" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="srv-scanner" value="ScannerService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="340" y="340" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="srv-firestore" value="FirestoreService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="460" y="340" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="srv-guia" value="GuíaService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="580" y="340" width="100" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- APIs Externas -->
+        <mxCell id="apis-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="80" y="420" width="680" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="apis-label" value="SERVICIOS EXTERNOS (APIs)" style="text;html=1;strokeColor=none;fillColor=#666666;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=11;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="80" y="420" width="180" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Firebase -->
+        <mxCell id="firebase-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcd28;strokeColor=#d79b00;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="450" width="180" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="firebase-title" value="Firebase (Google)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="130" y="452" width="110" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="firebase-auth" value="🔐 Authentication" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="110" y="470" width="75" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="firebase-firestore" value="🗄️ Firestore" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="195" y="470" width="75" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="firebase-offline" value="📴 Offline Support" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="130" y="498" width="100" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- Groq API -->
+        <mxCell id="groq-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0050ef;strokeColor=#001DBC;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="300" y="450" width="150" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="groq-title" value="Groq API" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=10;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="330" y="452" width="90" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="groq-llama" value="🤖 LLama 3.3-70b" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#001DBC;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="315" y="470" width="120" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="groq-speed" value="⚡ Latencia &lt;100ms" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontStyle=2;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="315" y="498" width="120" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- Google AI -->
+        <mxCell id="google-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#34a853;strokeColor=#0d652d;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="470" y="450" width="140" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="google-title" value="Google AI" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=10;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="500" y="452" width="80" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="google-gemini" value="✨ Gemini API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0d652d;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="480" y="470" width="60" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="google-mlkit" value="👁️ ML Kit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0d652d;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="545" y="470" width="55" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="google-vision" value="📸 Visión por Computadora" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontStyle=2;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="475" y="498" width="130" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- Clean Architecture -->
+        <mxCell id="arch-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="630" y="450" width="110" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="arch-title" value="Arquitectura" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="645" y="452" width="80" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="arch-clean" value="🏗️ Clean&#xa;Architecture" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="645" y="470" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="arch-pattern" value="Separación de capas" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="640" y="502" width="95" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- Metodología -->
+        <mxCell id="kanban-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="80" y="565" width="680" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="kanban-label" value="METODOLOGÍA KANBAN" style="text;html=1;strokeColor=none;fillColor=#d6b656;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=11;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="80" y="565" width="160" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="kanban-backlog" value="Backlog" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="590" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="kanban-todo" value="To Do" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="200" y="590" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="kanban-progress" value="In Progress" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="300" y="590" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="kanban-testing" value="Testing" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="400" y="590" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="kanban-done" value="Done" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="500" y="590" width="80" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Flechas Kanban -->
+        <mxCell id="k-arrow1" value="→" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="180" y="590" width="20" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="k-arrow2" value="→" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="280" y="590" width="20" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="k-arrow3" value="→" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="380" y="590" width="20" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="k-arrow4" value="→" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="590" width="20" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Mejora continua -->
+        <mxCell id="mejora" value="🔄 Mejora Continua" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="600" y="590" width="120" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Flechas de conexión principales -->
+        <mxCell id="arr1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1" edge="1" parent="1" source="usuario" target="flutter-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arr2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;startArrow=classic;startFill=1" edge="1" parent="1" source="flutter-box" target="services-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arr3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;startArrow=classic;startFill=1" edge="1" parent="1" source="services-box" target="apis-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Conexiones específicas con líneas punteadas -->
+        <mxCell id="conn1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;dashed=1;endArrow=open;endFill=0" edge="1" parent="1" source="srv-auth" target="firebase-auth">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;dashed=1;endArrow=open;endFill=0" edge="1" parent="1" source="srv-chat" target="groq-llama">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;dashed=1;endArrow=open;endFill=0" edge="1" parent="1" source="srv-scanner" target="google-gemini">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;dashed=1;endArrow=open;endFill=0" edge="1" parent="1" source="srv-firestore" target="firebase-firestore">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Leyenda -->
+        <mxCell id="leyenda" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="80" y="640" width="680" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="ley-title" value="STACK:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="90" y="648" width="45" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ley1" value="Flutter + Dart" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="135" y="648" width="75" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ley2" value="│ Firebase (Auth + Firestore)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="205" y="648" width="145" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ley3" value="│ Groq + LLama 3.3" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="350" y="648" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ley4" value="│ Gemini + ML Kit" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="455" y="648" width="95" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ley5" value="│ Clean Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="555" y="648" width="105" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ley6" value="│ Kanban" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="665" y="648" width="55" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -20,7 +20,7 @@ migrate_working_dir/
 
 # VS Code
 # El .vscode puede contener configuraciones útiles del proyecto.
-# Si quieres ignorarlo completamente, descomenta:
+# Para ignorarlo completamente, descomenta la siguiente regla:
 # .vscode/
 
 # Flutter / Dart / Pub related
@@ -38,6 +38,8 @@ migrate_working_dir/
 # Configuración local y credenciales
 .env
 .env.local
+.env.*
+!.env.example
 
 # Copia temporal de credenciales
 # La genera tool/sync_env.ps1
@@ -52,19 +54,22 @@ app.*.map.json
 # Android generated files
 /android/.gradle/
 /android/build/
+/android/app/build/
 /android/app/debug/
 /android/app/profile/
 /android/app/release/
 
-# Unity / Unity Library generated files (Evita archivos pesados de más de 1 GB)
-Library/
-Temp/
-Obj/
-Logs/
-UserSettings/
-MemoryCaptures/
+# Unity / Unity Library generated files
+**/Library/
+**/Temp/
+**/Obj/
+**/Logs/
+**/UserSettings/
+**/MemoryCaptures/
 *.csproj
 *.unityproj
+
+# Unity integrado en Android
 /android/unityLibrary/build/
 /android/unityLibrary/Library/
 /android/unityLibrary/Temp/
@@ -81,19 +86,36 @@ MemoryCaptures/
 
 # Gradle / Java generated files
 *.hprof
+*.dex
 
 # Configuración local de Claude
 .claude/settings.local.json
 
-# Archivos compilados y temporales adicionales (Android / Unity / Third Party)
+# Archivos compilados y temporales adicionales
 /android/launcher/
 third_party/**/build/
-*.dex
 
-# Dependencias y ejemplos de terceros pesados
+# Dependencias de terceros pesadas
 third_party/
 
-# Archivos pesados temporales o multimedia gigantes
+# Archivos temporales
 assets/tmp_pptx/
 *.pptx
 *.mp4
+
+# Editor y sistema operativo
+.vscode/
+
+# Archivos temporales de Word
+~$*.docx
+~$*.docm
+
+# Archivos temporales y copias de Draw.io
+**/.$*.bkp
+**/.$*.dtmp
+
+# Carpetas generadas por compilaciones
+android/app/build/
+android/build/
+.dart_tool/
+build/

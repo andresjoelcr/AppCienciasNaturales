@@ -1,0 +1,563 @@
+3.2. Metodología de Desarrollo de Software
+
+Para el desarrollo de la guía didáctica interactiva con realidad aumentada e inteligencia artificial, se adoptó la metodología ágil Kanban, la cual permite gestionar el flujo de trabajo de manera eficiente, flexible y con mejoras iterativas continuas. Según Edge (2021), Kanban facilita la visualización del flujo de trabajo mediante tableros que organizan las tareas en columnas según su estado de avance, permitiendo identificar cuellos de botella y optimizar el proceso de desarrollo. McCarthy (2020) complementa esta perspectiva destacando la flexibilidad de Kanban y su enfoque en la eficiencia operativa, lo cual resulta particularmente adecuado para proyectos que integran tecnologías emergentes como la realidad aumentada y la inteligencia artificial.
+
+La selección de esta metodología se fundamenta en la naturaleza del proyecto, el cual requiere adaptabilidad ante los cambios tecnológicos, entregas incrementales funcionales y retroalimentación constante de los usuarios finales. A continuación, se describen las etapas que conformaron el proceso de desarrollo del sistema.
+
+Figura X
+Etapas de la metodología de ingeniería de software del proyecto
+
+[Diagrama con las siguientes etapas:]
+1. Análisis y Definición de Requerimientos
+2. Diseño y Arquitectura del Sistema
+3. Desarrollo Incremental
+4. Pruebas y Validación
+5. Implementación y Despliegue
+
+
+3.2.1. Análisis y Definición de Requerimientos
+
+La primera fase del desarrollo se centró en la identificación de los elementos clave de la guía didáctica interactiva, la definición de las necesidades de los usuarios (docentes y estudiantes), el establecimiento de las funciones de inteligencia artificial y realidad aumentada a integrar, y la selección de las plataformas de desarrollo más adecuadas.
+
+3.2.1.1. Levantamiento de Información
+
+El proceso de levantamiento de información se realizó mediante tres instrumentos principales:
+
+a) Entrevista al Docente: Se aplicó una entrevista estructurada al docente del módulo de Ciencias Naturales para identificar las necesidades pedagógicas, los contenidos que requieren refuerzo visual e interactivo, y las expectativas respecto a la herramienta tecnológica. El docente manifestó la necesidad de contar con recursos que permitan la visualización de conceptos abstractos, particularmente en temas relacionados con la célula y estructuras biológicas, así como un asistente virtual que pueda resolver dudas de los estudiantes fuera del horario de clase.
+
+b) Entrevista al Experto Técnico: Se consultó a un especialista en tecnologías educativas para obtener recomendaciones técnicas sobre la implementación de realidad aumentada e inteligencia artificial en contextos educativos. El experto sugirió la utilización de frameworks multiplataforma que permitan el despliegue en dispositivos Android e iOS, así como la integración de modelos de lenguaje de gran escala (LLM) para el componente de inteligencia artificial.
+
+c) Encuesta a Estudiantes: Se aplicó un cuestionario a 50 estudiantes del módulo para evaluar su percepción, interés y disposición hacia el uso de tecnologías interactivas. Los resultados evidenciaron un alto nivel de aceptación (92%) hacia la incorporación de realidad aumentada y chatbots inteligentes en su proceso de aprendizaje, así como una disponibilidad generalizada de dispositivos móviles compatibles con las tecnologías propuestas.
+
+3.2.1.2. Evaluación de Herramientas Tecnológicas
+
+A partir de los requerimientos identificados, se procedió a evaluar las herramientas tecnológicas disponibles para el desarrollo del sistema. La Tabla X presenta el análisis comparativo realizado:
+
+Tabla X
+Evaluación de herramientas tecnológicas para el desarrollo
+
+| Categoría | Herramienta Seleccionada | Justificación |
+|-----------|-------------------------|---------------|
+| Framework de desarrollo | Flutter 3.7.2 | Framework multiplataforma que permite el desarrollo de aplicaciones nativas para Android, iOS, web y escritorio desde una única base de código. Ofrece alto rendimiento, widgets personalizables y una curva de aprendizaje accesible. |
+| Backend y autenticación | Firebase (Auth, Firestore) | Plataforma de Google que proporciona autenticación segura con múltiples proveedores (Google Sign-In), base de datos en tiempo real (Cloud Firestore) y hosting. Integración nativa con Flutter. |
+| Inteligencia Artificial | Google Generative AI (Gemini) | API de inteligencia artificial generativa que permite implementar chatbots conversacionales con capacidad de procesamiento de lenguaje natural avanzado y análisis de imágenes. |
+| Procesamiento de imágenes | TensorFlow Lite | Biblioteca optimizada para la ejecución de modelos de machine learning en dispositivos móviles, utilizada para la detección de marcadores y clasificación de imágenes. |
+| Cámara y RA | Camera Plugin + Custom Marker Detector | Plugin nativo de Flutter para acceso a la cámara del dispositivo, combinado con un detector de marcadores personalizado basado en procesamiento de imágenes. |
+| Reconocimiento de voz | Speech to Text | Plugin que permite la conversión de voz a texto, facilitando la interacción multimodal con el chatbot. |
+
+La combinación de Flutter como framework principal, Firebase como backend, y Google Generative AI como motor de inteligencia artificial constituye una arquitectura tecnológica moderna, escalable y de bajo costo, alineada con los objetivos de accesibilidad e inclusión planteados en la investigación.
+
+3.2.1.3. Definición de Requisitos Funcionales
+
+Con base en el análisis de necesidades y la evaluación tecnológica, se definieron los siguientes requisitos funcionales para el sistema:
+
+Tabla X
+Requisitos funcionales del sistema
+
+| ID | Requisito | Descripción | Prioridad |
+|----|-----------|-------------|-----------|
+| RF01 | Autenticación de usuarios | El sistema debe permitir el registro e inicio de sesión mediante cuenta de Google, garantizando la seguridad y trazabilidad del uso. | Alta |
+| RF02 | Guía didáctica interactiva | El sistema debe presentar contenido educativo estructurado en temas y subtemas, con navegación intuitiva y progresión del aprendizaje. | Alta |
+| RF03 | Sistema de quizzes | El sistema debe incluir evaluaciones interactivas con retroalimentación inmediata para reforzar el aprendizaje. | Alta |
+| RF04 | Chatbot de ciencias | El sistema debe integrar un asistente virtual basado en IA capaz de responder preguntas sobre ciencias naturales en lenguaje natural. | Alta |
+| RF05 | Escáner inteligente | El sistema debe permitir la identificación de plantas y animales mediante el análisis de imágenes capturadas con la cámara del dispositivo. | Alta |
+| RF06 | Realidad aumentada | El sistema debe reconocer marcadores visuales y superponer contenido multimedia (videos educativos) sobre la imagen capturada. | Alta |
+| RF07 | Perfil de usuario | El sistema debe mantener un registro del progreso del estudiante, incluyendo estadísticas de uso, logros obtenidos y temas completados. | Media |
+| RF08 | Historial de conversaciones | El sistema debe almacenar las conversaciones del chatbot para su posterior consulta. | Media |
+| RF09 | Modo offline parcial | El sistema debe permitir el acceso a contenido descargado previamente sin conexión a internet. | Baja |
+
+3.2.1.4. Definición de Requisitos No Funcionales
+
+Tabla X
+Requisitos no funcionales del sistema
+
+| ID | Requisito | Descripción |
+|----|-----------|-------------|
+| RNF01 | Rendimiento | La aplicación debe cargar en menos de 3 segundos y responder a las interacciones del usuario en menos de 500 milisegundos. |
+| RNF02 | Usabilidad | La interfaz debe ser intuitiva y accesible para usuarios sin experiencia técnica previa, siguiendo los lineamientos de Material Design. |
+| RNF03 | Compatibilidad | La aplicación debe ser compatible con dispositivos Android 6.0 o superior e iOS 12 o superior. |
+| RNF04 | Seguridad | Los datos de los usuarios deben estar protegidos mediante cifrado y las reglas de seguridad de Firebase. |
+| RNF05 | Escalabilidad | La arquitectura debe permitir la adición de nuevos módulos de contenido sin modificaciones estructurales. |
+| RNF06 | Disponibilidad | El sistema debe mantener una disponibilidad del 99% durante el período académico. |
+
+3.2.1.5. Gestión de Requisitos mediante Tablero Kanban
+
+Los requisitos identificados fueron organizados en un tablero Kanban con las siguientes columnas:
+
+Tabla X
+Estructura del tablero Kanban
+
+| Columna | Descripción | Requisitos Asignados |
+|---------|-------------|---------------------|
+| Backlog | Requisitos identificados pendientes de priorización | RF09 |
+| To Do | Requisitos priorizados listos para desarrollo | RF07, RF08 |
+| In Progress | Requisitos en desarrollo activo | RF05, RF06 |
+| Review | Requisitos en fase de revisión y pruebas | RF03, RF04 |
+| Done | Requisitos completados y validados | RF01, RF02 |
+
+
+3.2.2. Diseño y Arquitectura del Sistema
+
+La segunda fase se enfocó en la estructuración de la arquitectura del software, el diseño de la interfaz gráfica y experiencia de usuario (UI/UX), la definición de la estructura de datos, y la planificación de la integración de los componentes de inteligencia artificial y realidad aumentada.
+
+3.2.2.1. Arquitectura del Sistema
+
+El sistema fue diseñado siguiendo el patrón arquitectónico de capas, combinado con principios de Clean Architecture para garantizar la separación de responsabilidades, la mantenibilidad y la testabilidad del código. La Figura X ilustra la arquitectura general del sistema.
+
+Figura X
+Arquitectura del sistema
+
+La arquitectura se estructura en las siguientes capas:
+
+a) Capa de Presentación (UI Layer): Comprende los widgets de Flutter que conforman la interfaz de usuario. Se implementaron las siguientes pantallas principales:
+   - LoginScreen: Pantalla de autenticación con Google Sign-In
+   - HomeScreen: Pantalla principal con acceso a las herramientas de aprendizaje
+   - GuiaHomeScreen: Navegación por la guía didáctica
+   - SubtemaScreen: Visualización de contenido educativo
+   - QuizScreen: Sistema de evaluaciones interactivas
+   - ChatScreen: Interfaz del chatbot de ciencias
+   - ScannerScreen: Captura de imágenes para identificación
+   - ARScreenSimple: Visualización de realidad aumentada
+   - ProfileScreen: Perfil y estadísticas del usuario
+
+b) Capa de Servicios (Service Layer): Contiene la lógica de negocio y los servicios que conectan la interfaz con las fuentes de datos:
+   - AuthService: Gestión de autenticación con Firebase Auth
+   - FirestoreService: Operaciones CRUD con Cloud Firestore
+   - ScannerService: Procesamiento de imágenes con Google Generative AI
+   - GuiaContextService: Gestión del contexto de la guía didáctica
+   - SimpleMarkerDetector: Detección de marcadores para RA
+
+c) Capa de Datos (Data Layer): Gestiona la persistencia y recuperación de datos:
+   - Firebase Cloud Firestore: Almacenamiento de perfiles, progreso y conversaciones
+   - Firebase Authentication: Gestión de credenciales de usuarios
+   - Assets locales: Contenido educativo, imágenes y modelos
+
+d) Capa de Modelos (Domain Layer): Define las entidades del dominio:
+   - UserProfileModel: Perfil del usuario
+   - UserProgressModel: Progreso del aprendizaje
+   - UserStatisticsModel: Estadísticas de uso
+   - QuizModel: Estructura de evaluaciones
+   - SubtemaModel: Contenido educativo
+   - AchievementModel: Sistema de logros
+
+3.2.2.2. Diseño de la Base de Datos
+
+La base de datos fue implementada en Firebase Cloud Firestore, utilizando un modelo de datos NoSQL orientado a documentos. La estructura se diseñó para optimizar las consultas frecuentes y minimizar los costos de lectura/escritura.
+
+Figura X
+Esquema de la base de datos en Firestore
+
+Colecciones principales:
+
+a) users/{userId}
+   - displayName: String
+   - email: String
+   - photoURL: String
+   - createdAt: Timestamp
+   - lastLogin: Timestamp
+
+b) users/{userId}/progress/{progressId}
+   - subtemaId: String
+   - completed: Boolean
+   - score: Number
+   - completedAt: Timestamp
+
+c) users/{userId}/statistics
+   - totalTimeSpent: Number
+   - quizzesCompleted: Number
+   - averageScore: Number
+   - lastActivity: Timestamp
+
+d) users/{userId}/chatHistory/{chatId}
+   - messages: Array
+   - createdAt: Timestamp
+   - topic: String
+
+3.2.2.3. Diseño de Interfaces de Usuario
+
+El diseño de la interfaz de usuario se fundamentó en los principios de Material Design de Google, adaptados para crear una experiencia visual coherente y atractiva para el contexto educativo. Se definió un sistema de diseño personalizado que incluye:
+
+a) Paleta de Colores:
+   - Color primario: Verde (#4CAF50) - Asociado a naturaleza y ciencias
+   - Color secundario: Azul cielo (#03A9F4) - Transmite confianza y claridad
+   - Color de acento: Naranja (#FF9800) - Destaca elementos interactivos
+   - Fondos: Tonos claros y suaves para facilitar la lectura
+
+b) Tipografía:
+   - Se implementó Google Fonts para garantizar consistencia tipográfica
+   - Jerarquía visual clara con tamaños diferenciados para títulos, subtítulos y texto
+
+c) Componentes Reutilizables:
+   - Tarjetas de herramientas con iconografía descriptiva
+   - Botones con feedback visual mediante animaciones
+   - Indicadores de progreso circulares y lineales
+   - Diálogos de confirmación con diseño consistente
+
+La Figura X presenta los mockups de las principales pantallas del sistema.
+
+3.2.2.4. Integración de Inteligencia Artificial
+
+El componente de inteligencia artificial se implementó mediante la integración de Google Generative AI (Gemini), que permite:
+
+a) Chatbot Conversacional:
+   - Procesamiento de lenguaje natural en español
+   - Contextualización de respuestas al ámbito de ciencias naturales
+   - Capacidad de mantener contexto conversacional
+   - Generación de explicaciones adaptadas al nivel educativo
+
+b) Análisis de Imágenes:
+   - Identificación de especies de plantas y animales
+   - Generación de información educativa relevante
+   - Clasificación de características morfológicas
+
+La integración se realizó mediante la biblioteca google_generative_ai para Dart, configurando prompts especializados que garantizan respuestas pedagógicamente apropiadas.
+
+3.2.2.5. Integración de Realidad Aumentada
+
+El módulo de realidad aumentada se implementó mediante un enfoque híbrido que combina:
+
+a) Captura de Video en Tiempo Real:
+   - Utilización del plugin camera para Flutter
+   - Procesamiento de frames a 30 FPS
+   - Optimización para dispositivos de gama media
+
+b) Detección de Marcadores:
+   - Implementación de un detector de marcadores personalizado (SimpleMarkerDetector)
+   - Uso de TensorFlow Lite para la clasificación de patrones
+   - Base de datos de marcadores asociados a contenido específico
+
+c) Superposición de Contenido:
+   - Reproducción de videos educativos mediante YouTube Player Flutter
+   - Posicionamiento dinámico sobre el marcador detectado
+   - Interfaz de control para pausa, reproducción y cierre
+
+3.2.2.6. Diagrama de Casos de Uso
+
+La Figura X presenta el diagrama de casos de uso del sistema, identificando los actores principales (Estudiante) y sus interacciones con el sistema.
+
+Casos de uso principales:
+- CU01: Iniciar sesión con Google
+- CU02: Navegar por la guía didáctica
+- CU03: Completar subtemas educativos
+- CU04: Realizar quizzes de evaluación
+- CU05: Interactuar con el chatbot de ciencias
+- CU06: Escanear plantas/animales para identificación
+- CU07: Visualizar contenido en realidad aumentada
+- CU08: Consultar perfil y estadísticas
+- CU09: Revisar historial de conversaciones
+- CU10: Cerrar sesión
+
+3.2.2.7. Diagrama de Clases
+
+La Figura X presenta el diagrama de clases simplificado del sistema, mostrando las relaciones entre los principales componentes.
+
+
+3.2.3. Desarrollo Incremental
+
+La tercera fase consistió en la implementación del sistema siguiendo un enfoque de desarrollo incremental, donde cada iteración produjo un incremento funcional del producto. Las tareas fueron gestionadas mediante el tablero Kanban, moviéndose progresivamente desde "To Do" hacia "Done".
+
+3.2.3.1. Primera Iteración: Infraestructura Base
+
+Objetivo: Establecer la estructura del proyecto y los componentes fundamentales.
+
+Actividades realizadas:
+- Configuración del proyecto Flutter con las dependencias necesarias
+- Implementación del sistema de autenticación con Firebase Auth
+- Creación del tema visual (AppTheme) con la paleta de colores definida
+- Desarrollo de la pantalla de login con animaciones
+- Implementación del AuthWrapper para gestión de sesiones
+
+Artefactos generados:
+- pubspec.yaml con dependencias configuradas
+- lib/main.dart con punto de entrada y gestión de autenticación
+- lib/services/auth_service.dart con lógica de autenticación
+- lib/theme/app_theme.dart con estilos globales
+- lib/screens/login_screen.dart con interfaz de inicio de sesión
+
+3.2.3.2. Segunda Iteración: Pantalla Principal y Navegación
+
+Objetivo: Desarrollar la estructura de navegación y la pantalla principal.
+
+Actividades realizadas:
+- Diseño e implementación de HomeScreen con tarjetas de herramientas
+- Configuración de rutas de navegación
+- Implementación de animaciones de entrada
+- Integración con FirestoreService para gestión de perfiles
+- Desarrollo de la sección "Sabías que" con datos curiosos
+
+Artefactos generados:
+- lib/screens/home_screen.dart con interfaz principal
+- lib/services/firestore_service.dart con operaciones de base de datos
+- lib/models/user_profile_model.dart con modelo de usuario
+
+3.2.3.3. Tercera Iteración: Guía Didáctica y Quizzes
+
+Objetivo: Implementar el módulo de contenido educativo y evaluaciones.
+
+Actividades realizadas:
+- Desarrollo de GuiaHomeScreen con navegación por temas
+- Implementación de SubtemaScreen para visualización de contenido
+- Creación del sistema de quizzes con retroalimentación inmediata
+- Integración del seguimiento de progreso del usuario
+- Implementación del sistema de puntuación y logros
+
+Artefactos generados:
+- lib/screens/guia/guia_home_screen.dart
+- lib/screens/guia/subtema_screen.dart
+- lib/screens/guia/quiz_screen.dart
+- lib/models/quiz_model.dart
+- lib/models/subtema_model.dart
+- lib/data/celula_data.dart con contenido educativo
+
+3.2.3.4. Cuarta Iteración: Chatbot de Ciencias
+
+Objetivo: Integrar el asistente virtual basado en inteligencia artificial.
+
+Actividades realizadas:
+- Configuración de Google Generative AI (Gemini)
+- Desarrollo de la interfaz de chat con burbujas de mensaje
+- Implementación del contexto conversacional para ciencias naturales
+- Integración de reconocimiento de voz (Speech to Text)
+- Desarrollo del historial de conversaciones
+
+Artefactos generados:
+- lib/screens/chat_screen.dart con interfaz del chatbot
+- lib/screens/chat_history_screen.dart para historial
+- Integración en firestore_service.dart para persistencia
+
+3.2.3.5. Quinta Iteración: Escáner Inteligente
+
+Objetivo: Implementar la funcionalidad de identificación de especies.
+
+Actividades realizadas:
+- Configuración del acceso a cámara y galería
+- Integración de Google Generative AI para análisis de imágenes
+- Desarrollo de la interfaz de captura
+- Implementación de la pantalla de resultados
+- Gestión de permisos de dispositivo
+
+Artefactos generados:
+- lib/screens/scanner_screen.dart con interfaz de captura
+- lib/screens/scanner_result_screen.dart con resultados
+- lib/services/scanner_service.dart con lógica de análisis
+
+3.2.3.6. Sexta Iteración: Realidad Aumentada
+
+Objetivo: Implementar el módulo de visualización en realidad aumentada.
+
+Actividades realizadas:
+- Configuración del plugin de cámara para captura en tiempo real
+- Desarrollo del detector de marcadores personalizado
+- Implementación de la superposición de videos educativos
+- Creación de la base de datos de marcadores
+- Optimización del rendimiento para dispositivos móviles
+
+Artefactos generados:
+- lib/screens/ar_screen_simple.dart con visualización AR
+- lib/services/simple_marker_detector.dart con detección
+- assets/marcadores/ con imágenes de marcadores
+
+3.2.3.7. Séptima Iteración: Perfil y Estadísticas
+
+Objetivo: Completar el sistema de seguimiento del progreso del usuario.
+
+Actividades realizadas:
+- Desarrollo de ProfileScreen con visualización de datos
+- Implementación del sistema de logros (achievements)
+- Integración de estadísticas de uso
+- Creación de visualizaciones de progreso
+- Pruebas de integración con Firestore
+
+Artefactos generados:
+- lib/screens/profile_screen.dart
+- lib/models/user_statistics_model.dart
+- lib/models/achievement_model.dart
+- lib/models/user_progress_model.dart
+
+
+3.2.4. Pruebas y Validación
+
+La cuarta fase se dedicó a la evaluación del rendimiento, usabilidad y funcionalidad del sistema mediante diferentes tipos de pruebas.
+
+3.2.4.1. Pruebas Unitarias
+
+Se implementaron pruebas unitarias para validar la funcionalidad de los componentes críticos del sistema:
+
+a) Pruebas de Autenticación:
+   - Validación del flujo de inicio de sesión con Google
+   - Verificación del manejo de errores de autenticación
+   - Comprobación del cierre de sesión
+
+b) Pruebas de Servicios:
+   - Validación de operaciones CRUD en FirestoreService
+   - Verificación de la creación y actualización de perfiles
+   - Comprobación del registro de progreso
+
+c) Pruebas de Modelos:
+   - Validación de serialización/deserialización JSON
+   - Verificación de valores por defecto
+   - Comprobación de cálculos de estadísticas
+
+3.2.4.2. Pruebas de Integración
+
+Se realizaron pruebas de integración para verificar la correcta comunicación entre los diferentes módulos del sistema:
+
+a) Integración Firebase:
+   - Conexión con Firebase Authentication
+   - Sincronización con Cloud Firestore
+   - Persistencia de datos del usuario
+
+b) Integración de IA:
+   - Comunicación con Google Generative AI
+   - Procesamiento de consultas en lenguaje natural
+   - Análisis de imágenes para identificación
+
+c) Integración de Cámara:
+   - Captura de imágenes para el escáner
+   - Procesamiento de video para realidad aumentada
+   - Gestión de permisos del dispositivo
+
+3.2.4.3. Pruebas de Usabilidad
+
+Se realizaron pruebas de usabilidad con un grupo piloto de 10 estudiantes para evaluar la experiencia de usuario:
+
+Tabla X
+Resultados de pruebas de usabilidad
+
+| Aspecto Evaluado | Calificación Promedio (1-5) | Observaciones |
+|------------------|----------------------------|---------------|
+| Facilidad de navegación | 4.6 | Los usuarios encontraron intuitiva la navegación |
+| Claridad de la información | 4.4 | El contenido fue considerado claro y comprensible |
+| Atractivo visual | 4.7 | El diseño fue valorado positivamente |
+| Utilidad del chatbot | 4.3 | Respuestas consideradas útiles y relevantes |
+| Funcionamiento del escáner | 4.2 | Algunas sugerencias de mejora en velocidad |
+| Experiencia de RA | 4.5 | Alta satisfacción con el contenido aumentado |
+
+3.2.4.4. Pruebas de Rendimiento
+
+Se evaluó el rendimiento de la aplicación en diferentes dispositivos:
+
+Tabla X
+Métricas de rendimiento
+
+| Métrica | Valor Obtenido | Objetivo |
+|---------|---------------|----------|
+| Tiempo de carga inicial | 2.3 segundos | < 3 segundos |
+| Tiempo de respuesta del chatbot | 1.8 segundos | < 3 segundos |
+| Tiempo de análisis de imagen | 2.5 segundos | < 5 segundos |
+| Consumo de memoria RAM | 180 MB | < 256 MB |
+| Tamaño del APK | 45 MB | < 100 MB |
+
+3.2.4.5. Ajustes Realizados
+
+Con base en el feedback recibido durante las pruebas, se implementaron los siguientes ajustes:
+
+- Optimización del tiempo de carga de imágenes en la guía didáctica
+- Mejora de los mensajes de retroalimentación en los quizzes
+- Ajuste de la sensibilidad del detector de marcadores
+- Refinamiento del prompt del chatbot para respuestas más precisas
+- Corrección de errores menores de interfaz
+
+
+3.2.5. Implementación y Despliegue
+
+La quinta y última fase consistió en la preparación del sistema para su puesta en producción y la capacitación de los usuarios finales.
+
+3.2.5.1. Preparación para el Despliegue
+
+Se realizaron las siguientes actividades de preparación:
+
+a) Configuración de Producción:
+   - Configuración de Firebase para entorno de producción
+   - Generación de claves de firma para Android
+   - Configuración de reglas de seguridad en Firestore
+   - Optimización del bundle de la aplicación
+
+b) Generación de Artefactos:
+   - Compilación del APK de release para Android
+   - Generación de la documentación técnica
+   - Preparación del material de capacitación
+
+3.2.5.2. Capacitación de Usuarios
+
+Se desarrollaron sesiones de capacitación diferenciadas para docentes y estudiantes:
+
+a) Capacitación a Docentes:
+   - Presentación de las funcionalidades del sistema
+   - Demostración del uso del chatbot y escáner
+   - Explicación del sistema de seguimiento de progreso
+   - Entrega de guía de referencia rápida
+
+b) Capacitación a Estudiantes:
+   - Tutorial interactivo integrado en la aplicación
+   - Sesión práctica de uso de la guía didáctica
+   - Demostración de la funcionalidad de realidad aumentada
+   - Resolución de dudas y consultas
+
+3.2.5.3. Soporte y Mantenimiento
+
+Se estableció un plan de soporte continuo que incluye:
+
+- Canal de comunicación para reporte de incidencias
+- Monitoreo del rendimiento mediante Firebase Analytics
+- Actualizaciones periódicas de contenido educativo
+- Mejoras incrementales basadas en retroalimentación
+
+
+3.2.6. Roles y Responsabilidades
+
+La Tabla X describe los roles identificados en el desarrollo del proyecto:
+
+Tabla X
+Roles del equipo de desarrollo
+
+| Rol | Responsabilidades |
+|-----|-------------------|
+| Investigador/Desarrollador | Diseño de la arquitectura, implementación del código, pruebas y documentación |
+| Director de Tesis | Supervisión metodológica, revisión de avances, orientación académica |
+| Docente del Módulo | Validación de contenido pedagógico, pruebas de usabilidad, retroalimentación |
+| Experto Técnico | Asesoría en tecnologías emergentes, revisión de la arquitectura |
+| Usuarios Piloto | Pruebas de usabilidad, retroalimentación sobre experiencia de uso |
+
+
+3.2.7. Herramientas Utilizadas
+
+La Tabla X resume las herramientas empleadas durante el desarrollo del proyecto:
+
+Tabla X
+Herramientas de desarrollo
+
+| Categoría | Herramienta | Versión | Propósito |
+|-----------|------------|---------|-----------|
+| IDE | Visual Studio Code | 1.85+ | Entorno de desarrollo integrado |
+| SDK | Flutter | 3.7.2 | Framework de desarrollo multiplataforma |
+| Lenguaje | Dart | 3.0+ | Lenguaje de programación |
+| Backend | Firebase | - | Autenticación, base de datos, hosting |
+| IA | Google Generative AI | 0.4.6 | Chatbot e identificación de imágenes |
+| ML | TensorFlow Lite | 0.11.0 | Detección de marcadores |
+| Control de versiones | Git | 2.40+ | Gestión de código fuente |
+| Diseño | Figma | - | Diseño de interfaces y mockups |
+| Documentación | Draw.io | - | Diagramas de arquitectura y UML |
+
+
+3.2.8. Artefactos Generados
+
+Durante el proceso de desarrollo se generaron los siguientes artefactos:
+
+Tabla X
+Artefactos del proyecto
+
+| Tipo | Artefacto | Descripción |
+|------|-----------|-------------|
+| Código fuente | /lib | Directorio con el código Dart de la aplicación |
+| Servicios | /lib/services | Servicios de autenticación, Firestore, scanner y AR |
+| Modelos | /lib/models | Modelos de datos del dominio |
+| Pantallas | /lib/screens | Interfaces de usuario |
+| Tema | /lib/theme | Configuración visual de la aplicación |
+| Datos | /lib/data | Contenido educativo estructurado |
+| Assets | /assets | Imágenes, marcadores y modelos |
+| Configuración | pubspec.yaml | Dependencias y configuración del proyecto |
+| Documentación | /assets/tesis | Documentación técnica y académica |
+
+
+Esta metodología ágil permitió gestionar el desarrollo de manera eficiente, adaptándose a los cambios y requerimientos emergentes, mientras se mantenía un enfoque centrado en el usuario y en los objetivos pedagógicos del proyecto. La aplicación de Kanban facilitó la visualización del progreso y la identificación temprana de obstáculos, contribuyendo al éxito del proyecto.

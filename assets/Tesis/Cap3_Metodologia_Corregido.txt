@@ -1,0 +1,926 @@
+================================================================================
+CORRECCIONES Y AMPLIACIONES: CAPÍTULO 3
+Metodología, Diseño, Software e Implementación Propuesta
+Tesis Doctoral: "Realidad Aumentada e Inteligencia Artificial Aplicada a una
+Guía Didáctica Interactiva para el Aprendizaje de Ciencias Naturales"
+Autor: Jorge Humberto Miranda Realpe — UNADE — Doctorado en Informática
+================================================================================
+
+NOTA DE REVISIÓN GENERAL — ERRORES CRÍTICOS ENCONTRADOS:
+
+[ERROR CRÍTICO 1] El documento tiene contenido copiado de otra tesis sobre
+"Contabilidad General" y la "Universidad Politécnica Estatal del Carchi (UPEC)".
+Aparece "módulo de Contabilidad General", "carrera de Contabilidad y Auditoría",
+"conceptos contables" y "UPEC" en varias secciones del Capítulo 3.
+Todo esto debe ser reemplazado por referencias a Ciencias Naturales, biología
+celular y la Unidad Educativa Vicente Fierro de Tulcán.
+
+[ERROR CRÍTICO 2] Stack tecnológico completamente equivocado en requisitos:
+  INCORRECTO en el documento:  Unity + Vuforia (AR) / Dialogflow + TensorFlow (IA)
+  CORRECTO según app real:     Flutter + TFLite/marcadores propios (AR)
+                               Groq API openai/gpt-oss-20b (chatbot IA)
+                               Google Gemini Vision API (escáner)
+                               Cloud Firestore (base de datos)
+
+[ERROR CRÍTICO 3] Arquitectura MVC con Unity es incorrecta. El app usa Flutter
+con arquitectura orientada a servicios (AppConfig, servicios independientes).
+
+[ERROR 4] Resumen y Abstract dicen "LLaMA 3.3 70B" — modelo real: openai/gpt-oss-20b
+
+[OMISIÓN 5] No se menciona el módulo Diccionario Biológico (30 términos).
+
+[OMISIÓN 6] No se menciona el segundo modo AR: ARImageTargetScreen.
+
+[OMISIÓN 7] No se menciona reconocimiento de voz (speech-to-text) en el chatbot.
+
+[OMISIÓN 8] No se menciona el QuizGeneratorService (generación automática de quizzes IA).
+
+[ERROR 9] Apéndice A: "Entrevista al Docente del Módulo de Contabilidad General"
+  — debe ser: Ciencias Naturales / Biología Celular.
+
+================================================================================
+CAPÍTULO 3. METODOLOGÍA, DISEÑO, SOFTWARE E IMPLEMENTACIÓN PROPUESTA
+— VERSIÓN CORREGIDA Y AMPLIADA —
+================================================================================
+
+Para el desarrollo de la presente investigación se consideran dos componentes
+metodológicos complementarios: la metodología de investigación científica, que
+orienta la recolección y análisis de datos sobre el impacto pedagógico de la
+herramienta, y la metodología de desarrollo de software, que rige el proceso de
+diseño, construcción y validación del sistema informático. La articulación de
+ambas metodologías permite abordar de manera integral tanto la dimensión
+científica como la dimensión técnica del proyecto.
+
+
+------------------------------------------------------------------------
+METODOLOGÍA DE INVESTIGACIÓN
+------------------------------------------------------------------------
+
+Para Hernández, Fernández y Baptista (2023), la metodología de investigación se
+refiere al conjunto de métodos, técnicas y procedimientos utilizados para
+recolectar, analizar e interpretar datos con el fin de responder a una pregunta
+de investigación o resolver un problema. En la Figura No. 1 se detalla el
+esquema metodológico adoptado para la presente investigación.
+
+[Figura 3. Metodología de la investigación]
+
+
+ENFOQUE DE INVESTIGACIÓN
+
+Para el desarrollo de la presente tesis se adopta un enfoque mixto, que integra
+dimensiones cualitativas y cuantitativas de manera complementaria (Hernández,
+Fernández y Baptista, 2023). Este enfoque permite trabajar con diferentes tipos
+de datos y enriquecer la comprensión del fenómeno de estudio desde múltiples
+perspectivas.
+
+De acuerdo con Hernández, Fernández y Baptista (2023), el enfoque cualitativo
+facilita la exploración en profundidad de fenómenos, experiencias y perspectivas
+humanas, mientras que el enfoque cuantitativo permite formular preguntas
+verificables y medir variables de manera objetiva. Su combinación en un diseño
+mixto potencia la validez de los hallazgos mediante triangulación metodológica.
+
+La operacionalización de ambos enfoques en el presente proyecto se realizó de la
+siguiente manera:
+
+Cualitativo: Para el diseño pedagógico de la guía didáctica interactiva, se
+exploraron las necesidades educativas de docentes y estudiantes del décimo año de
+Educación Básica en el área de Ciencias Naturales, y se evaluó la experiencia de
+los usuarios durante las sesiones de prueba piloto, mediante observación
+participante y entrevistas semiestructuradas.
+
+Cuantitativo: Para medir el impacto de la herramienta en el aprendizaje de
+biología celular, la usabilidad y la eficacia pedagógica de la guía interactiva,
+se emplearon instrumentos estructurados (cuestionarios pre-test/post-test,
+escala SUS de usabilidad) y se analizaron métricas de interacción almacenadas
+en Cloud Firestore (tiempo de sesión, módulos visitados, logros desbloqueados,
+preguntas de quiz respondidas).
+
+
+MODALIDAD DE INVESTIGACIÓN
+
+Para el desarrollo del proyecto se emplearon múltiples modalidades de
+investigación complementarias:
+
+Investigación de Campo: Se efectuó observación directa en la Unidad Educativa
+Vicente Fierro de la ciudad de Tulcán para verificar las herramientas didácticas
+utilizadas en el módulo de Ciencias Naturales y para registrar los fenómenos
+de interacción de los estudiantes con la aplicación. La investigación de campo
+incluyó encuestas, entrevistas, observación directa durante las sesiones de uso
+y una prueba piloto con el grupo de décimo año.
+
+Investigación Documental: Esta modalidad se basa en la revisión de fuentes
+secundarias para fundamentar el diseño de la guía didáctica. Incluyó: revisión
+de los planes de estudio y programas del módulo de Ciencias Naturales del
+currículo nacional, para alinear la guía con los contenidos y competencias
+requeridas; análisis de documentos técnicos sobre aplicaciones de Realidad
+Aumentada e Inteligencia Artificial en educación; y revisión de experiencias
+previas de implementación de guías didácticas interactivas con tecnologías
+emergentes en contextos de educación básica latinoamericana.
+
+Investigación Bibliográfica: Implica la revisión de literatura académica y
+teórica para fundamentar el diseño de la guía didáctica. Incluyó: revisión
+de teorías educativas constructivistas que respaldan el uso de RA e IA en el
+aprendizaje (Piaget, Vygotsky, Papert, Mayer, Sweller, Deterding et al.);
+análisis de estudios previos sobre la aplicación de tecnologías emergentes en
+la enseñanza de Ciencias Naturales y biología celular; y síntesis del marco
+teórico que integra conceptos de tecnología educativa, pedagogía constructivista
+y sistemas de información para sustentar el diseño.
+
+Investigación Exploratoria: Buscó explorar nuevas posibilidades y soluciones
+innovadoras para el diseño de la guía didáctica. Incluyó: identificación de
+frameworks tecnológicos emergentes (Flutter, TensorFlow Lite, API de Groq,
+Google Gemini Vision, Firebase) con potencial de integración en una guía
+didáctica educativa para Ciencias Naturales; exploración de casos de éxito en
+otras instituciones que hayan implementado RA e IA en la enseñanza de biología;
+y entrevistas con expertos en tecnología educativa para identificar tendencias
+y buenas prácticas en el diseño de materiales didácticos interactivos.
+
+Investigación Descriptiva: Se enfoca en describir las características y
+funcionalidades de la guía didáctica, así como el contexto en el que se
+implementa. Incluyó: descripción de los cinco módulos funcionales —guía
+didáctica, chatbot de Ciencias, escáner inteligente, Realidad Aumentada y
+Diccionario Biológico—; caracterización del perfil de los estudiantes de décimo
+año de Educación Básica de la Unidad Educativa Vicente Fierro, incluyendo su
+nivel de conocimiento previo sobre biología celular, habilidades tecnológicas y
+preferencias de aprendizaje; y descripción del proceso de diseño e
+implementación de la guía, desde la selección de herramientas tecnológicas
+hasta la validación con los usuarios finales.
+
+
+POBLACIÓN Y MUESTRA
+
+La investigación se realizó en la Unidad Educativa Vicente Fierro de la ciudad
+de Tulcán, Ecuador, con los estudiantes y docentes de décimo año de Educación
+Básica en el módulo de Ciencias Naturales.
+
+[Tabla No. 3. Población]
+
+| Población                               | Frecuencia | Porcentaje |
+|-----------------------------------------|------------|------------|
+| Docente del Módulo de Ciencias Naturales|      1     |   14.2%    |
+| Directivo de la Institución             |      1     |   85.7%    |
+| Estudiantes del módulo                  |     50     |            |
+| Total                                   |     52     |   100%     |
+
+Elaborado por: Investigador
+
+Como la población donde se desarrolló el proyecto de Investigación no supera
+las 100 personas, se realizó un censo, aplicando entrevistas a la docente del
+módulo de Ciencias Naturales y al directivo de la institución, y encuestas a
+los cincuenta estudiantes del módulo.
+
+
+MÉTODOS
+
+Deductivo: En el desarrollo de la guía didáctica, se parte de teorías generales
+sobre pedagogía constructivista, aprendizaje interactivo, Realidad Aumentada e
+Inteligencia Artificial aplicadas a la educación. A partir de estos fundamentos
+generales, se deducen estrategias específicas y métodos de enseñanza incorporados
+en la guía interactiva. Se toman como base las teorías de Mayer (2021) sobre
+aprendizaje multimedia, la teoría de la carga cognitiva de Sweller (2011) y los
+principios de gamificación de Deterding et al. (2011), para derivar el diseño
+específico de cada módulo de la aplicación orientado a la enseñanza de biología
+celular en décimo año de Educación Básica.
+
+Inductivo: Se utiliza al observar cómo los estudiantes interactúan con la guía
+didáctica durante las sesiones de prueba y al recopilar datos sobre su
+comportamiento, comprensión y desempeño. Con base en estas observaciones, se
+identificaron patrones sobre la efectividad del uso de RA e IA en la enseñanza
+de biología celular, permitiendo ajustar y mejorar el diseño iterativo de la
+guía. Las encuestas a estudiantes y la observación directa permitieron
+generalizar tendencias sobre los módulos con mayor impacto motivacional y las
+funcionalidades que requirieron ajustes de usabilidad.
+
+Analítico: Se analizó la unidad temática de Ciencias Naturales sobre biología
+celular, desglosando los conceptos clave que deben enseñarse mediante la guía
+didáctica: la célula como unidad básica de la vida, sus tipos (animal y vegetal),
+sus organelos, sus funciones y las diferencias entre células procariotas y
+eucariotas. También se realizó un análisis comparativo de las herramientas de
+RA (Flutter con TFLite vs. soluciones basadas en Unity/Vuforia) y de IA
+(API de Groq con LLM vs. Dialogflow/NLP clásico), para identificar cuáles son
+las más adecuadas según las necesidades pedagógicas y técnicas del proyecto.
+
+Sintético: Tras analizar los contenidos del módulo de Ciencias Naturales y las
+herramientas tecnológicas evaluadas, se realizó una síntesis para diseñar la
+guía didáctica final. Este proceso integró conceptos de biología celular,
+principios pedagógicos constructivistas y funcionalidades de RA e IA en un
+recurso interactivo, práctico y efectivo. Por ejemplo, se integra la RA para
+visualizar células animales y vegetales con sus organelos en el entorno real del
+estudiante, la IA (API de Groq) para responder consultas sobre biología celular
+con reconocimiento de voz, y el Diccionario Biológico para reforzar el
+vocabulario científico especializado.
+
+
+ESTRATEGIAS Y TÉCNICAS
+
+Se utilizan las siguientes técnicas de recolección de datos:
+
+Entrevista: Las entrevistas se realizan a la docente del módulo de Ciencias
+Naturales para comprender sus necesidades, expectativas y opiniones sobre la
+implementación de Realidad Aumentada e Inteligencia Artificial en el proceso de
+enseñanza-aprendizaje de biología celular. También se entrevista a un experto en
+tecnologías educativas para identificar buenas prácticas en el diseño de guías
+didácticas interactivas con RA e IA.
+
+Encuesta: La encuesta se realiza a los cincuenta estudiantes del módulo de
+Ciencias Naturales para recopilar información sobre sus conocimientos previos
+en biología celular, su nivel de aceptación hacia el uso de tecnología
+interactiva y sus preferencias respecto a los diferentes módulos de la guía
+(guía didáctica, chatbot, escáner, RA, diccionario).
+
+Observación Directa: Se observa a los estudiantes mientras utilizan la guía
+didáctica interactiva para identificar patrones de comportamiento, dificultades,
+niveles de interacción y grado de comprensión de los contenidos de biología
+celular. Permite evaluar la usabilidad y efectividad de los cinco módulos y
+realizar ajustes iterativos.
+
+
+INSTRUMENTOS
+
+Los instrumentos empleados son:
+
+Cuestionario (encuesta a estudiantes): Aplicado a los cincuenta estudiantes
+del módulo de Ciencias Naturales para conocer sus necesidades de aprendizaje
+sobre biología celular, sus experiencias previas con tecnología educativa y su
+nivel de aceptación ante la Realidad Aumentada e Inteligencia Artificial. El
+instrumento incluye ítems de conocimiento previo (pre-test) y de valoración
+post-uso de los módulos.
+
+Guía de entrevista (docente): Diseñada para entrevistar a la docente del
+módulo de Ciencias Naturales para obtener información sobre las metodologías
+de enseñanza utilizadas, los desafíos en el proceso de aprendizaje de biología
+celular y sus expectativas sobre la integración de RA e IA en la enseñanza.
+
+Guía de entrevista (experto técnico): Diseñada para recoger opiniones de un
+experto en tecnología educativa sobre la arquitectura del sistema, la elección
+de herramientas y las recomendaciones de usabilidad.
+
+Guía de observación: Utilizada para registrar cómo los estudiantes interactúan
+con cada módulo de la guía didáctica (guía, chatbot, escáner, RA, diccionario),
+identificando nivel de comprensión, dificultades encontradas y grado de
+participación.
+
+Escala SUS (System Usability Scale): Instrumento estandarizado de 10 ítems
+aplicado a los estudiantes para evaluar la usabilidad percibida del sistema,
+siguiendo la metodología de Brooke (2023). Puntajes superiores a 70 puntos
+indican usabilidad aceptable.
+
+
+------------------------------------------------------------------------
+METODOLOGÍA DE DESARROLLO DE SOFTWARE
+------------------------------------------------------------------------
+
+Para la metodología de desarrollo de software se adopta la metodología ágil
+Kanban, idónea para proyectos que requieren flujo continuo de trabajo,
+flexibilidad y mejoras iterativas (Edge, 2021).
+
+Para Edge (2021), Kanban como metodología ágil permite gestionar proyectos de
+desarrollo de software de manera eficiente mediante la visualización del flujo
+de trabajo y la limitación del trabajo en curso para evitar cuellos de botella.
+McCarthy (2020) destaca su flexibilidad y enfoque en la eficiencia operativa,
+describiendo cómo su aplicación mejora la productividad en equipos de trabajo
+mediante la gestión del flujo de tareas, la entrega continua y la eliminación
+de desperdicios en los procesos.
+
+El proceso de desarrollo se estructura en las siguientes etapas:
+
+[Figura 4. Etapas de la metodología de ingeniería de software del proyecto]
+
+
+ETAPA 1: ANÁLISIS Y DEFINICIÓN DE REQUERIMIENTOS
+
+[Figura 5. Etapas de Análisis y Definición de Requerimientos]
+
+Objetivo: Identificar los elementos clave de la guía didáctica interactiva,
+definir las necesidades de docentes y estudiantes, establecer qué funciones
+de IA y RA se integrarán y seleccionar las plataformas de desarrollo.
+
+Actividades:
+
+Entrevistas con usuarios:
+- Docente: Se consulta sobre los contenidos de Ciencias Naturales que requieren
+  mayor refuerzo visual e interactivo. La docente indica la necesidad de trabajar
+  con visualizaciones interactivas de la célula y sus organelos, considerados
+  los contenidos más abstractos para los estudiantes. (Apéndice A — Entrevista
+  Docente)
+- Experto técnico: Se consulta sobre la aplicabilidad de RA e IA en educación
+  básica y las recomendaciones sobre herramientas de desarrollo accesibles y de
+  bajo costo. (Apéndice B — Entrevista Experto)
+- Estudiantes: Se indaga sobre la necesidad de implementar en la materia
+  herramientas de RA e IA para apoyar el aprendizaje de biología celular.
+  (Apéndice C — Encuesta Estudiantes)
+
+Investigación y selección de herramientas tecnológicas:
+
+Se evalúan las plataformas disponibles para las funcionalidades requeridas.
+A continuación se presenta el análisis de herramientas consideradas y la
+justificación de las seleccionadas:
+
+a) Flutter — Framework de desarrollo multiplataforma (SELECCIONADO)
+Descripción: Flutter es un framework de código abierto desarrollado por Google
+que permite crear aplicaciones nativas para Android, iOS y web desde una única
+base de código, utilizando el lenguaje Dart.
+Beneficios para la Guía Didáctica:
+- Permite desarrollar una aplicación móvil funcional para Android con
+  interfaces modernas siguiendo Material Design 3.
+- Facilita la integración de múltiples servicios externos (Firebase, APIs de IA)
+  mediante paquetes del ecosistema pub.dev.
+- Elimina la necesidad de Unity/Vuforia al implementar RA directamente en el
+  framework mediante cámara y superposición de contenido.
+- Código abierto con capa gratuita, alineado con los objetivos de
+  accesibilidad económica del proyecto.
+
+b) TensorFlow Lite con MobileNet V2 — Clasificación local de imágenes (SELECCIONADO)
+Descripción: TensorFlow Lite es la versión optimizada de TensorFlow para
+dispositivos móviles. El modelo MobileNet V2 (mobilenet_v2.tflite) permite
+clasificación de imágenes ejecutada localmente en el dispositivo.
+Beneficios para la Guía Didáctica:
+- Permite al escáner inteligente identificar organismos biológicos sin requerir
+  conexión a internet, aumentando la accesibilidad en contextos de conectividad
+  limitada.
+- Funciona en tiempo real desde la cámara del dispositivo.
+- Integración nativa con Flutter mediante el paquete tflite_flutter.
+
+c) API de Groq con modelo openai/gpt-oss-20b — Chatbot educativo (SELECCIONADO)
+Descripción: Groq es una plataforma de inferencia de inteligencia artificial que
+utiliza unidades de procesamiento de lenguaje (LPU) para ejecutar modelos LLM a
+velocidades superiores a las soluciones basadas en GPU convencionales (Groq,
+2024). El modelo openai/gpt-oss-20b, con 20 mil millones de parámetros, está
+disponible a través del endpoint de la API de Groq
+(https://api.groq.com/openai/v1/chat/completions).
+Beneficios para la Guía Didáctica:
+- Proporciona respuestas conversacionales precisas y contextualizadas en
+  biología celular gracias a un prompt del sistema diseñado específicamente.
+- Latencia de respuesta muy baja por la arquitectura LPU de Groq, mejorando la
+  experiencia de usuario del chatbot.
+- Soporte de entrada por voz mediante speech-to-text integrado en Flutter.
+- Capacidad de generación automática de preguntas de quiz (QuizGeneratorService)
+  a partir del contenido curricular.
+- Capa gratuita adecuada para proyectos académicos y prototipos educativos.
+
+Se evaluó también Dialogflow (Google) para el chatbot, descartado por requerir
+entrenamiento manual de intents y ofrecer menor flexibilidad conversacional
+comparado con un LLM de gran escala como openai/gpt-oss-20b.
+
+d) Google Gemini Vision API — Identificación avanzada de imágenes (SELECCIONADO)
+Descripción: Google Gemini Vision es un modelo de visión por computadora y
+lenguaje multimodal que analiza imágenes y genera descripciones detalladas.
+Beneficios para la Guía Didáctica:
+- Complementa TensorFlow Lite en el módulo de escáner, proporcionando
+  identificación detallada de especímenes biológicos (plantas, animales,
+  hongos) con información taxonómica y datos curiosos.
+- Capacidad multimodal que permite analizar tanto la imagen capturada como
+  el contexto textual de la consulta del estudiante.
+
+e) Firebase — Backend como servicio (SELECCIONADO)
+Descripción: Firebase es la plataforma backend-as-a-service (BaaS) de Google
+que ofrece autenticación, base de datos, almacenamiento y analítica.
+Servicios utilizados:
+- Firebase Authentication con Google Sign-In: gestión de identidades de usuarios.
+- Cloud Firestore: base de datos documental NoSQL en tiempo real para almacenar
+  perfiles de usuario, sesiones de chat, progreso académico (subtemas completados,
+  preguntas respondidas), logros desbloqueados y rachas de estudio.
+- Se descarta Firebase Realtime Database en favor de Cloud Firestore por su
+  mejor soporte de consultas complejas y estructura documental.
+
+
+Definición de requisitos:
+
+A continuación se presentan los requisitos funcionales y no funcionales del
+sistema, organizados por módulo:
+
+Módulo 1 — Guía Didáctica Interactiva
+Descripción: Los estudiantes acceden a contenido multimedia estructurado para
+la unidad de biología celular, organizado en una unidad con cinco subtemas y
+veintitrés ítems de evaluación.
+Requisitos Funcionales:
+- Presentación de contenido por subtema (texto, imagen, video, listas,
+  elementos destacados, secciones "¿Sabías que?").
+- Quizzes por subtema con retroalimentación inmediata.
+- Seguimiento de progreso por subtema almacenado en Cloud Firestore.
+- Generación automática de preguntas adicionales mediante QuizGeneratorService
+  (API de Groq).
+Requisitos No Funcionales:
+- Carga de contenido local (sin internet) para la guía didáctica base.
+- Interfaz intuitiva y coherente con Material Design 3.
+
+Módulo 2 — Chatbot de Ciencias con Reconocimiento de Voz
+Descripción: Asistente conversacional contextualizado en biología celular,
+accesible por texto y por voz.
+Requisitos Funcionales:
+- Integración con API de Groq (endpoint: https://api.groq.com/openai/v1/chat/
+  completions, modelo: openai/gpt-oss-20b).
+- Prompt del sistema configurable para contextualizar al modelo en biología
+  celular.
+- Reconocimiento de voz mediante speech_to_text (Flutter) para entrada de voz.
+- Historial de conversación almacenado en Cloud Firestore por sesión.
+- Manejo de errores HTTP 429 (rate limiting) con reintento automático a los
+  30 segundos.
+Requisitos No Funcionales:
+- Tiempo de respuesta del chatbot inferior a 3 segundos en condiciones normales.
+- Gestión segura de credenciales mediante AppConfig (lib/config/app_config.dart).
+
+Módulo 3 — Escáner Inteligente
+Descripción: Sistema de reconocimiento de imágenes en dos niveles.
+Requisitos Funcionales:
+- Clasificación local con modelo MobileNet V2 (mobilenet_v2.tflite) ejecutado
+  en TensorFlow Lite para identificación básica sin internet.
+- Identificación avanzada mediante Google Gemini Vision API con descripción
+  taxonómica y datos curiosos del espécimen.
+- Captura de imagen desde cámara del dispositivo.
+Requisitos No Funcionales:
+- Funcionalidad básica (TFLite) disponible sin conectividad.
+- Precisión de clasificación superior al 80% en condiciones de buena iluminación.
+
+Módulo 4 — Realidad Aumentada (dos modos)
+Descripción: Visualización de contenido educativo superpuesto sobre marcadores
+físicos o imágenes objetivo.
+Requisitos Funcionales:
+- Modo 1 (ARScreenSimple): reconocimiento de cuatro marcadores de color
+  (célula genérica, célula animal, célula vegetal, organelos) con reproducción
+  de videos educativos superpuestos.
+- Modo 2 (ARImageTargetScreen): seguimiento de imagen objetivo con base de
+  datos de cuatro entradas (_cellDatabase: celula, celulaanimal, celulavegetal,
+  organelos).
+- Acceso a ambos modos desde la pantalla principal mediante BottomSheet selector.
+Requisitos No Funcionales:
+- Tasa de reconocimiento de marcadores superior al 85% en condiciones normales.
+- Tiempo de detección inicial inferior a 2 segundos.
+- Compatible con dispositivos Android API 26+ con cámara trasera.
+
+Módulo 5 — Diccionario Biológico Interactivo
+Descripción: Recurso lexicográfico con treinta términos especializados de
+biología celular.
+Requisitos Funcionales:
+- Listado de treinta términos con imagen ilustrativa, definición académica,
+  guía de pronunciación y dato curioso.
+- Organización por categorías temáticas vinculadas a los subtemas de la guía.
+- Búsqueda y filtrado de términos.
+Requisitos No Funcionales:
+- Acceso completamente local (sin internet).
+- Imágenes optimizadas para carga rápida en dispositivos de gama media.
+
+Módulo Transversal — Gamificación y Progreso
+Descripción: Sistema de motivación y seguimiento del aprendizaje.
+Requisitos Funcionales:
+- Sistema de puntuación de experiencia (XP) acumulable por actividades.
+- Niveles progresivos desbloqueables según XP acumulada.
+- Logros (achievements) desbloqueables por hitos de aprendizaje.
+- Rachas de estudio (streaks) registradas por días consecutivos de uso.
+- Perfil de usuario con estadísticas almacenadas en Cloud Firestore.
+Requisitos No Funcionales:
+- Sincronización de progreso en tiempo real con Cloud Firestore.
+- Datos de gamificación persistentes entre sesiones.
+
+
+Priorización de requisitos:
+
+Para gestionar eficazmente el desarrollo del proyecto, se realizó una
+priorización de requisitos en alta, media y baja prioridad, organizados en
+un tablero Kanban para un flujo de trabajo ágil y visual.
+
+[Tabla No. 4. Priorización de Requisitos]
+
+| Funcionalidad               | Requisito                                    | Prioridad |
+|-----------------------------|----------------------------------------------|-----------|
+| Guía Didáctica              | Visualización de contenido por subtema       | Alta      |
+| Guía Didáctica              | Quizzes con retroalimentación               | Alta      |
+| Chatbot IA                  | Integración API Groq (openai/gpt-oss-20b)   | Alta      |
+| Chatbot IA                  | Reconocimiento de voz (speech-to-text)       | Alta      |
+| Chatbot IA                  | Generación automática de quizzes (IA)        | Media     |
+| Escáner                     | Clasificación TFLite (MobileNet V2)          | Alta      |
+| Escáner                     | Identificación Gemini Vision API             | Alta      |
+| RA Modo 1                   | Reconocimiento de 4 marcadores de color      | Alta      |
+| RA Modo 2                   | AR Image Target (4 entradas)                 | Media     |
+| Diccionario Biológico       | 30 términos con imagen y pronunciación       | Alta      |
+| Gamificación                | XP, niveles, logros, rachas de estudio       | Media     |
+| Firebase Auth               | Google Sign-In                               | Alta      |
+| Cloud Firestore             | Persistencia de progreso y sesiones          | Alta      |
+| AppConfig                   | Gestión centralizada de credenciales API     | Alta      |
+| UI/UX                       | Material Design 3 con paleta natural         | Media     |
+| Manejo rate limiting        | Retry automático 30s (HTTP 429 Groq)         | Media     |
+
+
+[Tabla No. 5. Tablero Kanban del Proyecto]
+
+| Columna Kanban      | Tareas                                                    |
+|---------------------|-----------------------------------------------------------|
+| To Do (Por hacer)   | Pruebas con grupo piloto adicional,                       |
+|                     | Expansión a nuevas unidades temáticas                     |
+| In Progress         | Optimización de rendimiento RA en dispositivos gama baja, |
+|                     | Mejora de prompts del sistema en chatbot                  |
+| Review (Revisión)   | Validación de usabilidad con escala SUS,                  |
+|                     | Ajuste de umbrales de clasificación TFLite               |
+| Done (Completado)   | Módulo Guía Didáctica (5 subtemas, 23 preguntas),         |
+|                     | Chatbot con Groq API + voz,                               |
+|                     | Escáner TFLite + Gemini Vision,                           |
+|                     | RA Modo 1 (4 marcadores),                                 |
+|                     | RA Modo 2 (AR Image Target),                              |
+|                     | Diccionario Biológico (30 términos),                      |
+|                     | Gamificación (XP, logros, rachas),                        |
+|                     | Firebase Auth + Cloud Firestore,                          |
+|                     | AppConfig (gestión segura de credenciales),               |
+|                     | QuizGeneratorService (generación IA de quizzes)           |
+
+
+Mapeo de necesidades:
+
+El mapeo de necesidades identifica y analiza los requerimientos clave de
+docentes y estudiantes de décimo año de Educación Básica en Ciencias Naturales,
+vinculándolos con los módulos de la guía didáctica interactiva.
+
+Necesidad 1: Los estudiantes necesitan visualizar estructuras celulares
+tridimensionalmente
+Problema Identificado: Los estudiantes de décimo año enfrentan dificultades para
+comprender la estructura tridimensional de la célula, sus organelos y las
+diferencias entre células animales y vegetales a partir de diagramas
+bidimensionales estáticos en libros de texto.
+Solución Propuesta: Módulo de Realidad Aumentada con reconocimiento de marcadores
+de color y modo Image Target que superpone videos educativos sobre estructuras
+celulares en el entorno físico del estudiante.
+Módulos Asociados: RA Modo 1 (marcadores), RA Modo 2 (Image Target).
+Beneficios Esperados: Mayor comprensión de la estructura tridimensional de la
+célula y sus organelos. Motivación intrínseca por la experiencia inmersiva.
+
+Necesidad 2: Los estudiantes necesitan apoyo tutorial personalizado fuera del
+horario de clase
+Problema Identificado: La docente no puede atender simultáneamente las dudas
+individuales de cincuenta estudiantes. Muchos estudiantes evitan preguntar en
+público por timidez.
+Solución Propuesta: Chatbot de Ciencias basado en la API de Groq con modelo
+openai/gpt-oss-20b, contextualizado en biología celular, con soporte de entrada
+por voz para facilitar la interacción natural.
+Módulos Asociados: Chatbot de Ciencias, QuizGeneratorService.
+Beneficios Esperados: Disponibilidad de tutoría 24/7. Los estudiantes resuelven
+dudas sobre biología celular de forma privada y sin presión. Retroalimentación
+personalizada e inmediata.
+
+Necesidad 3: Los estudiantes necesitan conectar los contenidos con su
+entorno cotidiano
+Problema Identificado: Los contenidos de Ciencias Naturales se perciben como
+abstractos y desconectados de la realidad observable del estudiante.
+Solución Propuesta: Escáner Inteligente que combina TFLite (MobileNet V2) para
+clasificación local y Google Gemini Vision API para identificación de
+organismos biológicos fotografiados por el estudiante en su entorno.
+Módulos Asociados: Escáner Inteligente.
+Beneficios Esperados: Aprendizaje experiencial al identificar organismos del
+entorno. Conexión entre contenido curricular y realidad cotidiana.
+
+Necesidad 4: Los estudiantes necesitan recursos lexicográficos especializados
+Problema Identificado: La terminología científica de biología celular (organelos,
+eucariota, procariota, mitosis, etc.) es un obstáculo para la comprensión.
+No existen recursos accesibles que expliquen estos términos con apoyo visual.
+Solución Propuesta: Diccionario Biológico Interactivo con treinta términos
+especializados, cada uno con imagen ilustrativa, definición académica, guía
+de pronunciación y dato curioso.
+Módulos Asociados: Diccionario Biológico.
+Beneficios Esperados: Construcción progresiva del vocabulario científico.
+Acceso inmediato a definiciones con soporte visual.
+
+Necesidad 5: Los estudiantes necesitan motivación sostenida para completar
+el contenido
+Problema Identificado: El desengagement académico es frecuente en contenidos
+percibidos como difíciles o poco relevantes. Los métodos tradicionales no
+ofrecen recompensas inmediatas que sostengan la motivación.
+Solución Propuesta: Sistema de gamificación con XP, niveles, logros
+desbloqueables y rachas de estudio almacenados en Cloud Firestore.
+Módulos Asociados: Gamificación transversal.
+Beneficios Esperados: Mayor persistencia en el uso de la guía. Motivación
+intrínseca reforzada por recompensas simbólicas (Hamari et al., 2014;
+Deterding et al., 2011).
+
+
+Requisitos Técnicos del Sistema:
+
+[Tabla. Requisitos Técnicos para los Módulos de la Guía Didáctica]
+
+| Capa              | Herramienta              | Descripción técnica                              |
+|-------------------|--------------------------|--------------------------------------------------|
+| Framework         | Flutter (Dart)           | Desarrollo multiplataforma Android. SDK 3.x+     |
+| IA Conversacional | API Groq openai/gpt-oss-20b| Endpoint REST. Autenticación Bearer Token.      |
+|                   |                          | Max tokens: 512. Sistema prompt ~100 tokens.     |
+| Voz               | speech_to_text (Flutter) | Reconocimiento de voz local en dispositivo.      |
+| Clasificación     | TFLite MobileNet V2      | Modelo local mobilenet_v2.tflite. Sin internet.  |
+| Visión IA         | Google Gemini Vision API | Identificación avanzada de imágenes. Con internet|
+| RA Marcadores     | Flutter + Cámara         | ARScreenSimple. 4 marcadores de color.           |
+| RA Image Target   | ARImageTargetScreen      | _cellDatabase con 4 entradas.                    |
+| Backend           | Firebase Authentication  | Google Sign-In. Gestión de identidades.          |
+| Base de datos     | Cloud Firestore          | NoSQL documental. Perfiles, sesiones, logros.    |
+| Configuración     | AppConfig (Dart)         | lib/config/app_config.dart. Centraliza claves.   |
+| Dispositivo       | Android API 26+          | Android 8.0 Oreo o superior. Cámara trasera.     |
+
+Se descartaron Unity + Vuforia (mayor complejidad, sin necesidad de modelos 3D
+avanzados, el proyecto usa videos superpuestos en RA), Dialogflow (inferioridad
+conversacional frente a LLM de gran escala), y Firebase Realtime Database (menos
+adecuada para estructura documental compleja del sistema).
+
+
+ETAPA 2: DISEÑO Y ARQUITECTURA DEL SISTEMA
+
+[Figura 6. Procesos de Diseño y Arquitectura del Sistema]
+
+Objetivo: Estructurar la arquitectura del software, diseñar la interfaz gráfica
+y de experiencia de usuario (UI/UX), definir la estructura de datos e integración
+de IA y RA, y plantear la conexión con el backend.
+
+Actividades detalladas:
+
+Diseño de arquitectura:
+La aplicación sigue una arquitectura por capas orientada a servicios, estructurada
+en tres niveles:
+
+- Capa de presentación (Screens/Widgets en Flutter): Pantallas de la aplicación
+  diseñadas con Material Design 3. Pantalla principal (HomeScreen) con cinco
+  tarjetas de módulos. Navegación a módulos individuales mediante rutas Flutter.
+
+- Capa de servicios (Services en lib/services/): Servicios independientes para
+  cada integración externa:
+    * ChatService: gestión de conversaciones con API de Groq.
+    * QuizGeneratorService: generación de preguntas via API de Groq.
+    * ScannerService: integración con TFLite y Gemini Vision.
+    * GamificationService: gestión de XP, logros y rachas en Firestore.
+
+- Capa de datos (Firebase/Firestore): Colecciones en Cloud Firestore para
+  usuarios, sesiones de chat, progreso de subtemas y logros.
+
+- Configuración centralizada: lib/config/app_config.dart — contiene las claves
+  de API (Groq, Gemini), URL del endpoint y modelo LLM, protegiendo las
+  credenciales fuera del código de presentación.
+
+Esta arquitectura orientada a servicios ofrece ventajas sobre MVC tradicional
+(usado en Unity/Vuforia) al facilitar la separación de responsabilidades,
+la testabilidad independiente de cada servicio y la extensibilidad para
+agregar nuevos módulos.
+
+Interfaz gráfica (UI/UX):
+Se diseñaron mockups para las siguientes pantallas principales:
+- Pantalla de inicio de sesión (Google Sign-In).
+- HomeScreen: cinco tarjetas de módulos con iconografía biológica.
+- Guía Didáctica: navegación por subtemas con contenido multimedia.
+- Chatbot: interfaz conversacional con botón de micrófono para entrada de voz.
+- Escáner: pantalla de cámara con overlay de resultados.
+- RA: selector de modo (marcador / Image Target) mediante BottomSheet.
+- Diccionario: lista con buscador y tarjetas de términos.
+- Perfil: estadísticas de progreso, XP, nivel y logros.
+
+La paleta cromática sigue el Material Design 3 con tonos verdes (naturaleza),
+azules cielo (ciencia) y beige/tierra, reforzando la conexión temática con
+Ciencias Naturales.
+
+Diagramas UML:
+- Diagrama de casos de uso: Define actores ("Estudiante", "Docente") e
+  interacciones con los módulos (GuíaDidáctica, Chatbot, Escáner, RA,
+  Diccionario, Perfil).
+- Diagrama de clases: Muestra entidades principales (Usuario, Subtema,
+  QuizPregunta, TerminoDiccionario, Logro, SesionChat).
+- Diagrama de flujo: Visualiza el flujo de interacción del estudiante con
+  la guía, desde el inicio de sesión hasta la completación de subtemas y
+  desbloqueo de logros.
+- Diagrama de secuencia: Muestra la secuencia de mensajes entre el chatbot
+  (Flutter) y la API de Groq, incluyendo el manejo de rate limiting (HTTP 429).
+- Diagrama de componentes: Estructura de paquetes Flutter con lib/config,
+  lib/services, lib/screens, lib/data, assets.
+
+
+ETAPA 3: DESARROLLO INCREMENTAL
+
+[Figura 7. Procesos del Desarrollo Incremental]
+
+Objetivo: Implementar la guía didáctica en fases cortas, asignando tareas en
+el tablero Kanban (To Do → In Progress → Done), desarrollando módulos pequeños
+e integrando mejoras continuas basadas en retroalimentación.
+
+Módulos implementados de manera incremental:
+
+Primera iteración: Configuración del proyecto Flutter, Firebase Authentication
+con Google Sign-In, HomeScreen con navegación a módulos, estructura de
+AppConfig para gestión de credenciales.
+
+Segunda iteración: Módulo Guía Didáctica con contenido de la unidad "La Célula:
+Unidad Básica de la Vida" (5 subtemas, 23 preguntas). Integración de tipos de
+contenido: texto, imagen, video, lista, destacado, sabias_que. Almacenamiento
+de progreso en Cloud Firestore.
+
+Tercera iteración: Chatbot de Ciencias con integración de API de Groq
+(openai/gpt-oss-20b). Sistema de prompt contextualizado en biología celular.
+Reconocimiento de voz mediante speech_to_text. Historial de sesiones en
+Firestore. Manejo de rate limiting (HTTP 429) con retry automático a los 30s.
+
+Cuarta iteración: Escáner Inteligente con TensorFlow Lite (MobileNet V2)
+para clasificación local y Google Gemini Vision API para identificación
+avanzada de especímenes biológicos.
+
+Quinta iteración: Módulo de Realidad Aumentada Modo 1 (ARScreenSimple) con
+reconocimiento de 4 marcadores de color y reproducción de videos educativos.
+Módulo RA Modo 2 (ARImageTargetScreen) con _cellDatabase de 4 entradas.
+Selector de modo mediante BottomSheet en HomeScreen.
+
+Sexta iteración: Diccionario Biológico Interactivo con 30 términos (imágenes
+en assets/glosario/), pronunciación y datos curiosos. Vinculación con subtemas
+de la guía.
+
+Séptima iteración: Sistema de gamificación — XP, niveles progresivos, logros
+desbloqueables, rachas de estudio. QuizGeneratorService para generación
+automática de preguntas via API de Groq. Pantalla de perfil con estadísticas.
+
+Ajuste iterativo: Optimización del prompt del sistema del chatbot a ~100 tokens
+para reducir latencia y costos. Ajuste de max_tokens a 512. Reducción de la
+frecuencia de solicitudes al Firestore mediante caché local.
+
+
+ETAPA 4: PRUEBAS Y VALIDACIÓN
+
+[Figura 8. Etapas de Pruebas y Validación]
+
+Objetivo: Evaluar el rendimiento y usabilidad de la aplicación mediante pruebas
+unitarias, pruebas de experiencia de usuario y ajustes según retroalimentación.
+
+Pruebas unitarias:
+- Verificación de la integración con API de Groq: respuestas coherentes ante
+  preguntas de biología celular, manejo correcto de errores HTTP 429.
+- Validación de la clasificación TFLite: tasa de reconocimiento de organismos
+  en condiciones de iluminación normal y reducida.
+- Verificación del reconocimiento de marcadores RA: tasa de detección a
+  diferentes ángulos e iluminaciones.
+- Pruebas de persistencia en Firestore: verificación de la correcta escritura
+  y lectura de progreso, sesiones de chat y logros.
+
+Pruebas de usabilidad con usuarios:
+- Se midió la facilidad de uso con los cincuenta estudiantes del décimo año
+  de la Unidad Educativa Vicente Fierro mediante observación directa y escala SUS.
+- La docente y el directivo probaron la herramienta para verificar el
+  cumplimiento de los objetivos del módulo de Ciencias Naturales.
+
+Ajustes según retroalimentación:
+- Se ajustaron los umbrales de detección del escáner ante reportes de falsos
+  positivos en condiciones de baja iluminación.
+- Se amplió el prompt del sistema del chatbot para mejorar la pertinencia de
+  las respuestas sobre terminología específica de biología celular.
+- Se optimizó la navegación del módulo de RA para simplificar la selección
+  de modo (marcador vs. Image Target).
+
+
+ETAPA 5: IMPLEMENTACIÓN Y DESPLIEGUE
+
+[Figura 9. Etapas de Implementación y Despliegue]
+
+Objetivo: Poner en marcha la guía didáctica interactiva, distribuyéndola a
+los usuarios piloto y proporcionando capacitación.
+
+Despliegue:
+La aplicación fue compilada en formato APK para Android (API 26+) y distribuida
+directamente a los dispositivos de los cincuenta estudiantes participantes de la
+Unidad Educativa Vicente Fierro mediante instalación manual, sin requerir
+publicación en Google Play Store para la fase piloto.
+
+Capacitación:
+Se ofrecieron talleres de inducción a los estudiantes, cubriendo el uso de
+cada uno de los cinco módulos de la guía didáctica. La docente recibió una
+sesión de capacitación sobre el seguimiento del progreso de los estudiantes
+desde el módulo de perfil y sobre la interpretación de las estadísticas de uso.
+
+Soporte continuo:
+Se habilitó un canal de soporte para reportar problemas o sugerencias durante
+el período de uso piloto (cuatro semanas). Las incidencias se registraron en
+el tablero Kanban y se resolvieron en la iteración siguiente.
+
+La aplicación de la metodología ágil Kanban en este proyecto permitió:
+- Gestionar el flujo de trabajo de manera eficiente y flexible, respondiendo
+  a cambios de requisitos durante el desarrollo.
+- Desarrollar la guía didáctica en siete iteraciones cortas con mejoras
+  continuas basadas en retroalimentación de usuarios.
+- Asegurar que el producto final cumpla con las necesidades pedagógicas de
+  los estudiantes de décimo año de Educación Básica en Ciencias Naturales.
+- Documentar el proceso de desarrollo con transparencia para garantizar la
+  replicabilidad del modelo en otras unidades curriculares o instituciones.
+
+
+------------------------------------------------------------------------
+MATRIZ DE VARIABLES
+------------------------------------------------------------------------
+
+[Tabla. Matriz de Variables de la Investigación]
+
+| Variable              | Dimensión           | Indicador                         | Instrumento          |
+|-----------------------|---------------------|-----------------------------------|----------------------|
+| V. Independiente:     | Módulos funcionales | N° módulos implementados (5)      | Ficha técnica        |
+| Guía Didáctica        | Contenido didáctico | Subtemas (5), preguntas (23),     | Ficha de contenido   |
+| Interactiva           |                     | marcadores RA (4), términos (30)  |                      |
+|                       | Tecnología IA       | Modelo LLM, precisión chatbot     | Log de API           |
+|                       | Usabilidad          | Puntuación SUS                    | Cuestionario SUS     |
+| V. Dependiente 1:     | Comprensión         | Diferencia puntaje pre/post-test  | Prueba cognitiva     |
+| Realidad Aumentada    | Motivación          | Tiempo de sesión, módulos usados  | Firestore Analytics  |
+|                       | Usabilidad RA       | Tasa reconocimiento marcadores    | Observación directa  |
+| V. Dependiente 2:     | Efectividad chatbot | Consultas resueltas sin docente   | Entrevista/encuesta  |
+| Inteligencia          | Interacción voz     | Uso speech-to-text                | Log de uso           |
+| Artificial            | Engagement IA       | N° quizzes generados y completados| Firestore            |
+
+
+------------------------------------------------------------------------
+ESTABLECIMIENTO DE METODOLOGÍA POR OBJETIVOS
+------------------------------------------------------------------------
+
+OE1 — Analizar necesidades pedagógicas y tecnológicas:
+Método: Investigación de campo (entrevistas, encuestas). Instrumentos: guía de
+entrevista al docente y al experto, cuestionario a estudiantes. Análisis
+cualitativo y cuantitativo de resultados.
+
+OE2 — Diseñar la arquitectura de software:
+Método: Investigación documental, exploratoria. Instrumentos: diagramas UML
+(casos de uso, clases, secuencia, componentes). Producto: documento de
+arquitectura con mockups.
+
+OE3 — Implementar el sistema con Flutter, Firebase, Groq y Gemini:
+Método: Desarrollo incremental Kanban. Siete iteraciones. Producto: aplicación
+CélulaViva funcional en Android (API 26+).
+
+OE4 — Desarrollar contenido educativo:
+Método: Investigación documental y bibliográfica. Revisión del currículo de
+Ciencias Naturales. Producto: 1 unidad, 5 subtemas, 23 preguntas, 4 marcadores
+RA, 30 términos del Diccionario Biológico.
+
+OE5 — Implementar gamificación y generación automática de quizzes:
+Método: Desarrollo incremental. Integración de QuizGeneratorService (Groq API).
+Producto: sistema de XP, niveles, logros y rachas funcional.
+
+OE6 — Evaluar usabilidad y efectividad pedagógica:
+Método: Diseño cuasi-experimental. Instrumentos: pre-test/post-test (20 ítems
+sobre biología celular), escala SUS (usabilidad), guía de observación, métricas
+de Firestore. Análisis estadístico descriptivo y prueba t de Student.
+
+OE7 — Documentar lecciones aprendidas:
+Método: Análisis reflexivo del proceso. Producto: Capítulo 5 (conclusiones y
+recomendaciones) y apéndices técnicos.
+
+
+================================================================================
+CORRECCIÓN DEL APÉNDICE A
+================================================================================
+
+[CORREGIDO] El Apéndice A debe cambiar de:
+"Entrevista Pre-Test al Docente del Módulo de Contabilidad General"
+a:
+"Entrevista Pre-Test a la Docente del Módulo de Ciencias Naturales"
+
+Objetivo corregido: Recoger la percepción de la docente sobre el uso de
+tecnologías educativas y su aplicabilidad en el módulo de Ciencias Naturales,
+específicamente en la unidad temática "La Célula: Unidad Básica de la Vida",
+para el diseño de la guía didáctica interactiva.
+
+Preguntas sugeridas para la entrevista:
+1. ¿Cuáles son las principales dificultades que enfrentan los estudiantes en el
+   aprendizaje de los conceptos de biología celular (célula, organelos, tipos
+   celulares)?
+2. ¿Qué recursos didácticos utiliza actualmente para enseñar la unidad de
+   biología celular? ¿Considera que son suficientes?
+3. ¿Conoce o ha utilizado herramientas de Realidad Aumentada o Inteligencia
+   Artificial en sus clases? ¿Qué expectativas tiene al respecto?
+4. ¿Qué aspectos de la biología celular considera que se beneficiarían más de
+   una visualización tridimensional interactiva?
+5. ¿Cómo evalúa la motivación de sus estudiantes hacia el aprendizaje de
+   Ciencias Naturales? ¿Qué factores la afectan negativamente?
+6. ¿Qué tan viable considera la implementación de una aplicación móvil
+   educativa en el contexto de la Unidad Educativa Vicente Fierro?
+
+
+================================================================================
+TABLA RESUMEN DE CORRECCIONES DEL CAPÍTULO 3
+================================================================================
+
+| Sección                    | Error encontrado                         | Corrección aplicada                           |
+|----------------------------|------------------------------------------|-----------------------------------------------|
+| Todo el capítulo           | "módulo de Contabilidad General"         | "módulo de Ciencias Naturales"                |
+| Todo el capítulo           | "UPEC / Cont. y Auditoría"               | "Unidad Educativa Vicente Fierro / Tulcán"    |
+| Investigación herramientas | Unity + Vuforia para RA                  | Flutter + TFLite/marcadores propios           |
+| Investigación herramientas | Dialogflow + TensorFlow para chatbot     | API de Groq (openai/gpt-oss-20b)              |
+| Requisitos técnicos        | Firebase Realtime Database               | Cloud Firestore                               |
+| Arquitectura sistema       | MVC con Unity                            | Arquitectura por capas/servicios en Flutter   |
+| Kanban / Requisitos        | Vuforia, Dialogflow en tablas            | Flutter, Groq, Gemini, TFLite en tablas       |
+| Mapeo de necesidades       | "conceptos contables en 3D"              | "estructuras celulares en 3D"                 |
+| Módulos (todo el cap.)     | "cuatro módulos"                         | cinco módulos (incluye Diccionario Biológico) |
+| Módulos                    | Sin mención Diccionario Biológico        | Módulo 5 completo (30 términos)               |
+| Módulos                    | Sin mención AR Image Target              | Modo 2 ARImageTargetScreen                    |
+| Módulos                    | Sin reconocimiento de voz                | speech_to_text en chatbot                     |
+| Módulos                    | Sin QuizGeneratorService                 | Generación automática quizzes (Groq)          |
+| Apéndice A                 | "Módulo de Contabilidad General"         | "Módulo de Ciencias Naturales / célula"       |
+| Resumen / Abstract         | "LLaMA 3.3 70B"                         | openai/gpt-oss-20b (20B parámetros, Groq)     |
+
+
+================================================================================
+NUEVA REFERENCIA BIBLIOGRÁFICA PARA AÑADIR (no existente en el documento actual)
+================================================================================
+
+Groq. (2024). Groq API documentation: Language processing unit and model serving.
+   Groq Inc. https://console.groq.com/docs
+
+Edge, J. (2021). Kanban: La guía definitiva de la metodología Kanban para el
+   desarrollo de software ágil. Independently Published.
+   [YA EXISTE EN EL DOCUMENTO — verificar formato APA]
+
+McCarthy, R. (2020). Agile y Scrum: Descubra el poder de la gestión de proyectos
+   Agile, Lean Thinking, el proceso Kanban y Scrum. Independently Published.
+   [YA EXISTE EN EL DOCUMENTO — verificar formato APA]
+
+================================================================================
+FIN DEL DOCUMENTO DE CORRECCIONES — CAPÍTULO 3
+================================================================================

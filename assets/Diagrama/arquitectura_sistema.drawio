@@ -1,0 +1,183 @@
+<mxfile host="app.diagrams.net" modified="2024-02-10T22:00:00.000Z" agent="Claude" version="22.1.0" type="device">
+  <diagram id="arquitectura-sistema" name="Arquitectura del Sistema">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- TITULO -->
+        <mxCell id="titulo" value="ARQUITECTURA DEL SISTEMA - MI APP CIENCIAS NATURALES" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;fontStyle=1;fillColor=#1B5E20;fontColor=#ffffff;strokeColor=#1B5E20;" vertex="1" parent="1">
+          <mxGeometry x="250" y="20" width="700" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- USUARIO -->
+        <mxCell id="usuario" value="&#128100;&#10;USUARIO" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1;fillColor=#4CAF50;fontColor=#ffffff;strokeColor=#2E7D32;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="530" y="80" width="100" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- DISPOSITIVO -->
+        <mxCell id="dispositivo" value="&#128241; ANDROID&#10;Camara | Microfono | Galeria" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fillColor=#81C784;fontColor=#1B5E20;strokeColor=#4CAF50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="480" y="180" width="200" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Flecha Usuario a Dispositivo -->
+        <mxCell id="arr1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2E7D32;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="usuario" target="dispositivo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- FLUTTER APP (Centro) -->
+        <mxCell id="flutter_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="350" y="260" width="460" height="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="flutter_title" value="&#128241; FLUTTER APP" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="500" y="268" width="160" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="screens" value="&#128196; Screens&#10;(8 pantallas)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#42A5F5;fontColor=#ffffff;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="370" y="300" width="100" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="services" value="&#9881; Services&#10;(5 servicios)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#42A5F5;fontColor=#ffffff;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="490" y="300" width="100" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="data" value="&#128451; Data&#10;(Modelos)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#42A5F5;fontColor=#ffffff;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="610" y="300" width="100" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="assets" value="&#128194; Assets&#10;(Recursos)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#64B5F6;fontColor=#ffffff;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="490" y="355" width="100" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Flecha Dispositivo a Flutter -->
+        <mxCell id="arr2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#1976D2;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="dispositivo" target="flutter_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- FIREBASE (Izquierda) -->
+        <mxCell id="firebase" value="&#128293; FIREBASE&#10;&#10;Auth (Google)&#10;Firestore (BD)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;fontStyle=1;fillColor=#FF9800;fontColor=#ffffff;strokeColor=#E65100;strokeWidth=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="280" width="150" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Flecha Firebase a Flutter -->
+        <mxCell id="arr3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#E65100;strokeWidth=2;endArrow=block;endFill=1;startArrow=block;startFill=1;" edge="1" parent="1" source="firebase" target="flutter_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl3" value="Auth + Data" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontStyle=1;fontColor=#E65100;" vertex="1" parent="1">
+          <mxGeometry x="250" y="305" width="70" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- INTELIGENCIA ARTIFICIAL (Derecha) -->
+        <mxCell id="ia" value="&#129302; INTELIGENCIA ARTIFICIAL&#10;&#10;Gemini (Vision)&#10;Groq (Chat)&#10;TFLite (Local)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#9C27B0;fontColor=#ffffff;strokeColor=#6A1B9A;strokeWidth=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="930" y="270" width="170" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Flecha Flutter a IA -->
+        <mxCell id="arr4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6A1B9A;strokeWidth=2;endArrow=block;endFill=1;startArrow=block;startFill=1;" edge="1" parent="1" source="flutter_box" target="ia">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl4" value="IA + Vision" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontStyle=1;fontColor=#6A1B9A;" vertex="1" parent="1">
+          <mxGeometry x="840" y="305" width="70" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- MULTIMEDIA (Abajo Izquierda) -->
+        <mxCell id="multimedia" value="&#127916; MULTIMEDIA&#10;&#10;YouTube&#10;Speech-to-Text" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#F44336;fontColor=#ffffff;strokeColor=#C62828;strokeWidth=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="200" y="480" width="150" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Flecha Flutter a Multimedia -->
+        <mxCell id="arr5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#C62828;strokeWidth=2;endArrow=block;endFill=1;startArrow=block;startFill=1;" edge="1" parent="1" source="flutter_box" target="multimedia">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="450" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl5" value="Video + Voz" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontStyle=1;fontColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="320" y="440" width="70" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ALMACENAMIENTO (Abajo Derecha) -->
+        <mxCell id="storage" value="&#128194; ALMACENAMIENTO&#10;&#10;Imagenes&#10;Marcadores AR&#10;Modelos TFLite" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#00897B;fontColor=#ffffff;strokeColor=#00695C;strokeWidth=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="810" y="480" width="150" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Flecha Flutter a Storage -->
+        <mxCell id="arr6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#00695C;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="flutter_box" target="storage">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="710" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl6" value="Assets" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontStyle=1;fontColor=#00695C;" vertex="1" parent="1">
+          <mxGeometry x="770" y="440" width="50" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- LEYENDA -->
+        <mxCell id="leyenda_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#E0E0E0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="520" width="280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="leyenda_title" value="LEYENDA" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontStyle=1;fontColor=#616161;" vertex="1" parent="1">
+          <mxGeometry x="545" y="525" width="70" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l1" value="" style="rounded=1;fillColor=#42A5F5;strokeColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="455" y="550" width="15" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="l1t" value="Flutter" style="text;html=1;fontSize=10;fontColor=#616161;" vertex="1" parent="1">
+          <mxGeometry x="475" y="548" width="45" height="18" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l2" value="" style="rounded=1;fillColor=#FF9800;strokeColor=#E65100;" vertex="1" parent="1">
+          <mxGeometry x="525" y="550" width="15" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="l2t" value="Firebase" style="text;html=1;fontSize=10;fontColor=#616161;" vertex="1" parent="1">
+          <mxGeometry x="545" y="548" width="50" height="18" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l3" value="" style="rounded=1;fillColor=#9C27B0;strokeColor=#6A1B9A;" vertex="1" parent="1">
+          <mxGeometry x="600" y="550" width="15" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="l3t" value="IA" style="text;html=1;fontSize=10;fontColor=#616161;" vertex="1" parent="1">
+          <mxGeometry x="620" y="548" width="20" height="18" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l4" value="" style="rounded=1;fillColor=#F44336;strokeColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="645" y="550" width="15" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="l4t" value="Media" style="text;html=1;fontSize=10;fontColor=#616161;" vertex="1" parent="1">
+          <mxGeometry x="665" y="548" width="40" height="18" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l5" value="" style="rounded=1;fillColor=#00897B;strokeColor=#00695C;" vertex="1" parent="1">
+          <mxGeometry x="455" y="575" width="15" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="l5t" value="Storage" style="text;html=1;fontSize=10;fontColor=#616161;" vertex="1" parent="1">
+          <mxGeometry x="475" y="573" width="50" height="18" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l6" value="&#8596;" style="text;html=1;fontSize=14;fontColor=#616161;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="572" width="20" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="l6t" value="Bidireccional" style="text;html=1;fontSize=10;fontColor=#616161;" vertex="1" parent="1">
+          <mxGeometry x="550" y="573" width="70" height="18" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l7" value="&#8594;" style="text;html=1;fontSize=14;fontColor=#616161;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="625" y="572" width="20" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="l7t" value="Unidireccional" style="text;html=1;fontSize=10;fontColor=#616161;" vertex="1" parent="1">
+          <mxGeometry x="645" y="573" width="75" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- Footer -->
+        <mxCell id="footer" value="Arquitectura simplificada - MI APP Ciencias Naturales - 2024" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#9E9E9E;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="420" y="620" width="320" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

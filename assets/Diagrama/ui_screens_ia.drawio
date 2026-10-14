@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-05-05T00:00:00.000Z" agent="Claude Code" version="21.0.0" type="device">
+  <diagram id="ui-ai-screens" name="UI - AI Screens">
+    <mxGraphModel dx="1422" dy="762" grid="0" gridSize="10" guides="0" tooltips="1" connect="0" arrows="0" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ===== TITLE ===== -->
+        <mxCell id="main-title"
+          value="AI-Powered Interface Screens — Ciencias Naturales App"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1A237E;"
+          vertex="1" parent="1">
+          <mxGeometry x="50" y="18" width="980" height="36" as="geometry" />
+        </mxCell>
+
+        <!-- Screen sub-labels -->
+        <mxCell id="lbl-a"
+          value="(a) Chatbot Module — Conversational AI Tutor"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=2;fontColor=#1B5E20;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="57" width="320" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl-b"
+          value="(b) Image Scanner — Multimodal Visual Identification"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=2;fontColor=#BF360C;"
+          vertex="1" parent="1">
+          <mxGeometry x="430" y="57" width="320" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!--  PHONE 1 — CHATBOT SCREEN                                        -->
+        <!-- ================================================================ -->
+
+        <!-- Outer frame -->
+        <mxCell id="p1-frame" value=""
+          style="rounded=1;arcSize=8;fillColor=#1C1C2E;strokeColor=#3A3A5C;strokeWidth=3;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="84" width="320" height="656" as="geometry" />
+        </mxCell>
+
+        <!-- Dynamic island / notch -->
+        <mxCell id="p1-notch" value=""
+          style="rounded=1;arcSize=50;fillColor=#0D0D1A;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="142" y="90" width="76" height="16" as="geometry" />
+        </mxCell>
+
+        <!-- Screen background -->
+        <mxCell id="p1-screen" value=""
+          style="rounded=1;arcSize=3;fillColor=#FFFFFF;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="48" y="108" width="304" height="608" as="geometry" />
+        </mxCell>
+
+        <!-- App Bar -->
+        <mxCell id="p1-appbar" value=""
+          style="fillColor=#1B5E20;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="48" y="108" width="304" height="62" as="geometry" />
+        </mxCell>
+        <!-- Back arrow -->
+        <mxCell id="p1-back" value="&#8592;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontColor=#FFFFFF;"
+          vertex="1" parent="1">
+          <mxGeometry x="52" y="120" width="26" height="28" as="geometry" />
+        </mxCell>
+        <!-- Bot avatar circle (white) -->
+        <mxCell id="p1-botcircle" value=""
+          style="ellipse;fillColor=#FFFFFF;strokeColor=#E8F5E9;strokeWidth=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="82" y="118" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-boticon" value="&#129302;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;"
+          vertex="1" parent="1">
+          <mxGeometry x="82" y="118" width="36" height="36" as="geometry" />
+        </mxCell>
+        <!-- Title block -->
+        <mxCell id="p1-appbartitle"
+          value="&lt;b&gt;&lt;font style='font-size:12px' color='#FFFFFF'&gt;Asistente Natural&lt;/font&gt;&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:10px' color='#A5D6A7'&gt;&#9679; En l&#237;nea&lt;/font&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="124" y="115" width="152" height="44" as="geometry" />
+        </mxCell>
+        <!-- Action buttons -->
+        <mxCell id="p1-act-new" value="+"
+          style="rounded=1;arcSize=40;fillColor=#2E7D32;strokeColor=#4CAF50;fontSize=16;fontColor=#FFFFFF;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="292" y="122" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-act-hist" value="&#8635;"
+          style="rounded=1;arcSize=40;fillColor=#2E7D32;strokeColor=#4CAF50;fontSize=14;fontColor=#FFFFFF;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="320" y="122" width="26" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- ── BOT MESSAGE 1 ── -->
+        <mxCell id="p1-ba1" value=""
+          style="ellipse;fillColor=#2E7D32;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="54" y="184" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-bm1"
+          value="&lt;font style='font-size:10px'&gt;Hola! Soy tu asistente de&lt;br/&gt;Ciencias Naturales. Puedes&lt;br/&gt;preguntarme lo que quieras&lt;br/&gt;sobre la gu&#237;a did&#225;ctica.&lt;/font&gt;"
+          style="rounded=1;arcSize=15;fillColor=#E8F5E9;strokeColor=#C8E6C9;align=left;verticalAlign=middle;html=1;spacingLeft=8;spacingRight=8;spacingTop=6;spacingBottom=6;"
+          vertex="1" parent="1">
+          <mxGeometry x="86" y="180" width="198" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- ── USER MESSAGE 1 ── -->
+        <mxCell id="p1-um1"
+          value="&lt;font style='font-size:10px' color='#FFFFFF'&gt;&#191;Qu&#233; es la c&#233;lula?&lt;/font&gt;"
+          style="rounded=1;arcSize=20;fillColor=#2E7D32;strokeColor=none;align=center;verticalAlign=middle;html=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="200" y="268" width="148" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-ua1" value=""
+          style="ellipse;fillColor=#1565C0;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="320" y="268" width="24" height="24" as="geometry" />
+        </mxCell>
+
+        <!-- ── BOT MESSAGE 2 ── -->
+        <mxCell id="p1-ba2" value=""
+          style="ellipse;fillColor=#2E7D32;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="54" y="322" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-bm2"
+          value="&lt;font style='font-size:10px'&gt;La &lt;b&gt;c&#233;lula&lt;/b&gt; es la unidad estructural&lt;br/&gt;y funcional de todos los seres vivos.&lt;br/&gt;Existen dos tipos: &lt;b&gt;procariotas&lt;/b&gt;&lt;br/&gt;(sin n&#250;cleo) y &lt;b&gt;eucariotas&lt;/b&gt;&lt;br/&gt;(con n&#250;cleo definido).&lt;/font&gt;"
+          style="rounded=1;arcSize=12;fillColor=#E8F5E9;strokeColor=#C8E6C9;align=left;verticalAlign=middle;html=1;spacingLeft=8;spacingRight=8;spacingTop=6;spacingBottom=6;"
+          vertex="1" parent="1">
+          <mxGeometry x="86" y="318" width="212" height="88" as="geometry" />
+        </mxCell>
+
+        <!-- ── USER MESSAGE 2 ── -->
+        <mxCell id="p1-um2"
+          value="&lt;font style='font-size:10px' color='#FFFFFF'&gt;&#191;Cu&#225;les son sus organelos?&lt;/font&gt;"
+          style="rounded=1;arcSize=20;fillColor=#2E7D32;strokeColor=none;align=center;verticalAlign=middle;html=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="182" y="426" width="168" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-ua2" value=""
+          style="ellipse;fillColor=#1565C0;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="320" y="426" width="24" height="24" as="geometry" />
+        </mxCell>
+
+        <!-- ── TYPING INDICATOR ── -->
+        <mxCell id="p1-ba3" value=""
+          style="ellipse;fillColor=#2E7D32;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="54" y="478" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-typing"
+          value="&lt;font style='font-size:12px' color='#66BB6A'&gt;&#9679; &#9679; &#9679;&lt;/font&gt;  &lt;font style='font-size:10px' color='#9E9E9E'&gt;Pensando...&lt;/font&gt;"
+          style="rounded=1;arcSize=20;fillColor=#E8F5E9;strokeColor=#C8E6C9;align=left;verticalAlign=middle;html=1;spacingLeft=10;"
+          vertex="1" parent="1">
+          <mxGeometry x="86" y="476" width="164" height="34" as="geometry" />
+        </mxCell>
+
+        <!-- ── INPUT BAR ── -->
+        <mxCell id="p1-inputbg" value=""
+          style="fillColor=#FAFAFA;strokeColor=#E8F5E9;strokeWidth=1.5;"
+          vertex="1" parent="1">
+          <mxGeometry x="48" y="576" width="304" height="60" as="geometry" />
+        </mxCell>
+        <!-- Text field -->
+        <mxCell id="p1-inputfield"
+          value="&lt;font style='font-size:10px' color='#9E9E9E'&gt;&#127807; Escribe tu pregunta...&lt;/font&gt;"
+          style="rounded=1;arcSize=30;fillColor=#E8F5E9;strokeColor=#A5D6A7;align=left;verticalAlign=middle;html=1;spacingLeft=10;"
+          vertex="1" parent="1">
+          <mxGeometry x="54" y="588" width="190" height="38" as="geometry" />
+        </mxCell>
+        <!-- Mic button -->
+        <mxCell id="p1-mic" value="&#127908;"
+          style="ellipse;fillColor=#E8F5E9;strokeColor=#A5D6A7;fontSize=14;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="252" y="588" width="38" height="38" as="geometry" />
+        </mxCell>
+        <!-- Send button -->
+        <mxCell id="p1-send" value="&#10148;"
+          style="ellipse;fillColor=#2E7D32;strokeColor=none;fontSize=16;fontColor=#FFFFFF;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="298" y="588" width="38" height="38" as="geometry" />
+        </mxCell>
+
+        <!-- Home indicator -->
+        <mxCell id="p1-homebar" value=""
+          style="rounded=1;arcSize=50;fillColor=#3A3A5C;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="152" y="700" width="96" height="5" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!--  PHONE 2 — SCANNER RESULT SCREEN                                 -->
+        <!-- ================================================================ -->
+
+        <!-- Outer frame -->
+        <mxCell id="p2-frame" value=""
+          style="rounded=1;arcSize=8;fillColor=#1C1C2E;strokeColor=#3A3A5C;strokeWidth=3;"
+          vertex="1" parent="1">
+          <mxGeometry x="430" y="84" width="320" height="656" as="geometry" />
+        </mxCell>
+
+        <!-- Notch -->
+        <mxCell id="p2-notch" value=""
+          style="rounded=1;arcSize=50;fillColor=#0D0D1A;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="532" y="90" width="76" height="16" as="geometry" />
+        </mxCell>
+
+        <!-- Screen background -->
+        <mxCell id="p2-screen" value=""
+          style="rounded=1;arcSize=3;fillColor=#FAFAFA;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="438" y="108" width="304" height="608" as="geometry" />
+        </mxCell>
+
+        <!-- ── SLIVER IMAGE HEADER (expandedHeight ~170px) ── -->
+        <mxCell id="p2-imgbg" value=""
+          style="fillColor=#263238;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="438" y="108" width="304" height="170" as="geometry" />
+        </mxCell>
+        <!-- Scanned organism image (simulated) -->
+        <mxCell id="p2-organism" value="&#127807;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=72;"
+          vertex="1" parent="1">
+          <mxGeometry x="508" y="110" width="144" height="144" as="geometry" />
+        </mxCell>
+        <!-- Gradient overlay (bottom of image) -->
+        <mxCell id="p2-gradient" value=""
+          style="fillColor=#00000099;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="438" y="218" width="304" height="60" as="geometry" />
+        </mxCell>
+        <!-- Back button (dark translucent circle) -->
+        <mxCell id="p2-back" value="&#8592;"
+          style="ellipse;fillColor=#00000066;strokeColor=none;fontSize=14;fontColor=#FFFFFF;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="448" y="118" width="32" height="32" as="geometry" />
+        </mxCell>
+        <!-- Type badge over image -->
+        <mxCell id="p2-typebadge" value="&#127807; Planta"
+          style="rounded=1;arcSize=30;fillColor=#2E7D32;strokeColor=none;fontSize=10;fontColor=#FFFFFF;fontStyle=1;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="448" y="226" width="72" height="20" as="geometry" />
+        </mxCell>
+        <!-- Species name over image -->
+        <mxCell id="p2-imgname"
+          value="&lt;b&gt;&lt;font style='font-size:18px' color='#FFFFFF'&gt;Girasol&lt;/font&gt;&lt;/b&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="448" y="247" width="200" height="28" as="geometry" />
+        </mxCell>
+        <!-- Scientific name over image -->
+        <mxCell id="p2-imgsci"
+          value="&lt;i&gt;&lt;font style='font-size:11px' color='#B0BEC5'&gt;Helianthus annuus&lt;/font&gt;&lt;/i&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="448" y="270" width="200" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- ── RESULT CONTENT CARD ── -->
+        <mxCell id="p2-card" value=""
+          style="rounded=1;arcSize=4;fillColor=#FFFFFF;strokeColor=#ECEFF1;strokeWidth=1.5;"
+          vertex="1" parent="1">
+          <mxGeometry x="448" y="286" width="284" height="358" as="geometry" />
+        </mxCell>
+
+        <!-- Confidence row -->
+        <mxCell id="p2-conflabel"
+          value="&lt;font style='font-size:10px' color='#616161'&gt;Identification confidence&lt;/font&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="456" y="294" width="180" height="18" as="geometry" />
+        </mxCell>
+        <!-- Confidence bar bg -->
+        <mxCell id="p2-confbarbg" value=""
+          style="rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="456" y="314" width="200" height="10" as="geometry" />
+        </mxCell>
+        <!-- Confidence bar fill (87%) -->
+        <mxCell id="p2-confbarfill" value=""
+          style="rounded=1;arcSize=50;fillColor=#2E7D32;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="456" y="314" width="174" height="10" as="geometry" />
+        </mxCell>
+        <!-- Confidence % badge -->
+        <mxCell id="p2-conf"
+          value="&lt;b&gt;87%&lt;/b&gt;"
+          style="rounded=1;arcSize=30;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=12;fontColor=#2E7D32;align=center;verticalAlign=middle;html=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="664" y="306" width="60" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- Divider -->
+        <mxCell id="p2-div1" value=""
+          style="line;strokeColor=#ECEFF1;fillColor=none;strokeWidth=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="452" y="332" width="276" height="8" as="geometry" />
+        </mxCell>
+
+        <!-- Description section -->
+        <mxCell id="p2-desclabel"
+          value="&lt;b&gt;&lt;font style='font-size:10px' color='#1B5E20'&gt;Descripci&#243;n&lt;/font&gt;&lt;/b&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="456" y="340" width="100" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-desc"
+          value="&lt;font style='font-size:10px' color='#424242'&gt;Planta herb&#225;cea de la familia&lt;br/&gt;Asteraceae. Originaria de Am&#233;rica&lt;br/&gt;del Norte, cultivada por sus semillas&lt;br/&gt;comestibles y aceite vegetal.&lt;/font&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;"
+          vertex="1" parent="1">
+          <mxGeometry x="456" y="358" width="270" height="58" as="geometry" />
+        </mxCell>
+
+        <!-- Habitat card -->
+        <mxCell id="p2-hab"
+          value="&lt;font style='font-size:10px'&gt;&#127968; &lt;b&gt;H&#225;bitat:&lt;/b&gt; Campos abiertos y zonas&lt;br/&gt;templadas de todo el mundo.&lt;/font&gt;"
+          style="rounded=1;arcSize=8;fillColor=#E3F2FD;strokeColor=#BBDEFB;align=left;verticalAlign=middle;html=1;spacingLeft=8;spacingTop=5;spacingBottom=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="452" y="422" width="276" height="44" as="geometry" />
+        </mxCell>
+
+        <!-- Fun fact card -->
+        <mxCell id="p2-fact"
+          value="&lt;font style='font-size:10px'&gt;&#11088; &lt;b&gt;Dato curioso:&lt;/b&gt; Sus flores siguen el&lt;br/&gt;Sol — fen&#243;meno llamado &lt;b&gt;heliotropismo&lt;/b&gt;.&lt;/font&gt;"
+          style="rounded=1;arcSize=8;fillColor=#FFFDE7;strokeColor=#FFF59D;align=left;verticalAlign=middle;html=1;spacingLeft=8;spacingTop=5;spacingBottom=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="452" y="472" width="276" height="44" as="geometry" />
+        </mxCell>
+
+        <!-- AI Source badges -->
+        <mxCell id="p2-div2" value=""
+          style="line;strokeColor=#ECEFF1;fillColor=none;strokeWidth=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="452" y="524" width="276" height="6" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-aibadge1" value="Gemini Vision API"
+          style="rounded=1;arcSize=30;fillColor=#FFF3E0;strokeColor=#FF8F00;fontSize=9;fontColor=#E65100;fontStyle=1;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="452" y="534" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-aibadge2" value="Groq LLaMA Fallback"
+          style="rounded=1;arcSize=30;fillColor=#DCEDC8;strokeColor=#558B2F;fontSize=9;fontColor=#1B5E20;fontStyle=1;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="590" y="534" width="138" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- New scan button -->
+        <mxCell id="p2-btn"
+          value="&lt;b&gt;&lt;font style='font-size:11px' color='#FFFFFF'&gt;&#128247; Nueva Identificaci&#243;n&lt;/font&gt;&lt;/b&gt;"
+          style="rounded=1;arcSize=30;fillColor=#1B5E20;strokeColor=none;align=center;verticalAlign=middle;html=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="452" y="564" width="276" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Home indicator -->
+        <mxCell id="p2-homebar" value=""
+          style="rounded=1;arcSize=50;fillColor=#3A3A5C;strokeColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="542" y="700" width="96" height="5" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!--  ANNOTATIONS                                                      -->
+        <!-- ================================================================ -->
+
+        <!-- ANN 1: Curricular Context Injection -->
+        <mxCell id="ann1"
+          value="&lt;b&gt;1 — Curricular Context Injection&lt;/b&gt;&lt;br/&gt;GuiaContextService injects full didactic&lt;br/&gt;guide as LLM system prompt (RAG-like).&lt;br/&gt;Anchors responses to verified content."
+          style="rounded=1;arcSize=8;fillColor=#E3F2FD;strokeColor=#1565C0;fontSize=10;fontColor=#0D47A1;align=left;html=1;spacingLeft=8;spacingTop=5;spacingBottom=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="810" y="112" width="264" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="ann1-line" value=""
+          style="endArrow=open;endFill=0;strokeColor=#1565C0;strokeWidth=1.5;dashed=1;curved=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;"
+          edge="1" source="ann1" target="p1-bm1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ANN 2: Graceful Degradation Pipeline -->
+        <mxCell id="ann2"
+          value="&lt;b&gt;2 — Graceful Degradation Pipeline&lt;/b&gt;&lt;br/&gt;1&#176; Gemini Vision API (cloud, primary)&lt;br/&gt;2&#176; TFLite MobileNet V2 (on-device)&lt;br/&gt;3&#176; Groq API (description enrichment)"
+          style="rounded=1;arcSize=8;fillColor=#DCEDC8;strokeColor=#558B2F;fontSize=10;fontColor=#1B5E20;align=left;html=1;spacingLeft=8;spacingTop=5;spacingBottom=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="810" y="200" width="264" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="ann2-line" value=""
+          style="endArrow=open;endFill=0;strokeColor=#558B2F;strokeWidth=1.5;dashed=1;curved=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;"
+          edge="1" source="ann2" target="p2-imgbg" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ANN 3: Groq LLM Response -->
+        <mxCell id="ann3"
+          value="&lt;b&gt;3 — Groq API / LLaMA 3.3 70B&lt;/b&gt;&lt;br/&gt;Cloud LLM generates domain-restricted&lt;br/&gt;response. Session persisted in Firestore.&lt;br/&gt;Domain: Natural Sciences only."
+          style="rounded=1;arcSize=8;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=10;fontColor=#0D47A1;align=left;html=1;spacingLeft=8;spacingTop=5;spacingBottom=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="810" y="290" width="264" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="ann3-line" value=""
+          style="endArrow=open;endFill=0;strokeColor=#1565C0;strokeWidth=1.5;dashed=1;curved=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;"
+          edge="1" source="ann3" target="p1-bm2" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ANN 4: Gemini Vision Structured Output -->
+        <mxCell id="ann4"
+          value="&lt;b&gt;4 — Google Gemini Vision API&lt;/b&gt;&lt;br/&gt;Multimodal model returns 7-field JSON:&lt;br/&gt;name &#183; scientific &#183; type &#183; description&lt;br/&gt;habitat &#183; fact &#183; confidence (0-100)"
+          style="rounded=1;arcSize=8;fillColor=#FFF9C4;strokeColor=#F57F17;fontSize=10;fontColor=#E65100;align=left;html=1;spacingLeft=8;spacingTop=5;spacingBottom=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="810" y="380" width="264" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="ann4-line" value=""
+          style="endArrow=open;endFill=0;strokeColor=#F57F17;strokeWidth=1.5;dashed=1;curved=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;"
+          edge="1" source="ann4" target="p2-conf" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ANN 5: Firebase Firestore -->
+        <mxCell id="ann5"
+          value="&lt;b&gt;5 — Firebase Firestore Persistence&lt;/b&gt;&lt;br/&gt;Stores chat sessions &#183; XP / level updates&lt;br/&gt;Achievement unlocking &#183; Study streaks&lt;br/&gt;Real-time sync across all sessions"
+          style="rounded=1;arcSize=8;fillColor=#FCE4EC;strokeColor=#C62828;fontSize=10;fontColor=#B71C1C;align=left;html=1;spacingLeft=8;spacingTop=5;spacingBottom=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="810" y="470" width="264" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="ann5-line" value=""
+          style="endArrow=open;endFill=0;strokeColor=#C62828;strokeWidth=1.5;dashed=1;curved=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;"
+          edge="1" source="ann5" target="p1-inputbg" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ANN 6: On-Device Speech-to-Text -->
+        <mxCell id="ann6"
+          value="&lt;b&gt;6 — On-Device Speech-to-Text&lt;/b&gt;&lt;br/&gt;Spanish locale (es_ES), dictation mode.&lt;br/&gt;Auto-submits on final result detection.&lt;br/&gt;Requires no cloud for transcription."
+          style="rounded=1;arcSize=8;fillColor=#E0F2F1;strokeColor=#00897B;fontSize=10;fontColor=#004D40;align=left;html=1;spacingLeft=8;spacingTop=5;spacingBottom=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="810" y="560" width="264" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="ann6-line" value=""
+          style="endArrow=open;endFill=0;strokeColor=#00897B;strokeWidth=1.5;dashed=1;curved=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;"
+          edge="1" source="ann6" target="p1-mic" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

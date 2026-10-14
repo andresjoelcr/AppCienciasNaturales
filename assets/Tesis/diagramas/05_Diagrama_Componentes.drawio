@@ -1,0 +1,184 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram id="diagrama-componentes" name="Diagrama de Componentes">
+    <mxGraphModel dx="1111" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="580" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="titulo" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#1a237e;" value="DIAGRAMA DE COMPONENTES - APP CIENCIAS NATURALES" vertex="1">
+          <mxGeometry height="30" width="550" x="175" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="app-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;strokeWidth=3;verticalAlign=top;fontSize=12;fontStyle=1;fontColor=#1565c0;" value="&lt;&lt;application&gt;&gt;&#xa;Flutter App - Ciencias Naturales" vertex="1">
+          <mxGeometry height="200" width="820" x="40" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-ui" parent="1" style="html=1;dropTarget=0;fillColor=#bbdefb;strokeColor=#1976d2;strokeWidth=2;" value="&lt;b&gt;UI Components&lt;/b&gt;&#xa;(Screens + Widgets)" vertex="1">
+          <mxGeometry height="60" width="150" x="60" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-ui-icon" parent="comp-ui" style="shape=component;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-providers" parent="1" style="html=1;dropTarget=0;fillColor=#c8e6c9;strokeColor=#43a047;strokeWidth=2;" value="&lt;b&gt;Providers&lt;/b&gt;&#xa;(State Management)" vertex="1">
+          <mxGeometry height="60" width="150" x="230" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-providers-icon" parent="comp-providers" style="shape=component;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-services" parent="1" style="html=1;dropTarget=0;fillColor=#ffe0b2;strokeColor=#fb8c00;strokeWidth=2;" value="&lt;b&gt;Services&lt;/b&gt;&#xa;(Business Logic)" vertex="1">
+          <mxGeometry height="60" width="150" x="400" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-services-icon" parent="comp-services" style="shape=component;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-models" parent="1" style="html=1;dropTarget=0;fillColor=#f3e5f5;strokeColor=#8e24aa;strokeWidth=2;" value="&lt;b&gt;Models&lt;/b&gt;&#xa;(Data Entities)" vertex="1">
+          <mxGeometry height="60" width="150" x="570" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-models-icon" parent="comp-models" style="shape=component;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-utils" parent="1" style="html=1;dropTarget=0;fillColor=#e0f7fa;strokeColor=#00838f;strokeWidth=2;" value="&lt;b&gt;Utils&lt;/b&gt;&#xa;(Helpers)" vertex="1">
+          <mxGeometry height="60" width="120" x="740" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-utils-icon" parent="comp-utils" style="shape=component;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-chatbot" parent="1" style="html=1;dropTarget=0;fillColor=#c8e6c9;strokeColor=#2e7d32;strokeWidth=2;" value="&lt;b&gt;Chatbot Module&lt;/b&gt;&#xa;(Groq API)" vertex="1">
+          <mxGeometry height="50" width="130" x="60" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-chatbot-icon" parent="comp-chatbot" style="shape=component;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-scanner" parent="1" style="html=1;dropTarget=0;fillColor=#fff3e0;strokeColor=#ef6c00;strokeWidth=2;" value="&lt;b&gt;Scanner Module&lt;/b&gt;&#xa;(Gemini API)" vertex="1">
+          <mxGeometry height="50" width="130" x="205" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-scanner-icon" parent="comp-scanner" style="shape=component;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-ar" parent="1" style="html=1;dropTarget=0;fillColor=#e1bee7;strokeColor=#7b1fa2;strokeWidth=2;" value="&lt;b&gt;AR Module&lt;/b&gt;&#xa;(TFLite + Camera)" vertex="1">
+          <mxGeometry height="50" width="135" x="350" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-ar-icon" parent="comp-ar" style="shape=component;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-quiz" parent="1" style="html=1;dropTarget=0;fillColor=#fce4ec;strokeColor=#c2185b;strokeWidth=2;" value="&lt;b&gt;Quiz Module&lt;/b&gt;&#xa;(Cuestionarios)" vertex="1">
+          <mxGeometry height="50" width="130" x="500" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-quiz-icon" parent="comp-quiz" style="shape=component;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-auth" parent="1" style="html=1;dropTarget=0;fillColor=#ffcdd2;strokeColor=#e53935;strokeWidth=2;" value="&lt;b&gt;Auth Module&lt;/b&gt;&#xa;(Firebase Auth)" vertex="1">
+          <mxGeometry height="50" width="130" x="645" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-auth-icon" parent="comp-auth" style="shape=component;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow1" edge="1" parent="1" style="endArrow=open;html=1;strokeWidth=2;strokeColor=#424242;dashed=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="135" y="145" as="sourcePoint" />
+            <mxPoint x="305" y="145" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow2" edge="1" parent="1" style="endArrow=open;html=1;strokeWidth=2;strokeColor=#424242;dashed=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="305" y="145" as="sourcePoint" />
+            <mxPoint x="475" y="145" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow3" edge="1" parent="1" style="endArrow=open;html=1;strokeWidth=2;strokeColor=#424242;dashed=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="475" y="145" as="sourcePoint" />
+            <mxPoint x="645" y="145" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ext-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#616161;strokeWidth=2;dashed=1;verticalAlign=top;fontSize=12;fontStyle=1;fontColor=#424242;" value="&lt;&lt;external&gt;&gt; Servicios Externos" vertex="1">
+          <mxGeometry height="110" width="820" x="40" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-firebase" parent="1" style="html=1;dropTarget=0;fillColor=#ffcdd2;strokeColor=#e53935;strokeWidth=2;" value="&lt;b&gt;Firebase&lt;/b&gt;&#xa;Auth + Firestore" vertex="1">
+          <mxGeometry height="55" width="120" x="60" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-firebase-icon" parent="ext-firebase" style="shape=component;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-groq" parent="1" style="html=1;dropTarget=0;fillColor=#c8e6c9;strokeColor=#43a047;strokeWidth=2;" value="&lt;b&gt;Groq API&lt;/b&gt;&#xa;LLM Chatbot" vertex="1">
+          <mxGeometry height="55" width="110" x="195" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-groq-icon" parent="ext-groq" style="shape=component;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-gemini" parent="1" style="html=1;dropTarget=0;fillColor=#c8e6c9;strokeColor=#43a047;strokeWidth=2;" value="&lt;b&gt;Google Gemini&lt;/b&gt;&#xa;Vision AI" vertex="1">
+          <mxGeometry height="55" width="115" x="320" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-gemini-icon" parent="ext-gemini" style="shape=component;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-tflite" parent="1" style="html=1;dropTarget=0;fillColor=#e1bee7;strokeColor=#8e24aa;strokeWidth=2;" value="&lt;b&gt;TensorFlow Lite&lt;/b&gt;&#xa;ML Local" vertex="1">
+          <mxGeometry height="55" width="120" x="450" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-tflite-icon" parent="ext-tflite" style="shape=component;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-youtube" parent="1" style="html=1;dropTarget=0;fillColor=#ffcdd2;strokeColor=#d32f2f;strokeWidth=2;" value="&lt;b&gt;YouTube API&lt;/b&gt;&#xa;Videos RA" vertex="1">
+          <mxGeometry height="55" width="110" x="585" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-youtube-icon" parent="ext-youtube" style="shape=component;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-speech" parent="1" style="html=1;dropTarget=0;fillColor=#b3e5fc;strokeColor=#0288d1;strokeWidth=2;" value="&lt;b&gt;Speech to Text&lt;/b&gt;&#xa;Entrada Voz" vertex="1">
+          <mxGeometry height="55" width="115" x="710" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-speech-icon" parent="ext-speech" style="shape=component;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dep1" edge="1" parent="1" style="endArrow=open;html=1;strokeWidth=2;strokeColor=#616161;dashed=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="125" y="215" as="sourcePoint" />
+            <mxPoint x="250" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dep2" edge="1" parent="1" style="endArrow=open;html=1;strokeWidth=2;strokeColor=#616161;dashed=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="270" y="215" as="sourcePoint" />
+            <mxPoint x="377" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dep3" edge="1" parent="1" style="endArrow=open;html=1;strokeWidth=2;strokeColor=#616161;dashed=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="417" y="215" as="sourcePoint" />
+            <mxPoint x="510" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dep4" edge="1" parent="1" style="endArrow=open;html=1;strokeWidth=2;strokeColor=#616161;dashed=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="417" y="215" as="sourcePoint" />
+            <mxPoint x="640" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dep5" edge="1" parent="1" style="endArrow=open;html=1;strokeWidth=2;strokeColor=#616161;dashed=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="710" y="215" as="sourcePoint" />
+            <mxPoint x="120" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dep6" edge="1" parent="1" style="endArrow=open;html=1;strokeWidth=2;strokeColor=#616161;dashed=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="125" y="215" as="sourcePoint" />
+            <mxPoint x="767" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leyenda" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eceff1;strokeColor=#607d8b;strokeWidth=1;dashed=1;verticalAlign=top;fontSize=10;fontStyle=1;fontColor=#455a64;" value="DEPENDENCIAS" vertex="1">
+          <mxGeometry height="75" width="820" x="40" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#424242;" value="• UI Components → Providers → Services → Models (Flujo interno de la app)" vertex="1">
+          <mxGeometry height="20" width="400" x="55" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#424242;" value="• Chatbot Module → Groq API | Scanner Module → Gemini API | AR Module → TFLite + YouTube" vertex="1">
+          <mxGeometry height="20" width="450" x="55" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#424242;" value="• Auth Module → Firebase | Chatbot → Speech to Text (Entrada de voz)" vertex="1">
+          <mxGeometry height="20" width="400" x="55" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="flutter-badge" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1565c0;strokeColor=#0d47a1;fontColor=#ffffff;fontSize=9;fontStyle=1;" value="Flutter&#xa;3.7.2" vertex="1">
+          <mxGeometry height="45" width="50" x="800" y="415" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
