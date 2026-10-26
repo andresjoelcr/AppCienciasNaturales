@@ -1,15 +1,23 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:flutter_unity_widget_2/flutter_unity_widget_2.dart';
 import '../../theme/app_theme.dart';
 import '../../models/subtema_model.dart';
 import '../../services/firestore_service.dart';
+import '../../services/unity_return_service.dart';
+import '../../services/marcador_download_service.dart';
 import '../../services/quiz_generator_service.dart';
 import '../../widgets/quiz_type_selector.dart';
 import '../../widgets/quiz_loading_screen.dart';
 import 'quiz_screen.dart';
 import 'modelo_3d_screen.dart';
 import '../../widgets/organelo_3d_card.dart';
+import '../../widgets/tarjeta_funcion_vital.dart';
+import '../../widgets/tarjetas_aprendizaje.dart';
+import '../../widgets/video_youtube_card.dart';
 import '../chat_screen.dart';
+import '../../widgets/marcador_action_dialog.dart';
 
 class SubtemaScreen extends StatefulWidget {
   final Subtema subtema;
@@ -21,24 +29,29 @@ class SubtemaScreen extends StatefulWidget {
 }
 
 class _SubtemaScreenState extends State<SubtemaScreen>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, WidgetsBindingObserver {
   late AnimationController _animationController;
   late ScrollController _scrollController;
   bool _showFloatingButton = false;
+  bool _esperandoRetornoUnity = false;
 
   /// Asset del organelo cuyo modelo 3D esta activo (solo uno a la vez).
   String? _organeloActivo;
   final FirestoreService _firestoreService = FirestoreService();
-  final Map<int, YoutubePlayerController> _videoControllers = {};
 
   /// Los subtemas de celula animal (1.2) y celula vegetal (1.3) cuentan con un
   /// modelo 3D interactivo.
   bool get _tieneModelo3D =>
       widget.subtema.id == '1.2' || widget.subtema.id == '1.3';
 
+  /// El subtema de organelos (1.4) ofrece acceso directo a las escenas AR de
+  /// Unity para explorar la celula animal o vegetal.
+  bool get _tieneAROrganelos => widget.subtema.id == '1.4';
+
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 800),
@@ -47,24 +60,6 @@ class _SubtemaScreenState extends State<SubtemaScreen>
 
     _scrollController = ScrollController();
     _scrollController.addListener(_onScroll);
-
-    // Inicializar controladores de video
-    for (int i = 0; i < widget.subtema.contenido.length; i++) {
-      final seccion = widget.subtema.contenido[i];
-      if (seccion.tipo == 'video') {
-        final videoId = YoutubePlayer.convertUrlToId(seccion.contenido);
-        if (videoId != null) {
-          _videoControllers[i] = YoutubePlayerController(
-            initialVideoId: videoId,
-            flags: const YoutubePlayerFlags(
-              autoPlay: false,
-              mute: false,
-              enableCaption: true,
-            ),
-          );
-        }
-      }
-    }
 
     // Marcar contenido como visto
     _marcarContenidoVisto();
@@ -87,12 +82,18 @@ class _SubtemaScreenState extends State<SubtemaScreen>
   }
 
   @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed && _esperandoRetornoUnity) {
+      _esperandoRetornoUnity = false;
+      unawaited(UnityReturnService.limpiar());
+    }
+  }
+
+  @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _animationController.dispose();
     _scrollController.dispose();
-    for (final controller in _videoControllers.values) {
-      controller.dispose();
-    }
     super.dispose();
   }
 
@@ -163,9 +164,10 @@ class _SubtemaScreenState extends State<SubtemaScreen>
             controller: _scrollController,
             child: Column(
               children: [
-                // Deja espacio para el boton "Modelo 3D" anclado arriba al centro
-                // y que no tape la descripcion del subtema.
-                if (_tieneModelo3D) const SizedBox(height: 56),
+                // Deja espacio para los botones anclados arriba (Modelo 3D / AR)
+                // y que no tapen la descripcion del subtema.
+                if (_tieneModelo3D || _tieneAROrganelos)
+                  const SizedBox(height: 56),
                 // Header con descripcion
                 Container(
                   width: double.infinity,
@@ -259,6 +261,13 @@ class _SubtemaScreenState extends State<SubtemaScreen>
               left: 0,
               right: 0,
               child: Center(child: _buildModelo3DButton()),
+            ),
+          if (_tieneAROrganelos)
+            Positioned(
+              top: 12,
+              left: 0,
+              right: 0,
+              child: Center(child: _buildARButton()),
             ),
         ],
       ),
@@ -435,6 +444,12 @@ class _SubtemaScreenState extends State<SubtemaScreen>
         );
 
       case 'sabias_que':
+        final imagen = (seccion.items != null && seccion.items!.isNotEmpty)
+            ? seccion.items!.first
+            : null;
+        final caption = (seccion.items != null && seccion.items!.length > 1)
+            ? seccion.items![1]
+            : null;
         return Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
@@ -442,42 +457,68 @@ class _SubtemaScreenState extends State<SubtemaScreen>
             borderRadius: BorderRadius.circular(12),
             border: Border.all(color: AppColors.sunOrange.withOpacity(0.3)),
           ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: const Icon(
-                  Icons.lightbulb_rounded,
-                  color: AppColors.sunOrange,
-                  size: 20,
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Icon(
+                      Icons.lightbulb_rounded,
+                      color: AppColors.sunOrange,
+                      size: 20,
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
                       'Sabias que...?',
                       style: AppTextStyles.bodyMedium.copyWith(
                         color: AppColors.sunOrange,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 4),
-                    Text(
-                      seccion.contenido,
-                      style: AppTextStyles.bodyMedium.copyWith(
-                        color: AppColors.darkText,
-                        height: 1.5,
-                      ),
+                  ),
+                ],
+              ),
+              if (imagen != null) ...[
+                const SizedBox(height: 10),
+                Center(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.asset(
+                      imagen,
+                      height: 160,
+                      fit: BoxFit.contain,
+                      cacheWidth: _imageCacheWidth(0.85),
+                      errorBuilder: (context, error, stackTrace) =>
+                          const SizedBox.shrink(),
                     ),
-                  ],
+                  ),
+                ),
+                if (caption != null) ...[
+                  const SizedBox(height: 8),
+                  Text(
+                    caption,
+                    style: AppTextStyles.caption.copyWith(
+                      color: AppColors.greyText,
+                      fontStyle: FontStyle.italic,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ],
+              const SizedBox(height: 10),
+              Text(
+                seccion.contenido,
+                style: AppTextStyles.bodyMedium.copyWith(
+                  color: AppColors.darkText,
+                  height: 1.5,
                 ),
               ),
             ],
@@ -647,60 +688,30 @@ class _SubtemaScreenState extends State<SubtemaScreen>
         final videoTitle = (seccion.items != null && seccion.items!.isNotEmpty)
             ? seccion.items!.first
             : 'Video explicativo';
-        final controller = _videoControllers[index];
-        if (controller == null) {
-          return const SizedBox.shrink();
-        }
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Titulo del video
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-              decoration: BoxDecoration(
-                color: Colors.red.shade50,
-                borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(16),
-                ),
-                border: Border.all(color: Colors.red.shade200),
-              ),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.play_circle_fill_rounded,
-                    color: Colors.red.shade600,
-                    size: 22,
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: Text(
-                      videoTitle,
-                      style: AppTextStyles.bodyMedium.copyWith(
-                        color: Colors.red.shade700,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            // Player
-            ClipRRect(
-              borderRadius: const BorderRadius.vertical(
-                bottom: Radius.circular(16),
-              ),
-              child: YoutubePlayer(
-                controller: controller,
-                showVideoProgressIndicator: true,
-                progressIndicatorColor: Colors.red.shade600,
-                progressColors: ProgressBarColors(
-                  playedColor: Colors.red.shade600,
-                  handleColor: Colors.red.shade700,
-                ),
-              ),
-            ),
-          ],
+        return VideoYoutubeCard(url: seccion.contenido, titulo: videoTitle);
+
+      case 'tarjeta_funcion':
+        return TarjetaFuncionVital(seccion: seccion);
+
+      case 'tarjeta_desplegable':
+        return TarjetaDesplegable(
+          titulo: seccion.titulo ?? '',
+          contenido: seccion.contenido,
+          items: seccion.items ?? const [],
+        );
+
+      case 'cuadro':
+        return CuadroPartes(
+          titulo: seccion.titulo ?? '',
+          contenido: seccion.contenido,
+          items: seccion.items ?? const [],
+        );
+
+      case 'mapa_conceptual':
+        return MapaConceptual(
+          titulo: seccion.titulo ?? '',
+          etiquetas: seccion.contenido.split('|'),
+          descripciones: seccion.items ?? const [],
         );
 
       case 'modelo3d':
@@ -883,6 +894,236 @@ class _SubtemaScreenState extends State<SubtemaScreen>
     );
   }
 
+  Future<void> _mostrarSelectorAR() async {
+    final escena = await showDialog<String>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        title: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: AppColors.lightGreen,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: const Icon(
+                Icons.view_in_ar_rounded,
+                color: AppColors.primaryGreen,
+                size: 22,
+              ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Text(
+                'Realidad aumentada',
+                style: AppTextStyles.heading3.copyWith(
+                  color: AppColors.primaryGreen,
+                  fontSize: 17,
+                ),
+              ),
+            ),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              'Explora los organelos: elige un tipo de célula.',
+              style: AppTextStyles.bodyMedium.copyWith(
+                color: AppColors.greyText,
+              ),
+            ),
+            const SizedBox(height: 16),
+            _buildAROption(
+              icon: Icons.spa_rounded,
+              titulo: 'Celula vegetal',
+              subtitulo: 'Cloroplastos, pared celular y vacuola',
+              onTap: () =>
+                  Navigator.pop(dialogContext, 'CelulaVegetalOrganelos'),
+            ),
+            const SizedBox(height: 12),
+            _buildAROption(
+              icon: Icons.pets_rounded,
+              titulo: 'Celula animal',
+              subtitulo: 'Nucleo, mitocondrias y organelos',
+              onTap: () =>
+                  Navigator.pop(dialogContext, 'CelulaAnimalOrganelos'),
+            ),
+            const SizedBox(height: 16),
+            FilledButton.icon(
+              onPressed: () => Navigator.pop(dialogContext, 'descargar'),
+              icon: const Icon(Icons.download_rounded),
+              label: const Text('Descargar marcadores PDF'),
+              style: FilledButton.styleFrom(
+                backgroundColor: AppColors.sunYellow,
+                foregroundColor: AppColors.primaryGreen,
+                minimumSize: const Size.fromHeight(50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                textStyle: AppTextStyles.bodyMedium.copyWith(
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+
+    if (escena == 'descargar') {
+      try {
+        await MarcadorDownloadService.descargar(
+          'assets/marcadores/Marcador_Celula_Animal_Vegetal.pdf',
+        );
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Marcador descargado.')),
+        );
+      } catch (_) {
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('No se pudo descargar el marcador.')),
+        );
+      }
+      return;
+    }
+    if (escena == null) return;
+    await _abrirEscenaUnity(escena);
+  }
+
+  Widget _buildAROption({
+    required IconData icon,
+    required String titulo,
+    required String subtitulo,
+    required VoidCallback onTap,
+  }) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(14),
+        child: Container(
+          padding: const EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            color: AppColors.cloudWhite,
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(
+              color: AppColors.primaryGreen.withValues(alpha: 0.25),
+            ),
+          ),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: const BoxDecoration(
+                  color: AppColors.lightGreen,
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(icon, color: AppColors.primaryGreen, size: 22),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      titulo,
+                      style: AppTextStyles.bodyMedium.copyWith(
+                        color: AppColors.darkText,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      subtitulo,
+                      style: AppTextStyles.caption.copyWith(
+                        color: AppColors.greyText,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(
+                Icons.chevron_right_rounded,
+                color: AppColors.greyText,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _abrirEscenaUnity(String escena) async {
+    try {
+      _esperandoRetornoUnity = true;
+      await UnityReturnService.guardarSubtema(widget.subtema.id);
+      await UnityNativeProcess.open(scene: escena);
+    } catch (_) {
+      _esperandoRetornoUnity = false;
+      await UnityReturnService.limpiar();
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('No se pudo abrir Unity. Intentalo de nuevo.'),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    }
+  }
+
+  Widget _buildARButton() {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: _mostrarSelectorAR,
+        borderRadius: BorderRadius.circular(14),
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                AppColors.sunYellow.withValues(alpha: 0.88),
+                AppColors.sunYellow.withValues(alpha: 0.88),
+              ],
+            ),
+            borderRadius: BorderRadius.circular(14),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.primaryGreen.withValues(alpha: 0.30),
+                blurRadius: 10,
+                offset: const Offset(0, 3),
+              ),
+            ],
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 11),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(
+                Icons.view_in_ar_rounded,
+                color: AppColors.primaryGreen,
+                size: 21,
+              ),
+              const SizedBox(width: 8),
+              Text(
+                'AR',
+                style: AppTextStyles.bodyMedium.copyWith(
+                  color: AppColors.primaryGreen,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   void _abrirModelo3D() {
     final esAnimal = widget.subtema.id == '1.2';
     Navigator.push(
@@ -898,6 +1139,8 @@ class _SubtemaScreenState extends State<SubtemaScreen>
           curiosidades: esAnimal
               ? curiosidadesCelulaAnimal
               : curiosidadesCelulaVegetal,
+          escenaAR: esAnimal ? 'CelulaAnimalRACopea' : 'CelulaVegetalRACopea',
+          subtemaId: widget.subtema.id,
         ),
       ),
     );

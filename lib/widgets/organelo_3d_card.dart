@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_3d_controller/flutter_3d_controller.dart';
 
 import '../theme/app_theme.dart';
-import 'flutter_3d_viewer_sin_zoom.dart';
+import 'flutter_3d_viewer_interactivo.dart';
 
 /// Muestra un organelo en 3D dentro de una tarjeta.
 ///
 /// Inicialmente no carga ningun modelo: muestra un boton "Ver en 3D". Al
 /// pulsarlo, se activa este organelo y se construye el visor (que permite
-/// girarlo con el dedo, sin zoom). El padre controla cual organelo esta activo
-/// para que solo haya un modelo cargado a la vez.
+/// girarlo con el dedo y hacer zoom con el gesto de pellizcar). El padre
+/// controla cual organelo esta activo para que solo haya un modelo cargado a la
+/// vez.
 class Organelo3DCard extends StatefulWidget {
   /// Ruta del asset (.glb) del organelo.
   final String modeloAsset;
@@ -35,6 +37,8 @@ class Organelo3DCard extends StatefulWidget {
 }
 
 class _Organelo3DCardState extends State<Organelo3DCard> {
+  final Flutter3DController _controller = Flutter3DController();
+
   bool _cargando = true;
   String? _error;
 
@@ -46,6 +50,20 @@ class _Organelo3DCardState extends State<Organelo3DCard> {
       _cargando = true;
       _error = null;
     }
+  }
+
+  @override
+  void dispose() {
+    // El visor recibe este controlador desde afuera, por lo que liberamos aqui
+    // el notifier que le pertenece.
+    _controller.onModelLoaded.dispose();
+    super.dispose();
+  }
+
+  void _recentrar() {
+    if (_cargando || _error != null) return;
+    _controller.resetCameraOrbit();
+    _controller.resetCameraTarget();
   }
 
   @override
@@ -130,34 +148,71 @@ class _Organelo3DCardState extends State<Organelo3DCard> {
     return Stack(
       children: [
         Positioned.fill(
-          child:
-              _error != null
-                  ? _buildError()
-                  : Flutter3DViewerSinZoom(
-                    src: widget.modeloAsset,
-                    progressBarColor: AppColors.primaryGreen,
-                    onLoad: (_) {
-                      if (mounted && _cargando) {
-                        setState(() => _cargando = false);
-                      }
-                    },
-                    onError: (error) {
-                      if (mounted) {
-                        setState(() {
-                          _error = error;
-                          _cargando = false;
-                        });
-                      }
-                    },
-                  ),
+          child: _error != null
+              ? _buildError()
+              : Flutter3DViewerInteractivo(
+                  controller: _controller,
+                  src: widget.modeloAsset,
+                  progressBarColor: AppColors.primaryGreen,
+                  onLoad: (_) {
+                    if (mounted && _cargando) {
+                      setState(() => _cargando = false);
+                    }
+                  },
+                  onError: (error) {
+                    if (mounted) {
+                      setState(() {
+                        _error = error;
+                        _cargando = false;
+                      });
+                    }
+                  },
+                ),
         ),
         if (_cargando && _error == null)
           const Positioned.fill(
             child: ColoredBox(
               color: Colors.white,
               child: Center(
-                child: CircularProgressIndicator(
-                  color: AppColors.primaryGreen,
+                child: CircularProgressIndicator(color: AppColors.primaryGreen),
+              ),
+            ),
+          ),
+        if (!_cargando && _error == null)
+          Positioned(
+            top: 8,
+            right: 8,
+            child: Material(
+              color: Colors.white.withValues(alpha: 0.92),
+              borderRadius: BorderRadius.circular(20),
+              elevation: 2,
+              child: InkWell(
+                borderRadius: BorderRadius.circular(20),
+                onTap: _recentrar,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 6,
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(
+                        Icons.center_focus_strong_rounded,
+                        color: AppColors.primaryGreen,
+                        size: 16,
+                      ),
+                      const SizedBox(width: 4),
+                      Text(
+                        'Recentrar',
+                        style: AppTextStyles.caption.copyWith(
+                          color: AppColors.primaryGreen,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 11,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -187,7 +242,7 @@ class _Organelo3DCardState extends State<Organelo3DCard> {
                     ),
                     const SizedBox(width: 6),
                     Text(
-                      'Arrastra para girar',
+                      'Gira y pellizca para zoom',
                       style: AppTextStyles.caption.copyWith(
                         color: Colors.white,
                         fontSize: 11,

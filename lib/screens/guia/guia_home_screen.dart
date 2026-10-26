@@ -8,7 +8,9 @@ import '../../services/firestore_service.dart';
 import 'subtema_screen.dart';
 
 class GuiaHomeScreen extends StatefulWidget {
-  const GuiaHomeScreen({super.key});
+  final String? initialSubtemaId;
+
+  const GuiaHomeScreen({super.key, this.initialSubtemaId});
 
   @override
   State<GuiaHomeScreen> createState() => _GuiaHomeScreenState();
@@ -31,6 +33,23 @@ class _GuiaHomeScreenState extends State<GuiaHomeScreen>
     );
     _animationController.forward();
     _cargarProgreso();
+
+    if (widget.initialSubtemaId != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _abrirSubtemaInicial();
+      });
+    }
+  }
+
+  Future<void> _abrirSubtemaInicial() async {
+    final subtema = CelulaData.getSubtemaById(widget.initialSubtemaId!);
+    if (subtema == null || !mounted) return;
+
+    await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SubtemaScreen(subtema: subtema)),
+    );
+    if (mounted) await _cargarProgreso();
   }
 
   Future<void> _cargarProgreso() async {
@@ -218,7 +237,7 @@ class _GuiaHomeScreenState extends State<GuiaHomeScreen>
     final colors = [
       AppColors.primaryGreen,
       AppColors.skyBlue,
-      AppColors.sunOrange,
+      AppColors.primaryGreen,
       AppColors.oceanBlue,
     ];
 

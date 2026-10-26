@@ -37,6 +37,8 @@ dependencies:
   # Unity (AR con Vuforia)
   flutter_unity_widget_2: ^6000.1.0+1
 
+  shared_preferences: ^2.5.3
+
   # Modelos 3D (glb/gltf) con rotacion y zoom
   flutter_3d_controller: ^2.3.0
 
@@ -67,6 +69,7 @@ flutter:
     - assets/marcadores/
     - assets/glosario/
     - assets/modelos3d/
+    - assets/icono/
     # Copia del .env para que la app funcione sin --dart-define-from-file.
     # La genera tool/sync_env.ps1; ver .gitignore.
     - assets/groq.env

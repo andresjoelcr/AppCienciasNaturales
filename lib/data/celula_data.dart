@@ -24,34 +24,61 @@ final List<Subtema> subtemascelula = [
     titulo: '¿Que es la celula?',
     descripcion: 'Descubre la unidad basica de todos los seres vivos',
     contenido: [
+      const ContenidoSeccion(tipo: 'titulo', contenido: '¿Que es la celula?'),
       const ContenidoSeccion(
-        tipo: 'titulo',
-        contenido: '¿Que es la celula?',
+        tipo: 'texto',
+        contenido:
+            'La célula es la unidad más pequeña que forma a todos los seres vivos, como plantas, animales y personas.',
       ),
       const ContenidoSeccion(
         tipo: 'texto',
         contenido:
-            'La celula es la unidad mas pequena que forma a todos los seres vivos, como plantas, animales y personas.',
-      ),
-      const ContenidoSeccion(
-        tipo: 'texto',
-        contenido:
-            'Aunque es muy pequena, la celula realiza todas las funciones vitales necesarias para la vida.',
+            'Aunque es muy pequeña, la célula realiza todas las funciones vitales necesarias para la vida.',
       ),
       const ContenidoSeccion(
         tipo: 'imagen',
         contenido: 'assets/celula/celula.png',
-        items: ['Estructura general de la celula'],
+        items: ['Estructura general de la célula'],
+      ),
+      const ContenidoSeccion(
+        tipo: 'tarjeta_desplegable',
+        titulo: 'Organización de los Seres Vivos',
+        contenido:
+            'Algunos organismos están formados por una sola célula y otros por millones de células:',
+        items: [
+          'Unicelulares: organismos formados por una sola célula, como bacterias y levaduras|assets/icono/unicelular.png',
+          'Pluricelulares: organismos formados por millones de células, como plantas y animales|assets/icono/pluricelular.png',
+        ],
       ),
       const ContenidoSeccion(
         tipo: 'texto',
         contenido:
-            'Todas las celulas contienen informacion genetica, que permite que los seres vivos crezcan, se desarrollen y transmitan sus caracteristicas.',
+            'Todas las células contienen información genética, que permite que los seres vivos crezcan, se desarrollen y transmitan sus características.',
+      ),
+      const ContenidoSeccion(
+        tipo: 'cuadro',
+        titulo: 'Partes Básicas Comunes',
+        contenido: 'Toda célula, sin excepción, posee:',
+        items: [
+          'Membrana plasmática: envoltura protectora',
+          'Citoplasma: medio acuoso interno',
+          'Material genético: ADN',
+        ],
+      ),
+      const ContenidoSeccion(
+        tipo: 'mapa_conceptual',
+        titulo: 'Clasificación según su Estructura',
+        contenido: 'Células Procariotas|Células Eucariotas',
+        items: [
+          'Más simples, sin núcleo definido, donde el ADN está libre',
+          'Más complejas, con núcleo delimitado que protege el ADN',
+        ],
       ),
       const ContenidoSeccion(
         tipo: 'sabias_que',
         contenido:
-            'En 1665, el cientifico Robert Hooke fue el primero en observar celulas utilizando un microscopio al estudiar el corcho.',
+            "En 1665, el científico inglés Robert Hooke fue el primero en observar y nombrar las 'células' al examinar una delgada lámina de corcho con un microscopio primario; al ver una estructura formada por pequeñas celdas vacías semejantes a las celdillas de un panal de abejas, las bautizó con la palabra latina 'cellulae' (que significa celdilla o pequeña habitación), sentando así las bases de la biología celular moderna.",
+        items: ['assets/icono/robert_h.png', 'Robert Hooke'],
       ),
       const ContenidoSeccion(
         tipo: 'destacado',
@@ -126,10 +153,7 @@ final List<Subtema> subtemascelula = [
     titulo: 'La Celula Animal',
     descripcion: 'Conoce la celula que forma a los animales y humanos',
     contenido: [
-      const ContenidoSeccion(
-        tipo: 'titulo',
-        contenido: 'La Celula Animal',
-      ),
+      const ContenidoSeccion(tipo: 'titulo', contenido: 'La Celula Animal'),
       const ContenidoSeccion(
         tipo: 'texto',
         contenido:
@@ -254,10 +278,7 @@ final List<Subtema> subtemascelula = [
     titulo: 'La Celula Vegetal',
     descripcion: 'Conoce la celula que forma a las plantas',
     contenido: [
-      const ContenidoSeccion(
-        tipo: 'titulo',
-        contenido: 'La Celula Vegetal',
-      ),
+      const ContenidoSeccion(tipo: 'titulo', contenido: 'La Celula Vegetal'),
       const ContenidoSeccion(
         tipo: 'texto',
         contenido:
@@ -307,10 +328,7 @@ final List<Subtema> subtemascelula = [
         contenido:
             'La celula vegetal puede producir su propio alimento usando luz solar, agua y dioxido de carbono.',
       ),
-      const ContenidoSeccion(
-        tipo: 'subtitulo',
-        contenido: 'La Fotosintesis',
-      ),
+      const ContenidoSeccion(tipo: 'subtitulo', contenido: 'La Fotosintesis'),
       const ContenidoSeccion(
         tipo: 'texto',
         contenido:
@@ -342,25 +360,16 @@ final List<Subtema> subtemascelula = [
           explicacion: 'Las plantas estan formadas por celulas vegetales.',
         ),
         Pregunta(
-          pregunta: '¿Que estructura permite a la celula vegetal producir su alimento?',
-          opciones: [
-            'Mitocondria',
-            'Nucleo',
-            'Cloroplasto',
-            'Vacuola',
-          ],
+          pregunta:
+              '¿Que estructura permite a la celula vegetal producir su alimento?',
+          opciones: ['Mitocondria', 'Nucleo', 'Cloroplasto', 'Vacuola'],
           respuestaCorrecta: 2,
           explicacion:
               'El cloroplasto contiene clorofila y permite realizar la fotosintesis.',
         ),
         Pregunta(
           pregunta: '¿De que esta hecha la pared celular de las plantas?',
-          opciones: [
-            'Proteinas',
-            'Celulosa',
-            'Grasa',
-            'Agua',
-          ],
+          opciones: ['Proteinas', 'Celulosa', 'Grasa', 'Agua'],
           respuestaCorrecta: 1,
           explicacion:
               'La pared celular esta hecha de celulosa, que le da rigidez a la celula.',
@@ -378,7 +387,8 @@ final List<Subtema> subtemascelula = [
               'Durante la fotosintesis, la celula produce glucosa (alimento) y libera oxigeno.',
         ),
         Pregunta(
-          pregunta: '¿Cual es la funcion de la vacuola central en la celula vegetal?',
+          pregunta:
+              '¿Cual es la funcion de la vacuola central en la celula vegetal?',
           opciones: [
             'Producir energia',
             'Realizar fotosintesis',
@@ -430,10 +440,7 @@ final List<Subtema> subtemascelula = [
         tipo: 'modelo3d',
         contenido: 'assets/modelos3d/membrana_plasmatica.glb',
       ),
-      const ContenidoSeccion(
-        tipo: 'subtitulo',
-        contenido: 'Nucleo',
-      ),
+      const ContenidoSeccion(tipo: 'subtitulo', contenido: 'Nucleo'),
       const ContenidoSeccion(
         tipo: 'lista',
         contenido: 'Funciones del nucleo:',
@@ -451,10 +458,7 @@ final List<Subtema> subtemascelula = [
         tipo: 'modelo3d',
         contenido: 'assets/modelos3d/nucleo.glb',
       ),
-      const ContenidoSeccion(
-        tipo: 'subtitulo',
-        contenido: 'Mitocondrias',
-      ),
+      const ContenidoSeccion(tipo: 'subtitulo', contenido: 'Mitocondrias'),
       const ContenidoSeccion(
         tipo: 'lista',
         contenido: 'Funciones de las mitocondrias:',
@@ -472,10 +476,7 @@ final List<Subtema> subtemascelula = [
         tipo: 'modelo3d',
         contenido: 'assets/modelos3d/Mitocondria.glb',
       ),
-      const ContenidoSeccion(
-        tipo: 'subtitulo',
-        contenido: 'Citoplasma',
-      ),
+      const ContenidoSeccion(tipo: 'subtitulo', contenido: 'Citoplasma'),
       const ContenidoSeccion(
         tipo: 'lista',
         contenido: 'Funciones del citoplasma:',
@@ -493,10 +494,7 @@ final List<Subtema> subtemascelula = [
         tipo: 'modelo3d',
         contenido: 'assets/modelos3d/Citoplasma.glb',
       ),
-      const ContenidoSeccion(
-        tipo: 'subtitulo',
-        contenido: 'Vacuolas',
-      ),
+      const ContenidoSeccion(tipo: 'subtitulo', contenido: 'Vacuolas'),
       const ContenidoSeccion(
         tipo: 'lista',
         contenido: 'Funciones de las vacuolas:',
@@ -514,10 +512,7 @@ final List<Subtema> subtemascelula = [
         tipo: 'modelo3d',
         contenido: 'assets/modelos3d/vacuola.glb',
       ),
-      const ContenidoSeccion(
-        tipo: 'subtitulo',
-        contenido: 'Lisosomas',
-      ),
+      const ContenidoSeccion(tipo: 'subtitulo', contenido: 'Lisosomas'),
       const ContenidoSeccion(
         tipo: 'lista',
         contenido: 'Funciones de los lisosomas:',
@@ -535,10 +530,7 @@ final List<Subtema> subtemascelula = [
         tipo: 'modelo3d',
         contenido: 'assets/modelos3d/Lisosomasglb.glb',
       ),
-      const ContenidoSeccion(
-        tipo: 'subtitulo',
-        contenido: 'Aparato de Golgi',
-      ),
+      const ContenidoSeccion(tipo: 'subtitulo', contenido: 'Aparato de Golgi'),
       const ContenidoSeccion(
         tipo: 'lista',
         contenido: 'Funciones del aparato de Golgi:',
@@ -577,10 +569,7 @@ final List<Subtema> subtemascelula = [
         tipo: 'modelo3d',
         contenido: 'assets/modelos3d/reticulo_endoplasmatico.glb',
       ),
-      const ContenidoSeccion(
-        tipo: 'subtitulo',
-        contenido: 'Cloroplasto',
-      ),
+      const ContenidoSeccion(tipo: 'subtitulo', contenido: 'Cloroplasto'),
       const ContenidoSeccion(
         tipo: 'lista',
         contenido: 'Funciones de los cloroplastos:',
@@ -598,10 +587,7 @@ final List<Subtema> subtemascelula = [
         tipo: 'modelo3d',
         contenido: 'assets/modelos3d/Cloroplasto.glb',
       ),
-      const ContenidoSeccion(
-        tipo: 'subtitulo',
-        contenido: 'Amiloplasto',
-      ),
+      const ContenidoSeccion(tipo: 'subtitulo', contenido: 'Amiloplasto'),
       const ContenidoSeccion(
         tipo: 'lista',
         contenido: 'Funciones de los amiloplastos:',
@@ -647,12 +633,7 @@ final List<Subtema> subtemascelula = [
         ),
         Pregunta(
           pregunta: '¿Que organelo es el centro de control de la celula?',
-          opciones: [
-            'Citoplasma',
-            'Vacuola',
-            'Nucleo',
-            'Membrana celular',
-          ],
+          opciones: ['Citoplasma', 'Vacuola', 'Nucleo', 'Membrana celular'],
           respuestaCorrecta: 2,
           explicacion:
               'El nucleo es el centro de control que guarda la informacion genetica.',
@@ -710,46 +691,83 @@ final List<Subtema> subtemascelula = [
       ),
       const ContenidoSeccion(
         tipo: 'texto',
-        contenido: 'Las celulas estan vivas y realizan funciones vitales:',
-      ),
-      const ContenidoSeccion(
-        tipo: 'subtitulo',
-        contenido: 'Nutricion',
-      ),
-      const ContenidoSeccion(
-        tipo: 'texto',
         contenido:
-            'Las celulas obtienen energia y materiales del ambiente para poder funcionar y mantenerse vivas.',
+            'Las células están vivas y realizan tres funciones vitales. Explora cada tarjeta para descubrir cómo funcionan:',
       ),
       const ContenidoSeccion(
-        tipo: 'destacado',
-        contenido: 'La nutricion permite obtener energia y materiales.',
-      ),
-      const ContenidoSeccion(
-        tipo: 'subtitulo',
-        contenido: 'Reproduccion',
-      ),
-      const ContenidoSeccion(
-        tipo: 'texto',
+        tipo: 'tarjeta_funcion',
+        titulo: 'Nutrición',
         contenido:
-            'Las celulas tienen la capacidad de formar nuevas celulas, permitiendo el crecimiento y la reparacion de los tejidos.',
+            'Las células obtienen energía y materiales del ambiente para mantenerse vivas',
+        bloques: [
+          ContenidoSeccion(
+            tipo: 'mapa_conceptual',
+            titulo: 'Clasificación de la nutrición',
+            contenido: 'Nutrición Autótrofa|Nutrición Heterótrofa',
+            items: [
+              'Células vegetales que usan fotosíntesis en los cloroplastos',
+              'Células animales que absorben nutrientes del exterior',
+            ],
+          ),
+        ],
+        notaImportante:
+            'La membrana celular actúa como una aduana, permitiendo el ingreso de nutrientes esenciales mediante procesos como la ósmosis y la difusión',
       ),
       const ContenidoSeccion(
-        tipo: 'destacado',
-        contenido: 'La reproduccion permite formar nuevas celulas.',
-      ),
-      const ContenidoSeccion(
-        tipo: 'subtitulo',
-        contenido: 'Relacion',
-      ),
-      const ContenidoSeccion(
-        tipo: 'texto',
+        tipo: 'tarjeta_funcion',
+        titulo: 'Reproducción',
         contenido:
-            'Las celulas pueden responder a estimulos del entorno, como cambios de temperatura, luz o presencia de sustancias.',
+            'Es la capacidad de formar nuevas células para el crecimiento y la reparación de tejidos',
+        bloques: [
+          ContenidoSeccion(
+            tipo: 'titulo',
+            contenido: 'Tipos de división celular',
+          ),
+          ContenidoSeccion(
+            tipo: 'texto',
+            titulo: 'Mitosis',
+            contenido:
+                'La mitosis es una división celular en la que una célula madre se divide y forma dos células hijas genéticamente idénticas. Gracias a ella los organismos pueden crecer, reparar tejidos y reemplazar células dañadas.',
+          ),
+          ContenidoSeccion(
+            tipo: 'video',
+            contenido: 'https://www.youtube.com/watch?v=GSTYwDA3W2o&t=16s',
+            items: ['Mitosis - Video explicativo'],
+          ),
+          ContenidoSeccion(
+            tipo: 'texto',
+            titulo: 'Meiosis',
+            contenido:
+                'La meiosis es una división celular que produce cuatro células hijas con la mitad del material genético. Ocurre en los órganos reproductores, permite formar óvulos y espermatozoides y genera diversidad genética.',
+          ),
+          ContenidoSeccion(
+            tipo: 'video',
+            contenido: 'https://www.youtube.com/watch?v=FphFxayBcX0',
+            items: ['Meiosis - Video explicativo'],
+          ),
+        ],
+        notaImportante:
+            'El ADN se duplica antes de dividirse para transmitir la información genética exacta a las nuevas células',
       ),
       const ContenidoSeccion(
-        tipo: 'destacado',
-        contenido: 'La relacion permite responder a estimulos del entorno.',
+        tipo: 'tarjeta_funcion',
+        titulo: 'Relación',
+        contenido:
+            'Las células responden activamente a los cambios de su entorno para adaptarse y sobrevivir',
+        bloques: [
+          ContenidoSeccion(
+            tipo: 'pasos',
+            titulo: 'Secuencia de la respuesta celular',
+            contenido: '',
+            items: [
+              'Estímulo del entorno (la célula detecta variaciones externas o internas como cambios de temperatura, luz, pH o presencia de sustancias químicas)',
+              'Captación por la membrana (los receptores de la superficie celular reciben la señal y la transmiten hacia el interior)',
+              'Respuesta celular (la célula reacciona de forma concreta, ya sea moviéndose hacia el estímulo, alejándose o secretando sustancias específicas)',
+            ],
+          ),
+        ],
+        notaImportante:
+            'Esta función permite a la célula interactuar con su medio, buscar alimento y defenderse de posibles amenazas',
       ),
       const ContenidoSeccion(
         tipo: 'sabias_que',
@@ -791,12 +809,7 @@ final List<Subtema> subtemascelula = [
         ),
         Pregunta(
           pregunta: '¿Que funcion permite a las celulas responder a estimulos?',
-          opciones: [
-            'Nutricion',
-            'Reproduccion',
-            'Relacion',
-            'Respiracion',
-          ],
+          opciones: ['Nutricion', 'Reproduccion', 'Relacion', 'Respiracion'],
           respuestaCorrecta: 2,
           explicacion:
               'La funcion de relacion permite a las celulas responder a estimulos del entorno.',
@@ -814,7 +827,8 @@ final List<Subtema> subtemascelula = [
               'La reproduccion celular es importante porque permite formar nuevas celulas para el crecimiento y reparacion.',
         ),
         Pregunta(
-          pregunta: '¿Que pueden hacer los seres vivos gracias a las funciones vitales?',
+          pregunta:
+              '¿Que pueden hacer los seres vivos gracias a las funciones vitales?',
           opciones: [
             'Solo moverse',
             'Crecer, desarrollarse y mantenerse saludables',

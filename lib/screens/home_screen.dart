@@ -7,6 +7,8 @@ import '../data/celula_data.dart';
 import '../models/user_progress_model.dart';
 import '../services/auth_service.dart';
 import '../services/firestore_service.dart';
+import '../services/unity_return_service.dart';
+import '../services/marcador_download_service.dart';
 import '../theme/brand_colors.dart';
 import 'chat_screen.dart';
 import 'glosario/glosario_screen.dart';
@@ -14,6 +16,7 @@ import 'guia/guia_home_screen.dart';
 import 'login_screen.dart';
 import 'profile_screen.dart';
 import 'scanner_screen.dart';
+import '../widgets/marcador_action_dialog.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -30,12 +33,33 @@ class _HomeScreenState extends State<HomeScreen> {
   bool _progressLoading = true;
   bool _progressLoadFailed = false;
   bool _signingOut = false;
+  final DateTime _inicioSesion = DateTime.now();
 
   @override
   void initState() {
     super.initState();
     _firestoreService.getOrCreateUserProfile();
     _loadProgress();
+    _restaurarRetornoUnity();
+  }
+
+  Future<void> _restaurarRetornoUnity() async {
+    final subtemaId = await UnityReturnService.consumirSubtema(
+      soloSiGuardadoAntesDe: _inicioSesion,
+    );
+    if (!mounted || subtemaId == null) return;
+
+    final subtema = CelulaData.getSubtemaById(subtemaId);
+    if (subtema == null) return;
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (_) => GuiaHomeScreen(initialSubtemaId: subtema.id),
+        ),
+      );
+    });
   }
 
   Future<void> _loadProgress() async {
@@ -70,8 +94,38 @@ class _HomeScreenState extends State<HomeScreen> {
     if (mounted) await _loadProgress();
   }
 
-  /// Abre Unity en su actividad nativa con la escena de escaneo, sin pantalla
-  /// intermedia: el usuario pasa directo a la camara AR.
+  Future<void> _mostrarOpcionesEscaneo() async {
+    final opcion = await MarcadorActionDialog.show(
+      context,
+      title: 'Escanea y descubre',
+      description:
+          'Descarga el marcador para imprimirlo o continúa a la cámara de realidad aumentada.',
+      downloadLabel: 'Descargar marcadores',
+    );
+    if (!mounted || opcion == null) return;
+    if (opcion == 'continuar') {
+      await _abrirEscaneoUnity();
+      return;
+    }
+    await _descargarMarcador('assets/marcadores/Marcador_VideosRA.pdf');
+  }
+
+  Future<void> _descargarMarcador(String assetPath) async {
+    try {
+      await MarcadorDownloadService.descargar(assetPath);
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Marcador descargado.')),
+      );
+    } catch (_) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('No se pudo descargar el marcador.')),
+      );
+    }
+  }
+
+  /// Abre Unity en su actividad nativa con la escena de escaneo.
   Future<void> _abrirEscaneoUnity() async {
     try {
       await UnityNativeProcess.open(scene: 'EscanearTarjetas');
@@ -111,7 +165,7 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (sheetContext) => _RVRASelector(
         onMarcadores: () {
           Navigator.pop(sheetContext);
-          _abrirEscaneoUnity();
+          _mostrarOpcionesEscaneo();
         },
         onExploraCelula: () {
           Navigator.pop(sheetContext);
@@ -174,6 +228,31 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.pop(sheetContext);
                   _abrirCelula('CelulaVegetal');
                 },
+              ),
+              const SizedBox(height: 12),
+              SizedBox(
+                width: double.infinity,
+                child: OutlinedButton.icon(
+                  onPressed: () => _descargarMarcador(
+                    'assets/marcadores/Marcador_Celula_Animal_Vegetal.pdf',
+                  ),
+                  icon: const Icon(Icons.download_rounded),
+                  label: const Text('Descargar marcadores'),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: BrandColors.forest,
+                    backgroundColor: BrandColors.amber.withValues(alpha: 0.16),
+                    side: BorderSide(
+                      color: BrandColors.amber.withValues(alpha: 0.75),
+                    ),
+                    minimumSize: const Size.fromHeight(48),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    textStyle: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
               ),
               const SizedBox(height: 12),
               Container(

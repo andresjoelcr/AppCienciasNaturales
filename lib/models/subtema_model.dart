@@ -21,13 +21,24 @@ class Subtema {
 }
 
 class ContenidoSeccion {
-  final String tipo; // 'texto', 'titulo', 'subtitulo', 'lista', 'destacado', 'sabias_que', 'video', 'imagen', 'imagen_comparativa', 'imagen_grid'
+  // 'texto', 'titulo', 'subtitulo', 'lista', 'destacado', 'sabias_que',
+  // 'video', 'imagen', 'imagen_comparativa', 'imagen_grid', 'tarjeta_funcion'
+  final String tipo;
   final String contenido;
   final List<String>? items;
+  final String? titulo;
+  final String? notaImportante;
+
+  /// Bloques internos usados por las tarjetas interactivas
+  /// ('comparativo', 'mapa_conceptual', 'pasos', 'texto' y 'video').
+  final List<ContenidoSeccion>? bloques;
 
   const ContenidoSeccion({
     required this.tipo,
     required this.contenido,
     this.items,
+    this.titulo,
+    this.notaImportante,
+    this.bloques,
   });
 }

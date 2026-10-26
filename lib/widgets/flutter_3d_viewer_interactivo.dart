@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_3d_controller/flutter_3d_controller.dart';
-// Se importan archivos internos del paquete flutter_3d_controller porque su
-// widget publico `Flutter3DViewer` no expone la opcion `disableZoom`. Este
-// wrapper replica su comportamiento, pero construye el `ModelViewer` interno
-// con `disableZoom: true` para permitir girar el modelo sin poder hacer zoom.
+// Se importan archivos internos del paquete flutter_3d_controller para
+// construir el `ModelViewer` interno con la configuracion que necesita la guia.
+// El zoom con pellizco queda habilitado (comportamiento predeterminado del
+// visor) y la rotacion se controla arrastrando el dedo.
 // ignore: implementation_imports
 import 'package:flutter_3d_controller/src/core/modules/model_viewer/model_viewer.dart';
 // ignore: implementation_imports
@@ -14,13 +14,12 @@ import 'package:flutter_3d_controller/src/data/repositories/flutter_3d_repositor
 // ignore: implementation_imports
 import 'package:flutter_3d_controller/src/data/datasources/i_flutter_3d_datasource.dart';
 
-/// Igual que [Flutter3DViewer] pero con el zoom desactivado: el usuario puede
-/// girar el modelo arrastrando el dedo, pero no puede acercarlo ni alejarlo con
-/// el gesto de pellizcar.
+/// Igual que [Flutter3DViewer], pero permitiendo girar el modelo arrastrando el
+/// dedo y acercarlo o alejarlo con el gesto de pellizcar (zoom tactil).
 ///
 /// La rotacion, el recentrado de camara y la rotacion automatica siguen siendo
 /// controlables mediante el [controller].
-class Flutter3DViewerSinZoom extends StatefulWidget {
+class Flutter3DViewerInteractivo extends StatefulWidget {
   /// Ruta del modelo 3D (.glb/.gltf), ya sea asset, url o archivo local.
   final String src;
 
@@ -44,7 +43,7 @@ class Flutter3DViewerSinZoom extends StatefulWidget {
   /// Se llama cuando el modelo no pudo cargarse.
   final Function(String error)? onError;
 
-  const Flutter3DViewerSinZoom({
+  const Flutter3DViewerInteractivo({
     super.key,
     required this.src,
     this.controller,
@@ -56,10 +55,12 @@ class Flutter3DViewerSinZoom extends StatefulWidget {
   });
 
   @override
-  State<Flutter3DViewerSinZoom> createState() => _Flutter3DViewerSinZoomState();
+  State<Flutter3DViewerInteractivo> createState() =>
+      _Flutter3DViewerInteractivoState();
 }
 
-class _Flutter3DViewerSinZoomState extends State<Flutter3DViewerSinZoom> {
+class _Flutter3DViewerInteractivoState
+    extends State<Flutter3DViewerInteractivo> {
   late Flutter3DController _controller;
   late String _id;
 
@@ -106,7 +107,6 @@ class _Flutter3DViewerSinZoomState extends State<Flutter3DViewerSinZoom> {
         autoRotate: false,
         debugLogging: false,
         disableTap: true,
-        disableZoom: true,
         onProgress: widget.onProgress,
         onLoad: (modelAddress) {
           _controller.onModelLoaded.value = true;

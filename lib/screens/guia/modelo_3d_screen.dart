@@ -1,8 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_3d_controller/flutter_3d_controller.dart';
+import 'package:flutter_unity_widget_2/flutter_unity_widget_2.dart';
 
+import '../../services/unity_return_service.dart';
+import '../../services/marcador_download_service.dart';
 import '../../theme/app_theme.dart';
-import '../../widgets/flutter_3d_viewer_sin_zoom.dart';
+import '../../widgets/flutter_3d_viewer_interactivo.dart';
+import '../../widgets/marcador_action_dialog.dart';
 
 /// Una parte de la celula con una funcion interesante que se muestra junto al
 /// modelo 3D.
@@ -124,9 +130,10 @@ const List<String> curiosidadesCelulaAnimal = [
   'El cuerpo humano tiene aproximadamente 37 billones de células animales trabajando juntas.',
 ];
 
-/// Visor del modelo 3D de una celula. Permite girar el modelo con el dedo
-/// (sin zoom), usando el paquete `flutter_3d_controller` (motor model-viewer),
-/// y muestra informacion (intro, partes y datos curiosos) debajo.
+/// Visor del modelo 3D de una celula. Permite girar el modelo con el dedo y
+/// hacer zoom con el gesto de pellizcar, usando el paquete
+/// `flutter_3d_controller` (motor model-viewer), y muestra informacion (intro,
+/// partes y datos curiosos) debajo.
 class Modelo3DScreen extends StatefulWidget {
   /// Titulo que aparece en la barra superior.
   final String titulo;
@@ -143,6 +150,12 @@ class Modelo3DScreen extends StatefulWidget {
   /// Lista de datos curiosos.
   final List<String> curiosidades;
 
+  /// Escena de Unity que abre el boton de realidad aumentada.
+  final String escenaAR;
+
+  /// Subtema al que se vuelve si Android recrea la Activity al salir de Unity.
+  final String subtemaId;
+
   const Modelo3DScreen({
     super.key,
     required this.titulo,
@@ -150,22 +163,27 @@ class Modelo3DScreen extends StatefulWidget {
     required this.intro,
     required this.partes,
     required this.curiosidades,
+    required this.escenaAR,
+    required this.subtemaId,
   });
 
   @override
   State<Modelo3DScreen> createState() => _Modelo3DScreenState();
 }
 
-class _Modelo3DScreenState extends State<Modelo3DScreen> {
+class _Modelo3DScreenState extends State<Modelo3DScreen>
+    with WidgetsBindingObserver {
   final Flutter3DController _controller = Flutter3DController();
 
   bool _cargando = true;
   String? _error;
   bool _autoRotar = false;
+  bool _esperandoRetornoUnity = false;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _controller.onModelLoaded.addListener(_onModelLoaded);
   }
 
@@ -177,7 +195,16 @@ class _Modelo3DScreenState extends State<Modelo3DScreen> {
   }
 
   @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed && _esperandoRetornoUnity) {
+      _esperandoRetornoUnity = false;
+      unawaited(UnityReturnService.limpiar());
+    }
+  }
+
+  @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _controller.onModelLoaded.removeListener(_onModelLoaded);
     // El visor recibe este controlador desde afuera, por lo que liberamos aqui
     // el notifier que le pertenece.
@@ -197,6 +224,93 @@ class _Modelo3DScreenState extends State<Modelo3DScreen> {
     } else {
       _controller.stopRotation();
     }
+  }
+
+  Future<void> _abrirEscenaAR() async {
+    try {
+      _esperandoRetornoUnity = true;
+      await UnityReturnService.guardarSubtema(widget.subtemaId);
+      await UnityNativeProcess.open(scene: widget.escenaAR);
+    } catch (_) {
+      _esperandoRetornoUnity = false;
+      await UnityReturnService.limpiar();
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'No se pudo abrir la realidad aumentada. Intentalo de nuevo.',
+          ),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    }
+  }
+
+  Future<void> _mostrarOpcionesAR() async {
+    final opcion = await MarcadorActionDialog.show(
+      context,
+      title: 'Prepara tu experiencia AR',
+      description:
+          'Ten el marcador a mano para explorar este modelo en realidad aumentada.',
+    );
+    if (!mounted || opcion == null) return;
+    if (opcion == 'continuar') {
+      await _abrirEscenaAR();
+      return;
+    }
+    try {
+      await MarcadorDownloadService.descargar(
+        'assets/marcadores/Marcador_Celula_Animal_Vegetal.pdf',
+      );
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Marcador descargado.')),
+      );
+    } catch (_) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('No se pudo descargar el marcador.')),
+      );
+    }
+  }
+
+  Widget _buildARButton() {
+    return Tooltip(
+      message: 'Abrir realidad aumentada',
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: _mostrarOpcionesAR,
+          borderRadius: BorderRadius.circular(12),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            decoration: BoxDecoration(
+              color: Colors.white.withValues(alpha: 0.2),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.white.withValues(alpha: 0.35)),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(
+                  Icons.view_in_ar_rounded,
+                  color: Colors.white,
+                  size: 20,
+                ),
+                const SizedBox(width: 6),
+                Text(
+                  'AR',
+                  style: AppTextStyles.bodyMedium.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   @override
@@ -251,6 +365,12 @@ class _Modelo3DScreenState extends State<Modelo3DScreen> {
             ),
           ],
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 12),
+            child: _buildARButton(),
+          ),
+        ],
       ),
       body: SafeArea(
         top: false,
@@ -300,7 +420,7 @@ class _Modelo3DScreenState extends State<Modelo3DScreen> {
           Positioned.fill(
             child: _error != null
                 ? _buildError()
-                : Flutter3DViewerSinZoom(
+                : Flutter3DViewerInteractivo(
                     controller: _controller,
                     src: widget.modeloAsset,
                     progressBarColor: AppColors.primaryGreen,
@@ -360,7 +480,7 @@ class _Modelo3DScreenState extends State<Modelo3DScreen> {
                       ),
                       const SizedBox(width: 6),
                       Text(
-                        'Arrastra para girar el modelo',
+                        'Arrastra para girar y pellizca para zoom',
                         style: AppTextStyles.caption.copyWith(
                           color: Colors.white,
                           fontSize: 11,

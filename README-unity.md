@@ -61,8 +61,10 @@ D:\UnityExport\
 ```
 
 Build Settings: Android, escenas en orden `EscanearTarjetas` (0),
-`EscanerTarjetasV2` (1), `CelulaAnimal` (2), `CelulaAnimalRA` (3),
-`CelulaVegetalRA` (4) y `CelulaVegetal` (5), IL2CPP, ARM64, OpenGLES3.
+`CelulaVegetalRA` (1), `EscanerTarjetasV2` (2), `CelulaAnimalRA` (3),
+`CelulaAnimal` (4), `CelulaVegetal` (5), `EscenaCarga` (6),
+`CelulaAnimalOrganelos` (7) y `CelulaVegetalOrganelos` (8), IL2CPP, ARM64,
+OpenGLES3.
 
 ---
 
@@ -78,8 +80,9 @@ Solo **dos** carpetas, no todo:
 `launcher\`, `build.gradle`, `settings.gradle` y `gradle\` del export **no se copian**:
 Flutter ya tiene su propio módulo `app` que reemplaza al `launcher`.
 
-Última copia: `D:\UnityExport` → `android\` (2652 archivos / 1016 MB en
-`unityLibrary`, 2 archivos en `shared`), con el parche 3.1 reaplicado y con
+Última copia: `D:\UnityExport` → `android\` (2654 archivos / ≈1017 MB en
+`unityLibrary`, 2 archivos en `shared`), con el parche 3.1 reaplicado, el
+manifest de 3.5 sin el `intent-filter` MAIN/LAUNCHER y con
 `unityStreamingAssets=.mp4` + `unityTemplateVersion=21` en
 `android/gradle.properties` (las propiedades `unity.*` del export).
 
@@ -289,8 +292,14 @@ Hecho en `home_screen.dart`: la tarjeta y el selector pasaron a
 | Opción | Disparador | Escena de Unity |
 |---|---|---|
 | Marcadores de color | `home_screen.dart` (`_abrirEscaneoUnity`) | `EscanearTarjetas` (escena 0) |
-| Imagen de célula → Célula Animal | `imagen_celula_screen.dart` (`_abrirCelula`) | `CelulaAnimal` |
-| Imagen de célula → Célula Vegetal | `imagen_celula_screen.dart` (`_abrirCelula`) | `CelulaVegetal` |
+| Imagen de célula → Célula Animal | `home_screen.dart` (`_abrirCelula`) | `CelulaAnimal` |
+| Imagen de célula → Célula Vegetal | `home_screen.dart` (`_abrirCelula`) | `CelulaVegetal` |
+| Guía → Organelos → AR → Célula Animal | `subtema_screen.dart` (`_mostrarSelectorAR`) | `CelulaAnimalOrganelos` |
+| Guía → Organelos → AR → Célula Vegetal | `subtema_screen.dart` (`_mostrarSelectorAR`) | `CelulaVegetalOrganelos` |
+
+En la guía didáctica, el subtema `1.4` (Organelos y sus funciones) muestra un
+botón **AR** a un costado. Abre un diálogo con las dos opciones y llama a
+`UnityNativeProcess.open(scene: …)` con la escena de organelos elegida.
 
 `ar_image_target_screen.dart` quedó fuera del flujo (el archivo sigue en el
 repo, sin import en `home_screen.dart`).
